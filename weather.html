@@ -1,1 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>날씨 - HUNT</title>
 
+<style>
+
+body{
+    margin:0;
+    background:#111;
+    color:white;
+    font-family:Arial,sans-serif;
+}
+
+.logo{
+    padding:20px;
+    font-size:42px;
+    font-weight:bold;
+}
+
+.logo a{
+    color:white;
+    text-decoration:none;
+}
+
+.logo a:hover{
+    color:#00c853;
+}
+
+.title{
+    text-align:center;
+    font-size:40px;
+}
+
+.search{
+    display:block;
+    width:85%;
+    max-width:500px;
+    margin:25px auto;
+    padding:15px;
+    font-size:22px;
+    border:none;
+    border-radius:12px;
+    background:#222;
+    color:white;
+}
+
+.search::placeholder{
+    color:#999;
+}
+
+.weather{
+    background:#222;
+    border:2px solid #333;
+    border-radius:15px;
+    margin:20px;
+    padding:20px;
+    transition:.2s;
+}
+
+.weather:hover{
+    transform:scale(1.02);
+    border-color:#00c853;
+}
+
+.weather h2{
+    margin:0;
+    font-size:30px;
+}
+
+.info{
+    background:#181818;
+    margin-top:15px;
+    border-radius:10px;
+    padding:15px;
+    font-size:20px;
+    line-height:1.8;
+}
+
+.rare{
+    color:#00ff99;
+    font-weight:bold;
+    margin-top:15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="logo">
+<a href="index.html">HUNT</a>
+</div>
+
+<h1 class="title">🌦️ 날씨</h1>
+
+<input
+type="text"
+id="search"
+class="search"
+placeholder="🔍 날씨 검색..."
+onkeyup="searchWeather()">
+
+<div class="weather item">
+<h2>🌧 비 🌧</h2>
+<div class="info">
+평범하게 내리는 비입니다.
+<div class="rare">등급 : 일반</div>
+</div>
+</div>
+
+<div class="weather item">
+<h2>☀️ 맑음 ☀️</h2>
+<div class="info">
+날씨가 맑아 시야가 좋습니다.
+<div class="rare">등급 : 일반</div>
+</div>
+</div>
+
+<div class="weather item">
+<h2>🌈 레인보우 🌈</h2>
+<div class="info">
+행운을 가져오는 희귀한 날씨입니다.
+<div class="rare">등급 : 희귀</div>
+</div>
+</div>
+
+<div class="weather item">
+<h2>🌩 천둥번개 🌩</h2>
+<div class="info">
+강한 번개가 떨어지는 위험한 날씨입니다.
+<div class="rare">등급 : 희귀</div>
+</div>
+</div>
+
+<div class="weather item">
+<h2>☁️ 안개 ☁️</h2>
+<div class="info">
+시야가 크게 줄어듭니다.
+<div class="rare">등급 : 일반</div>
+</div>
+</div>
+
+<div class="weather item">
+<h2>❄️ 눈보라 ❄️</h2>
+<div class="info">
+전용 날씨입니다. 강한 눈보라가 몰아칩니다.
+<div class="rare">등급 : 전용</div>
+</div>
+</div>
+
+<div class="weather item">
+<h2>🌌 오로라 🌌</h2>
+<div class="info">
+밤하늘을 아름답게 수놓는 신비로운 날씨입니다.
+<div class="rare">등급 : 희귀</div>
+</div>
+</div>
+
+<div class="weather item">
+<h2>🌠 스타풀 🌠</h2>
+<div class="info">
+별빛이 쏟아지는 특별한 밤입니다.
+<div class="rare">등급 : 희귀</div>
+</div>
+</div>
+
+<div class="weather item">
+<h2>🔥 폭염 🔥</h2>
+<div class="info">
+전용 날씨입니다. 매우 뜨거운 기온이 계속됩니다.
+<div class="rare">등급 : 전용</div>
+</div>
+</div>
+
+<div class="weather item">
+<h2>☃️ 눈 ☃️</h2>
+<div class="info">
+눈이 천천히 내립니다.
+<div class="rare">등급 : 일반</div>
+</div>
+</div>
+
+<div class="weather item">
+<h2>🌑 일식 🌑</h2>
+<div class="info">
+태양이 가려져 세상이 어두워집니다.
+<div class="rare">등급 : 전설</div>
+</div>
+</div>
+
+<div class="weather item">
+<h2>☄️ 유성우 ☄️</h2>
+<div class="info">
+밤하늘에 수많은 유성이 떨어집니다.
+<div class="rare">등급 : 전설</div>
+</div>
+</div>
+
+<script>
+
+function searchWeather(){
+
+let input=document.getElementById("search").value.toLowerCase();
+
+let items=document.getElementsByClassName("item");
+
+for(let i=0;i<items.length;i++){
+
+let name=items[i].getElementsByTagName("h2")[0].innerText.toLowerCase();
+
+if(name.indexOf(input)>-1){
+
+items[i].style.display="block";
+
+}else{
+
+items[i].style.display="none";
+
+}
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
