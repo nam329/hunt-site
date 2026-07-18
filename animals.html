@@ -6,6 +6,7 @@
 <title>동물 도감 - HUNT</title>
 
 <style>
+
 body{
     margin:0;
     background:#111;
@@ -31,7 +32,23 @@ body{
 .title{
     text-align:center;
     font-size:40px;
-    margin-bottom:30px;
+}
+
+.search{
+    display:block;
+    width:85%;
+    max-width:500px;
+    margin:25px auto;
+    padding:15px;
+    font-size:22px;
+    border:none;
+    border-radius:12px;
+    background:#222;
+    color:white;
+}
+
+.search::placeholder{
+    color:#999;
 }
 
 .animal{
@@ -40,21 +57,34 @@ body{
     border-radius:15px;
     margin:20px;
     padding:20px;
+    transition:.2s;
+}
+
+.animal:hover{
+    transform:scale(1.02);
+    border-color:#00c853;
 }
 
 .animal h2{
-    margin-top:0;
-    font-size:32px;
+    margin:0;
+    font-size:30px;
 }
 
 .info{
     background:#181818;
+    margin-top:15px;
     border-radius:10px;
     padding:15px;
-    margin-top:15px;
     font-size:20px;
     line-height:1.8;
 }
+
+.stat{
+    margin-top:15px;
+    color:#7CFC00;
+    font-weight:bold;
+}
+
 </style>
 
 </head>
@@ -67,32 +97,130 @@ body{
 
 <h1 class="title">🦌 동물 도감</h1>
 
-<div class="animal">
+<input
+type="text"
+id="search"
+class="search"
+placeholder="🔍 동물 이름 검색..."
+onkeyup="searchAnimal()">
+
+<div class="animal item">
 <h2>🦌 사슴</h2>
 
 <div class="info">
-설명:<br>
+설명<br>
 숲에서 자주 발견되는 초식동물입니다.
+
+<div class="stat">
+희귀도 : 일반<br>
+출현 지역 : 숲
+</div>
+
 </div>
 </div>
 
-<div class="animal">
+<div class="animal item">
 <h2>🐺 늑대</h2>
 
 <div class="info">
-설명:<br>
-무리를 이루어 사냥하며 밤에 더욱 위험합니다.
+설명<br>
+무리를 지어 사냥하는 위험한 동물입니다.
+
+<div class="stat">
+희귀도 : 희귀<br>
+출현 지역 : 숲
+</div>
+
 </div>
 </div>
 
-<div class="animal">
+<div class="animal item">
 <h2>🐻 곰</h2>
 
 <div class="info">
-설명:<br>
-체력이 높고 강력한 공격을 사용하는 대형 동물입니다.
+설명<br>
+체력이 높고 강력한 공격을 합니다.
+
+<div class="stat">
+희귀도 : 에픽<br>
+출현 지역 : 산
+</div>
+
 </div>
 </div>
+
+<div class="animal item">
+<h2>🦊 여우</h2>
+
+<div class="info">
+설명<br>
+빠르게 움직이며 도망을 잘 갑니다.
+
+<div class="stat">
+희귀도 : 일반<br>
+출현 지역 : 숲
+</div>
+
+</div>
+</div>
+
+<div class="animal item">
+<h2>🐗 멧돼지</h2>
+
+<div class="info">
+설명<br>
+돌진 공격으로 큰 피해를 줍니다.
+
+<div class="stat">
+희귀도 : 희귀<br>
+출현 지역 : 평원
+</div>
+
+</div>
+</div>
+
+<div class="animal item">
+<h2>🦅 독수리</h2>
+
+<div class="info">
+설명<br>
+하늘을 나는 희귀한 사냥 동물입니다.
+
+<div class="stat">
+희귀도 : 에픽<br>
+출현 지역 : 산
+</div>
+
+</div>
+</div>
+
+<script>
+
+function searchAnimal(){
+
+let input=document.getElementById("search").value.toLowerCase();
+
+let items=document.getElementsByClassName("item");
+
+for(let i=0;i<items.length;i++){
+
+let name=items[i].getElementsByTagName("h2")[0].innerText.toLowerCase();
+
+if(name.indexOf(input)>-1){
+
+items[i].style.display="block";
+
+}else{
+
+items[i].style.display="none";
+
+}
+
+}
+
+}
+
+</script>
 
 </body>
 </html>
