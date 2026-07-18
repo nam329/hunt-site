@@ -6,6 +6,7 @@
 <title>무기 도감 - HUNT</title>
 
 <style>
+
 body{
     margin:0;
     background:#111;
@@ -31,7 +32,23 @@ body{
 .title{
     text-align:center;
     font-size:40px;
-    margin-bottom:30px;
+}
+
+.search{
+    display:block;
+    width:85%;
+    max-width:500px;
+    margin:25px auto;
+    padding:15px;
+    font-size:22px;
+    border:none;
+    border-radius:12px;
+    background:#222;
+    color:white;
+}
+
+.search::placeholder{
+    color:#999;
 }
 
 .weapon{
@@ -40,26 +57,34 @@ body{
     border-radius:15px;
     margin:20px;
     padding:20px;
+    transition:0.2s;
+}
+
+.weapon:hover{
+    transform:scale(1.02);
+    border-color:#00c853;
 }
 
 .weapon h2{
-    margin-top:0;
-    font-size:32px;
+    margin:0;
+    font-size:30px;
 }
 
 .info{
     background:#181818;
+    margin-top:15px;
     border-radius:10px;
     padding:15px;
-    margin-top:15px;
     font-size:20px;
     line-height:1.8;
 }
 
 .stat{
-    margin-top:10px;
+    margin-top:15px;
     color:#7CFC00;
+    font-weight:bold;
 }
+
 </style>
 
 </head>
@@ -71,18 +96,19 @@ body{
 </div>
 
 <h1 class="title">⚔️ 무기 도감</h1>
-<input
-    type="text"
-    id="search"
-    placeholder="🔍 무기 이름 검색..."
-    onkeyup="searchWeapon()"
-    class="search">
 
-<div class="weapon">
+<input
+type="text"
+id="search"
+class="search"
+placeholder="🔍 무기 이름 검색..."
+onkeyup="searchWeapon()">
+
+<div class="weapon item">
 <h2>🗡️ 나무 검</h2>
 
 <div class="info">
-설명:<br>
+설명<br>
 초보 사냥꾼이 사용하는 기본 무기입니다.
 
 <div class="stat">
@@ -93,11 +119,11 @@ body{
 </div>
 </div>
 
-<div class="weapon">
+<div class="weapon item">
 <h2>⚔️ 철 검</h2>
 
 <div class="info">
-설명:<br>
+설명<br>
 튼튼한 철로 제작된 검입니다.
 
 <div class="stat">
@@ -108,12 +134,12 @@ body{
 </div>
 </div>
 
-<div class="weapon">
+<div class="weapon item">
 <h2>🏹 사냥 활</h2>
 
 <div class="info">
-설명:<br>
-멀리 있는 동물을 안전하게 공격할 수 있습니다.
+설명<br>
+멀리 있는 적을 공격하는 활입니다.
 
 <div class="stat">
 공격력 : 25<br>
@@ -123,11 +149,11 @@ body{
 </div>
 </div>
 
-<div class="weapon">
+<div class="weapon item">
 <h2>🪓 전투 도끼</h2>
 
 <div class="info">
-설명:<br>
+설명<br>
 강력한 한 방을 가진 무기입니다.
 
 <div class="stat">
@@ -137,26 +163,64 @@ body{
 
 </div>
 </div>
+
+<div class="weapon item">
+<h2>🛡️ 창</h2>
+
+<div class="info">
+설명<br>
+사거리가 긴 근접 무기입니다.
+
+<div class="stat">
+공격력 : 40<br>
+희귀도 : 희귀
+</div>
+
+</div>
+</div>
+
+<div class="weapon item">
+<h2>💥 전설의 대검</h2>
+
+<div class="info">
+설명<br>
+전설 속 사냥꾼이 사용한 거대한 검입니다.
+
+<div class="stat">
+공격력 : 100<br>
+희귀도 : 전설
+</div>
+
+</div>
+</div>
+
 <script>
+
 function searchWeapon(){
 
-    let input=document.getElementById("search").value.toLowerCase();
+let input=document.getElementById("search").value.toLowerCase();
 
-    let items=document.getElementsByClassName("item");
+let items=document.getElementsByClassName("item");
 
-    for(let i=0;i<items.length;i++){
+for(let i=0;i<items.length;i++){
 
-        let name=items[i].getElementsByTagName("h2")[0].innerText.toLowerCase();
+let name=items[i].getElementsByTagName("h2")[0].innerText.toLowerCase();
 
-        if(name.indexOf(input)>-1){
-            items[i].style.display="block";
-        }else{
-            items[i].style.display="none";
-        }
+if(name.indexOf(input)>-1){
 
-    }
+items[i].style.display="block";
+
+}else{
+
+items[i].style.display="none";
 
 }
+
+}
+
+}
+
 </script>
+
 </body>
 </html>
