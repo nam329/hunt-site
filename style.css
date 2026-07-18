@@ -6,9 +6,9 @@ body{
 }
 
 .logo{
-    font-size:36px;
+    font-size:100px;
     font-weight:bold;
-    padding:20px;
+    padding:40px;
 }
 
 .logo a{
@@ -36,4 +36,12 @@ body{
 
 .menu button:hover{
     background:#333;
+}
+.making{
+    text-align:center;
+    font-size:40px;
+    font-weight:bold;
+    color:#ff3333;
+    margin:20px 0 35px 0;
+    text-shadow:0 0 10px #ff3333;
 }
