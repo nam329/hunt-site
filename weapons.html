@@ -71,6 +71,12 @@ body{
 </div>
 
 <h1 class="title">⚔️ 무기 도감</h1>
+<input
+    type="text"
+    id="search"
+    placeholder="🔍 무기 이름 검색..."
+    onkeyup="searchWeapon()"
+    class="search">
 
 <div class="weapon">
 <h2>🗡️ 나무 검</h2>
@@ -131,6 +137,26 @@ body{
 
 </div>
 </div>
+<script>
+function searchWeapon(){
 
+    let input=document.getElementById("search").value.toLowerCase();
+
+    let items=document.getElementsByClassName("item");
+
+    for(let i=0;i<items.length;i++){
+
+        let name=items[i].getElementsByTagName("h2")[0].innerText.toLowerCase();
+
+        if(name.indexOf(input)>-1){
+            items[i].style.display="block";
+        }else{
+            items[i].style.display="none";
+        }
+
+    }
+
+}
+</script>
 </body>
 </html>
