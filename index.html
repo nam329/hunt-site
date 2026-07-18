@@ -3,264 +3,219 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>HUNT 공식 홈페이지</title>
+<title>HUNT</title>
 
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
-
 body{
-    background:#0b0b0b;
-    color:white;
+margin:0;
+background:#111;
+color:white;
+font-family:Arial,sans-serif;
 }
 
-
-/* 상단바 */
 .topbar{
-    height:70px;
-    background:#111;
-    display:flex;
-    align-items:center;
-    padding:0 20px;
-    position:fixed;
-    width:100%;
-    top:0;
-    z-index:10;
+display:flex;
+align-items:center;
+padding:20px;
+gap:20px;
 }
 
 .menu-btn{
-    font-size:30px;
-    cursor:pointer;
+font-size:40px;
+cursor:pointer;
+user-select:none;
 }
 
 .logo{
-    margin-left:25px;
-    font-size:32px;
-    font-weight:bold;
+font-size:42px;
+font-weight:bold;
 }
 
 .logo a{
-    color:white;
-    text-decoration:none;
+color:white;
+text-decoration:none;
 }
 
-
-/* 사이드 메뉴 */
 .sidebar{
-    position:fixed;
-    top:0;
-    left:-260px;
-    width:260px;
-    height:100%;
-    background:#151515;
-    padding-top:80px;
-    transition:0.3s;
-    z-index:20;
+position:fixed;
+top:0;
+left:-280px;
+width:260px;
+height:100%;
+background:#1b1b1b;
+transition:.3s;
+padding-top:80px;
+z-index:1000;
 }
 
 .sidebar a{
-    display:block;
-    padding:20px;
-    color:white;
-    text-decoration:none;
-    font-size:18px;
+display:block;
+padding:18px 25px;
+font-size:24px;
+color:white;
+text-decoration:none;
 }
 
 .sidebar a:hover{
-    background:#333;
+background:#333;
 }
 
-.open{
-    left:0;
+.making{
+text-align:center;
+font-size:38px;
+font-weight:bold;
+color:red;
+animation:blink 1s infinite;
+margin-bottom:30px;
 }
 
-
-
-/* 메인 */
-.hero{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:
-    linear-gradient(
-    rgba(0,0,0,.5),
-    rgba(0,0,0,.8)),
-    url("hunt.jpg");
-
-    background-size:cover;
+@keyframes blink{
+50%{
+opacity:.3;
+}
 }
 
-
-.hero h1{
-    font-size:80px;
+.menu{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+padding:20px;
 }
 
-.hero p{
-    font-size:22px;
-    margin:20px;
+.menu button{
+width:100%;
+height:100px;
+font-size:24px;
+font-weight:bold;
+border:none;
+border-radius:15px;
+background:#222;
+color:white;
+cursor:pointer;
+transition:.2s;
 }
 
-
-button{
-    padding:15px 35px;
-    border:none;
-    background:#00ff88;
-    color:black;
-    font-size:18px;
-    border-radius:10px;
-    cursor:pointer;
+.menu button:hover{
+background:#333;
+transform:scale(1.03);
 }
 
+@media(min-width:900px){
 
-/* 정보 */
-.section{
-    padding:80px 20px;
-    text-align:center;
+.menu{
+grid-template-columns:repeat(4,1fr);
 }
 
-.cards{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
 }
 
-.card{
-    background:#1b1b1b;
-    width:250px;
-    padding:30px;
-    border-radius:15px;
+.update-title{
+font-size:32px;
+margin:20px;
 }
 
-
-@media(max-width:600px){
-
-.hero h1{
-    font-size:50px;
+.update{
+background:#222;
+margin:20px;
+padding:20px;
+border-radius:15px;
+border-left:5px solid #00c853;
 }
 
-.logo{
-    font-size:25px;
-}
-
+.update h3{
+margin-top:0;
 }
 
 </style>
 
 </head>
 
-
 <body>
-
-
-<div class="topbar">
-
-<span class="menu-btn" onclick="openMenu()">☰</span>
-
-<div class="logo">
-<a href="#">HUNT</a>
-</div>
-
-</div>
-
-
 
 <div id="menu" class="sidebar">
 
-<a href="#">🏠 홈</a>
-
-<a href="#">🎮 플레이</a>
-
-<a href="#">📰 소식</a>
-
-<a href="#">🛒 상점</a>
-
-<a href="#">💬 커뮤니티</a>
-
-</div>
-
-
-
-<section class="hero">
-
-<div>
-
-<h1>HUNT</h1>
-
-<p>
-최고의 사냥 모험을 시작하세요
-</p>
-
-<button>
-게임 시작
-</button>
+<a href="index.html">🏠 홈</a>
+<a href="animals.html">🦌 동물</a>
+<a href="weapons.html">⚔️ 무기</a>
+<a href="market.html">🛒 상점</a>
+<a href="npc.html">👤 NPC</a>
+<a href="map.html">🗺️ 맵</a>
+<a href="weather.html">🌦️ 날씨</a>
+<a href="updates.html">📢 업데이트</a>
 
 </div>
 
-</section>
+<div class="topbar">
 
+<span class="menu-btn" onclick="toggleMenu()">☰</span>
 
-
-
-<section class="section">
-
-<h2>HUNT</h2>
-
-<br>
-
-<div class="cards">
-
-
-<div class="card">
-<h3>🌎 탐험</h3>
-<p>
-새로운 지역을 발견하세요
-</p>
+<div class="logo">
+<a href="index.html">HUNT</a>
 </div>
-
-
-<div class="card">
-<h3>🐾 펫</h3>
-<p>
-귀여운 동료와 함께하세요
-</p>
-</div>
-
-
-<div class="card">
-<h3>🏆 보상</h3>
-<p>
-희귀 아이템을 획득하세요
-</p>
-</div>
-
 
 </div>
 
-</section>
+<div class="making">
+⚠️ 제작중 ⚠️
+</div>
 
+<div class="menu">
 
+<a href="animals.html"><button>🦌 동물</button></a>
+
+<a href="weapons.html"><button>⚔️ 무기</button></a>
+
+<a href="market.html"><button>🛒 상점</button></a>
+
+<a href="npc.html"><button>👤 NPC</button></a>
+
+<a href="map.html"><button>🗺️ 맵</button></a>
+
+<a href="weather.html"><button>🌦️ 날씨</button></a>
+
+<a href="updates.html"><button>📢 업데이트</button></a>
+
+</div>
+
+<h2 class="update-title">📢 업데이트</h2>
+
+<div class="update">
+<h3>v1.0.0</h3>
+<p>신규 동물 아이디어 추가</p>
+<small>2026-07-18</small>
+</div>
+
+<div class="update">
+<h3>v1.0.0</h3>
+<p>신규 맵 아이디어 추가</p>
+<small>2026-07-05</small>
+</div>
+
+<div class="update">
+<h3>v1.0.0</h3>
+<p>게임 개발 계획</p>
+<small>2026-06-20</small>
+</div>
 
 <script>
 
-function openMenu(){
+let open=false;
 
-document
-.getElementById("menu")
-.classList.toggle("open");
+function toggleMenu(){
+
+const menu=document.getElementById("menu");
+
+if(open){
+menu.style.left="-280px";
+open=false;
+}else{
+menu.style.left="0";
+open=true;
+}
 
 }
 
 </script>
-
 
 </body>
 </html>
