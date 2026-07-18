@@ -1,12 +1,136 @@
-<div class="topbar">
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HUNT</title>
 
-<span class="menu-btn" onclick="openMenu()">☰</span>
+<style>
 
-<div class="logo">
-<a href="index.html">HUNT</a>
-</div>
+body{
+margin:0;
+background:#111;
+color:white;
+font-family:Arial,sans-serif;
+}
 
-</div>
+.topbar{
+display:flex;
+align-items:center;
+padding:20px;
+gap:20px;
+}
+
+.menu-btn{
+font-size:40px;
+cursor:pointer;
+user-select:none;
+}
+
+.logo{
+font-size:42px;
+font-weight:bold;
+}
+
+.logo a{
+color:white;
+text-decoration:none;
+}
+
+.sidebar{
+position:fixed;
+top:0;
+left:-280px;
+width:260px;
+height:100%;
+background:#1b1b1b;
+transition:.3s;
+padding-top:80px;
+z-index:1000;
+}
+
+.sidebar a{
+display:block;
+padding:18px 25px;
+font-size:24px;
+color:white;
+text-decoration:none;
+}
+
+.sidebar a:hover{
+background:#333;
+}
+
+.making{
+text-align:center;
+font-size:38px;
+font-weight:bold;
+color:red;
+animation:blink 1s infinite;
+margin-bottom:30px;
+}
+
+@keyframes blink{
+50%{
+opacity:.3;
+}
+}
+
+.menu{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+padding:20px;
+}
+
+.menu button{
+width:100%;
+height:100px;
+font-size:24px;
+font-weight:bold;
+border:none;
+border-radius:15px;
+background:#222;
+color:white;
+cursor:pointer;
+transition:.2s;
+}
+
+.menu button:hover{
+background:#333;
+transform:scale(1.03);
+}
+
+@media(min-width:900px){
+
+.menu{
+grid-template-columns:repeat(4,1fr);
+}
+
+}
+
+.update-title{
+font-size:32px;
+margin:20px;
+}
+
+.update{
+background:#222;
+margin:20px;
+padding:20px;
+border-radius:15px;
+border-left:5px solid #00c853;
+}
+
+.update h3{
+margin-top:0;
+}
+
+</style>
+
+</head>
+
+<body>
 
 <div id="menu" class="sidebar">
 
@@ -19,56 +143,16 @@
 <a href="weather.html">🌦️ 날씨</a>
 <a href="updates.html">📢 업데이트</a>
 
-</div>}
+</div>
 
-.menu{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-    padding:30px 20px;
-}
+<div class="topbar">
 
-.menu button{
-    width:100%;
-    height:100px;
-    font-size:24px;
-    font-weight:bold;
-    border:none;
-    border-radius:15px;
-    background:#222;
-    color:white;
-}
-
-.menu button:hover{
-    background:#333;
-}
-
-.update-title{
-    font-size:30px;
-    margin:20px;
-}
-
-.update{
-    background:#222;
-    margin:20px;
-    padding:20px;
-    border-radius:15px;
-    border-left:5px solid #00c853;
-}
-
-@media(min-width:900px){
-.menu{
-grid-template-columns:repeat(4,1fr);
-}
-}
-</style>
-
-</head>
-
-<body>
+<span class="menu-btn" onclick="toggleMenu()">☰</span>
 
 <div class="logo">
 <a href="index.html">HUNT</a>
+</div>
+
 </div>
 
 <div class="making">
@@ -77,23 +161,17 @@ grid-template-columns:repeat(4,1fr);
 
 <div class="menu">
 
-
-
-
-
-
-    
 <a href="animals.html"><button>🦌 동물</button></a>
 
-<a href="weapons.html"><button>⚔ 무기</button></a>
+<a href="weapons.html"><button>⚔️ 무기</button></a>
 
-<a href="market.html"><button>🛒 시장</button></a>
+<a href="market.html"><button>🛒 상점</button></a>
 
 <a href="npc.html"><button>👤 NPC</button></a>
 
-<a href="map.html"><button>🗺 맵</button></a>
+<a href="map.html"><button>🗺️ 맵</button></a>
 
-<a href="weather.html"><button>🌦 날씨</button></a>
+<a href="weather.html"><button>🌦️ 날씨</button></a>
 
 <a href="updates.html"><button>📢 업데이트</button></a>
 
@@ -118,6 +196,26 @@ grid-template-columns:repeat(4,1fr);
 <p>게임 개발 계획</p>
 <small>2026-06-20</small>
 </div>
+
+<script>
+
+let open=false;
+
+function toggleMenu(){
+
+const menu=document.getElementById("menu");
+
+if(open){
+menu.style.left="-280px";
+open=false;
+}else{
+menu.style.left="0";
+open=true;
+}
+
+}
+
+</script>
 
 </body>
 </html>
