@@ -1,221 +1,102 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HUNT</title>
 
 <style>
-
-body{
-margin:0;
-background:#111;
-color:white;
-font-family:Arial,sans-serif;
+body {
+  margin:0;
+  background:#0b0b0b;
+  font-family:Arial, sans-serif;
 }
 
-.topbar{
-display:flex;
-align-items:center;
-padding:20px;
-gap:20px;
+/* 상단바 */
+.topbar {
+  height:70px;
+  background:#111;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 20px;
 }
 
-.menu-btn{
-font-size:40px;
-cursor:pointer;
-user-select:none;
+/* HUNT 로고 */
+.logo {
+  color:white;
+  font-size:32px;
+  font-weight:900;
 }
 
-.logo{
-font-size:42px;
-font-weight:bold;
+/* 버튼 */
+.buttons a {
+  text-decoration:none;
+  color:white;
+  padding:12px 18px;
+  margin-left:10px;
+  border-radius:12px;
+  font-weight:bold;
 }
 
-.logo a{
-color:white;
-text-decoration:none;
+/* 플레이 버튼 */
+.play {
+  background:#00aaff;
 }
 
-.sidebar{
-position:fixed;
-top:0;
-left:-280px;
-width:260px;
-height:100%;
-background:#1b1b1b;
-transition:.3s;
-padding-top:80px;
-z-index:1000;
+/* 소식 버튼 */
+.news {
+  background:#333;
 }
 
-.sidebar a{
-display:block;
-padding:18px 25px;
-font-size:24px;
-color:white;
-text-decoration:none;
+/* 메인 */
+.main {
+  color:white;
+  text-align:center;
+  padding:80px 20px;
 }
 
-.sidebar a:hover{
-background:#333;
+.main h1 {
+  font-size:50px;
 }
 
-.making{
-text-align:center;
-font-size:38px;
-font-weight:bold;
-color:red;
-animation:blink 1s infinite;
-margin-bottom:30px;
+.main p {
+  color:#aaa;
 }
-
-@keyframes blink{
-50%{
-opacity:.3;
-}
-}
-
-.menu{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:15px;
-padding:20px;
-}
-
-.menu button{
-width:100%;
-height:100px;
-font-size:24px;
-font-weight:bold;
-border:none;
-border-radius:15px;
-background:#222;
-color:white;
-cursor:pointer;
-transition:.2s;
-}
-
-.menu button:hover{
-background:#333;
-transform:scale(1.03);
-}
-
-@media(min-width:900px){
-
-.menu{
-grid-template-columns:repeat(4,1fr);
-}
-
-}
-
-.update-title{
-font-size:32px;
-margin:20px;
-}
-
-.update{
-background:#222;
-margin:20px;
-padding:20px;
-border-radius:15px;
-border-left:5px solid #00c853;
-}
-
-.update h3{
-margin-top:0;
-}
-
 </style>
 
 </head>
 
 <body>
 
-<div id="menu" class="sidebar">
-
-<a href="index.html">🏠 홈</a>
-<a href="animals.html">🦌 동물</a>
-<a href="weapons.html">⚔️ 무기</a>
-<a href="market.html">🛒 상점</a>
-<a href="npc.html">👤 NPC</a>
-<a href="map.html">🗺️ 맵</a>
-<a href="weather.html">🌦️ 날씨</a>
-<a href="updates.html">📢 업데이트</a>
-
-</div>
-
-<div class="topbar">
-
-<span class="menu-btn" onclick="toggleMenu()">☰</span>
+<header class="topbar">
 
 <div class="logo">
-<a href="index.html">HUNT</a>
+HUNT
 </div>
 
-</div>
+<div class="buttons">
 
-<div class="making">
-⚠️ 제작중 ⚠️
-</div>
+<a class="play" href="#">
+🎮 HUNT 플레이
+</a>
 
-<div class="menu">
-
-<a href="animals.html"><button>🦌 동물</button></a>
-
-<a href="weapons.html"><button>⚔️ 무기</button></a>
-
-<a href="market.html"><button>🛒 상점</button></a>
-
-<a href="npc.html"><button>👤 NPC</button></a>
-
-<a href="map.html"><button>🗺️ 맵</button></a>
-
-<a href="weather.html"><button>🌦️ 날씨</button></a>
-
-<a href="updates.html"><button>📢 업데이트</button></a>
+<a class="news" href="news.html">
+📢 소식
+</a>
 
 </div>
 
-<h2 class="update-title">📢 업데이트</h2>
+</header>
 
-<div class="update">
-<h3>v1.0.0</h3>
-<p>신규 동물 아이디어 추가</p>
-<small>2026-07-18</small>
+
+<div class="main">
+
+<h1>HUNT</h1>
+
+<p>
+새로운 탐험의 시작
+</p>
+
 </div>
-
-<div class="update">
-<h3>v1.0.0</h3>
-<p>신규 맵 아이디어 추가</p>
-<small>2026-07-05</small>
-</div>
-
-<div class="update">
-<h3>v1.0.0</h3>
-<p>게임 개발 계획</p>
-<small>2026-06-20</small>
-</div>
-
-<script>
-
-let open=false;
-
-function toggleMenu(){
-
-const menu=document.getElementById("menu");
-
-if(open){
-menu.style.left="-280px";
-open=false;
-}else{
-menu.style.left="0";
-open=true;
-}
-
-}
-
-</script>
 
 </body>
 </html>
