@@ -1,27 +1,78 @@
-<section id="shop">
-    <h2>🏪 상점</h2>
+<section id="shop" class="page">
 
-    <div class="search-item">
-        <h3>🧪 회복 포션</h3>
-        <p>가격: 100골드</p>
-        <p>체력 50 회복</p>
+    <h1>🏪 상점</h1>
+
+    <input
+        type="text"
+        id="shopSearch"
+        placeholder="아이템 검색..."
+        onkeyup="searchShop()"
+    >
+
+    <div class="card-container">
+
+        <div class="card shop-item">
+            <h2>🪵 나무 검</h2>
+            <p>가격 : 100 Gold</p>
+            <p>공격력 +5</p>
+        </div>
+
+        <div class="card shop-item">
+            <h2>⚔️ 철 검</h2>
+            <p>가격 : 500 Gold</p>
+            <p>공격력 +15</p>
+        </div>
+
+        <div class="card shop-item">
+            <h2>💎 크리스탈 검</h2>
+            <p>가격 : 5,000 Gold</p>
+            <p>공격력 +45</p>
+        </div>
+
+        <div class="card shop-item">
+            <h2>🧪 회복 포션</h2>
+            <p>가격 : 80 Gold</p>
+            <p>체력 50 회복</p>
+        </div>
+
+        <div class="card shop-item">
+            <h2>⚡ 마나 포션</h2>
+            <p>가격 : 120 Gold</p>
+            <p>마나 50 회복</p>
+        </div>
+
+        <div class="card shop-item">
+            <h2>🛡️ 강철 방패</h2>
+            <p>가격 : 900 Gold</p>
+            <p>방어력 +20</p>
+        </div>
+
+        <div class="card shop-item">
+            <h2>🏹 장궁</h2>
+            <p>가격 : 2,000 Gold</p>
+            <p>원거리 공격</p>
+        </div>
+
+        <div class="card shop-item">
+            <h2>🎣 낚싯대</h2>
+            <p>가격 : 300 Gold</p>
+            <p>물고기를 낚을 수 있습니다.</p>
+        </div>
+
     </div>
 
-    <div class="search-item">
-        <h3>⚔️ 철 검</h3>
-        <p>가격: 500골드</p>
-        <p>공격력 +15</p>
-    </div>
-
-    <div class="search-item">
-        <h3>🪄 마법 지팡이</h3>
-        <p>가격: 1,200골드</p>
-        <p>마법 공격력 +30</p>
-    </div>
-
-    <div class="search-item">
-        <h3>🛡️ 강철 방패</h3>
-        <p>가격: 800골드</p>
-        <p>방어력 +20</p>
-    </div>
 </section>
+
+<script>
+function searchShop() {
+    const input = document.getElementById("shopSearch").value.toLowerCase();
+    const items = document.querySelectorAll(".shop-item");
+
+    items.forEach(item => {
+        item.style.display =
+            item.textContent.toLowerCase().includes(input)
+            ? "block"
+            : "none";
+    });
+}
+</script>
