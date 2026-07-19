@@ -1,40 +1,43 @@
 .topbar{
-display:flex;
-align-items:center;
-gap:20px;
-padding:20px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:20px;
 }
 
 .menu-btn{
-font-size:40px;
-cursor:pointer;
+    font-size:40px;
+    cursor:pointer;
 }
 
 .sidebar{
-position:fixed;
-top:0;
-left:-280px;
-width:260px;
-height:100%;
-background:#1b1b1b;
-transition:.3s;
-padding-top:80px;
-z-index:999;
+    position:fixed;
+    top:0;
+    left:-280px;
+    width:260px;
+    height:100%;
+    background:#1b1b1b;
+    transition:.3s;
+    padding-top:80px;
+    z-index:999;
 }
 
-n:none;
+.sidebar.open{
+    left:0;
+}
+
+.sidebar a{
+    display:block;
+    padding:18px 25px;
+    font-size:24px;
+    color:white;
+    text-decoration:none;
+    transition:.2s;
 }
 
 .sidebar a:hover{
-background:#333;
+    background:#333;
 }
-
-/* 새 메뉴 버튼 */
-
-.play-btn{
-    background:#00c853;
-}
-
 .news-btn{
     background:#2196f3;
 }
