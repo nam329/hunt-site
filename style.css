@@ -28,6 +28,7 @@ n:none;
 .sidebar a:hover{
 background:#333;
 }
+
 /* 새 메뉴 버튼 */
 
 .play-btn{
@@ -52,16 +53,4 @@ background:#333;
 
 .contact-btn{
     background:#00acc1;
-}
-
-.sidebar a{
-    display:block;
-    padding:18px 25px;
-    font-size:24px;
-    color:white;
-    text-decoration:none;
-}
-
-.sidebar a:hover{
-    background:#333;
 }
