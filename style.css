@@ -22,12 +22,7 @@ padding-top:80px;
 z-index:999;
 }
 
-.sidebar a{
-display:block;
-padding:20px 20px;
-font-size:22px;
-color:white;
-text-decoration:none;
+n:none;
 }
 
 .sidebar a:hover{
@@ -59,35 +54,14 @@ background:#333;
     background:#00acc1;
 }
 
-.settings-btn{
-    background:#757575;
-}
-
-.play-btn,
-.news-btn,
-.discord-btn,
-.trailer-btn,
-.language-btn,
-.contact-btn,
-.settings-btn{
+.sidebar a{
     display:block;
-    margin:20px 20px;
-    padding:12px;
-    border-radius:12px;
+    padding:18px 25px;
+    font-size:24px;
     color:white;
     text-decoration:none;
-    font-weight:bold;
-    text-align:center;
-    transition:.2s;
 }
 
-.play-btn:hover,
-.news-btn:hover,
-.discord-btn:hover,
-.trailer-btn:hover,
-.language-btn:hover,
-.contact-btn:hover,
-.settings-btn:hover{
-    transform:scale(1.03);
-    filter:brightness(1.15);
+.sidebar a:hover{
+    background:#333;
 }
