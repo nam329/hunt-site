@@ -1,35 +1,58 @@
-.topbar{
-display:flex;
-align-items:center;
-gap:20px;
-padding:20px;
+/* 새 메뉴 버튼 */
+
+.play-btn{
+    background:#00c853;
 }
 
-.menu-btn{
-font-size:40px;
-cursor:pointer;
+.news-btn{
+    background:#2196f3;
 }
 
-.sidebar{
-position:fixed;
-top:0;
-left:-280px;
-width:260px;
-height:100%;
-background:#1b1b1b;
-transition:.3s;
-padding-top:80px;
-z-index:999;
+.discord-btn{
+    background:#5865F2;
 }
 
-.sidebar a{
-display:block;
-padding:18px 25px;
-font-size:24px;
-color:white;
-text-decoration:none;
+.trailer-btn{
+    background:#e53935;
 }
 
-.sidebar a:hover{
-background:#333;
+.language-btn{
+    background:#ff9800;
+}
+
+.contact-btn{
+    background:#00acc1;
+}
+
+.settings-btn{
+    background:#757575;
+}
+
+.play-btn,
+.news-btn,
+.discord-btn,
+.trailer-btn,
+.language-btn,
+.contact-btn,
+.settings-btn{
+    display:block;
+    margin:12px 20px;
+    padding:14px;
+    border-radius:12px;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    text-align:center;
+    transition:.2s;
+}
+
+.play-btn:hover,
+.news-btn:hover,
+.discord-btn:hover,
+.trailer-btn:hover,
+.language-btn:hover,
+.contact-btn:hover,
+.settings-btn:hover{
+    transform:scale(1.03);
+    filter:brightness(1.15);
 }
