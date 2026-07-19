@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HUNT | 설정</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#111;
+color:white;
+}
+
+header{
+background:#1b1b1b;
+padding:20px;
+text-align:center;
+font-size:32px;
+font-weight:bold;
+border-bottom:1px solid #333;
+}
+
+.container{
+max-width:800px;
+margin:30px auto;
+padding:20px;
+}
+
+.card{
+background:#1d1d1d;
+border-radius:15px;
+padding:20px;
+margin-bottom:20px;
+}
+
+.card h2{
+margin-bottom:15px;
+}
+
+.option{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 0;
+border-bottom:1px solid #333;
+}
+
+.option:last-child{
+border:none;
+}
+
+select,
+button{
+padding:10px;
+border:none;
+border-radius:8px;
+font-size:16px;
+}
+
+button{
+background:#00b894;
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+background:#00a383;
+}
+
+.back{
+display:block;
+width:220px;
+margin:40px auto;
+text-align:center;
+padding:15px;
+background:#2d3436;
+color:white;
+text-decoration:none;
+border-radius:10px;
+font-weight:bold;
+}
+
+.back:hover{
+background:#3b4346;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+⚙️ HUNT 설정
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>🌐 언어</h2>
+
+<div class="option">
+<span>언어 선택</span>
+
+<select>
+<option>한국어</option>
+<option>English</option>
+</select>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>🌙 화면</h2>
+
+<div class="option">
+<span>다크 모드</span>
+<button>ON</button>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>🔔 알림</h2>
+
+<div class="option">
+<span>업데이트 알림</span>
+<button>ON</button>
+</div>
+
+<div class="option">
+<span>이벤트 알림</span>
+<button>ON</button>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>🎵 사운드</h2>
+
+<div class="option">
+<span>배경음</span>
+<button>ON</button>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>ℹ️ 정보</h2>
+
+<div class="option">
+<span>버전</span>
+<span>v1.0.0</span>
+</div>
+
+<div class="option">
+<span>개발사</span>
+<span>HUNT Studio</span>
+</div>
+
+</div>
+
+<a href="index.html" class="back">
+🏠 홈으로 돌아가기
+</a>
+
+</div>
+
+</body>
+</html>
