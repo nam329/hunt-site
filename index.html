@@ -517,7 +517,12 @@ HUNT에 오신 것을 환영합니다
 
 <button>CODE</button>
 
-
+<a href="https://discord.gg/KUzNHe9UGP" target="_blank">
+<button class="discord-btn">
+💬 디스코드 들어가기
+</button>
+</a>
+  
 </section>
 
 
@@ -919,38 +924,6 @@ timer(updateDate);
 
 </script>
 
-<!-- CODE 입력 영역 -->
-
-<section id="code-section" class="code-area">
-
-
-<h2>
-🎁 CODE
-</h2>
-
-
-<p>
-보상 코드를 입력하세요
-</p>
-
-
-<input 
-id="codeInput"
-placeholder="코드 입력">
-
-
-<button onclick="checkCode()">
-확인
-</button>
-
-
-<p id="codeResult">
-
-</p>
-
-
-</section>
-
 
 
 
@@ -1024,167 +997,12 @@ color:#00ff66;
 
 
 
-<script>
-
-
-function checkCode(){
-
-
-let code =
-
-document.getElementById("codeInput")
-.value;
-
-
-
-let result =
-
-document.getElementById("codeResult");
-
-
-
-if(code=="HUNT2026"){
-
-
-result.innerHTML=
-"🎉 보상을 획득했습니다!";
-
-
-}
-
-
-else{
-
-
-result.innerHTML=
-"❌ 존재하지 않는 코드입니다.";
-
-
-}
-
-
-
-}
 
 
 
 </script>
 
-<!-- 파트5 : 메뉴 내용 영역 -->
-
-
-<section id="shop" class="info-section">
-
-<h2>🛒 상점</h2>
-
-<p>
-아이템과 다양한 상품을 확인하세요.
-</p>
-
-</section>
-
-
-
-<section id="weapon" class="info-section">
-
-<h2>⚔️ 무기</h2>
-
-<p>
-사냥에 사용하는 다양한 장비 정보
-</p>
-
-</section>
-
-
-
-
-<section id="npc" class="info-section">
-
-<h2>🧑 NPC</h2>
-
-<p>
-마을과 지역의 NPC 정보를 확인하세요.
-</p>
-
-</section>
-
-
-
-
-<section id="map" class="info-section">
-
-<h2>🗺️ 맵</h2>
-
-<p>
-다양한 지역을 탐험하세요.
-</p>
-
-</section>
-
-
-
-
-<section id="weather" class="info-section">
-
-<h2>🌦️ 날씨</h2>
-
-<p>
-지역마다 변화하는 날씨 시스템
-</p>
-
-</section>
-
-
-
-
-<section id="animal" class="info-section">
-
-<h2>🐾 동물</h2>
-
-<p>
-발견할 수 있는 다양한 생물
-</p>
-
-</section>
-
-
-
-
-<section id="item" class="info-section">
-
-<h2>💎 아이템</h2>
-
-<p>
-획득 가능한 다양한 아이템
-</p>
-
-</section>
-
-
-
-
-<section id="news" class="info-section">
-
-<h2>📰 소식</h2>
-
-<p>
-HUNT의 최신 소식
-</p>
-
-</section>
-
-
-
-
-<section id="update" class="info-section">
-
-<h2>🔄 업데이트</h2>
-
-<p>
-새로운 업데이트 정보를 확인하세요.
-</p>
-
-</section>
+<!-- 파트5 : 메뉴 내용 영역 
 
 
 
