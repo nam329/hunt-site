@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>HUNT</title>
+<title>HUNT 공식 위키</title>
+
 
 <style>
 
@@ -13,11 +15,12 @@ body{
     margin:0;
     background:#0b0b0b;
     color:white;
-    font-family:Arial,sans-serif;
+    font-family:Arial, sans-serif;
 }
 
 
-/* 상단 */
+/* 상단바 */
+
 .topbar{
     height:70px;
     background:#111;
@@ -26,68 +29,52 @@ body{
     padding:0 20px;
     position:sticky;
     top:0;
+    z-index:10;
 }
+
+
+/* 로고 */
 
 .logo a{
     color:white;
     text-decoration:none;
-    font-size:35px;
+    font-size:36px;
     font-weight:900;
     letter-spacing:5px;
 }
 
 
-/* 메인 */
-.hero{
-    height:500px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
+/* 햄버거 */
 
-.hero h1{
-    font-size:60px;
-}
-
-.play{
-    background:#00ff66;
-    color:black;
-    padding:18px 50px;
-    border-radius:15px;
-    font-size:25px;
-    font-weight:bold;
-    text-decoration:none;
-}
-
-
-/* 버튼 영역 */
-.menu-section{
-    padding:40px 20px;
-    text-align:center;
-}
-
-.menu-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:20px;
-}
-
-.menu{
-    background:#181818;
-    padding:25px;
-    border-radius:15px;
-    text-decoration:none;
+.hamburger{
+    background:none;
+    border:0;
     color:white;
-    font-size:20px;
+    font-size:30px;
+    cursor:pointer;
+    margin-right:15px;
 }
 
 
-/* 공통 파트 */
-.part{
+/* 언어 버튼 */
+
+.lang-btn{
+    margin-left:auto;
+    background:#222;
+    color:white;
+    border:0;
+    padding:10px 15px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+
+/* 공통 영역 */
+
+.section{
     padding:40px 20px;
 }
+
 
 .title{
     font-size:35px;
@@ -95,20 +82,54 @@ body{
 }
 
 
-/* 업데이트 */
-.update{
-    background:#151515;
-    padding:25px;
-    border-radius:15px;
+/* 게임 사진 */
+
+.game-image{
+    width:100%;
+    height:400px;
+    background:#222;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
 }
 
 
-/* 이벤트 */
-.event{
-    background:#151515;
+/* 카드 */
+
+.card{
+    background:#171717;
     padding:25px;
     border-radius:15px;
     border:1px solid #333;
+}
+
+
+/* 버튼 */
+
+.button-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:15px;
+}
+
+
+.menu-button{
+    background:#171717;
+    color:white;
+    text-decoration:none;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    font-size:18px;
+    transition:0.3s;
+}
+
+
+.menu-button:hover{
+    background:#00ff66;
+    color:black;
+    transform:translateY(-5px);
 }
 
 
@@ -117,137 +138,247 @@ body{
 </head>
 
 
-<body>
-
+<body><!-- 상단바 -->
 
 <div class="topbar">
 
-<div class="logo">
-<a href="index.html">HUNT</a>
-</div>
+    <button class="hamburger" onclick="openMenu()">
+        ☰
+    </button>
+
+
+    <div class="logo">
+        <a href="index.html">
+            HUNT
+        </a>
+    </div>
+
+
+    <button class="lang-btn">
+        🌐 한국어
+    </button>
 
 </div>
 
 
 
-<section class="hero">
+<!-- 햄버거 메뉴 -->
 
-<h1>HUNT</h1>
+<div id="sideMenu" class="side-menu">
 
-<p>Explore. Hunt. Discover.</p>
+<a href="index.html">🏠 홈</a>
+<a href="items.html">🎒 아이템</a>
+<a href="#">🔫 무기</a>
+<a href="#">🛒 상점</a>
+<a href="#">🧑 NPC</a>
+<a href="#">🌦️ 날씨</a>
+<a href="#">🗺️ 맵</a>
+<a href="#">🐾 동물</a>
+<a href="#">🎉 이벤트</a>
+<a href="#">🔥 업데이트</a>
+<a href="#">📰 소식</a>
+<a href="#">⚙️ 설정</a>
 
-<a class="play" href="#">PLAY</a>
+</div>
+
+
+
+<!-- 게임 사진 -->
+
+<section class="game-image">
+
+    HUNT GAME IMAGE
 
 </section>
 
 
 
 
-<!-- 아래로 내리면 나오는 버튼 -->
+<!-- 환영 메시지 -->
 
-<section class="menu-section">
+<section class="section">
 
-<h2 class="title">MENU</h2>
+<div class="card">
+
+<h1>
+헌트 공식 위키에 오신 것을 환영합니다
+</h1>
 
 
-<div class="menu-grid">
+<p>
+HUNT의 모든 정보와 최신 소식을 확인하세요.
+</p>
 
-<a class="menu" href="items.html">
+
+</div>
+
+</section><!-- 게임 정보 -->
+
+<section class="section">
+
+<h2 class="title">
+🎮 게임 정보
+</h2>
+
+
+<div class="card">
+
+<h3>
+HUNT
+</h3>
+
+<p>
+HUNT는 다양한 지역을 탐험하고,
+새로운 생물과 아이템을 발견하는
+탐험형 게임입니다.
+</p>
+
+<p>
+탐험, 수집, 발견을 통해
+나만의 기록을 만들어보세요.
+</p>
+
+
+</div>
+
+</section>
+
+
+
+
+<!-- 메뉴 버튼 -->
+
+<section class="section">
+
+<h2 class="title">
+📌 메뉴
+</h2>
+
+
+<div class="button-grid">
+
+
+<a class="menu-button" href="items.html">
 🎒 아이템
 </a>
 
 
-<a class="menu" href="#">
+<a class="menu-button" href="#">
+🔫 무기
+</a>
+
+
+<a class="menu-button" href="#">
+🛒 상점
+</a>
+
+
+<a class="menu-button" href="#">
+🧑 NPC
+</a>
+
+
+<a class="menu-button" href="#">
+🌦️ 날씨
+</a>
+
+
+<a class="menu-button" href="#">
 🗺️ 맵
 </a>
 
 
-<a class="menu" href="#">
-🐾 펫
+<a class="menu-button" href="#">
+🐾 동물
 </a>
 
 
-<a class="menu" href="#">
-🏆 랭킹
+<a class="menu-button" href="#">
+🎉 이벤트
 </a>
 
 
-<a class="menu" href="#">
+<a class="menu-button" href="#">
+🔥 업데이트
+</a>
+
+
+<a class="menu-button" href="#">
 📰 소식
+</a>
+
+
+<a class="menu-button" href="#">
+⚙️ 설정
 </a>
 
 
 </div>
 
-</section>
+</section><!-- 최신 업데이트 -->
 
-
-
-
-
-<!-- 최신 업데이트 -->
-
-<section class="part">
+<section class="section">
 
 <h2 class="title">
 🔥 최신 업데이트
 </h2>
 
+<div class="card">
 
-<div class="update">
-
-<h3>
-UPDATE 1.0.1
-</h3>
+<h3>Version 1.0.1</h3>
 
 <p>
-새로운 지역 추가<br>
-새로운 아이템 추가<br>
-게임 최적화 개선
+✅ 새로운 섬 추가<br>
+✅ 신규 아이템 추가
+</p>
+
+<hr style="border:1px solid #333; margin:20px 0;">
+
+<h3>Version 1.0.0</h3>
+
+<p>
+✅ HUNT 정식 출시<br>
+✅ 기본 탐험 시스템 추가
 </p>
 
 </div>
-
 
 </section>
 
 
 
 
+<!-- 다음 업데이트 카운트다운 -->
 
-<!-- 이벤트 -->
-
-<section class="part">
-
+<section class="section">
 
 <h2 class="title">
-🎉 이벤트
+⏳ 다음 업데이트
 </h2>
 
-
-<div class="event">
+<div class="card">
 
 <h3>
-현재 진행중 이벤트
+다음 업데이트까지
 </h3>
 
+<div id="countdown"
+style="
+font-size:40px;
+font-weight:bold;
+margin-top:20px;
+text-align:center;
+color:#00ff66;
+">
 
-<p>
-🌟 신규 탐험 이벤트<br><br>
-
-기간 : 2026.07.20 ~ 2026.08.10<br><br>
-
-특별 보상과 희귀 아이템 획득 가능!
-</p>
-
+00일 00시간 00분 00초
 
 </div>
 
+<p style="text-align:center; color:#aaa;">
+예정일 : 2026-08-20 18:00
+</p>
+
+</div>
 
 </section>
-
-
-
-
-</body>
-</html>
