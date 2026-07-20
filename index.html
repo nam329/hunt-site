@@ -1,384 +1,3083 @@
+
+
+
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>HUNT 공식 위키</title>
-
+<title>HUNT 공식 사이트</title>
 
 <style>
 
-body{
+*{
     margin:0;
-    background:#0b0b0b;
-    color:white;
-    font-family:Arial, sans-serif;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
-
-/* 상단바 */
-
-.topbar{
-    height:70px;
+body{
     background:#111;
-    display:flex;
-    align-items:center;
-    padding:0 20px;
+    color:white;
+}
+
+header{
     position:sticky;
     top:0;
-    z-index:10;
-}
-
-
-/* 로고 */
-
-.logo a{
-    color:white;
-    text-decoration:none;
-    font-size:36px;
-    font-weight:900;
-    letter-spacing:5px;
-}
-
-
-/* 햄버거 */
-
-.hamburger{
-    background:none;
-    border:0;
-    color:white;
-    font-size:30px;
-    cursor:pointer;
-    margin-right:15px;
-}
-
-
-/* 언어 버튼 */
-
-.lang-btn{
-    margin-left:auto;
-    background:#222;
-    color:white;
-    border:0;
-    padding:10px 15px;
-    border-radius:10px;
-    cursor:pointer;
-}
-
-
-/* 공통 영역 */
-
-.section{
-    padding:40px 20px;
-}
-
-
-.title{
-    font-size:35px;
-    margin-bottom:20px;
-}
-
-
-/* 게임 사진 */
-
-.game-image{
-    width:100%;
-    height:400px;
-    background:#222;
+    background:#1b1b1b;
     display:flex;
+    justify-content:space-between;
     align-items:center;
-    justify-content:center;
-    font-size:30px;
+    padding:15px 20px;
+    border-bottom:1px solid #333;
 }
 
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#00ff66;
+}
 
-/* 카드 */
+.menu,.lang{
+    font-size:28px;
+    cursor:pointer;
+}
+
+section{
+    width:90%;
+    max-width:900px;
+    margin:auto;
+    margin-top:30px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+p{
+    text-align:center;
+    color:#ccc;
+}
+
+.buttons{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-top:30px;
+}
+
+.buttons button{
+    padding:18px;
+    background:#222;
+    color:white;
+    border:none;
+    border-radius:15px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.buttons button:hover{
+    background:#00aa55;
+}
 
 .card{
-    background:#171717;
-    padding:25px;
-    border-radius:15px;
-    border:1px solid #333;
+    background:#222;
+    border-radius:18px;
+    overflow:hidden;
+    margin-top:20px;
 }
 
-
-/* 버튼 */
-
-.button-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:15px;
+.image{
+    height:170px;
+    background:#444;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#aaa;
 }
 
-
-.menu-button{
-    background:#171717;
-    color:white;
-    text-decoration:none;
+.content{
     padding:20px;
-    border-radius:15px;
-    text-align:center;
-    font-size:18px;
-    transition:0.3s;
 }
 
-
-.menu-button:hover{
-    background:#00ff66;
+.tag{
+    float:right;
+    background:gold;
     color:black;
-    transform:translateY(-5px);
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:bold;
 }
 
+.tag.blue{
+    background:#2196F3;
+    color:white;
+}
+
+.countdown{
+    background:#222;
+    border-radius:18px;
+    padding:25px;
+    margin-top:20px;
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+}
 
 </style>
 
 </head>
 
+<body>
 
-<body><!-- 상단바 -->
+<header>
 
-<div class="topbar">
+<div class="menu">☰</div>
 
-    <button class="hamburger" onclick="openMenu()">
-        ☰
-    </button>
+<div class="logo">HUNT</div>
 
+<div class="lang">🌐</div>
 
-    <div class="logo">
-        <a href="index.html">
-            HUNT
-        </a>
-    </div>
+</header>
 
+<section>
 
-    <button class="lang-btn">
-        🌐 한국어
-    </button>
+<h1>🎯 HUNT 공식 사이트에 오신 것을 환영합니다.</h1>
 
-</div>
-
-
-
-<!-- 햄버거 메뉴 -->
-
-<div id="sideMenu" class="side-menu">
-
-<a href="index.html">🏠 홈</a>
-<a href="items.html">🎒 아이템</a>
-<a href="#">🔫 무기</a>
-<a href="#">🛒 상점</a>
-<a href="#">🧑 NPC</a>
-<a href="#">🌦️ 날씨</a>
-<a href="#">🗺️ 맵</a>
-<a href="#">🐾 동물</a>
-<a href="#">🎉 이벤트</a>
-<a href="#">🔥 업데이트</a>
-<a href="#">📰 소식</a>
-<a href="#">⚙️ 설정</a>
-
-</div>
-
-
-
-<!-- 게임 사진 -->
-
-<section class="game-image">
-
-    HUNT GAME IMAGE
+<p>HUNT의 최신 소식과 업데이트를 가장 먼저 만나보세요.</p>
 
 </section>
 
+<section>
 
+<h2>🎮 게임 소개</h2>
 
-
-<!-- 환영 메시지 -->
-
-<section class="section">
-
-<div class="card">
-
-<h1>
-헌트 공식 위키에 오신 것을 환영합니다
-</h1>
-
-
-<p>
-HUNT의 모든 정보와 최신 소식을 확인하세요.
+<p style="margin-top:10px;">
+신비로운 세계를 탐험하고 몬스터를 사냥하며
+희귀한 아이템을 획득하세요.
 </p>
 
+<div class="buttons">
 
-</div>
+<button>🎒 아이템</button>
+<button>🔫 무기</button>
 
-</section><!-- 게임 정보 -->
+<button>🛒 상점</button>
+<button>🧑 NPC</button>
 
-<section class="section">
+<button>🌦️ 날씨</button>
+<button>🗺️ 맵</button>
 
-<h2 class="title">
-🎮 게임 정보
-</h2>
+<button>🐾 동물</button>
+<button>🎉 이벤트</button>
 
-
-<div class="card">
-
-<h3>
-HUNT
-</h3>
-
-<p>
-HUNT는 다양한 지역을 탐험하고,
-새로운 생물과 아이템을 발견하는
-탐험형 게임입니다.
-</p>
-
-<p>
-탐험, 수집, 발견을 통해
-나만의 기록을 만들어보세요.
-</p>
-
+<button>🔥 업데이트</button>
+<button>📰 소식</button>
 
 </div>
 
 </section>
 
+<section>
 
-
-
-<!-- 메뉴 버튼 -->
-
-<section class="section">
-
-<h2 class="title">
-📌 메뉴
-</h2>
-
-
-<div class="button-grid">
-
-
-<a class="menu-button" href="items.html">
-🎒 아이템
-</a>
-
-
-<a class="menu-button" href="#">
-🔫 무기
-</a>
-
-
-<a class="menu-button" href="#">
-🛒 상점
-</a>
-
-
-<a class="menu-button" href="#">
-🧑 NPC
-</a>
-
-
-<a class="menu-button" href="#">
-🌦️ 날씨
-</a>
-
-
-<a class="menu-button" href="#">
-🗺️ 맵
-</a>
-
-
-<a class="menu-button" href="#">
-🐾 동물
-</a>
-
-
-<a class="menu-button" href="#">
-🎉 이벤트
-</a>
-
-
-<a class="menu-button" href="#">
-🔥 업데이트
-</a>
-
-
-<a class="menu-button" href="#">
-📰 소식
-</a>
-
-
-<a class="menu-button" href="#">
-⚙️ 설정
-</a>
-
-
-</div>
-
-</section><!-- 최신 업데이트 -->
-
-<section class="section">
-
-<h2 class="title">
-🔥 최신 업데이트
-</h2>
+<h2>📢 최근 업데이트</h2>
 
 <div class="card">
 
-<h3>Version 1.0.1</h3>
+<div class="image">
+업데이트 이미지
+</div>
 
-<p>
-✅ 새로운 섬 추가<br>
-✅ 신규 아이템 추가
+<div class="content">
+
+<h3>업데이트 제목</h3>
+
+<p style="text-align:left;margin-top:10px;">
+업데이트 내용을 작성하세요.
 </p>
 
-<hr style="border:1px solid #333; margin:20px 0;">
+</div>
 
-<h3>Version 1.0.0</h3>
+</div>
 
-<p>
-✅ HUNT 정식 출시<br>
-✅ 기본 탐험 시스템 추가
+<div class="card">
+
+<div class="image">
+업데이트 이미지
+</div>
+
+<div class="content">
+
+<h3>업데이트 제목</h3>
+
+<p style="text-align:left;margin-top:10px;">
+업데이트 내용을 작성하세요.
 </p>
+
+</div>
 
 </div>
 
 </section>
 
-
-
-
-<!-- 다음 업데이트 카운트다운 -->
-
-<section class="section">
-
-<h2 class="title">
-⏳ 다음 업데이트
-</h2>
+<section>
 
 <div class="card">
 
-<h3>
-다음 업데이트까지
-</h3>
+<div class="content">
 
-<div id="countdown"
-style="
-font-size:40px;
-font-weight:bold;
-margin-top:20px;
-text-align:center;
-color:#00ff66;
-">
+<div class="tag">
+⭐ 추천
+</div>
+
+</div>
+
+<div class="image">
+추천 이미지
+</div>
+
+<div class="content">
+
+<h3>추천 제목</h3>
+
+<p style="text-align:left;margin-top:10px;">
+추천 내용을 작성하세요.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="card">
+
+<div class="content">
+
+<div class="tag blue">
+🔵 이벤트
+</div>
+
+</div>
+
+<div class="image">
+이벤트 이미지
+</div>
+
+<div class="content">
+
+<h3>이벤트 제목</h3>
+
+<p style="text-align:left;margin-top:10px;">
+이벤트 내용을 작성하세요.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="countdown">
+
+🎉 이벤트 종료까지
+
+<br><br>
 
 00일 00시간 00분 00초
 
 </div>
 
-<p style="text-align:center; color:#aaa;">
-예정일 : 2026-08-20 18:00
-</p>
+<div class="countdown">
+
+⏳ 다음 업데이트까지
+
+<br><br>
+
+00일 00시간 00분 00초
 
 </div>
 
 </section>
+
+</body>
+</html>
+<!-- ===========================
+     PART 2 (1/2) - 햄버거 메뉴
+=========================== -->
+
+<style>
+
+/* 햄버거 버튼 */
+.menu{
+    font-size:30px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.menu:hover{
+    color:#00ff66;
+}
+
+/* 언어 버튼 */
+.lang{
+    font-size:26px;
+    cursor:pointer;
+}
+
+/* 사이드 메뉴 */
+
+.sidebar{
+
+    position:fixed;
+
+    top:0;
+
+    left:-300px;
+
+    width:300px;
+
+    height:100%;
+
+    background:#171717;
+
+    transition:.35s;
+
+    z-index:9999;
+
+    overflow-y:auto;
+
+    box-shadow:4px 0 20px rgba(0,0,0,.6);
+
+}
+
+/* 메뉴 열림 */
+
+.sidebar.active{
+
+    left:0;
+
+}
+
+/* 메뉴 제목 */
+
+.sidebar h2{
+
+    padding:25px;
+
+    color:#00ff66;
+
+    border-bottom:1px solid #333;
+
+    font-size:30px;
+
+}
+
+/* 메뉴 */
+
+.sidebar a{
+
+    display:block;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:18px 25px;
+
+    font-size:19px;
+
+    transition:.25s;
+
+}
+
+.sidebar a:hover{
+
+    background:#222;
+
+    padding-left:35px;
+
+    color:#00ff66;
+
+}
+
+/* 닫기 */
+
+.closeBtn{
+
+    position:absolute;
+
+    top:15px;
+
+    right:20px;
+
+    font-size:35px;
+
+    cursor:pointer;
+
+}
+
+/* 배경 */
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.6);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:9000;
+
+}
+
+.overlay.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+</style>
+
+<!-- 메뉴 -->
+
+<div id="overlay" class="overlay"
+onclick="closeMenu()"></div>
+
+<div id="sidebar" class="sidebar">
+
+<span class="closeBtn"
+onclick="closeMenu()">✕</span>
+
+<h2>HUNT</h2>
+
+<a href="#">🏠 홈</a>
+
+<a href="#">🎮 게임 소개</a>
+
+<a href="#">🎒 아이템</a>
+
+<a href="#">🔫 무기</a>
+
+<a href="#">🛒 상점</a>
+
+<a href="#">🧑 NPC</a>
+
+<a href="#">🌦️ 날씨</a>
+
+<a href="#">🗺️ 맵</a>
+
+<a href="#">🐾 동물</a>
+
+<a href="#">🎉 이벤트</a>
+
+<a href="#">🔥 업데이트</a>
+
+<a href="#">📰 소식</a>
+
+<a href="#">⚙️ 설정</a>
+
+</div>
+
+<script>
+
+function openMenu(){
+
+document.getElementById("sidebar")
+.classList.add("active");
+
+document.getElementById("overlay")
+.classList.add("active");
+
+}
+
+function closeMenu(){
+
+document.getElementById("sidebar")
+.classList.remove("active");
+
+document.getElementById("overlay")
+.classList.remove("active");
+
+}
+
+</script><script>
+
+// ☰ 버튼 연결
+document.addEventListener("DOMContentLoaded",function(){
+
+    const menuBtn=document.querySelector(".menu");
+
+    if(menuBtn){
+        menuBtn.onclick=openMenu;
+    }
+
+});
+
+
+// ESC 키로 닫기
+document.addEventListener("keydown",function(e){
+
+    if(e.key==="Escape"){
+
+        closeMenu();
+
+    }
+
+});
+
+
+// 메뉴 링크 클릭 시 닫기
+document.querySelectorAll(".sidebar a").forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        closeMenu();
+
+    });
+
+});
+
+
+// 화면 크기 변경
+window.addEventListener("resize",()=>{
+
+    if(window.innerWidth>900){
+
+        closeMenu();
+
+    }
+
+});
+
+</script>
+
+<style>
+
+/* 스크롤바 */
+
+.sidebar::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+
+    background:#444;
+
+    border-radius:20px;
+
+}
+
+.sidebar::-webkit-scrollbar-track{
+
+    background:#1b1b1b;
+
+}
+
+
+/* 모바일 */
+
+@media(max-width:700px){
+
+.sidebar{
+
+    width:260px;
+
+    left:-260px;
+
+}
+
+.sidebar.active{
+
+    left:0;
+
+}
+
+.sidebar a{
+
+    font-size:17px;
+
+    padding:16px 20px;
+
+}
+
+.sidebar h2{
+
+    font-size:26px;
+
+}
+
+.menu{
+
+    font-size:26px;
+
+}
+
+.logo{
+
+    font-size:24px;
+
+}
+
+.lang{
+
+    font-size:22px;
+
+}
+
+}
+
+</style>
+
+<!-- HUNT 메인 배너 -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>HUNT</h1>
+
+        <p>
+            최고의 사냥 모험이 시작됩니다
+        </p>
+
+        <a href="play.html" class="play-btn">
+            ▶ 지금 플레이
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- 다음 업데이트 -->
+
+<section class="update-section">
+
+    <h2>
+        ⏳ 다음 업데이트
+    </h2>
+
+
+    <div class="update-card">
+
+        <h3>
+            다음 업데이트까지
+        </h3>
+
+
+        <div id="countdown">
+            00일 00시간 00분 00초
+        </div>
+
+
+        <p>
+            새로운 지역 · 몬스터 · 펫 업데이트 예정
+        </p>
+
+
+    </div>
+
+</section>
+
+
+
+<style>
+
+/* 메인 */
+
+.hero{
+
+height:520px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+
+background:
+
+linear-gradient(
+rgba(0,0,0,0.5),
+rgba(0,0,0,0.85)
+),
+
+url("hunt-bg.jpg");
+
+
+background-size:cover;
+
+background-position:center;
+
+}
+
+
+
+.hero h1{
+
+font-size:90px;
+
+color:white;
+
+letter-spacing:12px;
+
+margin:0;
+
+}
+
+
+
+.hero p{
+
+font-size:24px;
+
+color:#ddd;
+
+margin-top:15px;
+
+}
+
+
+
+.play-btn{
+
+display:inline-block;
+
+margin-top:35px;
+
+padding:15px 55px;
+
+
+background:#00ff66;
+
+color:#000;
+
+
+font-size:22px;
+
+font-weight:bold;
+
+
+border-radius:15px;
+
+text-decoration:none;
+
+
+transition:.3s;
+
+}
+
+
+
+.play-btn:hover{
+
+transform:scale(1.08);
+
+}
+
+
+
+/* 업데이트 */
+
+
+.update-section{
+
+padding:50px 20px;
+
+}
+
+
+
+.update-section h2{
+
+font-size:38px;
+
+}
+
+
+
+.update-card{
+
+max-width:700px;
+
+margin:auto;
+
+
+background:#111;
+
+border:1px solid #333;
+
+
+border-radius:20px;
+
+
+padding:35px;
+
+text-align:center;
+
+}
+
+
+
+.update-card h3{
+
+font-size:25px;
+
+}
+
+
+
+#countdown{
+
+font-size:40px;
+
+font-weight:bold;
+
+color:#00ff66;
+
+margin:25px 0;
+
+}
+
+
+
+</style>
+
+
+
+<script>
+
+
+// 업데이트 날짜 설정
+
+let updateTime =
+new Date("2026-08-01 00:00:00").getTime();
+
+
+
+setInterval(()=>{
+
+
+let now =
+new Date().getTime();
+
+
+
+let distance =
+updateTime-now;
+
+
+
+let day =
+Math.floor(
+distance /
+(1000*60*60*24)
+);
+
+
+
+let hour =
+Math.floor(
+(distance %
+(1000*60*60*24))
+/
+(1000*60*60)
+);
+
+
+
+let minute =
+Math.floor(
+(distance %
+(1000*60*60))
+/
+(1000*60)
+);
+
+
+
+let second =
+Math.floor(
+(distance %
+(1000*60))
+/1000
+);
+
+
+
+document.getElementById("countdown").innerHTML =
+
+day+"일 "
++hour+"시간 "
++minute+"분 "
++second+"초";
+
+
+
+},1000);
+
+
+</script>
+
+<!-- =========================
+     상점 검색
+========================= -->
+
+<section class="shop">
+
+<h2>🛒 HUNT 상점</h2>
+
+
+<input 
+id="shopSearch"
+type="text"
+placeholder="아이템 검색..."
+onkeyup="searchItem()">
+
+
+<div class="items">
+
+
+<div class="item-card">
+<h3>🌟 크리스탈 펫</h3>
+<p>희귀도 : 전설</p>
+</div>
+
+
+<div class="item-card">
+<h3>🐺 늑대 펫</h3>
+<p>희귀도 : 희귀</p>
+</div>
+
+
+<div class="item-card">
+<h3>💎 크리스탈 광석</h3>
+<p>희귀도 : 신화</p>
+</div>
+
+
+<div class="item-card">
+<h3>🌲 숲의 보물</h3>
+<p>희귀도 : 일반</p>
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+<!-- =========================
+     소식
+========================= -->
+
+
+<section class="news">
+
+
+<h2>
+📰 HUNT 소식
+</h2>
+
+
+<div class="news-card">
+
+<h3>
+업데이트 안내
+</h3>
+
+<p>
+새로운 지역과 펫이 추가됩니다.
+</p>
+
+</div>
+
+
+
+<div class="news-card">
+
+<h3>
+이벤트 시작
+</h3>
+
+<p>
+기간 한정 보상을 획득하세요.
+</p>
+
+</div>
+
+
+
+</section>
+
+
+
+
+<!-- =========================
+     설정
+========================= -->
+
+
+<section class="settings">
+
+
+<h2>
+⚙️ 설정
+</h2>
+
+
+<div class="setting-box">
+
+
+<h3>
+언어 선택
+</h3>
+
+
+<button onclick="changeLanguage('ko')">
+한국어
+</button>
+
+
+<button onclick="changeLanguage('en')">
+English
+</button>
+
+
+<p id="languageText">
+현재 언어 : 한국어
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+<style>
+
+
+section{
+
+padding:40px 20px;
+
+}
+
+
+h2{
+
+font-size:35px;
+
+}
+
+
+
+input{
+
+width:90%;
+
+max-width:500px;
+
+padding:15px;
+
+font-size:18px;
+
+border-radius:10px;
+
+border:none;
+
+margin-bottom:25px;
+
+}
+
+
+
+.items{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+}
+
+
+
+.item-card,
+.news-card,
+.setting-box{
+
+
+background:#111;
+
+border:1px solid #333;
+
+border-radius:18px;
+
+padding:25px;
+
+
+}
+
+
+
+.item-card:hover{
+
+transform:translateY(-5px);
+
+}
+
+
+
+button{
+
+
+padding:12px 25px;
+
+margin:5px;
+
+border-radius:10px;
+
+border:none;
+
+background:#00ff66;
+
+font-weight:bold;
+
+cursor:pointer;
+
+
+}
+
+
+
+</style>
+
+
+
+
+
+<script>
+
+
+// 상점 검색 기능
+
+
+function searchItem(){
+
+
+let input =
+document.getElementById("shopSearch")
+.value
+.toLowerCase();
+
+
+
+let items =
+document.getElementsByClassName("item-card");
+
+
+
+for(let i=0;i<items.length;i++){
+
+
+let name =
+items[i]
+.innerText
+.toLowerCase();
+
+
+
+if(name.includes(input)){
+
+
+items[i].style.display="block";
+
+
+}
+
+else{
+
+
+items[i].style.display="none";
+
+
+}
+
+
+}
+
+
+}
+
+
+
+
+// 언어 변경
+
+
+function changeLanguage(lang){
+
+
+let text =
+document.getElementById("languageText");
+
+
+
+if(lang=="ko"){
+
+
+text.innerHTML=
+"현재 언어 : 한국어";
+
+
+}
+
+
+
+if(lang=="en"){
+
+
+text.innerHTML=
+"Current Language : English";
+
+
+}
+
+
+
+}
+
+
+</script>
+<!-- 상단 메뉴 -->
+
+<div class="topbar">
+
+<span class="menu-btn" onclick="openMenu()">
+☰
+</span>
+
+
+<div class="logo">
+<a href="index.html">
+HUNT
+</a>
+</div>
+
+
+</div>
+
+
+
+<!-- 사이드 메뉴 -->
+
+<div id="sidebar" class="sidebar">
+
+
+<a href="index.html">
+🏠 홈
+</a>
+
+
+<a href="shop.html">
+🛒 상점
+</a>
+
+
+<a href="news.html">
+📰 소식
+</a>
+
+
+<a href="settings.html">
+⚙️ 설정
+</a>
+
+
+<a href="play.html">
+▶ 플레이
+</a>
+
+
+</div>
+
+
+
+<!-- 어두운 배경 -->
+
+<div id="overlay" onclick="closeMenu()"></div>
+
+
+
+
+<style>
+
+
+.topbar{
+
+
+height:70px;
+
+background:#111;
+
+display:flex;
+
+align-items:center;
+
+
+padding:0 20px;
+
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+
+z-index:1000;
+
+
+}
+
+
+
+.menu-btn{
+
+
+font-size:35px;
+
+cursor:pointer;
+
+color:white;
+
+
+}
+
+
+
+.logo{
+
+
+margin:auto;
+
+}
+
+
+
+.logo a{
+
+
+font-size:35px;
+
+font-weight:bold;
+
+color:#00ff66;
+
+text-decoration:none;
+
+
+}
+
+
+
+
+
+.sidebar{
+
+
+position:fixed;
+
+
+top:0;
+
+left:-280px;
+
+
+width:250px;
+
+height:100%;
+
+
+background:#111;
+
+
+padding-top:90px;
+
+
+transition:.3s;
+
+
+z-index:2000;
+
+
+}
+
+
+
+
+.sidebar a{
+
+
+display:block;
+
+
+padding:20px;
+
+
+color:white;
+
+
+text-decoration:none;
+
+
+font-size:20px;
+
+
+}
+
+
+
+.sidebar a:hover{
+
+
+background:#00ff66;
+
+color:black;
+
+
+}
+
+
+
+
+
+#overlay{
+
+
+position:fixed;
+
+
+top:0;
+
+left:0;
+
+
+width:100%;
+
+height:100%;
+
+
+background:rgba(0,0,0,.6);
+
+
+display:none;
+
+
+z-index:1500;
+
+
+}
+
+
+
+</style>
+
+
+
+
+
+<script>
+
+
+function openMenu(){
+
+
+document.getElementById("sidebar")
+.style.left="0";
+
+
+document.getElementById("overlay")
+.style.display="block";
+
+
+}
+
+
+
+
+function closeMenu(){
+
+
+document.getElementById("sidebar")
+.style.left="-280px";
+
+
+document.getElementById("overlay")
+.style.display="none";
+
+
+}
+
+
+</script>
+<!-- =========================
+     HUNT 게임 정보
+========================= -->
+
+
+<section class="game-info">
+
+
+<h2>
+🌎 HUNT 게임 정보
+</h2>
+
+
+<p>
+다양한 지역을 탐험하고 몬스터를 사냥하며
+희귀한 자원을 발견하세요.
+</p>
+
+
+</section>
+
+
+
+
+<!-- =========================
+     지역 시스템
+========================= -->
+
+
+<section class="regions">
+
+
+<h2>
+🗺️ 지역
+</h2>
+
+
+
+<div class="region-list">
+
+
+<div class="region-card">
+
+<h3>
+🌲 시작섬
+</h3>
+
+<p>
+초보 사냥꾼이 모험을 시작하는 지역
+</p>
+
+</div>
+
+
+
+<div class="region-card">
+
+<h3>
+🌴 정글섬
+</h3>
+
+<p>
+위험한 몬스터와 희귀 자원이 존재
+</p>
+
+</div>
+
+
+
+<div class="region-card">
+
+<h3>
+💎 크리스탈 섬
+</h3>
+
+<p>
+특수 광물이 발견되는 신비한 지역
+</p>
+
+</div>
+
+
+
+<div class="region-card">
+
+<h3>
+🔥 화산섬
+</h3>
+
+<p>
+강력한 몬스터가 등장하는 고위험 지역
+</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- =========================
+     몬스터 정보
+========================= -->
+
+
+<section class="monster">
+
+
+<h2>
+👹 몬스터
+</h2>
+
+
+
+<div class="monster-card">
+
+
+<h3>
+숲의 거대 몬스터
+</h3>
+
+
+<p>
+난이도 : ★★★☆☆
+</p>
+
+
+<p>
+드랍 : 희귀 재료
+</p>
+
+
+</div>
+
+
+
+
+<div class="monster-card">
+
+
+<h3>
+화산 수호자
+</h3>
+
+
+<p>
+난이도 : ★★★★★
+</p>
+
+
+<p>
+드랍 : 전설 광석
+</p>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+<!-- =========================
+     희귀도 시스템
+========================= -->
+
+
+<section class="rarity">
+
+
+<h2>
+✨ 희귀도
+</h2>
+
+
+
+<div class="rarity-box">
+
+
+<p>
+⚪ 일반
+</p>
+
+
+<p>
+🔵 희귀
+</p>
+
+
+<p>
+🟣 에픽
+</p>
+
+
+<p>
+🟡 전설
+</p>
+
+
+<p>
+🔴 신화
+</p>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<style>
+
+
+section{
+
+padding:40px 20px;
+
+}
+
+
+
+h2{
+
+font-size:35px;
+
+}
+
+
+
+.region-list{
+
+
+display:grid;
+
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+
+gap:20px;
+
+
+}
+
+
+
+.region-card,
+.monster-card,
+.rarity-box{
+
+
+background:#111;
+
+
+border:1px solid #333;
+
+
+border-radius:20px;
+
+
+padding:25px;
+
+
+}
+
+
+
+.region-card:hover,
+.monster-card:hover{
+
+
+transform:translateY(-5px);
+
+
+}
+
+
+
+.rarity-box p{
+
+
+font-size:22px;
+
+
+padding:10px;
+
+
+}
+
+
+
+</style>
+<!-- =========================
+     플레이 페이지
+========================= -->
+
+
+<section class="play-page">
+
+
+<h2>
+▶ HUNT 플레이
+</h2>
+
+
+<div class="player-card">
+
+
+<h3>
+사냥꾼 정보
+</h3>
+
+
+<p>
+레벨 : <span id="level">1</span>
+</p>
+
+
+<p>
+경험치</p>
+
+
+<div class="xp-bar">
+
+<div id="xp">
+
+</div>
+
+</div>
+
+
+<p>
+<span id="xpText">
+0 / 100 XP
+</span>
+</p>
+
+
+
+<button onclick="getXP()">
+사냥하기
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- =========================
+     랭킹
+========================= -->
+
+
+<section class="ranking">
+
+
+<h2>
+🏆 랭킹
+</h2>
+
+
+
+<div class="rank-card">
+
+
+<p>
+🥇 1위  Hunter_Pro
+</p>
+
+
+<p>
+레벨 100
+</p>
+
+
+</div>
+
+
+
+<div class="rank-card">
+
+
+<p>
+🥈 2위  CrystalKing
+</p>
+
+
+<p>
+레벨 85
+</p>
+
+
+</div>
+
+
+
+<div class="rank-card">
+
+
+<p>
+🥉 3위  MonsterHunter
+</p>
+
+
+<p>
+레벨 70
+</p>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<style>
+
+
+section{
+
+padding:40px 20px;
+
+}
+
+
+
+h2{
+
+font-size:35px;
+
+}
+
+
+
+.player-card,
+.rank-card{
+
+
+background:#111;
+
+
+border:1px solid #333;
+
+
+border-radius:20px;
+
+
+padding:30px;
+
+
+max-width:600px;
+
+
+margin:20px auto;
+
+
+}
+
+
+
+.xp-bar{
+
+
+height:25px;
+
+
+background:#333;
+
+
+border-radius:20px;
+
+
+overflow:hidden;
+
+
+}
+
+
+
+#xp{
+
+
+height:100%;
+
+
+width:0%;
+
+
+background:#00ff66;
+
+
+transition:.3s;
+
+
+}
+
+
+
+button{
+
+
+padding:15px 40px;
+
+
+background:#00ff66;
+
+
+border:none;
+
+
+border-radius:12px;
+
+
+font-size:18px;
+
+
+font-weight:bold;
+
+
+cursor:pointer;
+
+
+}
+
+
+
+</style>
+
+
+
+
+
+
+<script>
+
+
+let level = 1;
+
+let xp = 0;
+
+let maxXP = 100;
+
+
+
+function getXP(){
+
+
+xp += 20;
+
+
+
+if(xp >= maxXP){
+
+
+level++;
+
+
+xp = xp-maxXP;
+
+
+maxXP += 50;
+
+
+}
+
+
+
+document.getElementById("level")
+.innerHTML = level;
+
+
+
+document.getElementById("xp")
+.style.width =
+(xp/maxXP*100)+"%";
+
+
+
+document.getElementById("xpText")
+.innerHTML =
+xp+" / "+maxXP+" XP";
+
+
+}
+
+
+</script>
+<style>
+
+/* =========================
+   전체 기본 디자인
+========================= */
+
+
+*{
+
+box-sizing:border-box;
+
+}
+
+
+body{
+
+margin:0;
+
+background:#050505;
+
+color:white;
+
+font-family:Arial, sans-serif;
+
+overflow-x:hidden;
+
+}
+
+
+
+/* 모든 제목 */
+
+h1,h2,h3{
+
+letter-spacing:1px;
+
+}
+
+
+
+/* =========================
+   카드 공통 효과
+========================= */
+
+
+.card,
+.item-card,
+.news-card,
+.region-card,
+.monster-card,
+.rank-card,
+.player-card,
+.update-card{
+
+
+transition:.3s;
+
+
+}
+
+
+
+.card:hover,
+.item-card:hover,
+.news-card:hover,
+.region-card:hover,
+.monster-card:hover,
+.rank-card:hover,
+.player-card:hover,
+.update-card:hover{
+
+
+transform:translateY(-8px);
+
+
+border-color:#00ff66;
+
+
+}
+
+
+
+
+
+/* =========================
+   버튼 효과
+========================= */
+
+
+button,
+.play-btn{
+
+
+cursor:pointer;
+
+transition:.3s;
+
+
+}
+
+
+
+button:hover,
+.play-btn:hover{
+
+
+box-shadow:
+
+0 0 20px #00ff66;
+
+
+}
+
+
+
+
+
+/* =========================
+   등장 애니메이션
+========================= */
+
+
+section{
+
+
+animation:
+
+fadeIn 0.8s ease;
+
+
+}
+
+
+
+@keyframes fadeIn{
+
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
+
+
+
+
+
+/* =========================
+   스크롤바 디자인
+========================= */
+
+
+::-webkit-scrollbar{
+
+
+width:10px;
+
+
+}
+
+
+
+::-webkit-scrollbar-track{
+
+
+background:#111;
+
+
+}
+
+
+
+::-webkit-scrollbar-thumb{
+
+
+background:#00ff66;
+
+border-radius:10px;
+
+
+}
+
+
+
+
+
+/* =========================
+   모바일 최적화
+========================= */
+
+
+@media(max-width:700px){
+
+
+
+.hero{
+
+height:400px;
+
+}
+
+
+
+.hero h1{
+
+
+font-size:55px;
+
+
+}
+
+
+
+.hero p{
+
+
+font-size:18px;
+
+
+}
+
+
+
+.play-btn{
+
+
+padding:13px 35px;
+
+font-size:18px;
+
+
+}
+
+
+
+h2{
+
+
+font-size:28px;
+
+
+}
+
+
+
+.card,
+.item-card,
+.news-card,
+.region-card,
+.monster-card,
+.rank-card{
+
+
+padding:20px;
+
+
+}
+
+
+
+#countdown{
+
+
+font-size:28px;
+
+
+}
+
+
+
+.sidebar{
+
+
+width:220px;
+
+
+}
+
+
+
+}
+
+
+
+
+
+/* =========================
+   PC 대형 화면
+========================= */
+
+
+@media(min-width:1200px){
+
+
+.items,
+.region-list{
+
+
+max-width:1200px;
+
+margin:auto;
+
+
+}
+
+
+}
+
+
+</style>
+
+
+
+
+
+<script>
+
+
+// 페이지 이동 부드럽게
+
+
+document.querySelectorAll("a")
+.forEach(link=>{
+
+
+link.addEventListener(
+"click",
+function(e){
+
+
+let href=this.getAttribute("href");
+
+
+if(href.startsWith("#")){
+
+
+e.preventDefault();
+
+
+document.querySelector(href)
+.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+
+}
+
+
+});
+
+
+});
+
+
+
+</script>
+<!-- =========================
+     파트8 : 홈페이지 하단 시스템
+========================= -->
+
+
+<footer class="footer">
+
+
+<h2>
+HUNT
+</h2>
+
+
+<p>
+최고의 사냥 모험을 즐겨보세요
+</p>
+
+
+<div class="footer-menu">
+
+
+<a href="index.html">
+홈
+</a>
+
+
+<a href="#">
+상점
+</a>
+
+
+<a href="#">
+소식
+</a>
+
+
+<a href="#">
+설정
+</a>
+
+
+</div>
+
+
+
+<p class="copyright">
+
+© 2026 HUNT. All Rights Reserved.
+
+</p>
+
+
+</footer>
+
+
+
+
+
+<style>
+
+
+.footer{
+
+
+margin-top:50px;
+
+
+padding:40px 20px;
+
+
+background:#111;
+
+
+text-align:center;
+
+
+border-top:1px solid #333;
+
+
+}
+
+
+
+.footer h2{
+
+
+font-size:40px;
+
+
+color:#00ff66;
+
+
+}
+
+
+
+.footer p{
+
+
+color:#aaa;
+
+
+}
+
+
+
+.footer-menu{
+
+
+display:flex;
+
+
+justify-content:center;
+
+
+gap:25px;
+
+
+margin:25px 0;
+
+
+}
+
+
+
+.footer-menu a{
+
+
+color:white;
+
+
+text-decoration:none;
+
+
+}
+
+
+
+.footer-menu a:hover{
+
+
+color:#00ff66;
+
+
+}
+
+
+
+.copyright{
+
+
+font-size:14px;
+
+
+}
+
+
+
+@media(max-width:700px){
+
+
+.footer-menu{
+
+
+flex-direction:column;
+
+
+gap:15px;
+
+
+}
+
+
+}
+
+
+</style>
+
+</body>
+
+<!-- =========================
+     파트9 : HUNT 소개 영역
+========================= -->
+
+
+<section class="features">
+
+
+<h2>
+🔥 HUNT 특징
+</h2>
+
+
+
+<div class="feature-list">
+
+
+<div class="feature-card">
+
+<h3>
+🌎 다양한 지역
+</h3>
+
+<p>
+각 지역마다 다른 환경과
+새로운 모험이 기다립니다.
+</p>
+
+</div>
+
+
+
+
+<div class="feature-card">
+
+<h3>
+👹 강력한 몬스터
+</h3>
+
+<p>
+위험한 몬스터를 사냥하고
+희귀한 보상을 획득하세요.
+</p>
+
+</div>
+
+
+
+
+<div class="feature-card">
+
+<h3>
+💎 희귀 자원
+</h3>
+
+<p>
+숨겨진 광물과 특별한 재료를
+발견할 수 있습니다.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<style>
+
+
+.features{
+
+
+padding:50px 20px;
+
+
+}
+
+
+
+.features h2{
+
+
+font-size:38px;
+
+
+}
+
+
+
+
+.feature-list{
+
+
+display:grid;
+
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+
+gap:20px;
+
+
+}
+
+
+
+
+
+.feature-card{
+
+
+background:#111;
+
+
+border:1px solid #333;
+
+
+border-radius:20px;
+
+
+padding:30px;
+
+
+transition:.3s;
+
+
+}
+
+
+
+
+
+.feature-card:hover{
+
+
+transform:translateY(-10px);
+
+
+border-color:#00ff66;
+
+
+box-shadow:
+
+0 0 20px rgba(0,255,102,.3);
+
+
+}
+
+
+
+
+.feature-card h3{
+
+
+font-size:25px;
+
+
+color:#00ff66;
+
+
+}
+
+
+
+
+.feature-card p{
+
+
+color:#ddd;
+
+
+line-height:1.6;
+
+
+}
+
+
+
+</style>
+
+</body>
+
+<!-- =========================
+     파트10 : HUNT 메인 소개
+========================= -->
+
+
+<section class="main-intro">
+
+
+<div class="intro-box">
+
+
+<h2>
+새로운 사냥의 시작
+</h2>
+
+
+<p>
+
+탐험하고, 발견하고, 성장하세요.<br>
+HUNT에서 최고의 사냥꾼이 되어보세요.
+
+</p>
+
+
+
+<a href="play.html" class="big-play">
+
+▶ 게임 시작
+
+</a>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<style>
+
+
+.main-intro{
+
+
+padding:80px 20px;
+
+
+background:
+
+linear-gradient(
+
+rgba(0,0,0,.7),
+
+rgba(0,0,0,.9)
+
+);
+
+
+text-align:center;
+
+
+}
+
+
+
+.intro-box h2{
+
+
+font-size:45px;
+
+
+color:#00ff66;
+
+
+}
+
+
+
+.intro-box p{
+
+
+font-size:22px;
+
+
+line-height:1.6;
+
+
+color:#ddd;
+
+
+}
+
+
+
+.big-play{
+
+
+display:inline-block;
+
+
+margin-top:30px;
+
+
+padding:18px 70px;
+
+
+background:#00ff66;
+
+
+color:black;
+
+
+font-size:25px;
+
+
+font-weight:bold;
+
+
+border-radius:15px;
+
+
+text-decoration:none;
+
+
+transition:.3s;
+
+
+}
+
+
+
+.big-play:hover{
+
+
+transform:scale(1.1);
+
+
+box-shadow:0 0 25px #00ff66;
+
+
+}
+
+
+
+@media(max-width:700px){
+
+
+.intro-box h2{
+
+
+font-size:32px;
+
+
+}
+
+
+.intro-box p{
+
+
+font-size:17px;
+
+
+}
+
+
+}
+
+
+
+</style>
