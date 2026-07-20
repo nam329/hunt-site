@@ -302,6 +302,77 @@ HUNT
 🎮 지금 플레이
 </a>
 
+<!-- ⏳ 다음 업데이트 카운트다운 -->
+
+<div class="countdown-box">
+
+    <h2>⏳️ 다음 업데이트</h2>
+
+    <p id="countdown">불러오는 중...</p>
+
+</div>
+
+<style>
+
+.countdown-box{
+    width:90%;
+    max-width:700px;
+    margin:40px auto;
+    padding:25px;
+    background:#1b1b1b;
+    border-radius:15px;
+    text-align:center;
+    border:1px solid #333;
+}
+
+.countdown-box h2{
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+#countdown{
+    font-size:30px;
+    font-weight:bold;
+    color:#00ff88;
+}
+
+</style>
+
+<script>
+
+const updateDate = new Date("2026-08-01T18:00:00").getTime();
+
+const timer = setInterval(function(){
+
+    const now = new Date().getTime();
+
+    const distance = updateDate - now;
+
+    if(distance <= 0){
+
+        clearInterval(timer);
+
+        document.getElementById("countdown").innerHTML =
+        "🎉 업데이트가 시작되었습니다!";
+
+        return;
+    }
+
+    const days = Math.floor(distance / (1000*60*60*24));
+    const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+    const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+    document.getElementById("countdown").innerHTML =
+    days + "일 " +
+    hours + "시간 " +
+    minutes + "분 " +
+    seconds + "초";
+
+},1000);
+
+</script>
+    
 </section>
 
 <section class="cards">
