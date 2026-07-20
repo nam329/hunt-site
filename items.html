@@ -83,6 +83,16 @@ body {
     color: #aaa;
     margin-top: 10px;
 }
+#search {
+    display: block;
+    margin: 0 auto 30px;
+    width: 80%;
+    max-width: 400px;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+}
 </style>
 
 </head>
@@ -95,7 +105,8 @@ body {
 
 
 <h1 class="title">🎒 ITEM</h1>
-
+    
+<input type="text" id="search" placeholder="아이템 검색..." onkeyup="searchItem()">
 
 <div class="item-grid">
 
@@ -148,6 +159,24 @@ body {
 
 
 </div>
+<script>
+function searchItem() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let cards = document.getElementsByClassName("item-card");
 
+    for (let i = 0; i < cards.length; i++) {
+        let name = cards[i]
+        .getElementsByClassName("name")[0]
+        .innerText
+        .toLowerCase();
+
+        if (name.includes(input)) {
+            cards[i].style.display = "block";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+</script>
 </body>
 </html>
