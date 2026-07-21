@@ -3,185 +3,544 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nap's Nightmare </title>
+<title>Nap's Nightmare | HUNT Wiki</title>
 
 <style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+scroll-behavior:smooth;
+}
+
 body{
-    margin:0;
-    background:#1d1f22;
-    font-family:Arial,Helvetica,sans-serif;
-    color:white;
+background:#2b2b2f;
+color:#fff;
 }
 
-.logo{
-    padding:20px;
-    font-size:42px;
-    font-weight:bold;
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:#1b1b1d;
+padding:15px;
+display:flex;
+align-items:center;
+gap:15px;
+box-shadow:0 3px 8px rgba(0,0,0,.5);
 }
-    
+
+#huntBtn{
+background:#444;
+color:white;
+border:none;
+padding:12px 25px;
+font-size:18px;
+font-weight:bold;
+border-radius:10px;
+cursor:pointer;
+transition:.25s;
+}
+
+#huntBtn.active{
+background:#22c55e;
+}
+
+.search{
+flex:1;
+}
+
+.search input{
+width:100%;
+padding:12px;
+font-size:17px;
+border:none;
+border-radius:10px;
+background:#111;
+color:white;
+outline:none;
+}
+
 .container{
-    width:90%;
-    max-width:700px;
-    margin:30px auto;
-}
-
-button{
-    background:#2f3136;
-    color:white;
-    border:none;
-    padding:12px 25px;
-    font-size:18px;
-    border-radius:10px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-button.active{
-    background:#22c55e;
-}
-
-.card{
-    margin-top:15px;
-    background:#2b2d31;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 0 15px rgba(0,0,0,.5);
+max-width:900px;
+margin:auto;
+padding:20px;
 }
 
 .title{
-    background:#111;
-    text-align:center;
-    padding:22px;
-    font-size:32px;
-    font-weight:bold;
+font-size:52px;
+font-weight:bold;
+margin:20px 0;
 }
 
-.section{
-    padding:20px;
+.weaponImage{
+background:#202024;
+padding:20px;
+border-radius:15px;
+text-align:center;
+margin-bottom:25px;
 }
 
-.sectionTitle{
-    background:#111;
-    padding:15px;
-    text-align:center;
-    font-size:28px;
-    font-weight:bold;
-    border-radius:10px;
-    margin-bottom:20px;
+.weaponImage img{
+max-width:100%;
+border-radius:12px;
+}
+
+.card{
+background:#242428;
+border-radius:15px;
+padding:20px;
+margin-bottom:25px;
+box-shadow:0 0 10px rgba(0,0,0,.4);
+}
+
+.cardTitle{
+background:#111;
+padding:15px;
+text-align:center;
+font-size:32px;
+font-weight:bold;
+border-radius:10px;
+margin-bottom:20px;
 }
 
 .row{
-    display:flex;
-    justify-content:space-between;
-    padding:12px 0;
-    border-bottom:1px solid #444;
+display:flex;
+justify-content:space-between;
+padding:13px 0;
+border-bottom:1px solid #444;
+font-size:21px;
 }
 
 .row:last-child{
-    border:none;
-}
-
-.label{
-    font-size:22px;
-    font-weight:bold;
-}
-
-.value{
-    font-size:22px;
-    color:#d6d6d6;
+border:none;
 }
 
 .blue{
-    color:#6ba8ff;
+color:#6caeff;
 }
 
 .gold{
-    color:#f1d56b;
+color:#e9d26a;
 }
+
+.contents{
+background:#303036;
+padding:20px;
+border-radius:12px;
+margin-bottom:30px;
+}
+
+.contents h2{
+margin-bottom:15px;
+}
+
+.contents ol{
+margin-left:30px;
+}
+
+.contents li{
+margin:12px 0;
+}
+
+.contents a{
+color:#78adff;
+text-decoration:none;
+}
+
+section{
+margin-bottom:40px;
+}
+
+section h2{
+font-size:45px;
+margin-bottom:20px;
+border-bottom:1px solid #444;
+padding-bottom:10px;
+}
+
+.infoBox{
+background:#242428;
+padding:20px;
+border-radius:12px;
+line-height:1.8;
+font-size:22px;
+}
+
+.ability{
+background:#242428;
+padding:20px;
+border-radius:12px;
+margin-top:20px;
+}
+
+.ability h3{
+font-size:28px;
+margin-bottom:15px;
+}
+
+.ability ul{
+margin-left:25px;
+}
+
+.ability li{
+margin:10px 0;
+font-size:22px;
+}.skinGrid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.skin{
+background:#242428;
+padding:20px;
+border-radius:12px;
+text-align:center;
+font-size:22px;
+transition:.25s;
+cursor:pointer;
+}
+
+.skin:hover{
+background:#333;
+transform:translateY(-5px);
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+border-radius:12px;
+background:#202024;
+padding:8px;
+}
+
+.change{
+background:#242428;
+padding:20px;
+border-radius:12px;
+margin-bottom:20px;
+}
+
+.change h3{
+margin-bottom:10px;
+}
+
+.change ul{
+margin-left:25px;
+}
+
+.change li{
+margin:8px 0;
+font-size:20px;
+}
+
+#topBtn{
+position:fixed;
+right:25px;
+bottom:25px;
+width:55px;
+height:55px;
+border:none;
+border-radius:50%;
+background:#22c55e;
+color:white;
+font-size:25px;
+cursor:pointer;
+display:none;
+box-shadow:0 0 15px rgba(0,0,0,.5);
+}
+
+footer{
+margin-top:60px;
+padding:30px;
+text-align:center;
+color:#aaa;
+font-size:18px;
+}
+
 </style>
 
 </head>
+
 <body>
+
+<header>
+
+<button id="huntBtn">HUNT</button>
+
+<div class="search">
+<input type="text" placeholder="Search HUNT Wiki">
+</div>
+
+</header>
 
 <div class="container">
 
-<div class="logo">
-<a href="index.html">HUNT</a>
+<h1 class="title">Nap's Nightmare</h1>
+
+<div class="weaponImage">
+<img src="images/nightmare.png" alt="Nap's Nightmare">
 </div>
-    
+
 <div class="card">
 
-<div class="title">
-Nap's Nightmare
-</div>
+<div class="cardTitle">Information</div>
 
-<div class="section">
-
-<div class="sectionTitle">
-Information
+<div class="row">
+<span>Journal</span>
+<span class="blue">Nightmare Forest</span>
 </div>
 
 <div class="row">
-<div class="label">Journal</div>
-<div class="value blue">Nightmare Forest</div>
+<span>Source</span>
+<span>Boss Drop</span>
 </div>
 
 <div class="row">
-<div class="label">Source</div>
-<div class="value">Nap's Quest Reward</div>
+<span>Price</span>
+<span class="gold">50,000 C$</span>
 </div>
 
 <div class="row">
-<div class="label">Stage</div>
-<div class="value blue">Stage 5</div>
+<span>Stage</span>
+<span class="blue">Stage 5</span>
 </div>
 
 </div>
 
-<div class="section">
+<div class="card">
 
-<div class="sectionTitle">
-Stats
+<div class="cardTitle">Stats</div>
+
+<div class="row">
+<span>Damage</span>
+<span>95</span>
 </div>
 
 <div class="row">
-<div class="label">Damage</div>
-<div class="value">200</div>
+<span>Range</span>
+<span>30m</span>
 </div>
 
 <div class="row">
-<div class="label">Range</div>
-<div class="value">30m</div>
+<span>Cooldown</span>
+<span>1.2s</span>
 </div>
 
 <div class="row">
-<div class="label">Cooldown</div>
-<div class="value">1s</div>
+<span>Acquisition</span>
+<span>Boss Drop</span>
 </div>
 
 <div class="row">
-<div class="label">Acquisition</div>
-<div class="value">Quest Item </div>
-</div>
-
-<div class="row">
-<div class="label">Difficulty</div>
-<div class="value">Nightmare</div>
+<span>Difficulty</span>
+<span>Nightmare</span>
 </div>
 
 </div>
 
+<div class="contents">
+
+<h2>Contents</h2>
+
+<ol>
+
+<li><a href="#overview">Overview</a></li>
+
+<li><a href="#ability">Ability</a></li>
+
+<li><a href="#acquisition">Acquisition</a></li>
+
+<li><a href="#skins">Skins</a></li>
+
+<li><a href="#gallery">Gallery</a></li>
+
+<li><a href="#changelog">Changelog</a></li>
+
+</ol>
+
+</div><section id="overview">
+
+<h2>Overview</h2>
+
+<div class="infoBox">
+Nap's Nightmare는 HUNT의 전설 등급 무기입니다.
+높은 피해량과 긴 사거리를 가지고 있으며
+Nightmare Boss를 처치하여 획득할 수 있습니다.
+</div>
+
+</section>
+
+<section id="ability">
+
+<h2>Ability</h2>
+
+<div class="ability">
+
+<h3>Nightmare Slash</h3>
+
+<ul>
+
+<li>Deals massive damage.</li>
+
+<li>Applies Fear effect.</li>
+
+<li>Dark slash visual effect.</li>
+
+<li>Short cooldown.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section id="acquisition">
+
+<h2>Acquisition</h2>
+
+<div class="infoBox">
+Defeat the Nightmare Boss for a chance to obtain
+Nap's Nightmare.
+</div>
+
+</section>
+
+<section id="skins">
+
+<h2>Skins</h2>
+
+<div class="skinGrid">
+
+<div class="skin">
+Default
+</div>
+
+<div class="skin">
+Shadow
+</div>
+
+<div class="skin">
+Crimson
+</div>
+
+<div class="skin">
+Frozen
 </div>
 
 </div>
+
+</section>
+
+<section id="gallery">
+
+<h2>Gallery</h2>
+
+<div class="gallery">
+
+<img src="images/gallery1.png">
+
+<img src="images/gallery2.png">
+
+<img src="images/gallery3.png">
+
+</div>
+
+</section>
+
+<section id="changelog">
+
+<h2>Changelog</h2>
+
+<div class="change">
+
+<h3>Version 1.0</h3>
+
+<ul>
+
+<li>Added Nap's Nightmare.</li>
+
+<li>Added special effects.</li>
+
+</ul>
+
+</div>
+
+<div class="change">
+
+<h3>Version 1.1</h3>
+
+<ul>
+
+<li>Damage increased.</li>
+
+<li>Cooldown reduced.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<footer>
+
+Official HUNT Wiki © 2026
+
+</footer>
+
+</div>
+
+<button id="topBtn">▲</button>
 
 <script>
-const huntButton = document.getElementById("huntButton");
 
-huntButton.onclick = function(){
-    huntButton.classList.toggle("active");
+const huntBtn = document.getElementById("huntBtn");
+
+huntBtn.onclick = function(){
+
+huntBtn.classList.toggle("active");
+
+};
+
+const topBtn = document.getElementById("topBtn");
+
+window.onscroll = function(){
+
+if(document.documentElement.scrollTop>300){
+
+topBtn.style.display="block";
+
+}else{
+
+topBtn.style.display="none";
+
 }
+
+};
+
+topBtn.onclick = function(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+};
+
 </script>
 
 </body>
+
 </html>
