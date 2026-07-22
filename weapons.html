@@ -263,20 +263,27 @@ color:#d6d6d6;
 @media(max-width:700px){
 
 .weapon-list{
-
-grid-template-columns:1fr;
-
+    display:flex;
+    flex-direction:column;
+    gap:15px;
 }
 
+.weapon-card{
+    display:flex;
+    align-items:center;
+    height:130px;
 }
 
-</style>
+.weapon-card img{
+    width:110px;
+    height:110px;
+    margin:10px;
+    border-radius:10px;
+}
 
-</head>
-
-<body>
-
-<header>
+.weapon-info{
+    flex:1;
+}
 
 HUNT
 
