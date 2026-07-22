@@ -8,14 +8,20 @@
 
 <title>HUNT 무기 도감</title>
 
+
 <style>
 
+/* 기본 */
+
 body{
-    margin:0;
-    background:#0b0b0b;
-    color:white;
-    font-family:Arial,sans-serif;
+
+margin:0;
+background:#080808;
+color:white;
+font-family:Arial,sans-serif;
+
 }
+
 
 
 /* 상단 */
@@ -27,13 +33,14 @@ background:#111;
 display:flex;
 align-items:center;
 padding-left:20px;
+border-bottom:1px solid #333;
 
 }
 
 
 .logo{
 
-font-size:35px;
+font-size:38px;
 font-weight:bold;
 color:#00ff66;
 text-decoration:none;
@@ -41,7 +48,7 @@ text-decoration:none;
 }
 
 
-/* 내용 */
+
 
 .container{
 
@@ -50,12 +57,16 @@ padding:25px;
 }
 
 
-h1{
+
+.title{
 
 text-align:center;
+font-size:35px;
 color:#00ff66;
+margin-bottom:30px;
 
 }
+
 
 
 /* 검색 */
@@ -63,14 +74,19 @@ color:#00ff66;
 .search{
 
 width:100%;
-padding:15px;
-background:#171717;
-border:1px solid #333;
-border-radius:10px;
+box-sizing:border-box;
+padding:16px;
+font-size:18px;
+
+background:#151515;
 color:white;
-font-size:16px;
+
+border:1px solid #444;
+border-radius:10px;
 
 }
+
+
 
 
 
@@ -78,28 +94,40 @@ font-size:16px;
 
 .filter-box{
 
-margin-top:20px;
+margin-top:25px;
+background:#111;
+
+padding:20px;
+border-radius:12px;
+border:1px solid #333;
 
 }
+
 
 
 .filter-title{
 
-font-size:20px;
+font-size:22px;
+font-weight:bold;
 color:#00ff66;
-margin-bottom:10px;
+margin-bottom:15px;
 
 }
 
 
+
 button{
 
-background:#171717;
+padding:12px 16px;
+margin:5px;
+
+background:#1b1b1b;
 color:white;
+
 border:1px solid #444;
-padding:10px 14px;
-border-radius:8px;
-margin:4px;
+border-radius:10px;
+
+font-size:15px;
 cursor:pointer;
 
 }
@@ -113,40 +141,123 @@ background:#00aa55;
 
 
 
-/* 표 */
 
-table{
+/* 펼치기 */
+
+.weapon-box,
+.change-box{
+
+margin-top:35px;
+
+background:#111;
+border:1px solid #333;
+
+border-radius:12px;
+
+padding:18px;
+
+}
+
+
+
+summary{
+
+font-size:25px;
+font-weight:bold;
+
+color:#00ff66;
+
+cursor:pointer;
+
+}
+
+
+
+
+
+/* 표 가로 스크롤 */
+
+.table-scroll{
+
+overflow-x:auto;
+
+margin-top:20px;
+
+}
+
+
+
+
+#weapons{
+
+border-collapse:collapse;
+
+min-width:1000px;
 
 width:100%;
-margin-top:30px;
-border-collapse:collapse;
-background:#111;
 
 }
 
 
-th{
+
+#weapons th{
 
 background:#00aa55;
-padding:15px;
+
+font-size:18px;
+
+padding:20px;
 
 }
 
 
-td{
 
-padding:15px;
+#weapons td{
+
 text-align:center;
+
+padding:22px;
+
+font-size:17px;
+
 border-bottom:1px solid #333;
 
 }
 
 
-tr:hover{
 
-background:#1c1c1c;
+
+#weapons tr:hover{
+
+background:#1b1b1b;
 
 }
+
+
+
+
+#weapons td:nth-child(1){
+
+min-width:180px;
+
+}
+
+
+
+#weapons td:nth-child(4){
+
+min-width:250px;
+
+}
+
+
+
+#weapons td:nth-child(6){
+
+min-width:130px;
+
+}
+
 
 
 
@@ -154,82 +265,115 @@ a{
 
 color:white;
 text-decoration:none;
+
 font-weight:bold;
 
 }
 
 
 
-/* 등급 색 */
 
-.일반{color:#ddd;}
-.언커먼{color:#00ff66;}
-.희귀{color:#3399ff;}
-.초희귀{color:#66ccff;}
-.에픽{color:#aa55ff;}
-.전설{color:#ff9900;}
-.신화{color:red;}
-.비밀{color:#ff66ff;}
-.고대{color:#ffd700;}
-.초월{color:#00ffff;}
+/* 등급 */
+
+.일반{
+color:#ddd;
+}
+
+
+.언커먼{
+
+color:#00ff66;
+
+}
+
+
+.희귀{
+
+color:#3399ff;
+
+}
+
+
+.초희귀{
+
+color:#66ccff;
+
+}
+
+
+.에픽{
+
+color:#bb55ff;
+
+}
+
+
+.전설{
+
+color:#ff9900;
+
+}
+
+
+.신화{
+
+color:red;
+
+}
+
+
+.비밀{
+
+color:#ff66ff;
+
+}
+
+
+.고대{
+
+color:#ffd700;
+
+}
+
+
+.초월{
+
+color:#00ffff;
+
+}
+
+
 
 
 
 /* 변경내역 */
 
-.change{
-
-margin-top:35px;
-background:#111;
-border:1px solid #333;
-padding:15px;
-border-radius:10px;
-
-}
-
-
-summary{
-
-font-size:22px;
-color:#00ff66;
-cursor:pointer;
-font-weight:bold;
-
-}
-
-
 .change-list{
 
-max-height:220px;
+max-height:250px;
+
 overflow-y:auto;
-margin-top:15px;
+
+padding-right:10px;
 
 }
 
 
 
-/* 모바일 */
 
-@media(max-width:700px){
+.change-list h3{
 
-table{
-
-font-size:12px;
+color:#00ff66;
 
 }
 
-th,td{
-
-padding:8px;
-
-}
-
-}
 
 
 </style>
 
+
 </head>
+
 
 
 <body>
@@ -238,7 +382,9 @@ padding:8px;
 <div class="topbar">
 
 <a href="index.html" class="logo">
+
 HUNT
+
 </a>
 
 </div>
@@ -248,8 +394,10 @@ HUNT
 <div class="container">
 
 
-<h1>
+<h1 class="title">
+
 ⚔️ HUNT 무기 도감
+
 </h1>
 
 
@@ -259,17 +407,13 @@ class="search"
 id="search"
 placeholder="🔍 무기 검색"
 onkeyup="filterWeapon()"
->
-
-
-
+><!-- 등급 필터 -->
 
 <div class="filter-box">
 
 <div class="filter-title">
 🏷️ 등급
 </div>
-
 
 <button onclick="setGrade('')">전체</button>
 <button onclick="setGrade('일반')">⚪ 일반</button>
@@ -283,11 +427,12 @@ onkeyup="filterWeapon()"
 <button onclick="setGrade('고대')">🟡 고대</button>
 <button onclick="setGrade('초월')">✨ 초월</button>
 
-
 </div>
 
 
 
+
+<!-- 종류 필터 -->
 
 <div class="filter-box">
 
@@ -297,21 +442,23 @@ onkeyup="filterWeapon()"
 
 
 <button onclick="setType('')">전체</button>
-<button onclick="setType('단검')">단검</button>
-<button onclick="setType('장검')">장검</button>
-<button onclick="setType('대검')">대검</button>
-<button onclick="setType('활')">활</button>
-<button onclick="setType('석궁')">석궁</button>
-<button onclick="setType('도끼')">도끼</button>
-<button onclick="setType('둔기')">둔기</button>
-<button onclick="setType('창')">창</button>
-<button onclick="setType('마법')">마법</button>
-
+<button onclick="setType('단검')">🗡 단검</button>
+<button onclick="setType('장검')">⚔️ 장검</button>
+<button onclick="setType('대검')">🗡 대검</button>
+<button onclick="setType('활')">🏹 활</button>
+<button onclick="setType('석궁')">🏹 석궁</button>
+<button onclick="setType('도끼')">🪓 도끼</button>
+<button onclick="setType('둔기')">🔨 둔기</button>
+<button onclick="setType('창')">🔱 창</button>
+<button onclick="setType('마법')">🔮 마법</button>
 
 </div>
 
 
 
+
+
+<!-- 얻는 방법 -->
 
 <div class="filter-box">
 
@@ -320,26 +467,53 @@ onkeyup="filterWeapon()"
 </div>
 
 
-<button onclick="setArea('')">전체</button>
+<button onclick="setArea('')">
+전체
+</button>
+
 
 <button onclick="setArea('시작섬')">
 🏝 시작섬
 </button>
 
+
 <button onclick="setArea('정글섬')">
 🌴 정글섬
 </button>
+
 
 <button onclick="setArea('크리스탈섬')">
 💎 크리스탈섬
 </button>
 
+
+<button onclick="setArea('사막섬')">
+🏜 사막섬
+</button>
+
+
+<button onclick="setArea('북극섬')">
+❄️ 북극섬
+</button>
+
+
+<button onclick="setArea('남극섬')">
+🧊 남극섬
+</button>
+
+
+<button onclick="setArea('심해')">
+🌊 심해
+</button>
+
+
 <button onclick="setArea('화산섬')">
 🌋 화산섬
 </button>
 
-<button onclick="setArea('심해')">
-🌊 심해
+
+<button onclick="setArea('늪지대')">
+🟢 늪지대
 </button>
 
 
@@ -352,6 +526,19 @@ onkeyup="filterWeapon()"
 
 
 
+
+
+<!-- 무기 목록 -->
+
+<details class="weapon-box" open>
+
+<summary>
+⚔️ 무기 목록
+</summary>
+
+
+
+<div class="table-scroll">
 
 
 <table id="weapons">
@@ -372,38 +559,88 @@ onkeyup="filterWeapon()"
 
 <tr>
 
+
 <td>
 <a href="iron-sword.html">
 철검
 </a>
 </td>
 
+
 <td class="일반">
 ⚪ 일반
 </td>
+
 
 <td>
 장검
 </td>
 
+
 <td>
 시작섬
 </td>
+
 
 <td>
 ○
 </td>
 
+
 <td>
 100G
 </td>
+
 
 </tr>
 
 
 
 
+
 <tr>
+
+
+<td>
+<a href="iron-axe.html">
+철도끼
+</a>
+</td>
+
+
+<td class="일반">
+⚪ 일반
+</td>
+
+
+<td>
+도끼
+</td>
+
+
+<td>
+시작섬
+</td>
+
+
+<td>
+○
+</td>
+
+
+<td>
+150G
+</td>
+
+
+</tr>
+
+
+
+
+
+<tr>
+
 
 <td>
 <a href="crystal-sword.html">
@@ -411,32 +648,40 @@ onkeyup="filterWeapon()"
 </a>
 </td>
 
+
 <td class="희귀">
 🔵 희귀
 </td>
+
 
 <td>
 장검
 </td>
 
+
 <td>
 크리스탈섬
 </td>
+
 
 <td>
 ○
 </td>
 
+
 <td>
 8,500G
 </td>
+
 
 </tr>
 
 
 
 
+
 <tr>
+
 
 <td>
 <a href="dragon-blade.html">
@@ -444,32 +689,40 @@ Dragon Blade
 </a>
 </td>
 
+
 <td class="전설">
 🟠 전설
 </td>
+
 
 <td>
 대검
 </td>
 
+
 <td>
 화산섬 보스
 </td>
+
 
 <td>
 ×
 </td>
 
+
 <td>
 -
 </td>
+
 
 </tr>
 
 
 
 
+
 <tr>
+
 
 <td>
 <a href="naps-nightmare.html">
@@ -477,25 +730,31 @@ Nap's Nightmare
 </a>
 </td>
 
+
 <td class="초월">
 ✨ 초월
 </td>
 
+
 <td>
-대검
+장검
 </td>
+
 
 <td>
 Nap's Nightmare 퀘스트
 </td>
 
+
 <td>
 ×
 </td>
 
+
 <td>
 -
 </td>
+
 
 </tr>
 
@@ -504,158 +763,6 @@ Nap's Nightmare 퀘스트
 </table>
 
 
-
-
-
-<details class="change">
-
-
-<summary>
-📜 변경내역
-</summary>
-
-
-<div class="change-list">
-
-
-<h3>2026-07-22</h3>
-
-<p>
-• 무기 검색 추가<br>
-• 등급 필터 추가<br>
-• 종류 필터 추가
-</p>
-
-
-
-<h3>2026-07-20</h3>
-
-<p>
-• Nap's Nightmare 추가<br>
-• 무기 도감 제작
-</p>
-
-
-
-<h3>2026-07-15</h3>
-
-<p>
-• HUNT 홈페이지 연결
-</p>
-
-
 </div>
-
 
 </details>
-
-
-
-
-</div>
-
-
-
-
-
-<script>
-
-
-let grade="";
-let type="";
-let area="";
-
-
-
-function setGrade(x){
-
-grade=x;
-filterWeapon();
-
-}
-
-
-function setType(x){
-
-type=x;
-filterWeapon();
-
-}
-
-
-function setArea(x){
-
-area=x;
-filterWeapon();
-
-}
-
-
-
-function filterWeapon(){
-
-
-let search=
-document.getElementById("search").value.toLowerCase();
-
-
-
-let rows=
-document.querySelectorAll("#weapons tr");
-
-
-
-for(let i=1;i<rows.length;i++){
-
-
-let name=
-rows[i].children[0].innerText.toLowerCase();
-
-
-let g=
-rows[i].children[1].innerText;
-
-
-let t=
-rows[i].children[2].innerText;
-
-
-let a=
-rows[i].children[3].innerText;
-
-
-
-if(
-name.includes(search)
-&&
-(grade=="" || g.includes(grade))
-&&
-(type=="" || t.includes(type))
-&&
-(area=="" || a.includes(area))
-
-){
-
-rows[i].style.display="";
-
-}else{
-
-rows[i].style.display="none";
-
-}
-
-
-}
-
-
-
-}
-
-
-
-</script>
-
-
-</body>
-
-</html>
