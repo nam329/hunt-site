@@ -14,106 +14,137 @@ body{
     margin:0;
     background:#0b0b0b;
     color:white;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 
+/* 상단 */
+
 .topbar{
 
-    height:70px;
-    background:#111;
-    display:flex;
-    align-items:center;
-    padding:0 20px;
-    border-bottom:1px solid #333;
+height:70px;
+background:#111;
+display:flex;
+align-items:center;
+padding-left:20px;
 
 }
 
 
 .logo{
 
-    font-size:35px;
-    font-weight:bold;
-    color:#00ff66;
-    text-decoration:none;
+font-size:35px;
+font-weight:bold;
+color:#00ff66;
+text-decoration:none;
 
 }
 
 
+/* 내용 */
 
 .container{
 
-    padding:25px;
+padding:25px;
 
 }
-
 
 
 h1{
 
-    text-align:center;
-    color:#00ff66;
+text-align:center;
+color:#00ff66;
+
+}
+
+
+/* 검색 */
+
+.search{
+
+width:100%;
+padding:15px;
+background:#171717;
+border:1px solid #333;
+border-radius:10px;
+color:white;
+font-size:16px;
 
 }
 
 
 
-.search-box{
+/* 필터 */
 
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    justify-content:center;
-    margin-bottom:25px;
+.filter-box{
+
+margin-top:20px;
+
+}
+
+
+.filter-title{
+
+font-size:20px;
+color:#00ff66;
+margin-bottom:10px;
+
+}
+
+
+button{
+
+background:#171717;
+color:white;
+border:1px solid #444;
+padding:10px 14px;
+border-radius:8px;
+margin:4px;
+cursor:pointer;
+
+}
+
+
+button:hover{
+
+background:#00aa55;
 
 }
 
 
 
-input,select{
-
-    background:#171717;
-    color:white;
-    border:1px solid #444;
-    padding:12px;
-    border-radius:8px;
-
-}
-
-
+/* 표 */
 
 table{
 
-    width:100%;
-    border-collapse:collapse;
-    background:#111;
+width:100%;
+margin-top:30px;
+border-collapse:collapse;
+background:#111;
 
 }
-
 
 
 th{
 
-    background:#00aa55;
-    padding:15px;
+background:#00aa55;
+padding:15px;
 
 }
-
 
 
 td{
 
-    padding:14px;
-    text-align:center;
-    border-bottom:1px solid #333;
+padding:15px;
+text-align:center;
+border-bottom:1px solid #333;
 
 }
 
 
-
 tr:hover{
 
-    background:#1c1c1c;
+background:#1c1c1c;
 
 }
 
@@ -121,100 +152,63 @@ tr:hover{
 
 a{
 
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-
-}
-
-
-
-.normal{
-
-color:#ddd;
-
-}
-
-
-.uncommon{
-
-color:#00ff66;
-
-}
-
-
-.rare{
-
-color:#3399ff;
-
-}
-
-
-.superrare{
-
-color:#66ccff;
-
-}
-
-
-.epic{
-
-color:#aa55ff;
-
-}
-
-
-.legend{
-
-color:#ff9900;
-
-}
-
-
-.myth{
-
-color:red;
-
-}
-
-
-.secret{
-
-color:#ff66ff;
-
-}
-
-
-.ancient{
-
-color:#ffd700;
-
-}
-
-
-.transcend{
-
-color:#00ffff;
-
-}
-
-
-.sell{
-
-color:#00ff66;
+color:white;
+text-decoration:none;
 font-weight:bold;
 
 }
 
 
-.no{
 
-color:red;
+/* 등급 색 */
+
+.일반{color:#ddd;}
+.언커먼{color:#00ff66;}
+.희귀{color:#3399ff;}
+.초희귀{color:#66ccff;}
+.에픽{color:#aa55ff;}
+.전설{color:#ff9900;}
+.신화{color:red;}
+.비밀{color:#ff66ff;}
+.고대{color:#ffd700;}
+.초월{color:#00ffff;}
+
+
+
+/* 변경내역 */
+
+.change{
+
+margin-top:35px;
+background:#111;
+border:1px solid #333;
+padding:15px;
+border-radius:10px;
+
+}
+
+
+summary{
+
+font-size:22px;
+color:#00ff66;
+cursor:pointer;
 font-weight:bold;
 
 }
 
 
+.change-list{
+
+max-height:220px;
+overflow-y:auto;
+margin-top:15px;
+
+}
+
+
+
+/* 모바일 */
 
 @media(max-width:700px){
 
@@ -223,7 +217,6 @@ table{
 font-size:12px;
 
 }
-
 
 th,td{
 
@@ -236,9 +229,7 @@ padding:8px;
 
 </style>
 
-
 </head>
-
 
 
 <body>
@@ -246,7 +237,7 @@ padding:8px;
 
 <div class="topbar">
 
-<a class="logo" href="index.html">
+<a href="index.html" class="logo">
 HUNT
 </a>
 
@@ -263,48 +254,98 @@ HUNT
 
 
 
-<div class="search-box">
-
-
 <input 
+class="search"
 id="search"
-placeholder="무기 검색..."
+placeholder="🔍 무기 검색"
 onkeyup="filterWeapon()"
 >
 
 
-<select id="grade" onchange="filterWeapon()">
-
-<option value="">모든 등급</option>
-<option value="normal">일반</option>
-<option value="uncommon">언커먼</option>
-<option value="rare">희귀</option>
-<option value="superrare">초희귀</option>
-<option value="epic">에픽</option>
-<option value="legend">전설</option>
-<option value="myth">신화</option>
-<option value="secret">비밀</option>
-<option value="ancient">고대</option>
-<option value="transcend">초월</option>
-
-</select>
 
 
+<div class="filter-box">
 
-<select id="type" onchange="filterWeapon()">
+<div class="filter-title">
+🏷️ 등급
+</div>
 
-<option value="">모든 종류</option>
 
-<option>검</option>
-<option>도끼</option>
-<option>활</option>
-<option>창</option>
-<option>단검</option>
-<option>둔기</option>
-<option>마법</option>
+<button onclick="setGrade('')">전체</button>
+<button onclick="setGrade('일반')">⚪ 일반</button>
+<button onclick="setGrade('언커먼')">🟢 언커먼</button>
+<button onclick="setGrade('희귀')">🔵 희귀</button>
+<button onclick="setGrade('초희귀')">🟦 초희귀</button>
+<button onclick="setGrade('에픽')">🟣 에픽</button>
+<button onclick="setGrade('전설')">🟠 전설</button>
+<button onclick="setGrade('신화')">🔴 신화</button>
+<button onclick="setGrade('비밀')">🌈 비밀</button>
+<button onclick="setGrade('고대')">🟡 고대</button>
+<button onclick="setGrade('초월')">✨ 초월</button>
 
-</select>
 
+</div>
+
+
+
+
+<div class="filter-box">
+
+<div class="filter-title">
+⚔️ 무기 종류
+</div>
+
+
+<button onclick="setType('')">전체</button>
+<button onclick="setType('단검')">단검</button>
+<button onclick="setType('장검')">장검</button>
+<button onclick="setType('대검')">대검</button>
+<button onclick="setType('활')">활</button>
+<button onclick="setType('석궁')">석궁</button>
+<button onclick="setType('도끼')">도끼</button>
+<button onclick="setType('둔기')">둔기</button>
+<button onclick="setType('창')">창</button>
+<button onclick="setType('마법')">마법</button>
+
+
+</div>
+
+
+
+
+<div class="filter-box">
+
+<div class="filter-title">
+🗺️ 얻는 방법
+</div>
+
+
+<button onclick="setArea('')">전체</button>
+
+<button onclick="setArea('시작섬')">
+🏝 시작섬
+</button>
+
+<button onclick="setArea('정글섬')">
+🌴 정글섬
+</button>
+
+<button onclick="setArea('크리스탈섬')">
+💎 크리스탈섬
+</button>
+
+<button onclick="setArea('화산섬')">
+🌋 화산섬
+</button>
+
+<button onclick="setArea('심해')">
+🌊 심해
+</button>
+
+
+<button onclick="setArea('퀘스트')">
+📜 퀘스트
+</button>
 
 
 </div>
@@ -313,7 +354,7 @@ onkeyup="filterWeapon()"
 
 
 
-<table id="weaponTable">
+<table id="weapons">
 
 
 <tr>
@@ -332,24 +373,24 @@ onkeyup="filterWeapon()"
 <tr>
 
 <td>
-<a href="weapons/iron-sword.html">
+<a href="iron-sword.html">
 철검
 </a>
 </td>
 
-<td class="normal">
+<td class="일반">
 ⚪ 일반
 </td>
 
 <td>
-검
+장검
 </td>
 
 <td>
 시작섬
 </td>
 
-<td class="sell">
+<td>
 ○
 </td>
 
@@ -357,212 +398,157 @@ onkeyup="filterWeapon()"
 100G
 </td>
 
-
 </tr>
-
 
 
 
 
 <tr>
 
-
 <td>
-<a href="weapons/iron-axe.html">
-철도끼
-</a>
-</td>
-
-<td class="normal">
-⚪ 일반
-</td>
-
-<td>
-도끼
-</td>
-
-<td>
-시작섬
-</td>
-
-<td class="sell">
-○
-</td>
-
-<td>
-150G
-</td>
-
-
-</tr>
-
-
-
-
-
-
-<tr>
-
-
-<td>
-<a href="weapons/crystal-sword.html">
+<a href="crystal-sword.html">
 수정검
 </a>
 </td>
 
-
-<td class="rare">
-
+<td class="희귀">
 🔵 희귀
-
 </td>
-
 
 <td>
-검
+장검
 </td>
-
 
 <td>
-크리스탈 동굴
-
+크리스탈섬
 </td>
 
-
-<td class="sell">
-
+<td>
 ○
-
 </td>
 
-
 <td>
-
 8,500G
-
 </td>
-
 
 </tr>
 
 
 
 
-
-
-
 <tr>
 
-
 <td>
-<a href="weapons/dragon-blade.html">
-
+<a href="dragon-blade.html">
 Dragon Blade
-
 </a>
-
 </td>
 
-
-<td class="legend">
-
+<td class="전설">
 🟠 전설
-
 </td>
-
 
 <td>
-
-검
-
+대검
 </td>
-
 
 <td>
-
-화산 보스
-
+화산섬 보스
 </td>
 
-
-<td class="no">
-
+<td>
 ×
-
 </td>
-
 
 <td>
-
 -
-
 </td>
-
 
 </tr>
-
-
 
 
 
 
 <tr>
 
-
 <td>
-
-<a href="weapons/naps-nightmare.html">
-
+<a href="naps-nightmare.html">
 Nap's Nightmare
-
 </a>
-
 </td>
 
-
-<td class="transcend">
-
+<td class="초월">
 ✨ 초월
-
 </td>
-
 
 <td>
-
-검
-
+대검
 </td>
-
 
 <td>
-
-Nap's Nightmare 퀘스트 완료
-
+Nap's Nightmare 퀘스트
 </td>
 
-
-<td class="no">
-
+<td>
 ×
-
 </td>
-
 
 <td>
-
 -
-
 </td>
-
 
 </tr>
-
-
-
 
 
 
 </table>
+
+
+
+
+
+<details class="change">
+
+
+<summary>
+📜 변경내역
+</summary>
+
+
+<div class="change-list">
+
+
+<h3>2026-07-22</h3>
+
+<p>
+• 무기 검색 추가<br>
+• 등급 필터 추가<br>
+• 종류 필터 추가
+</p>
+
+
+
+<h3>2026-07-20</h3>
+
+<p>
+• Nap's Nightmare 추가<br>
+• 무기 도감 제작
+</p>
+
+
+
+<h3>2026-07-15</h3>
+
+<p>
+• HUNT 홈페이지 연결
+</p>
+
+
+</div>
+
+
+</details>
+
 
 
 
@@ -575,62 +561,88 @@ Nap's Nightmare 퀘스트 완료
 <script>
 
 
+let grade="";
+let type="";
+let area="";
+
+
+
+function setGrade(x){
+
+grade=x;
+filterWeapon();
+
+}
+
+
+function setType(x){
+
+type=x;
+filterWeapon();
+
+}
+
+
+function setArea(x){
+
+area=x;
+filterWeapon();
+
+}
+
+
+
 function filterWeapon(){
 
 
-let search =
+let search=
 document.getElementById("search").value.toLowerCase();
 
 
-let grade =
-document.getElementById("grade").value;
 
-
-let type =
-document.getElementById("type").value;
-
-
-
-let rows =
-document.querySelectorAll("#weaponTable tr");
+let rows=
+document.querySelectorAll("#weapons tr");
 
 
 
 for(let i=1;i<rows.length;i++){
 
 
-let name =
+let name=
 rows[i].children[0].innerText.toLowerCase();
 
 
-let weaponGrade =
-rows[i].children[1].className;
+let g=
+rows[i].children[1].innerText;
 
 
-let weaponType =
+let t=
 rows[i].children[2].innerText;
+
+
+let a=
+rows[i].children[3].innerText;
 
 
 
 if(
 name.includes(search)
 &&
-(grade=="" || weaponGrade==grade)
+(grade=="" || g.includes(grade))
 &&
-(type=="" || weaponType==type)
+(type=="" || t.includes(type))
+&&
+(area=="" || a.includes(area))
 
 ){
 
 rows[i].style.display="";
 
-}
-
-else{
+}else{
 
 rows[i].style.display="none";
 
 }
-
 
 
 }
@@ -642,7 +654,6 @@ rows[i].style.display="none";
 
 
 </script>
-
 
 
 </body>
