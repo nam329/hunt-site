@@ -3,87 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>무기 도감 - HUNT</title>
+
+<title>HUNT - Weapons</title>
 
 <style>
 
 body{
     margin:0;
-    background:#111;
+    background:#20242b;
     color:white;
     font-family:Arial,sans-serif;
 }
 
-.logo{
+h1{
     padding:20px;
-    font-size:42px;
-    font-weight:bold;
-}
-
-.logo a{
-    color:white;
-    text-decoration:none;
-}
-
-.logo a:hover{
-    color:#00c853;
-}
-
-.title{
-    text-align:center;
-    font-size:40px;
-}
-
-.search{
-    display:block;
-    width:85%;
-    max-width:500px;
-    margin:25px auto;
-    padding:15px;
-    font-size:22px;
-    border:none;
-    border-radius:12px;
-    background:#222;
-    color:white;
-}
-
-.search::placeholder{
-    color:#999;
-}
-
-.weapon{
-    background:#222;
-    border:2px solid #333;
-    border-radius:15px;
-    margin:20px;
-    padding:20px;
-    transition:0.2s;
-}
-
-.weapon:hover{
-    transform:scale(1.02);
-    border-color:#00c853;
-}
-
-.weapon h2{
     margin:0;
-    font-size:30px;
 }
 
-.info{
-    background:#181818;
-    margin-top:15px;
-    border-radius:10px;
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#1d3557;
     padding:15px;
-    font-size:20px;
-    line-height:1.8;
+    font-size:18px;
 }
 
-.stat{
-    margin-top:15px;
-    color:#7CFC00;
+td{
+    padding:15px;
+    border-bottom:1px solid #444;
+    text-align:center;
+}
+
+tr{
+    cursor:pointer;
+    transition:.2s;
+}
+
+tr:hover{
+    background:#2b313a;
+}
+
+img{
+    width:60px;
+}
+
+.weapon-name{
+    color:#66ff99;
     font-weight:bold;
 }
+
+.common{color:white;}
+.uncommon{color:#66ff66;}
+.rare{color:#3fa9ff;}
+.epic{color:#b86cff;}
+.legendary{color:#ff9d00;}
+.mythic{color:#ff4444;}
+.transcendent{color:#ffd700;}
 
 </style>
 
@@ -91,136 +69,46 @@ body{
 
 <body>
 
-<div class="logo">
-<a href="index.html">HUNT</a>
-</div>
+<h1>⚔ HUNT Weapons</h1>
 
-<h1 class="title">⚔️ 무기 도감</h1>
+<table>
 
-<input
-type="text"
-id="search"
-class="search"
-placeholder="🔍 무기 이름 검색..."
-onkeyup="searchWeapon()">
+<tr>
+<th>이미지</th>
+<th>무기 이름</th>
+<th>등급</th>
+<th>획득</th>
+</tr>
 
-<div class="weapon item">
-<h2>🗡️ 나무 검</h2>
+<tr onclick="location.href='naps-nightmare.html'">
+<td><img src="images/naps.png"></td>
+<td class="weapon-name">Nap's Nightmare</td>
+<td class="transcendent">초월</td>
+<td>메갈로돈</td>
+</tr>
 
-<div class="info">
-설명<br>
-초보 사냥꾼이 사용하는 기본 무기입니다.
+<tr onclick="location.href='dragon-blade.html'">
+<td><img src="images/dragon.png"></td>
+<td class="weapon-name">Dragon Blade</td>
+<td class="legendary">전설</td>
+<td>화산섬</td>
+</tr>
 
-<div class="stat">
-공격력 : 10<br>
-희귀도 : 일반
-</div>
+<tr onclick="location.href='bone-sword.html'">
+<td><img src="images/bone.png"></td>
+<td class="weapon-name">Bone Sword</td>
+<td class="rare">희귀</td>
+<td>사막</td>
+</tr>
 
-</div>
-</div>
+<tr onclick="location.href='iron-sword.html'">
+<td><img src="images/iron.png"></td>
+<td class="weapon-name">Iron Sword</td>
+<td class="common">일반</td>
+<td>시작섬</td>
+</tr>
 
-<div class="weapon item">
-<h2>⚔️ 철 검</h2>
-
-<div class="info">
-설명<br>
-튼튼한 철로 제작된 검입니다.
-
-<div class="stat">
-공격력 : 30<br>
-희귀도 : 희귀
-</div>
-
-</div>
-</div>
-
-<div class="weapon item">
-<h2>🏹 사냥 활</h2>
-
-<div class="info">
-설명<br>
-멀리 있는 적을 공격하는 활입니다.
-
-<div class="stat">
-공격력 : 25<br>
-희귀도 : 희귀
-</div>
-
-</div>
-</div>
-
-<div class="weapon item">
-<h2>🪓 전투 도끼</h2>
-
-<div class="info">
-설명<br>
-강력한 한 방을 가진 무기입니다.
-
-<div class="stat">
-공격력 : 45<br>
-희귀도 : 에픽
-</div>
-
-</div>
-</div>
-
-<div class="weapon item">
-<h2>🛡️ 창</h2>
-
-<div class="info">
-설명<br>
-사거리가 긴 근접 무기입니다.
-
-<div class="stat">
-공격력 : 40<br>
-희귀도 : 희귀
-</div>
-
-</div>
-</div>
-
-<div class="weapon item" onclick="location.href='naps-nightmare.html'">
-<h2>💤Nap's Nightmare </h2>
-
-<div class="info">
-설명<br>
-Nap가 직접 만들어준 대검. 심비한 힘이 담겨져있다.
-
-<div class="stat">
-공격력 : ???<br>
-희귀도 : 초월
-</div>
-
-</div>
-</div>
-
-<script>
-
-function searchWeapon(){
-
-let input=document.getElementById("search").value.toLowerCase();
-
-let items=document.getElementsByClassName("item");
-
-for(let i=0;i<items.length;i++){
-
-let name=items[i].getElementsByTagName("h2")[0].innerText.toLowerCase();
-
-if(name.indexOf(input)>-1){
-
-items[i].style.display="block";
-
-}else{
-
-items[i].style.display="none";
-
-}
-
-}
-
-}
-
-</script>
+</table>
 
 </body>
 </html>
