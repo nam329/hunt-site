@@ -1,1176 +1,179 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Raven's Good Dream skin | HUNT Wiki</title>
+<title>Raven's Good Dream</title>
 
 <style>
-
-*{
+body{
     margin:0;
-    padding:0;
-    box-sizing:border-box;
+    background:#111;
+    color:white;
     font-family:Arial, sans-serif;
 }
 
-body{
-    background:#202225;
+
+/* 왼쪽 위 고정 HUNT */
+#huntBtn{
+    position:fixed;
+    top:20px;
+    left:20px;
+    z-index:999;
+
+    padding:12px 30px;
+    background:black;
     color:white;
-}
-
-/* 상단 */
-
-header{
-    height:65px;
-    background:#18191c;
-    border-bottom:1px solid #444;
-    display:flex;
-    align-items:center;
-    padding:0 20px;
-    gap:15px;
-    position:sticky;
-    top:0;
-    z-index:10;
-}
-
-
-.huntBtn{
-
-    background:#303338;
-    color:white;
-    border:1px solid #555;
-    padding:10px 25px;
-    font-size:20px;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
     cursor:pointer;
-    border-radius:3px;
-
 }
 
 
-.huntBtn:hover{
-
-    background:#22c55e;
-
+/* 제목 */
+.title{
+    text-align:center;
+    margin-top:80px;
+    font-size:40px;
 }
 
 
-.searchBox{
-
-    flex:1;
-
-}
-
-
-.searchBox input{
-
-    width:100%;
-    height:40px;
-    background:#111;
-    color:white;
-    border:1px solid #555;
-    padding:10px;
-    border-radius:3px;
-
-}
-
-
-/* 내용 */
-
-.container{
-
-    max-width:950px;
-    margin:auto;
+/* 스킨 정보 카드 */
+.skin-box{
+    width:350px;
+    margin:40px auto;
     padding:25px;
 
-}
-
-
-.title{
-
-    font-size:42px;
-    margin-bottom:15px;
-
-}
-
-
-/* 설명 */
-
-.description{
-
-    background:#2f3136;
-    border:1px solid #555;
-    padding:18px;
-    line-height:2;
-    margin-bottom:20px;
-
-}
-
-
-/* 이미지 */
-
-.weaponImage{
-
-    background:#2f3136;
-    border:1px solid #555;
-    padding:20px;
+    background:#222;
+    border-radius:20px;
     text-align:center;
-    margin-bottom:20px;
-
 }
 
 
-.weaponImage img{
+/* 스킨 이미지 */
+.skin-image{
+    width:250px;
+    height:250px;
 
-    max-width:450px;
-    width:100%;
+    object-fit:cover;
+    border-radius:15px;
 
+    background:#333;
 }
 
 
-/* 정보 */
+/* 버튼 */
+.move-btn{
+    width:90%;
+    padding:12px;
+    margin-top:15px;
 
-.card{
+    background:#333;
+    color:white;
 
-    background:#2f3136;
-    border:1px solid #555;
-    margin-bottom:20px;
+    border:none;
+    border-radius:10px;
 
+    font-size:16px;
+    cursor:pointer;
 }
 
-
-.cardTitle{
-
-    background:#18191c;
-    padding:15px;
-    font-size:25px;
-    border-bottom:1px solid #555;
-
+.move-btn:hover{
+    background:#555;
 }
-
-
-.info{
-
-    display:flex;
-    justify-content:space-between;
-    padding:15px;
-    border-bottom:1px solid #444;
-    font-size:18px;
-
-}
-
-
-.gold{
-
-    color:#ffd700;
-
-}
-
-
-.blue{
-
-    color:#5da9ff;
-
-}
-
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<header>
-
-
-<button class="huntBtn" onclick="location.href='index.html'">
+<button id="huntBtn">
 HUNT
 </button>
 
 
-<div class="searchBox">
-
-<input type="text" placeholder="Search HUNT Wiki">
-
-</div>
-
-
-</header>
-
-
-
-<div class="container">
-
-
 
 <h1 class="title">
-Raven's Good Dream
+SKIN
 </h1>
 
 
 
-<div class="description">
+<div class="skin-box">
 
 
+<img src="assets/skins/RavenGoodDream.png"
+class="skin-image">
 
-</span>
 
 
-<br>
+<h2>
+Raven's Good Dream
+</h2>
 
 
-<b>획득 방법</b> :
-Raven's Good Dream 퀘스트로 획득
+<p>
+등급 : ★★★★★
+</p>
 
 
-</div>
+<p>
+종류 : 퀘스트 스킨
+</p>
 
 
 
+<p>
+획득 방법
+</p>
 
-<div class="weaponImage">
+<p>
+Raven's Good Dream<br>
+퀘스트 완료
+</p>
 
 
-<img src="images/Raven'sGoodDream.png" alt="Raven'sGoodDream">
 
-
-</div>
-
-
-
-
-<div class="card">
-
-
-<div class="cardTitle">
-Information
-</div>
-
-
-
-<div class="info">
-
-<span>퀘스트</span>
-
-<span>Raven</span>
-
-</div>
-
-
-
-<div class="info">
-
-<span>난이도</span>
-
-<span>보통</span>
-
-</div>
-
-
-
-
-
-
-<div class="info">
-
-<span>획득 방법</span>
-
-<span class="blue">
-Raven's Good Dream 퀘스트
-</span>
-
-</div>
-
-
-
-</div>
-<div class="card">
-
-
-<div class="toggleHeader">
-
-<span>
-개요
-</span>
-
-
-<span class="toggleText" onclick="toggleSection('overview',this)">
-펼치기 ▼
-</span>
-
-
-</div>
-
-
-
-<div class="sectionContent" id="overview">
-
-
-Raven's Good Dream스킨은 한정판 스킨이며
-휙득 난이도는 보통 입니다
-
-<br><br>
-
-
-Raven의 Good Dream 퀘스트를 완료하면 획득할 수 있습니다
-
-
-</div>
-
-
-</div>
-
-
-
-<style>
-
-
-.toggleHeader{
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:#18191c;
-padding:15px;
-font-size:25px;
-font-weight:bold;
-border-bottom:1px solid #555;
-
-}
-
-
-.toggleText{
-
-color:#7db8ff;
-font-size:17px;
-cursor:pointer;
-
-}
-
-
-.sectionContent{
-
-display:none;
-padding:18px;
-line-height:1.8;
-font-size:18px;
-
-}
-
-
-</style>
-<div class="card">
-
-
-
-</div>
-
-
-
-</div>
-
-
-</div>
-<div class="card">
-
-
-<div class="toggleHeader">
-
-<span>
-획득
-</span>
-
-
-<span class="toggleText" onclick="toggleSection('obtain',this)">
-펼치기 ▼
-</span>
-
-
-</div>
-
-
-
-<div class="sectionContent" id="obtain">
-
-
-<div class="versionBox">
-
-
-<div class="versionTitle">
-
-Raven's Good Dream 휙득 방법
-
-</div>
-
-
-<div class="line"></div>
-
-
-Raven의 Good Dream 퀘스트를 완료하면
-
-<br>
-
-보상으로 Raven's Good Dream 를 획득할 수 있습니다.
-
-
-</div>
-
-
-
-<div class="versionBox">
-
-
-<div class="versionTitle">
-
-필요 조건
-
-</div>
-
-
-<div class="line"></div>
-
-
-•Raven's Good Dream 퀘스트 진행
-
-<br>
-
-• 퀘스트 최종 보상 획득
-
-
-</div>
-
-
-
-</div>
-
-
-</div>
-<div class="card">
-
-
-<div class="toggleHeader">
-
-
-
-</a>
-
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-</span>
-
-
-</div>
-
-
-
-<div class="sectionContent" id="changes">
-
-
-<div class="changeList">
-
-
-
-<div class="versionBox">
-
-
-<div class="versionTitle">
-v1.10.1
-</div>
-
-
-<div class="line"></div>
-
-
-🟢 버프
-
-<br><br>
-
-무기 데미지 증가
-
-<br>
-
-(100 → 200)
-
-
-</div>
-
-
-
-
-<div class="versionBox">
-
-
-<div class="versionTitle">
-v1.10.0
-</div>
-
-
-<div class="line"></div>
-
-
-🔵 신규
-
-<br><br>
-
-Nap's Nightmare 추가
-
-
-</div>
-
-
-
-
-<div class="versionBox">
-
-
-<div class="versionTitle">
-v1.9.5
-</div>
-
-
-<div class="line"></div>
-
-
-🟡 변경
-
-<br><br>
-
-획득 방법 변경
-
-
-</div>
-
-
-
-
-<div class="versionBox">
-
-
-<div class="versionTitle">
-v1.9.0
-</div>
-
-
-<div class="line"></div>
-
-
-🔴 너프
-
-<br><br>
-
-쿨타임 증가
-
-<br>
-
-(1.0s → 1.2s)
-
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-<style>
-
-
-.changeList{
-
-max-height:350px;
-overflow-y:auto;
-padding-right:5px;
-
-}
-
-
-.changeList::-webkit-scrollbar{
-
-width:8px;
-
-}
-
-
-.changeList::-webkit-scrollbar-thumb{
-
-background:#555;
-border-radius:3px;
-
-}
-
-
-
-</style>
-<div class="card">
-
-
-<div class="toggleHeader">
-
-<span>
-무기 등급
-</span>
-
-
-<span class="toggleText" onclick="toggleSection('rank',this)">
-펼치기 ▼
-</span>
-
-
-</div>
-
-
-
-<div class="sectionContent" id="rank">
-
-
-
-<div class="rankItem" onclick="toggleRank('normal')">
-
-▶ 일반
-
-</div>
-
-
-<div class="subWeapon" id="normal">
-
-<a href="wooden-sword.html">
-Wooden Sword
-</a>
-
-<br>
-
-<a href="stone-sword.html">
-Stone Sword
-</a>
-
-</div>
-
-
-
-
-<div class="rankItem" onclick="toggleRank('uncommon')">
-
-▶ 언커먼
-
-</div>
-
-
-<div class="subWeapon" id="uncommon">
-
-등록된 무기가 없습니다.
-
-</div>
-
-
-
-
-<div class="rankItem" onclick="toggleRank('rare')">
-
-▶ 희귀
-
-</div>
-
-
-<div class="subWeapon" id="rare">
-
-등록된 무기가 없습니다.
-
-</div>
-
-
-
-
-
-<div class="rankItem" onclick="toggleRank('superRare')">
-
-▶ 초희귀
-
-</div>
-
-
-<div class="subWeapon" id="superRare">
-
-등록된 무기가 없습니다.
-
-</div>
-
-
-
-
-
-<div class="rankItem" onclick="toggleRank('epic')">
-
-▶ 에픽
-
-</div>
-
-
-<div class="subWeapon" id="epic">
-
-등록된 무기가 없습니다.
-
-</div>
-
-
-
-
-
-<div class="rankItem" onclick="toggleRank('legend')">
-
-▶ 전설
-
-</div>
-
-
-<div class="subWeapon" id="legend">
-
-등록된 무기가 없습니다.
-
-</div>
-
-
-
-
-
-<div class="rankItem" onclick="toggleRank('myth')">
-
-▶ 신화
-
-</div>
-
-
-<div class="subWeapon" id="myth">
-
-등록된 무기가 없습니다.
-
-</div>
-
-
-
-
-
-<div class="rankItem" onclick="toggleRank('secret')">
-
-▶ 비밀
-
-</div>
-
-
-<div class="subWeapon" id="secret">
-
-등록된 무기가 없습니다.
-
-</div>
-
-
-
-
-
-
-<div class="rankItem" onclick="toggleRank('ancient')">
-
-▶ 고대
-
-</div>
-
-
-<div class="subWeapon" id="ancient">
-
-
-<a href="megalodon-goldsword.html">
-
-메갈로돈 골검
-
-</a>
-
-
-</div>
-
-
-
-
-
-<div class="rankItem" onclick="toggleRank('transcendent')">
-
-▶ 초월
-
-</div>
-
-</div>
-    
-<div class="subWeapon" id="transcendent">
-
-
-<a href="naps-nightmare.html">
-
-Nap's Nightmare
-
-</a>
-
-</div>
-
-
-
-<style>
-
-
-.rankItem{
-
-padding:14px 18px;
-border-bottom:1px solid #444;
-cursor:pointer;
-font-size:19px;
-
-}
-
-
-.rankItem:hover{
-
-background:#3a3d42;
-
-}
-
-
-
-.subWeapon{
-
-display:none;
-padding:10px 25px;
-background:#25272b;
-border-bottom:1px solid #444;
-
-}
-
-
-
-.subWeapon a{
-
-color:#6db4ff;
-text-decoration:none;
-font-size:18px;
-
-}
-
-
-.subWeapon a:hover{
-
-text-decoration:underline;
-
-}
-
-
-</style>
-<button class="topButton" id="topBtn">
-▲
+<button class="move-btn"
+onclick="location.href='skin.html'">
+skin으로 가기
 </button>
 
 
-<script>
 
-
-// 접기 / 펼치기
-
-function toggleSection(id,button){
-
-
-let box=document.getElementById(id);
-
-
-
-if(box.style.display==="block"){
-
-
-box.style.display="none";
-
-button.innerHTML="펼치기 ▼";
-
-
-}else{
-
-
-box.style.display="block";
-
-button.innerHTML="접기 ▲";
-
-
-}
-
-
-}
-
-
-
-
-// 등급 펼치기
-
-function toggleRank(id){
-
-
-let box=document.getElementById(id);
-
-
-
-if(box.style.display==="block"){
-
-
-box.style.display="none";
-
-
-}else{
-
-
-box.style.display="block";
-
-
-}
-
-
-}
-
-
-
-
-// 스킨 펼치기
-
-function toggleSkin(id){
-
-
-let box=document.getElementById(id);
-
-
-
-if(box.style.display==="block"){
-
-
-box.style.display="none";
-
-
-}else{
-
-
-box.style.display="block";
-
-
-}
-
-
-}
-
-
-
-
-
-// 맨 위 버튼
-
-
-let topBtn=document.getElementById("topBtn");
-
-
-
-window.addEventListener("scroll",function(){
-
-
-if(window.scrollY>300){
-
-
-topBtn.style.display="block";
-
-
-}else{
-
-
-topBtn.style.display="none";
-
-
-}
-
-
-});
-
-
-
-topBtn.onclick=function(){
-
-
-window.scrollTo({
-
-
-top:0,
-
-
-behavior:"smooth"
-
-
-});
-
-
-};
-
-
-
-</script>
-
-
-
-<style>
-
-
-.topButton{
-
-
-position:fixed;
-
-right:20px;
-
-bottom:20px;
-
-width:50px;
-
-height:50px;
-
-background:#22c55e;
-
-color:white;
-
-border:none;
-
-font-size:22px;
-
-cursor:pointer;
-
-border-radius:3px;
-
-display:none;
-
-
-}
-
-
-</style>
-<script>
-
-
-// 검색 기능
-
-const searchInput = document.querySelector(".searchBox input");
-
-
-searchInput.addEventListener("keyup", function(){
-
-
-let value = searchInput.value.toLowerCase();
-
-
-let content = document.querySelector(".container").innerText.toLowerCase();
-
-
-
-if(value !== "" && content.includes(value)){
-
-
-searchInput.style.borderColor="#22c55e";
-
-
-}else{
-
-
-searchInput.style.borderColor="#555";
-
-
-}
-
-
-});
-
-
-
-</script>
-
-
-
-<style>
-
-
-/* 추가 디자인 정리 */
-
-
-a{
-
-transition:0.2s;
-
-}
-
-
-
-.card:hover{
-
-border-color:#777;
-
-}
-
-
-
-.versionBox{
-
-background:#25272b;
-
-border:1px solid #555;
-
-padding:15px;
-
-margin-bottom:15px;
-
-}
-
-
-
-.versionTitle{
-
-font-size:22px;
-
-font-weight:bold;
-
-}
-
-
-
-.line{
-
-border-top:1px solid #555;
-
-margin:10px 0;
-
-}
-
-
-
-</style>
-
+<button class="move-btn"
+onclick="location.href='naps-nightmare.html'">
+Nap's Nightmare
+</button>
 
 
 </div>
 
 
-</body>
 
+
+<script>
+
+let hunt = document.getElementById("huntBtn");
+
+
+hunt.onclick=function(){
+
+    hunt.style.backgroundColor="green";
+
+
+    setTimeout(function(){
+
+        location.href="index.html";
+
+    },300);
+
+}
+
+</script>
+
+
+</body>
 </html>
