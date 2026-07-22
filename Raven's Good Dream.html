@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>SKIN - Raven's Good Dream</title>
+<title>SKIN</title>
 
 <style>
 
@@ -26,40 +26,32 @@ body{
 
     z-index:999;
 
-    width:150px;
-    height:55px;
+    background:none;
+    border:none;
 
-    background:#111;
     color:white;
 
-    border:3px solid #555;
-
-    font-size:22px;
+    font-size:28px;
     font-weight:bold;
 
     cursor:pointer;
 }
 
 
-/* 제목 */
+/* SKIN 제목 */
 .title{
-
     text-align:center;
-
-    font-size:45px;
-
     margin-top:80px;
-
+    font-size:50px;
 }
 
 
 
-/* 전체 화면 스킨 박스 */
+/* 전체 화면 */
 .skin-container{
 
     width:95%;
-
-    min-height:850px;
+    min-height:900px;
 
     margin:30px auto;
 
@@ -70,49 +62,43 @@ body{
     padding:40px;
 
     text-align:center;
-
 }
 
 
 
-/* 큰 가로 이미지 */
+/* 스킨 이미지 */
 .skin-image{
 
     width:90vw;
-
     max-width:1200px;
 
-    height:450px;
-
+    height:700px;
 
     object-fit:cover;
-
 
     border:4px solid #555;
 
     background:#222;
-
 }
 
 
 
-/* 이름 */
+/* 스킨 이름 */
 .skin-name{
 
-    font-size:35px;
+    font-size:38px;
 
     margin:35px;
-
 }
+
 
 
 /* 정보 */
 .info{
 
-    font-size:22px;
+    font-size:24px;
 
     line-height:2;
-
 }
 
 
@@ -120,12 +106,11 @@ body{
 /* 변경사항 */
 .changes{
 
-    margin:40px auto;
-
     width:90%;
 
-    border:3px solid #444;
+    margin:40px auto;
 
+    border:3px solid #444;
 }
 
 
@@ -144,31 +129,28 @@ body{
 
     font-size:22px;
 
-    cursor:pointer;
-
     text-align:left;
 
     padding-left:20px;
 
+    cursor:pointer;
 }
 
 
 
 #changeList{
 
-    max-height:180px;
+    max-height:200px;
 
     overflow-y:auto;
 
-    padding:20px;
+    display:none;
 
     background:#080808;
 
-    display:none;
+    padding:20px;
 
     text-align:left;
-
-    font-size:18px;
 
 }
 
@@ -195,15 +177,6 @@ body{
     cursor:pointer;
 
 }
-
-
-
-.move-button:hover{
-
-    background:#444;
-
-}
-
 
 </style>
 
@@ -256,7 +229,6 @@ Raven's Good Dream 퀘스트 완료
 
 
 
-
 <div class="changes">
 
 
@@ -268,17 +240,15 @@ onclick="toggleChanges()">
 </button>
 
 
-
 <div id="changeList">
 
 <p>- 스킨 이미지 변경</p>
 
-<p>- 새로운 이펙트 추가</p>
+<p>- 새로운 효과 추가</p>
 
 <p>- 색상 변경</p>
 
-<p>- 전용 효과 추가</p>
-
+<p>- 전용 이펙트 추가</p>
 
 </div>
 
@@ -316,40 +286,45 @@ Nap's Nightmare
 <script>
 
 
-// HUNT 이동
+// HUNT 클릭 효과
 
-document.getElementById("huntBtn").onclick=function(){
-
-    this.style.backgroundColor="green";
+let hunt = document.getElementById("huntBtn");
 
 
-    setTimeout(()=>{
+hunt.onclick=function(){
+
+    hunt.style.color="lime";
+
+
+    setTimeout(function(){
+
+        hunt.style.color="white";
 
         location.href="index.html";
 
-    },300);
+    },500);
 
 };
 
 
 
-// 변경사항 접기/펼치기
+
+// 변경사항 펼치기/접기
 
 function toggleChanges(){
 
-let box=document.getElementById("changeList");
+let list=document.getElementById("changeList");
 
 
-if(box.style.display==="block"){
+if(list.style.display==="block"){
 
-    box.style.display="none";
+    list.style.display="none";
 
 }else{
 
-    box.style.display="block";
+    list.style.display="block";
 
 }
-
 
 }
 
