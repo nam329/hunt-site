@@ -766,3 +766,220 @@ Nap's Nightmare 퀘스트
 </div>
 
 </details>
+<!-- 변경내역 -->
+
+<details class="change-box">
+
+
+<summary>
+📜 변경내역
+</summary>
+
+
+
+<div class="change-list">
+
+
+<h3>
+2026-07-22
+</h3>
+
+<p>
+• 무기 검색 기능 추가<br>
+• 등급 필터 추가<br>
+• 무기 종류 필터 추가<br>
+• 얻는 방법 필터 추가
+</p>
+
+
+
+<h3>
+2026-07-20
+</h3>
+
+<p>
+• Nap's Nightmare 추가<br>
+• 무기 도감 디자인 변경
+</p>
+
+
+
+<h3>
+2026-07-15
+</h3>
+
+<p>
+• HUNT 공식 사이트 무기 페이지 제작
+</p>
+
+
+
+</div>
+
+
+</details>
+
+
+
+
+
+<script>
+
+
+let currentGrade = "";
+let currentType = "";
+let currentArea = "";
+
+
+
+
+// 등급 선택
+
+function setGrade(value){
+
+currentGrade = value;
+
+filterWeapon();
+
+}
+
+
+
+
+// 종류 선택
+
+function setType(value){
+
+currentType = value;
+
+filterWeapon();
+
+}
+
+
+
+
+// 얻는 방법 선택
+
+function setArea(value){
+
+currentArea = value;
+
+filterWeapon();
+
+}
+
+
+
+
+// 필터 기능
+
+function filterWeapon(){
+
+
+let search =
+document
+.getElementById("search")
+.value
+.toLowerCase();
+
+
+
+let rows =
+document.querySelectorAll("#weapons tr");
+
+
+
+for(let i = 1; i < rows.length; i++){
+
+
+let name =
+rows[i]
+.children[0]
+.innerText
+.toLowerCase();
+
+
+
+let grade =
+rows[i]
+.children[1]
+.innerText;
+
+
+
+let type =
+rows[i]
+.children[2]
+.innerText;
+
+
+
+let area =
+rows[i]
+.children[3]
+.innerText;
+
+
+
+
+let searchCheck =
+name.includes(search);
+
+
+
+let gradeCheck =
+currentGrade === "" ||
+grade.includes(currentGrade);
+
+
+
+let typeCheck =
+currentType === "" ||
+type.includes(currentType);
+
+
+
+let areaCheck =
+currentArea === "" ||
+area.includes(currentArea);
+
+
+
+
+
+if(
+searchCheck &&
+gradeCheck &&
+typeCheck &&
+areaCheck
+){
+
+rows[i].style.display="";
+
+
+}else{
+
+
+rows[i].style.display="none";
+
+
+}
+
+
+
+}
+
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
