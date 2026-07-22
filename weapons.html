@@ -1,667 +1,650 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>HUNT | Weapons</title>
+<title>HUNT 무기 도감</title>
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
 body{
+    margin:0;
+    background:#0b0b0b;
+    color:white;
+    font-family:Arial, sans-serif;
+}
 
-background:#1d2127;
-color:white;
+
+.topbar{
+
+    height:70px;
+    background:#111;
+    display:flex;
+    align-items:center;
+    padding:0 20px;
+    border-bottom:1px solid #333;
 
 }
 
-/* 상단 */
 
-header{
+.logo{
 
-position:sticky;
-top:0;
+    font-size:35px;
+    font-weight:bold;
+    color:#00ff66;
+    text-decoration:none;
 
-background:#242a33;
+}
 
-height:70px;
 
-display:flex;
 
-justify-content:center;
-align-items:center;
+.container{
 
-font-size:35px;
-font-weight:bold;
+    padding:25px;
+
+}
+
+
+
+h1{
+
+    text-align:center;
+    color:#00ff66;
+
+}
+
+
+
+.search-box{
+
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-bottom:25px;
+
+}
+
+
+
+input,select{
+
+    background:#171717;
+    color:white;
+    border:1px solid #444;
+    padding:12px;
+    border-radius:8px;
+
+}
+
+
+
+table{
+
+    width:100%;
+    border-collapse:collapse;
+    background:#111;
+
+}
+
+
+
+th{
+
+    background:#00aa55;
+    padding:15px;
+
+}
+
+
+
+td{
+
+    padding:14px;
+    text-align:center;
+    border-bottom:1px solid #333;
+
+}
+
+
+
+tr:hover{
+
+    background:#1c1c1c;
+
+}
+
+
+
+a{
+
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+
+}
+
+
+
+.normal{
+
+color:#ddd;
+
+}
+
+
+.uncommon{
 
 color:#00ff66;
 
-box-shadow:0 2px 10px rgba(0,0,0,.4);
+}
 
-z-index:1000;
+
+.rare{
+
+color:#3399ff;
 
 }
 
-.title{
 
-padding:30px 25px 15px;
+.superrare{
 
-font-size:42px;
+color:#66ccff;
+
+}
+
+
+.epic{
+
+color:#aa55ff;
+
+}
+
+
+.legend{
+
+color:#ff9900;
+
+}
+
+
+.myth{
+
+color:red;
+
+}
+
+
+.secret{
+
+color:#ff66ff;
+
+}
+
+
+.ancient{
+
+color:#ffd700;
+
+}
+
+
+.transcend{
+
+color:#00ffff;
+
+}
+
+
+.sell{
+
+color:#00ff66;
 font-weight:bold;
 
 }
-<div class="logo">
-<a href="index.html">HUNT</a>
-</div>
-/* 검색 */
 
-.search{
 
-padding:0 25px 25px;
+.no{
+
+color:red;
+font-weight:bold;
 
 }
 
-.search input{
 
-width:100%;
-
-height:55px;
-
-background:#303844;
-
-border:none;
-
-outline:none;
-
-border-radius:12px;
-
-padding:0 18px;
-
-font-size:17px;
-
-color:white;
-
-}
-
-/* 구역 */
-
-.section{
-
-padding:0 25px 25px;
-
-}
-
-.section h2{
-
-font-size:21px;
-
-margin-bottom:12px;
-
-}
-
-/* 버튼 */
-  
-  <div class="logo">
-<a href="index.html">HUNT</a>
-</div>
-
-.filter{
-
-display:flex;
-
-gap:10px;
-
-overflow-x:auto;
-
-padding-bottom:6px;
-
-scrollbar-width:none;
-
-}
-
-.filter::-webkit-scrollbar{
-
-display:none;
-
-}
-
-.filter button{
-
-background:#303844;
-
-border:none;
-
-color:white;
-
-padding:10px 18px;
-
-border-radius:10px;
-
-cursor:pointer;
-
-white-space:nowrap;
-
-transition:.2s;
-
-font-size:15px;
-
-}
-
-.filter button:hover{
-
-background:#007bff;
-
-}
-
-.filter button.active{
-
-background:#00a2ff;
-
-}
-
-/* 카드 목록 */
-
-.weapon-list{
-
-padding:25px;
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fill,minmax(340px,1fr));
-
-gap:20px;
-
-}
-
-/* 카드 */
-
-.weapon-card{
-
-background:#2a313b;
-
-border-radius:15px;
-
-overflow:hidden;
-
-cursor:pointer;
-
-transition:.25s;
-
-}
-
-.weapon-card:hover{
-
-transform:translateY(-6px);
-
-background:#343d48;
-
-}
-
-.weapon-card img{
-
-width:100%;
-
-height:210px;
-
-object-fit:cover;
-
-display:block;
-
-}
-
-.weapon-info{
-
-padding:18px;
-
-}
-
-.weapon-info h3{
-
-font-size:26px;
-
-margin-bottom:10px;
-
-}
-
-.weapon-info p{
-
-margin:4px 0;
-
-color:#d5d5d5;
-
-}
-
-/* 등급 */
-
-.common{
-color:#ffffff;
-}
-
-.uncommon{
-color:#57ff57;
-}
-
-.rare{
-color:#4d8dff;
-}
-
-.superrare{
-color:#33ccff;
-}
-
-.epic{
-color:#b84dff;
-}
-
-.legendary{
-color:#ff9800;
-}
-
-.mythic{
-color:#ff4444;
-}
-
-.secret{
-color:#ff4df2;
-}
-
-.ancient{
-color:#ffd700;
-}
-
-.transcendent{
-color:#00ffff;
-}
-
-/* 모바일 */
 
 @media(max-width:700px){
 
-.weapon-list{
+table{
 
-grid-template-columns:1fr;
-
-}
-
-.weapon-card img{
-
-height:190px;
+font-size:12px;
 
 }
 
-.title{
 
-font-size:34px;
+th,td{
+
+padding:8px;
 
 }
 
 }
+
 
 </style>
 
+
 </head>
+
+
 
 <body>
 
-<div class="logo">
-<a href="index.html">HUNT</a>
-</div>
-  
-<header>
 
+<div class="topbar">
+
+<a class="logo" href="index.html">
 HUNT
+</a>
 
-</header>
+</div>
 
-<h1 class="title">
 
-⚔ Weapons
 
+<div class="container">
+
+
+<h1>
+⚔️ HUNT 무기 도감
 </h1>
-<div class="search">
 
-<input
-type="text"
+
+
+<div class="search-box">
+
+
+<input 
 id="search"
-placeholder="🔍 무기 검색...">
+placeholder="무기 검색..."
+onkeyup="filterWeapon()"
+>
+
+
+<select id="grade" onchange="filterWeapon()">
+
+<option value="">모든 등급</option>
+<option value="normal">일반</option>
+<option value="uncommon">언커먼</option>
+<option value="rare">희귀</option>
+<option value="superrare">초희귀</option>
+<option value="epic">에픽</option>
+<option value="legend">전설</option>
+<option value="myth">신화</option>
+<option value="secret">비밀</option>
+<option value="ancient">고대</option>
+<option value="transcend">초월</option>
+
+</select>
+
+
+
+<select id="type" onchange="filterWeapon()">
+
+<option value="">모든 종류</option>
+
+<option>검</option>
+<option>도끼</option>
+<option>활</option>
+<option>창</option>
+<option>단검</option>
+<option>둔기</option>
+<option>마법</option>
+
+</select>
+
+
 
 </div>
 
 
-<div class="section">
 
-<h2>등급</h2>
 
-<div class="filter" id="rarityFilter">
 
-<button class="active" data-rarity="전체">전체</button>
-<button data-rarity="일반">일반</button>
-<button data-rarity="언커먼">언커먼</button>
-<button data-rarity="희귀">희귀</button>
-<button data-rarity="초희귀">초희귀</button>
-<button data-rarity="에픽">에픽</button>
-<button data-rarity="전설">전설</button>
-<button data-rarity="신화">신화</button>
-<button data-rarity="비밀">비밀</button>
-<button data-rarity="고대">고대</button>
-<button data-rarity="초월">초월</button>
+<table id="weaponTable">
+
+
+<tr>
+
+<th>이름</th>
+<th>등급</th>
+<th>종류</th>
+<th>얻는 방법</th>
+<th>판매</th>
+<th>가격</th>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+<a href="weapons/iron-sword.html">
+철검
+</a>
+</td>
+
+<td class="normal">
+⚪ 일반
+</td>
+
+<td>
+검
+</td>
+
+<td>
+시작섬
+</td>
+
+<td class="sell">
+○
+</td>
+
+<td>
+100G
+</td>
+
+
+</tr>
+
+
+
+
+
+<tr>
+
+
+<td>
+<a href="weapons/iron-axe.html">
+철도끼
+</a>
+</td>
+
+<td class="normal">
+⚪ 일반
+</td>
+
+<td>
+도끼
+</td>
+
+<td>
+시작섬
+</td>
+
+<td class="sell">
+○
+</td>
+
+<td>
+150G
+</td>
+
+
+</tr>
+
+
+
+
+
+
+<tr>
+
+
+<td>
+<a href="weapons/crystal-sword.html">
+수정검
+</a>
+</td>
+
+
+<td class="rare">
+
+🔵 희귀
+
+</td>
+
+
+<td>
+검
+</td>
+
+
+<td>
+크리스탈 동굴
+
+</td>
+
+
+<td class="sell">
+
+○
+
+</td>
+
+
+<td>
+
+8,500G
+
+</td>
+
+
+</tr>
+
+
+
+
+
+
+
+<tr>
+
+
+<td>
+<a href="weapons/dragon-blade.html">
+
+Dragon Blade
+
+</a>
+
+</td>
+
+
+<td class="legend">
+
+🟠 전설
+
+</td>
+
+
+<td>
+
+검
+
+</td>
+
+
+<td>
+
+화산 보스
+
+</td>
+
+
+<td class="no">
+
+×
+
+</td>
+
+
+<td>
+
+-
+
+</td>
+
+
+</tr>
+
+
+
+
+
+
+<tr>
+
+
+<td>
+
+<a href="weapons/naps-nightmare.html">
+
+Nap's Nightmare
+
+</a>
+
+</td>
+
+
+<td class="transcend">
+
+✨ 초월
+
+</td>
+
+
+<td>
+
+검
+
+</td>
+
+
+<td>
+
+Nap's Nightmare 퀘스트 완료
+
+</td>
+
+
+<td class="no">
+
+×
+
+</td>
+
+
+<td>
+
+-
+
+</td>
+
+
+</tr>
+
+
+
+
+
+
+</table>
+
+
 
 </div>
 
-</div>
 
 
-<div class="section">
 
-<h2>무기 종류</h2>
 
-<div class="filter" id="typeFilter">
+<script>
 
-<button class="active" data-type="전체">전체</button>
-<button data-type="검">🗡 검</button>
-<button data-type="단검">🗡 단검</button>
-<button data-type="활">🏹 활</button>
-<button data-type="도끼">🪓 도끼</button>
-<button data-type="창">🔱 창</button>
-<button data-type="둔기">🔨 둔기</button>
-<button data-type="마법">✨ 마법</button>
-<button data-type="대검">🗡 대검</button>
-</div>
 
-</div>
+function filterWeapon(){
 
 
-<div class="section">
+let search =
+document.getElementById("search").value.toLowerCase();
 
-<h2>획득 지역</h2>
 
-<div class="filter" id="areaFilter">
+let grade =
+document.getElementById("grade").value;
 
-<button class="active" data-area="전체">전체</button>
 
-<button data-area="시작섬">🏝 시작섬</button>
+let type =
+document.getElementById("type").value;
 
-<button data-area="정글">🌳 정글</button>
 
-<button data-area="크리스탈">💎 크리스탈</button>
 
-<button data-area="사막">🏜 사막</button>
+let rows =
+document.querySelectorAll("#weaponTable tr");
 
-<button data-area="북극">❄ 북극</button>
 
-<button data-area="남극">🧊 남극</button>
 
-<button data-area="심해">🌊 심해</button>
+for(let i=1;i<rows.length;i++){
 
-<button data-area="화산">🌋 화산</button>
 
-<button data-area="늪지대">🐊 늪지대</button>
+let name =
+rows[i].children[0].innerText.toLowerCase();
 
-<button data-area="퀘스트">📜 퀘스트</button>
-  
-</div>
 
-</div>
+let weaponGrade =
+rows[i].children[1].className;
 
 
-<div class="section">
+let weaponType =
+rows[i].children[2].innerText;
 
-<h2>정렬</h2>
 
-<div class="filter">
 
-<button id="sortName">이름순</button>
+if(
+name.includes(search)
+&&
+(grade=="" || weaponGrade==grade)
+&&
+(type=="" || weaponType==type)
 
-<button id="sortRank">등급순</button>
+){
 
-<button id="resetFilter">초기화</button>
-
-</div>
-
-</div>
-
-
-<div style="padding:0 25px 20px;font-size:17px;color:#9dd8ff;">
-
-<span id="weaponCount">
-
-무기 0개
-
-</span>
-
-</div>
-
-
-<div class="weapon-list" id="weaponList"><!-- Nap's Nightmare -->
-<div class="weapon-card"
-data-name="Nap's Nightmare"
-data-rarity="초월"
-data-type="대검"
-data-area="퀘스트"
-onclick="location.href='naps-nightmare.html'">
-
-<img src="images/naps-nightmare.png" alt="Nap's Nightmare">
-
-<div class="weapon-info">
-
-<h3>Nap's Nightmare</h3>
-
-<p class="transcendent"><b>등급 :</b> 초월</p>
-
-<p><b>종류 :</b> 대검 </p>
-
-<p><b>획득 :</b> Nap's Nightmare 퀘스트 </p>
-          
-
-
-</div>
-
-</div>
-
-
-<!-- Megalodon Fang -->
-<div class="weapon-card"
-data-name="Megalodon Fang"
-data-rarity="고대"
-data-type="검"
-data-area="심해"
-onclick="location.href='megalodon-fang.html'">
-
-<img src="images/megalodon-fang.png" alt="Megalodon Fang">
-
-<div class="weapon-info">
-
-<h3>Megalodon Fang</h3>
-
-<p class="ancient"><b>등급 :</b> 고대</p>
-
-<p><b>종류 :</b> 검</p>
-
-<p><b>획득 :</b> 심해</p>
-
-</div>
-
-</div>
-
-
-<!-- Dragon Blade -->
-<div class="weapon-card"
-data-name="Dragon Blade"
-data-rarity="전설"
-data-type="검"
-data-area="화산"
-onclick="location.href='dragon-blade.html'">
-
-<img src="images/dragon-blade.png" alt="Dragon Blade">
-
-<div class="weapon-info">
-
-<h3>Dragon Blade</h3>
-
-<p class="legendary"><b>등급 :</b> 전설</p>
-
-<p><b>종류 :</b> 검</p>
-
-<p><b>획득 :</b> 화산섬</p>
-
-</div>
-
-</div>
-
-
-<!-- Crystal Sword -->
-<div class="weapon-card"
-data-name="Crystal Sword"
-data-rarity="에픽"
-data-type="검"
-data-area="크리스탈"
-onclick="location.href='crystal-sword.html'">
-
-<img src="images/crystal-sword.png" alt="Crystal Sword">
-
-<div class="weapon-info">
-
-<h3>Crystal Sword</h3>
-
-<p class="epic"><b>등급 :</b> 에픽</p>
-
-<p><b>종류 :</b> 검</p>
-
-<p><b>획득 :</b> 크리스탈섬</p>
-
-</div>
-
-</div>
-
-
-<!-- Iron Sword -->
-<div class="weapon-card"
-data-name="Iron Sword"
-data-rarity="일반"
-data-type="검"
-data-area="시작섬"
-onclick="location.href='iron-sword.html'">
-
-<img src="images/iron-sword.png" alt="Iron Sword">
-
-<div class="weapon-info">
-
-<h3>Iron Sword</h3>
-
-<p class="common"><b>등급 :</b> 일반</p>
-
-<p><b>종류 :</b> 검</p>
-
-<p><b>획득 :</b> 시작섬</p>
-
-</div>
-
-</div>
-
-</div><script>
-
-let rarityFilter="전체";
-let typeFilter="전체";
-let areaFilter="전체";
-
-const search=document.getElementById("search");
-
-const cards=document.querySelectorAll(".weapon-card");
-
-const count=document.getElementById("weaponCount");
-
-search.addEventListener("input",updateWeapons);
-
-document.querySelectorAll("#rarityFilter button").forEach(btn=>{
-
-btn.onclick=function(){
-
-document.querySelectorAll("#rarityFilter button").forEach(b=>b.classList.remove("active"));
-
-this.classList.add("active");
-
-rarityFilter=this.dataset.rarity;
-
-updateWeapons();
+rows[i].style.display="";
 
 }
 
-});
+else{
 
-document.querySelectorAll("#typeFilter button").forEach(btn=>{
-
-btn.onclick=function(){
-
-document.querySelectorAll("#typeFilter button").forEach(b=>b.classList.remove("active"));
-
-this.classList.add("active");
-
-typeFilter=this.dataset.type;
-
-updateWeapons();
+rows[i].style.display="none";
 
 }
 
-});
 
-document.querySelectorAll("#areaFilter button").forEach(btn=>{
-
-btn.onclick=function(){
-
-document.querySelectorAll("#areaFilter button").forEach(b=>b.classList.remove("active"));
-
-this.classList.add("active");
-
-areaFilter=this.dataset.area;
-
-updateWeapons();
 
 }
 
-});
 
-function updateWeapons(){
-
-let visible=0;
-
-cards.forEach(card=>{
-
-let ok=true;
-
-const name=card.dataset.name.toLowerCase();
-
-const text=search.value.toLowerCase();
-
-if(!name.includes(text)) ok=false;
-
-if(rarityFilter!="전체" && card.dataset.rarity!=rarityFilter) ok=false;
-
-if(typeFilter!="전체" && card.dataset.type!=typeFilter) ok=false;
-
-if(areaFilter!="전체" && card.dataset.area!=areaFilter) ok=false;
-
-card.style.display=ok ? "block" : "none";
-
-if(ok) visible++;
-
-});
-
-count.innerHTML="무기 "+visible+"개";
 
 }
 
-updateWeapons();
+
 
 </script>
+
+
+
 </body>
 
 </html>
