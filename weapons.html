@@ -11,7 +11,6 @@
 
 <style>
 
-/* 기본 */
 
 body{
 
@@ -30,9 +29,12 @@ font-family:Arial,sans-serif;
 
 height:70px;
 background:#111;
+
 display:flex;
 align-items:center;
+
 padding-left:20px;
+
 border-bottom:1px solid #333;
 
 }
@@ -42,7 +44,9 @@ border-bottom:1px solid #333;
 
 font-size:38px;
 font-weight:bold;
+
 color:#00ff66;
+
 text-decoration:none;
 
 }
@@ -50,9 +54,10 @@ text-decoration:none;
 
 
 
+
 .container{
 
-padding:25px;
+padding:20px;
 
 }
 
@@ -61,11 +66,15 @@ padding:25px;
 .title{
 
 text-align:center;
-font-size:35px;
+
+font-size:34px;
+
 color:#00ff66;
-margin-bottom:30px;
+
+margin-bottom:25px;
 
 }
+
 
 
 
@@ -74,15 +83,20 @@ margin-bottom:30px;
 .search{
 
 width:100%;
+
 box-sizing:border-box;
-padding:16px;
-font-size:18px;
+
+padding:15px;
+
+font-size:17px;
 
 background:#151515;
-color:white;
 
 border:1px solid #444;
+
 border-radius:10px;
+
+color:white;
 
 }
 
@@ -90,47 +104,60 @@ border-radius:10px;
 
 
 
-/* 필터 */
+/* 필터 박스 */
 
 .filter-box{
 
-margin-top:25px;
+margin-top:20px;
+
 background:#111;
 
-padding:20px;
-border-radius:12px;
 border:1px solid #333;
 
+border-radius:12px;
+
+padding:15px;
+
 }
+
 
 
 
 .filter-title{
 
-font-size:22px;
+font-size:21px;
+
 font-weight:bold;
+
 color:#00ff66;
-margin-bottom:15px;
+
+margin-bottom:12px;
 
 }
+
 
 
 
 button{
 
-padding:12px 16px;
-margin:5px;
+background:#1a1a1a;
 
-background:#1b1b1b;
 color:white;
 
 border:1px solid #444;
-border-radius:10px;
 
-font-size:15px;
+border-radius:8px;
+
+padding:10px 14px;
+
+margin:4px;
+
 cursor:pointer;
 
+font-size:14px;
+
 }
+
 
 
 button:hover{
@@ -142,19 +169,22 @@ background:#00aa55;
 
 
 
-/* 펼치기 */
+/* 펼치기 박스 */
 
 .weapon-box,
 .change-box{
 
-margin-top:35px;
+
+margin-top:30px;
 
 background:#111;
+
 border:1px solid #333;
 
 border-radius:12px;
 
-padding:18px;
+padding:15px;
+
 
 }
 
@@ -162,7 +192,8 @@ padding:18px;
 
 summary{
 
-font-size:25px;
+font-size:23px;
+
 font-weight:bold;
 
 color:#00ff66;
@@ -173,11 +204,11 @@ cursor:pointer;
 
 
 
-
-
 /* 표 가로 스크롤 */
 
 .table-scroll{
+
+width:100%;
 
 overflow-x:auto;
 
@@ -187,14 +218,17 @@ margin-top:20px;
 
 
 
+/* 무기 표 */
 
 #weapons{
 
+width:100%;
+
+min-width:750px;
+
 border-collapse:collapse;
 
-min-width:1000px;
-
-width:100%;
+table-layout:fixed;
 
 }
 
@@ -204,9 +238,9 @@ width:100%;
 
 background:#00aa55;
 
-font-size:18px;
+padding:15px 8px;
 
-padding:20px;
+font-size:16px;
 
 }
 
@@ -214,16 +248,22 @@ padding:20px;
 
 #weapons td{
 
+padding:18px 8px;
+
 text-align:center;
-
-padding:22px;
-
-font-size:17px;
 
 border-bottom:1px solid #333;
 
-}
+font-size:16px;
 
+
+/* 긴 글자 줄바꿈 */
+
+white-space:normal;
+
+word-break:break-word;
+
+}
 
 
 
@@ -236,27 +276,61 @@ background:#1b1b1b;
 
 
 
+
+/* 칸 크기 */
+
+#weapons th:nth-child(1),
 #weapons td:nth-child(1){
 
-min-width:180px;
+width:20%;
 
 }
 
 
 
+#weapons th:nth-child(2),
+#weapons td:nth-child(2){
+
+width:14%;
+
+}
+
+
+
+#weapons th:nth-child(3),
+#weapons td:nth-child(3){
+
+width:14%;
+
+}
+
+
+
+#weapons th:nth-child(4),
 #weapons td:nth-child(4){
 
-min-width:250px;
+width:28%;
 
 }
 
 
 
+#weapons th:nth-child(5),
+#weapons td:nth-child(5){
+
+width:10%;
+
+}
+
+
+
+#weapons th:nth-child(6),
 #weapons td:nth-child(6){
 
-min-width:130px;
+width:14%;
 
 }
+
 
 
 
@@ -264,6 +338,7 @@ min-width:130px;
 a{
 
 color:white;
+
 text-decoration:none;
 
 font-weight:bold;
@@ -273,107 +348,53 @@ font-weight:bold;
 
 
 
-/* 등급 */
+/* 등급 색 */
 
 .일반{
 color:#ddd;
 }
 
-
 .언커먼{
-
 color:#00ff66;
-
 }
-
 
 .희귀{
-
 color:#3399ff;
-
 }
-
 
 .초희귀{
-
 color:#66ccff;
-
 }
-
 
 .에픽{
-
-color:#bb55ff;
-
+color:#aa55ff;
 }
-
 
 .전설{
-
 color:#ff9900;
-
 }
-
 
 .신화{
-
 color:red;
-
 }
-
 
 .비밀{
-
 color:#ff66ff;
-
 }
-
 
 .고대{
-
 color:#ffd700;
-
 }
-
 
 .초월{
-
 color:#00ffff;
-
 }
 
-
-
-
-
-/* 변경내역 */
-
-.change-list{
-
-max-height:250px;
-
-overflow-y:auto;
-
-padding-right:10px;
-
-}
-
-
-
-
-.change-list h3{
-
-color:#00ff66;
-
-}
-
-
+<!-- 검색 -->
 
 </style>
 
-
 </head>
-
 
 
 <body>
@@ -382,9 +403,7 @@ color:#00ff66;
 <div class="topbar">
 
 <a href="index.html" class="logo">
-
 HUNT
-
 </a>
 
 </div>
@@ -395,9 +414,7 @@ HUNT
 
 
 <h1 class="title">
-
 ⚔️ HUNT 무기 도감
-
 </h1>
 
 
@@ -407,7 +424,11 @@ class="search"
 id="search"
 placeholder="🔍 무기 검색"
 onkeyup="filterWeapon()"
-><!-- 등급 필터 -->
+>
+
+
+
+<!-- 등급 -->
 
 <div class="filter-box">
 
@@ -415,26 +436,40 @@ onkeyup="filterWeapon()"
 🏷️ 등급
 </div>
 
+
 <button onclick="setGrade('')">전체</button>
+
 <button onclick="setGrade('일반')">⚪ 일반</button>
+
 <button onclick="setGrade('언커먼')">🟢 언커먼</button>
+
 <button onclick="setGrade('희귀')">🔵 희귀</button>
+
 <button onclick="setGrade('초희귀')">🟦 초희귀</button>
+
 <button onclick="setGrade('에픽')">🟣 에픽</button>
+
 <button onclick="setGrade('전설')">🟠 전설</button>
+
 <button onclick="setGrade('신화')">🔴 신화</button>
+
 <button onclick="setGrade('비밀')">🌈 비밀</button>
+
 <button onclick="setGrade('고대')">🟡 고대</button>
+
 <button onclick="setGrade('초월')">✨ 초월</button>
+
 
 </div>
 
 
 
 
-<!-- 종류 필터 -->
+
+<!-- 종류 -->
 
 <div class="filter-box">
+
 
 <div class="filter-title">
 ⚔️ 무기 종류
@@ -442,15 +477,25 @@ onkeyup="filterWeapon()"
 
 
 <button onclick="setType('')">전체</button>
+
 <button onclick="setType('단검')">🗡 단검</button>
+
 <button onclick="setType('장검')">⚔️ 장검</button>
-<button onclick="setType('대검')">🗡 대검</button>
+
+<button onclick="setType('대검')">⚔️ 대검</button>
+
 <button onclick="setType('활')">🏹 활</button>
+
 <button onclick="setType('석궁')">🏹 석궁</button>
+
 <button onclick="setType('도끼')">🪓 도끼</button>
+
 <button onclick="setType('둔기')">🔨 둔기</button>
+
 <button onclick="setType('창')">🔱 창</button>
+
 <button onclick="setType('마법')">🔮 마법</button>
+
 
 </div>
 
@@ -461,6 +506,7 @@ onkeyup="filterWeapon()"
 <!-- 얻는 방법 -->
 
 <div class="filter-box">
+
 
 <div class="filter-title">
 🗺️ 얻는 방법
@@ -532,6 +578,7 @@ onkeyup="filterWeapon()"
 
 <details class="weapon-box" open>
 
+
 <summary>
 ⚔️ 무기 목록
 </summary>
@@ -557,8 +604,8 @@ onkeyup="filterWeapon()"
 
 
 
-<tr>
 
+<tr>
 
 <td>
 <a href="iron-sword.html">
@@ -566,31 +613,25 @@ onkeyup="filterWeapon()"
 </a>
 </td>
 
-
 <td class="일반">
 ⚪ 일반
 </td>
-
 
 <td>
 장검
 </td>
 
-
 <td>
 시작섬
 </td>
-
 
 <td>
 ○
 </td>
 
-
 <td>
 100G
 </td>
-
 
 </tr>
 
@@ -599,7 +640,6 @@ onkeyup="filterWeapon()"
 
 
 <tr>
-
 
 <td>
 <a href="iron-axe.html">
@@ -607,31 +647,25 @@ onkeyup="filterWeapon()"
 </a>
 </td>
 
-
 <td class="일반">
 ⚪ 일반
 </td>
-
 
 <td>
 도끼
 </td>
 
-
 <td>
 시작섬
 </td>
-
 
 <td>
 ○
 </td>
 
-
 <td>
 150G
 </td>
-
 
 </tr>
 
@@ -640,7 +674,6 @@ onkeyup="filterWeapon()"
 
 
 <tr>
-
 
 <td>
 <a href="crystal-sword.html">
@@ -648,31 +681,25 @@ onkeyup="filterWeapon()"
 </a>
 </td>
 
-
 <td class="희귀">
 🔵 희귀
 </td>
-
 
 <td>
 장검
 </td>
 
-
 <td>
 크리스탈섬
 </td>
-
 
 <td>
 ○
 </td>
 
-
 <td>
 8,500G
 </td>
-
 
 </tr>
 
@@ -681,7 +708,6 @@ onkeyup="filterWeapon()"
 
 
 <tr>
-
 
 <td>
 <a href="dragon-blade.html">
@@ -689,31 +715,25 @@ Dragon Blade
 </a>
 </td>
 
-
 <td class="전설">
 🟠 전설
 </td>
-
 
 <td>
 대검
 </td>
 
-
 <td>
 화산섬 보스
 </td>
-
 
 <td>
 ×
 </td>
 
-
 <td>
 -
 </td>
-
 
 </tr>
 
@@ -723,10 +743,12 @@ Dragon Blade
 
 <tr>
 
-
 <td>
 <a href="naps-nightmare.html">
-Nap's Nightmare
+
+Nap's<br>
+Nightmare
+
 </a>
 </td>
 
@@ -742,7 +764,10 @@ Nap's Nightmare
 
 
 <td>
-Nap's Nightmare 퀘스트
+
+Nap's<br>
+Nightmare 퀘스트
+
 </td>
 
 
@@ -765,8 +790,8 @@ Nap's Nightmare 퀘스트
 
 </div>
 
-</details>
-<!-- 변경내역 -->
+
+</details><!-- 변경내역 -->
 
 <details class="change-box">
 
@@ -780,36 +805,33 @@ Nap's Nightmare 퀘스트
 <div class="change-list">
 
 
-<h3>
-2026-07-22
-</h3>
+<h3>2026-07-22</h3>
 
 <p>
-• 무기 검색 기능 추가<br>
+• 무기 도감 UI 변경<br>
 • 등급 필터 추가<br>
 • 무기 종류 필터 추가<br>
-• 얻는 방법 필터 추가
+• 얻는 방법 필터 추가<br>
+• 긴 이름 줄바꿈 적용
 </p>
 
 
 
-<h3>
-2026-07-20
-</h3>
+
+<h3>2026-07-20</h3>
 
 <p>
 • Nap's Nightmare 추가<br>
-• 무기 도감 디자인 변경
+• 초월 등급 추가
 </p>
 
 
 
-<h3>
-2026-07-15
-</h3>
+
+<h3>2026-07-15</h3>
 
 <p>
-• HUNT 공식 사이트 무기 페이지 제작
+• HUNT 무기 도감 제작
 </p>
 
 
@@ -823,21 +845,62 @@ Nap's Nightmare 퀘스트
 
 
 
+<style>
+
+.change-list{
+
+max-height:250px;
+
+overflow-y:auto;
+
+margin-top:15px;
+
+padding-right:10px;
+
+}
+
+
+
+.change-list h3{
+
+color:#00ff66;
+
+}
+
+
+
+.change-list p{
+
+line-height:1.6;
+
+}
+
+
+</style>
+
+
+
+
+
+
 <script>
 
 
-let currentGrade = "";
-let currentType = "";
-let currentArea = "";
+let selectedGrade = "";
+
+let selectedType = "";
+
+let selectedArea = "";
 
 
 
 
-// 등급 선택
+
+// 등급
 
 function setGrade(value){
 
-currentGrade = value;
+selectedGrade=value;
 
 filterWeapon();
 
@@ -846,11 +909,12 @@ filterWeapon();
 
 
 
-// 종류 선택
+
+// 종류
 
 function setType(value){
 
-currentType = value;
+selectedType=value;
 
 filterWeapon();
 
@@ -859,11 +923,12 @@ filterWeapon();
 
 
 
-// 얻는 방법 선택
+
+// 얻는 방법
 
 function setArea(value){
 
-currentArea = value;
+selectedArea=value;
 
 filterWeapon();
 
@@ -872,12 +937,12 @@ filterWeapon();
 
 
 
-// 필터 기능
+
 
 function filterWeapon(){
 
 
-let search =
+let search = 
 document
 .getElementById("search")
 .value
@@ -890,7 +955,9 @@ document.querySelectorAll("#weapons tr");
 
 
 
-for(let i = 1; i < rows.length; i++){
+
+for(let i=1;i<rows.length;i++){
+
 
 
 let name =
@@ -923,42 +990,46 @@ rows[i]
 
 
 
-let searchCheck =
+let searchOK =
 name.includes(search);
 
 
 
-let gradeCheck =
-currentGrade === "" ||
-grade.includes(currentGrade);
+let gradeOK =
+selectedGrade=="" ||
+grade.includes(selectedGrade);
 
 
 
-let typeCheck =
-currentType === "" ||
-type.includes(currentType);
+let typeOK =
+selectedType=="" ||
+type.includes(selectedType);
 
 
 
-let areaCheck =
-currentArea === "" ||
-area.includes(currentArea);
+let areaOK =
+selectedArea=="" ||
+area.includes(selectedArea);
+
 
 
 
 
 
 if(
-searchCheck &&
-gradeCheck &&
-typeCheck &&
-areaCheck
+searchOK &&
+gradeOK &&
+typeOK &&
+areaOK
+
 ){
 
 rows[i].style.display="";
 
 
-}else{
+}
+
+else{
 
 
 rows[i].style.display="none";
@@ -972,12 +1043,16 @@ rows[i].style.display="none";
 
 
 
+
 }
 
 
 
 </script>
 
+
+
+</div>
 
 
 </body>
