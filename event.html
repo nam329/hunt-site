@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>HUNT 이벤트</title>
+
 
 <style>
 
@@ -12,29 +15,435 @@
 box-sizing:border-box;
 }
 
+
 body{
+
 margin:0;
-background:#0b0b0b;
+
+background:#080808;
+
 color:white;
+
 font-family:Arial,sans-serif;
+
 }
 
 
-/* 제목 */
 
 .header{
+
 height:70px;
+
 display:flex;
+
 align-items:center;
+
 justify-content:center;
-font-size:28px;
+
+font-size:30px;
+
 font-weight:bold;
+
 }
 
 
-/* 이벤트 카드 */
 
 .event-card{
+
+width:94%;
+
+height:88vh;
+
+margin:auto;
+
+background:#151515;
+
+border-radius:20px;
+
+overflow:hidden;
+
+box-shadow:0 0 25px #00ff66;
+
+}
+
+
+
+.event-image{
+
+width:100%;
+
+height:65%;
+
+object-fit:cover;
+
+}
+
+
+
+.event-info{
+
+height:35%;
+
+overflow-y:auto;
+
+padding:20px;
+
+}
+
+
+
+.event-title{
+
+font-size:28px;
+
+font-weight:bold;
+
+color:#00ff66;
+
+}
+
+
+
+.date{
+
+color:#aaa;
+
+margin-top:10px;
+
+}
+
+
+
+/* 남은 시간 */
+
+.timer-box{
+
+margin-top:20px;
+
+background:#222;
+
+padding:15px;
+
+border-radius:15px;
+
+text-align:center;
+
+}
+
+
+.timer-title{
+
+font-size:18px;
+
+color:#00ff66;
+
+}
+
+
+#timer{
+
+font-size:25px;
+
+font-weight:bold;
+
+margin-top:10px;
+
+}
+
+
+
+
+.text{
+
+font-size:18px;
+
+line-height:1.7;
+
+margin-top:20px;
+
+}
+
+
+
+.reward{
+
+margin-top:20px;
+
+background:#222;
+
+padding:15px;
+
+border-radius:12px;
+
+}
+
+
+
+.button{
+
+margin-top:20px;
+
+background:#00ff66;
+
+color:black;
+
+padding:15px;
+
+text-align:center;
+
+border-radius:10px;
+
+font-weight:bold;
+
+}
+
+
+
+.video{
+
+width:94%;
+
+margin:35px auto;
+
+}
+
+
+
+.video iframe{
+
+width:100%;
+
+height:240px;
+
+border-radius:15px;
+
+border:0;
+
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div class="header">
+🎉 HUNT 이벤트
+</div>
+
+
+
+<div class="event-card">
+
+
+<img src="images/event1.jpg"
+class="event-image">
+
+
+
+<div class="event-info">
+
+
+<div class="event-title">
+
+🔥 심해 메갈로돈 이벤트
+
+</div>
+
+
+
+<div class="date">
+
+2026.08.01 ~ 2026.08.20
+
+</div>
+
+
+
+<div class="timer-box">
+
+<div class="timer-title">
+
+⏳ 이벤트 종료까지
+
+</div>
+
+
+<div id="timer">
+
+계산중...
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="text">
+
+심해에서 나타난 전설의 생물!
+
+<br>
+
+기간 동안 특별한 보상을 획득하세요.
+
+</div>
+
+
+
+
+<div class="reward">
+
+🎁 이벤트 보상
+
+<br><br>
+
+⭐ 한정 아이템
+
+<br>
+
+⭐ 특별 칭호
+
+<br>
+
+⭐ 이벤트 코인
+
+</div>
+
+
+
+<div class="text">
+
+⚔️ 참여 방법
+
+<br><br>
+
+심해 지역으로 이동 후
+
+보스를 처치하세요.
+
+</div>
+
+
+
+<div class="button">
+
+이벤트 참여
+
+</div>
+
+
+
+</div>
+
+</div>
+
+
+
+
+<div class="video">
+
+<h2>
+
+🎬 이벤트 영상
+
+</h2>
+
+
+<iframe
+
+src="https://www.youtube.com/embed/영상ID"
+
+allowfullscreen>
+
+</iframe>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+// 이벤트 종료 시간 설정
+
+let endDate = new Date("2026-08-20 18:00:00").getTime();
+
+
+
+let timer = setInterval(function(){
+
+
+let now = new Date().getTime();
+
+
+let distance = endDate - now;
+
+
+
+if(distance <= 0){
+
+document.getElementById("timer").innerHTML =
+"⚠️ 이벤트 종료";
+
+
+clearInterval(timer);
+
+return;
+
+}
+
+
+
+let day = Math.floor(distance / (1000*60*60*24));
+
+let hour = Math.floor(
+(distance % (1000*60*60*24))
+/(1000*60*60)
+);
+
+
+let minute = Math.floor(
+(distance % (1000*60*60))
+/(1000*60)
+);
+
+
+let second = Math.floor(
+(distance % (1000*60))
+/1000
+);
+
+
+
+document.getElementById("timer").innerHTML =
+
+day+"일 "+
+hour+"시간 "+
+minute+"분 "+
+second+"초";
+
+
+
+},1000);
+
+
+
+</script>
+
+
+</body>
+
+</html>.event-card{
 
 width:92%;
 height:85vh;
