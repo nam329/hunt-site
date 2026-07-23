@@ -1,40 +1,232 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>HUNT</title>
-
+<title>HUNT 공식 사이트</title>
 
 <style>
 
 *{
-box-sizing:border-box;
+ box-sizing:border-box;
 }
-
 
 body{
+ margin:0;
+ background:#111;
+ color:white;
+ font-family:Arial,sans-serif;
+}
 
-margin:0;
-background:#050505;
-color:white;
-font-family:Arial,sans-serif;
+/* 상단바 */
+.topbar{
+ height:70px;
+ background:#050505;
+ display:flex;
+ align-items:center;
+ padding:0 20px;
+ position:sticky;
+ top:0;
+ z-index:100;
+}
 
+.menu-open{
+ font-size:35px;
+ cursor:pointer;
+ margin-right:20px;
+}
+
+.logo a{
+ color:#00ff66;
+ text-decoration:none;
+ font-size:35px;
+ font-weight:bold;
 }
 
 
+/* 사이드 메뉴 */
+.sidebar{
+ position:fixed;
+ top:0;
+ left:-280px;
+ width:280px;
+ height:100%;
+ background:#171717;
+ padding-top:80px;
+ transition:0.3s;
+ z-index:200;
+}
 
-/* 상단바 */
+.sidebar.active{
+ left:0;
+}
 
-.topbar{
+.sidebar a{
+ display:block;
+ padding:18px;
+ color:white;
+ text-decoration:none;
+ font-size:20px;
+}
 
-height:70px;
+.sidebar a:hover{
+ background:#00ff66;
+ color:black;
+}
 
-display:flex;
 
+/* 메인 */
+.container{
+ padding:20px;
+}
+
+
+.main-image{
+ width:100%;
+ height:300px;
+ background:#222;
+ border-radius:20px;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ margin-bottom:25px;
+}
+
+
+.card{
+ background:#1d1d1d;
+ border-radius:20px;
+ padding:20px;
+ margin-bottom:20px;
+}
+
+
+.menu{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:15px;
+}
+
+
+.menu a{
+ background:#222;
+ padding:25px;
+ text-align:center;
+ border-radius:15px;
+ color:white;
+ text-decoration:none;
+ font-size:20px;
+ font-weight:bold;
+}
+
+
+.menu a:hover{
+ background:#00ff66;
+ color:black;
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="topbar">
+
+<div class="menu-open" onclick="openMenu()">
+☰
+</div>
+
+<div class="logo">
+<a href="index.html">HUNT</a>
+</div>
+
+</div>
+
+
+
+<div id="sidebar" class="sidebar">
+
+<a href="index.html">🏠 홈</a>
+<a href="main/weapon.html">🔫 무기</a>
+<a href="main/animals.html">🐺 동물</a>
+<a href="main/map.html">🗺️ 맵</a>
+<a href="main/npc.html">🧑 NPC</a>
+<a href="main/market.html">🛒 상점</a>
+
+</div>
+
+
+
+<div class="container">
+
+
+<div class="main-image">
+메인 이미지 넣는 곳
+</div>
+
+
+<div class="card">
+
+<h1>
+헌트 공식 사이트에 오신것을 환영합니다
+</h1>
+
+<p>
+HUNT는 다양한 생물을 탐험하고 사냥하는 게임입니다.
+</p>
+
+</div>
+
+
+
+<div class="menu">
+
+<a href="main/weapon.html">
+🔫 무기
+</a>
+
+<a href="main/animals.html">
+🐺 동물
+</a>
+
+<a href="main/map.html">
+🗺️ 맵
+</a>
+
+<a href="main/npc.html">
+🧑 NPC
+</a>
+
+<a href="main/market.html">
+🛒 상점
+</a>
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+function openMenu(){
+
+document.getElementById("sidebar")
+.classList.toggle("active");
+
+}
+
+</script>
+
+
+</body>
+</html>
 align-items:center;
 
 padding:0 20px;
