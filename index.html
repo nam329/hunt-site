@@ -20,16 +20,19 @@
 
 body{
 
-    background:#0b0b0b;
+    background:#080808;
     color:white;
     font-family:Arial,sans-serif;
 
 }
 
 
+
+/* 상단 */
+
 .topbar{
 
-    height:70px;
+    height:75px;
 
     background:#050505;
 
@@ -39,25 +42,59 @@ body{
 
     padding:0 20px;
 
+    border-bottom:2px solid #222;
+
 }
 
 
-.logo{
+
+.menu-btn{
+
+    font-size:32px;
+
+    margin-right:20px;
+
+    cursor:pointer;
+
+}
+
+
+
+.logo-box{
+
+    border:3px solid #00ff66;
+
+    padding:7px 20px;
+
+    background:#111;
+
+}
+
+
+
+.logo-box a{
 
     color:#00ff66;
 
-    font-size:35px;
+    text-decoration:none;
+
+    font-size:34px;
 
     font-weight:bold;
 
+    letter-spacing:3px;
+
 }
+
+
+
 
 
 .container{
 
-    width:100%;
-
     max-width:1200px;
+
+    width:100%;
 
     margin:auto;
 
@@ -67,19 +104,22 @@ body{
 
 
 
+
+
+/* 메인 이미지 */
+
 .hero{
 
     width:100%;
 
-    height:400px;
+    height:420px;
+
+    border:2px solid #333;
 
     overflow:hidden;
 
-    border-radius:20px;
-
-    margin-bottom:25px;
-
 }
+
 
 
 .hero img{
@@ -97,19 +137,37 @@ body{
 
 .card{
 
-    background:#181818;
+    background:#111;
+
+    border:2px solid #333;
 
     padding:25px;
 
-    border-radius:20px;
-
-    margin-bottom:25px;
+    margin-top:25px;
 
 }
 
 
 
-.button-box{
+
+
+h2{
+
+    margin-top:35px;
+
+    border-left:5px solid #00ff66;
+
+    padding-left:12px;
+
+}
+
+
+
+
+
+/* 버튼 */
+
+.button-grid{
 
     display:grid;
 
@@ -117,21 +175,23 @@ body{
 
     gap:15px;
 
+    margin-top:20px;
+
 }
 
 
 
-.button-box a{
+.button-grid a{
 
-    background:#222;
+    background:#111;
+
+    border:2px solid #333;
 
     color:white;
 
     text-decoration:none;
 
     padding:25px;
-
-    border-radius:15px;
 
     text-align:center;
 
@@ -143,11 +203,11 @@ body{
 
 
 
-.button-box a:hover{
+.button-grid a:hover{
 
-    background:#00ff66;
+    border-color:#00ff66;
 
-    color:black;
+    color:#00ff66;
 
 }
 
@@ -155,7 +215,7 @@ body{
 
 @media(max-width:700px){
 
-.button-box{
+.button-grid{
 
 grid-template-columns:repeat(2,1fr);
 
@@ -168,8 +228,8 @@ height:220px;
 
 }
 
-}
 
+}
 
 </style>
 
@@ -181,13 +241,27 @@ height:220px;
 
 <div class="topbar">
 
-<div class="logo">
+
+<div class="menu-btn">
+
+☰
+
+</div>
+
+
+<div class="logo-box">
+
+<a href="/index.html">
 
 HUNT
 
-</div>
+</a>
 
 </div>
+
+
+</div>
+
 
 
 <div class="container">
@@ -204,6 +278,8 @@ HUNT
 헌트 공식 사이트에 오신것을 환영합니다
 </h1>
 
+<br>
+
 <p>
 HUNT의 최신 정보와 콘텐츠를 확인하세요.
 </p>
@@ -217,43 +293,42 @@ HUNT의 최신 정보와 콘텐츠를 확인하세요.
 </h2>
 
 
-<br>
+
+<div class="button-grid">
 
 
-<div class="button-box">
 
-
-<a href="play.html">
+<a href="/play.html">
 🎮 게임 플레이
 </a>
 
 
-<a href="news.html">
+<a href="/news.html">
 📰 소식
 </a>
 
 
-<a href="discord.html">
+<a href="/discord.html">
 💬 디스코드
 </a>
 
 
-<a href="trailer.html">
+<a href="/trailer.html">
 🎬 트레일러
 </a>
 
 
-<a href="language.html">
+<a href="/language.html">
 🌐 언어 변경
 </a>
 
 
-<a href="contact.html">
+<a href="/contact.html">
 📞 문의
 </a>
 
 
-<a href="items.html">
+<a href="/items.html">
 🎒 아이템
 </a>
 
@@ -263,69 +338,77 @@ HUNT의 최신 정보와 콘텐츠를 확인하세요.
 </a>
 
 
-<a href="market.html">
+<a href="/market.html">
 🛒 상점
 </a>
 
 
-<a href="npc.html">
+<a href="/npc.html">
 🧑 NPC
 </a>
 
 
-<a href="weather.html">
+<a href="/weather.html">
 🌦️ 날씨
 </a>
 
 
-<a href="map.html">
+<a href="/map.html">
 🗺️ 맵
 </a>
 
 
-<a href="animals.html">
+<a href="/animals.html">
 🐺 동물
 </a>
 
 
-<a href="event.html">
+<a href="/event.html">
 🎉 이벤트
 </a>
 
 
-<a href="updates.html">
+<a href="/updates.html">
 🔥 업데이트
 </a>
 
 
-<a href="settings.html">
+<a href="/settings.html">
 ⚙️ 설정
 </a>
 
 
 </div>
-
-
-
-<br>
-
-
 <h2>
 ⭐ 추천
 </h2>
 
 
-<div class="card">
+<a href="/recommend.html" class="preview-card">
+
+
+<img src="recommend.jpg">
+
+
+<div class="preview-text">
+
 
 <h3>
-추천 콘텐츠
+⭐ 추천 콘텐츠
 </h3>
 
+
 <p>
-HUNT 인기 콘텐츠를 확인하세요.
+HUNT 추천 콘텐츠를 확인하세요.
 </p>
 
+
 </div>
+
+
+</a>
+
+
 
 
 
@@ -335,19 +418,22 @@ HUNT 인기 콘텐츠를 확인하세요.
 
 
 
-<a href="updates.html" style="text-decoration:none;color:white;">
+<a href="/updates.html" class="preview-card">
 
 
-<div class="card">
+<img src="update1.jpg">
+
+
+<div class="preview-text">
 
 
 <h3>
-🔥 업데이트 1
+🔥 업데이트
 </h3>
 
 
 <p>
-새로운 콘텐츠 업데이트
+새로운 업데이트 내용을 확인하세요.
 </p>
 
 
@@ -359,19 +445,24 @@ HUNT 인기 콘텐츠를 확인하세요.
 
 
 
-<a href="updates.html" style="text-decoration:none;color:white;">
 
 
-<div class="card">
+<a href="/updates.html" class="preview-card">
+
+
+<img src="update2.jpg">
+
+
+<div class="preview-text">
 
 
 <h3>
-🔥 업데이트 2
+🔥 다음 업데이트
 </h3>
 
 
 <p>
-다음 업데이트 정보
+다가오는 업데이트 정보를 확인하세요.
 </p>
 
 
@@ -379,6 +470,7 @@ HUNT 인기 콘텐츠를 확인하세요.
 
 
 </a>
+
 
 
 
@@ -390,10 +482,13 @@ HUNT 인기 콘텐츠를 확인하세요.
 
 
 
-<a href="event.html" style="text-decoration:none;color:white;">
+<a href="/event.html" class="preview-card">
 
 
-<div class="card">
+<img src="event.jpg">
+
+
+<div class="preview-text">
 
 
 <h3>
@@ -402,7 +497,7 @@ HUNT 인기 콘텐츠를 확인하세요.
 
 
 <p>
-진행 중인 이벤트 확인하기
+현재 진행 중인 이벤트를 확인하세요.
 </p>
 
 
@@ -410,6 +505,81 @@ HUNT 인기 콘텐츠를 확인하세요.
 
 
 </a>
+
+
+
+
+
+<style>
+
+
+.preview-card{
+
+display:block;
+
+background:#111;
+
+border:2px solid #333;
+
+color:white;
+
+text-decoration:none;
+
+margin-top:20px;
+
+}
+
+
+
+.preview-card img{
+
+width:100%;
+
+height:230px;
+
+object-fit:cover;
+
+display:block;
+
+}
+
+
+
+.preview-text{
+
+padding:20px;
+
+}
+
+
+
+.preview-text h3{
+
+font-size:24px;
+
+margin-bottom:10px;
+
+}
+
+
+
+.preview-text p{
+
+color:#aaa;
+
+}
+
+
+
+.preview-card:hover{
+
+border-color:#00ff66;
+
+}
+
+
+
+</style>
 <h2>
 ⏳ 이벤트 종료까지
 </h2>
@@ -435,6 +605,7 @@ color:#00ff66;
 
 
 
+
 <h2>
 ⏳ 다음 업데이트까지
 </h2>
@@ -444,9 +615,7 @@ color:#00ff66;
 
 
 <p style="text-align:center;">
-
 예정일 : 2026-08-20 18:00
-
 </p>
 
 
@@ -471,10 +640,12 @@ color:#00ff66;
 
 
 
+
+
 <script>
 
 
-function timer(target,id){
+function countdown(time,id){
 
 
 setInterval(function(){
@@ -482,12 +653,11 @@ setInterval(function(){
 
 let now = new Date().getTime();
 
-
-let distance = target - now;
-
+let gap = time - now;
 
 
-if(distance <= 0){
+
+if(gap <= 0){
 
 document.getElementById(id).innerHTML="종료";
 
@@ -497,25 +667,29 @@ return;
 
 
 
-let day = Math.floor(
-distance/(1000*60*60*24)
+let day =
+Math.floor(
+gap/(1000*60*60*24)
 );
 
 
-let hour = Math.floor(
-(distance%(1000*60*60*24))
+let hour =
+Math.floor(
+(gap%(1000*60*60*24))
 /(1000*60*60)
 );
 
 
-let min = Math.floor(
-(distance%(1000*60*60))
+let min =
+Math.floor(
+(gap%(1000*60*60))
 /(1000*60)
 );
 
 
-let sec = Math.floor(
-(distance%(1000*60))
+let sec =
+Math.floor(
+(gap%(1000*60))
 /1000
 );
 
@@ -537,7 +711,9 @@ sec+"초";
 
 
 
-timer(
+
+
+countdown(
 
 new Date("2026-08-01T18:00:00").getTime(),
 
@@ -547,7 +723,7 @@ new Date("2026-08-01T18:00:00").getTime(),
 
 
 
-timer(
+countdown(
 
 new Date("2026-08-20T18:00:00").getTime(),
 
