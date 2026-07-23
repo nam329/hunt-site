@@ -9,15 +9,18 @@
 
 <style>
 
+/* 기본 */
+
 *{
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-margin:0;
-background:#101010;
-color:white;
-font-family:Arial,sans-serif;
+    background:#0b0b0b;
+    color:white;
+    font-family:Arial,sans-serif;
 }
 
 
@@ -25,16 +28,856 @@ font-family:Arial,sans-serif;
 
 .topbar{
 
-height:70px;
-background:#050505;
+    width:100%;
+    height:70px;
 
-display:flex;
-align-items:center;
+    background:#050505;
 
-padding:0 20px;
+    display:flex;
+    align-items:center;
 
-position:sticky;
-top:0;
+    padding:0 20px;
+
+    position:sticky;
+    top:0;
+
+    z-index:1000;
+
+}
+
+
+.menu-icon{
+
+    font-size:35px;
+    cursor:pointer;
+
+    margin-right:20px;
+
+}
+
+
+.logo a{
+
+    color:#00ff66;
+
+    font-size:36px;
+
+    font-weight:bold;
+
+    text-decoration:none;
+
+}
+
+
+
+/* 사이드 메뉴 */
+
+.sidebar{
+
+    position:fixed;
+
+    top:0;
+    left:-320px;
+
+    width:300px;
+    height:100vh;
+
+    background:#151515;
+
+    padding-top:80px;
+
+    transition:0.3s;
+
+    z-index:2000;
+
+    overflow-y:auto;
+
+}
+
+
+.sidebar.open{
+
+    left:0;
+
+}
+
+
+
+.sidebar a{
+
+    display:block;
+
+    padding:16px 20px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:19px;
+
+}
+
+
+.sidebar a:hover{
+
+    background:#00ff66;
+
+    color:black;
+
+}
+
+
+
+/* 전체 */
+
+.container{
+
+    width:100%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:20px;
+
+}
+
+
+
+/* 메인 이미지 */
+
+.hero{
+
+    width:100%;
+
+    aspect-ratio:16/7;
+
+    background:#222;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    margin-bottom:25px;
+
+}
+
+
+.hero img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+
+/* 제목 카드 */
+
+.intro{
+
+    background:#181818;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    margin-bottom:25px;
+
+}
+
+
+.intro h1{
+
+    color:#00ff66;
+
+    margin-bottom:10px;
+
+}
+
+
+
+
+
+/* 버튼 영역 */
+
+.button-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:15px;
+
+}
+
+
+
+.main-btn{
+
+    background:#202020;
+
+    padding:22px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}
+
+
+.main-btn:hover{
+
+    background:#00ff66;
+
+    color:black;
+
+}
+
+
+
+@media(max-width:700px){
+
+
+.button-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+
+.hero{
+
+aspect-ratio:16/9;
+
+}
+
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+
+<div class="menu-icon" onclick="openMenu()">
+
+☰
+
+</div>
+
+
+<div class="logo">
+
+<a href="index.html">
+
+HUNT
+
+</a>
+
+</div>
+
+
+</header>
+
+
+
+<nav class="sidebar" id="sidebar">
+
+
+<a href="index.html">🏠 홈</a>
+
+<a href="weapon.html">🗡 무기</a>
+
+<a href="animals.html">🐺 동물</a>
+
+<a href="map.html">🗺️ 맵</a>
+
+<a href="npc.html">🧑 NPC</a>
+
+<a href="market.html">🛒 상점</a>
+
+<a href="weather.html">🌦️ 날씨</a>
+
+<a href="updates.html">🔥 업데이트</a>
+
+<a href="event.html">🎉 이벤트</a>
+
+<a href="settings.html">⚙️ 설정</a>
+
+
+</nav>
+
+
+
+<main class="container">
+
+
+<section class="hero">
+
+<img src="images/main.png" alt="HUNT">
+
+</section>top:0;
+
+<section class="intro">
+
+<h1>
+헌트 공식 사이트에 오신것을 환영합니다
+</h1>
+
+<p>
+HUNT는 다양한 생물과 세계를 탐험하고 사냥하는 게임입니다.
+</p>
+
+</section>
+
+
+
+<h2 style="margin-bottom:15px;">
+🎮 바로가기
+</h2>
+
+
+
+<section class="button-grid">
+
+
+
+<a class="main-btn" href="play.html">
+🎮 게임 플레이
+</a>
+
+
+<a class="main-btn" href="news.html">
+📰 소식
+</a>
+
+
+<a class="main-btn" href="discord.html">
+💬 디스코드
+</a>
+
+
+<a class="main-btn" href="trailer.html">
+🎬 트레일러
+</a>
+
+
+<a class="main-btn" href="language.html">
+🌐 언어 변경
+</a>
+
+
+<a class="main-btn" href="contact.html">
+📞 문의
+</a>
+
+
+
+<a class="main-btn" href="items.html">
+🎒 아이템
+</a>
+
+
+<a class="main-btn" href="weapon.html">
+🔫 무기
+</a>
+
+
+<a class="main-btn" href="market.html">
+🛒 상점
+</a>
+
+
+<a class="main-btn" href="npc.html">
+🧑 NPC
+</a>
+
+
+<a class="main-btn" href="weather.html">
+🌦️ 날씨
+</a>
+
+
+<a class="main-btn" href="map.html">
+🗺️ 맵
+</a>
+
+
+<a class="main-btn" href="animals.html">
+🐺 동물
+</a>
+
+
+<a class="main-btn" href="event.html">
+🎉 이벤트
+</a>
+
+
+<a class="main-btn" href="updates.html">
+🔥 업데이트
+</a>
+
+
+<a class="main-btn" href="settings.html">
+⚙️ 설정
+</a>
+
+
+
+</section>
+<br>
+
+
+<h2>
+⭐ 추천
+</h2>
+
+
+<section class="card-area">
+
+
+<div class="info-card">
+
+
+<img src="images/recommend.png">
+
+
+<div class="card-text">
+
+
+<h3>
+추천 콘텐츠
+</h3>
+
+
+<p>
+인기 있는 HUNT 콘텐츠를 확인하세요.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<h2>
+🔥 업데이트 미리보기
+</h2>
+
+
+
+<a href="updates.html" class="info-card link-card">
+
+
+<img src="images/update1.png">
+
+
+<div class="card-text">
+
+
+<h3>
+🔥 업데이트
+</h3>
+
+
+<p>
+새로운 콘텐츠와 변경사항을 확인하세요.
+</p>
+
+
+</div>
+
+
+</a>
+
+
+
+
+
+<a href="updates.html" class="info-card link-card">
+
+
+<img src="images/update2.png">
+
+
+<div class="card-text">
+
+
+<h3>
+🔥 다음 업데이트 내용
+</h3>
+
+
+<p>
+다가오는 업데이트 정보를 확인하세요.
+</p>
+
+
+</div>
+
+
+</a>
+
+
+
+
+
+
+
+<h2>
+🎉 이벤트 미리보기
+</h2>
+
+
+
+<a href="event.html" class="info-card link-card">
+
+
+<img src="images/event.png">
+
+
+<div class="card-text">
+
+
+<h3>
+🎉 이벤트
+</h3>
+
+
+<p>
+현재 진행 중인 이벤트를 확인하세요.
+</p>
+
+
+</div>
+
+
+</a>
+
+
+
+
+
+
+<style>
+
+
+.card-area{
+
+width:100%;
+
+}
+
+
+
+.info-card{
+
+display:block;
+
+background:#181818;
+
+border-radius:20px;
+
+overflow:hidden;
+
+margin:20px 0;
+
+text-decoration:none;
+
+color:white;
+
+}
+
+
+
+.info-card img{
+
+width:100%;
+
+height:220px;
+
+object-fit:cover;
+
+display:block;
+
+}
+
+
+
+.card-text{
+
+padding:18px;
+
+}
+
+
+
+.card-text h3{
+
+font-size:24px;
+
+margin-bottom:10px;
+
+}
+
+
+
+.card-text p{
+
+color:#ccc;
+
+font-size:16px;
+
+}
+
+
+
+
+
+@media(max-width:700px){
+
+
+.info-card img{
+
+height:160px;
+
+}
+
+
+}
+
+
+</style>
+<h2>
+⏳ 이벤트 종료까지
+</h2>
+
+
+<section class="intro">
+
+
+<p style="text-align:center;">
+이벤트 종료 예정
+</p>
+
+
+<div id="eventTimer" class="timer">
+
+00일 00시간 00분 00초
+
+</div>
+
+
+</section>
+
+
+
+
+
+<h2>
+⏳ 다음 업데이트까지
+</h2>
+
+
+<section class="intro">
+
+
+<p style="text-align:center;">
+예정일 : 2026-08-20 18:00
+</p>
+
+
+<div id="updateTimer" class="timer">
+
+00일 00시간 00분 00초
+
+</div>
+
+
+</section>
+
+
+
+<style>
+
+
+.timer{
+
+font-size:35px;
+
+font-weight:bold;
+
+text-align:center;
+
+color:#00ff66;
+
+margin-top:20px;
+
+}
+
+
+
+</style>
+
+
+
+
+
+</main>
+
+
+
+
+
+<script>
+
+
+// 메뉴 열기
+
+function openMenu(){
+
+document
+.getElementById("sidebar")
+.classList.toggle("open");
+
+}
+
+
+
+
+
+// 카운트다운
+
+function startTimer(date,id){
+
+
+let target =
+new Date(date).getTime();
+
+
+
+setInterval(()=>{
+
+
+let now =
+new Date().getTime();
+
+
+let gap =
+target-now;
+
+
+
+if(gap <= 0){
+
+document.getElementById(id).innerHTML =
+"종료";
+
+return;
+
+}
+
+
+
+let day =
+Math.floor(
+gap/(1000*60*60*24)
+);
+
+
+
+let hour =
+Math.floor(
+(gap%(1000*60*60*24))
+/(1000*60*60)
+);
+
+
+
+let min =
+Math.floor(
+(gap%(1000*60*60))
+/(1000*60)
+);
+
+
+
+let sec =
+Math.floor(
+(gap%(1000*60))
+/1000
+);
+
+
+
+document.getElementById(id).innerHTML =
+
+day+"일 "+
+hour+"시간 "+
+min+"분 "+
+sec+"초";
+
+
+
+},1000);
+
+
+}
+
+
+
+
+
+// 이벤트 종료 시간
+
+startTimer(
+"2026-08-01T18:00:00",
+"eventTimer"
+);
+
+
+
+// 다음 업데이트
+
+startTimer(
+"2026-08-20T18:00:00",
+"updateTimer"
+);
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
 
 z-index:1000;
 
