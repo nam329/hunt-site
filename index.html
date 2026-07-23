@@ -1,12 +1,565 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HUNT 공식 사이트</title>
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+    background:#0b0b0b;
+    color:white;
+    font-family:Arial,sans-serif;
+
+}
+
+
+.topbar{
+
+    height:70px;
+
+    background:#050505;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 20px;
+
+}
+
+
+.logo{
+
+    color:#00ff66;
+
+    font-size:35px;
+
+    font-weight:bold;
+
+}
+
+
+.container{
+
+    width:100%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:20px;
+
+}
+
+
+
+.hero{
+
+    width:100%;
+
+    height:400px;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    margin-bottom:25px;
+
+}
+
+
+.hero img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+
+
+.card{
+
+    background:#181818;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.button-box{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:15px;
+
+}
+
+
+
+.button-box a{
+
+    background:#222;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}
+
+
+
+.button-box a:hover{
+
+    background:#00ff66;
+
+    color:black;
+
+}
+
+
+
+@media(max-width:700px){
+
+.button-box{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+
+.hero{
+
+height:220px;
+
+}
+
+}
+
+
+</style>
+
+</head>
+
+
 <body>
 
-<h1>테스트</h1>
 
-<a href="weapon.html">
-무기 이동 테스트
+<div class="topbar">
+
+<div class="logo">
+
+HUNT
+
+</div>
+
+</div>
+
+
+<div class="container">
+
+
+<div class="hero">
+
+<img src="1784300167307.jpg">
+
+</div>
+<div class="card">
+
+<h1>
+헌트 공식 사이트에 오신것을 환영합니다
+</h1>
+
+<p>
+HUNT의 최신 정보와 콘텐츠를 확인하세요.
+</p>
+
+</div>
+
+
+
+<h2>
+🎮 메뉴
+</h2>
+
+
+<br>
+
+
+<div class="button-box">
+
+
+<a href="play.html">
+🎮 게임 플레이
 </a>
 
+
+<a href="news.html">
+📰 소식
+</a>
+
+
+<a href="discord.html">
+💬 디스코드
+</a>
+
+
+<a href="trailer.html">
+🎬 트레일러
+</a>
+
+
+<a href="language.html">
+🌐 언어 변경
+</a>
+
+
+<a href="contact.html">
+📞 문의
+</a>
+
+
+<a href="items.html">
+🎒 아이템
+</a>
+
+
+<a href="weapon.html">
+🗡 무기
+</a>
+
+
+<a href="market.html">
+🛒 상점
+</a>
+
+
+<a href="npc.html">
+🧑 NPC
+</a>
+
+
+<a href="weather.html">
+🌦️ 날씨
+</a>
+
+
+<a href="map.html">
+🗺️ 맵
+</a>
+
+
+<a href="animals.html">
+🐺 동물
+</a>
+
+
+<a href="event.html">
+🎉 이벤트
+</a>
+
+
+<a href="updates.html">
+🔥 업데이트
+</a>
+
+
+<a href="settings.html">
+⚙️ 설정
+</a>
+
+
+</div>
+
+
+
+<br>
+
+
+<h2>
+⭐ 추천
+</h2>
+
+
+<div class="card">
+
+<h3>
+추천 콘텐츠
+</h3>
+
+<p>
+HUNT 인기 콘텐츠를 확인하세요.
+</p>
+
+</div>
+
+
+
+<h2>
+🔥 업데이트 미리보기
+</h2>
+
+
+
+<a href="updates.html" style="text-decoration:none;color:white;">
+
+
+<div class="card">
+
+
+<h3>
+🔥 업데이트 1
+</h3>
+
+
+<p>
+새로운 콘텐츠 업데이트
+</p>
+
+
+</div>
+
+
+</a>
+
+
+
+
+<a href="updates.html" style="text-decoration:none;color:white;">
+
+
+<div class="card">
+
+
+<h3>
+🔥 업데이트 2
+</h3>
+
+
+<p>
+다음 업데이트 정보
+</p>
+
+
+</div>
+
+
+</a>
+
+
+
+
+
+<h2>
+🎉 이벤트 미리보기
+</h2>
+
+
+
+<a href="event.html" style="text-decoration:none;color:white;">
+
+
+<div class="card">
+
+
+<h3>
+🎉 이벤트
+</h3>
+
+
+<p>
+진행 중인 이벤트 확인하기
+</p>
+
+
+</div>
+
+
+</a>
+<h2>
+⏳ 이벤트 종료까지
+</h2>
+
+
+<div class="card">
+
+
+<div id="eventTimer" style="
+text-align:center;
+font-size:35px;
+font-weight:bold;
+color:#00ff66;
+">
+
+00일 00시간 00분 00초
+
+</div>
+
+
+</div>
+
+
+
+
+<h2>
+⏳ 다음 업데이트까지
+</h2>
+
+
+<div class="card">
+
+
+<p style="text-align:center;">
+
+예정일 : 2026-08-20 18:00
+
+</p>
+
+
+<div id="updateTimer" style="
+text-align:center;
+font-size:35px;
+font-weight:bold;
+color:#00ff66;
+">
+
+00일 00시간 00분 00초
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+<script>
+
+
+function timer(target,id){
+
+
+setInterval(function(){
+
+
+let now = new Date().getTime();
+
+
+let distance = target - now;
+
+
+
+if(distance <= 0){
+
+document.getElementById(id).innerHTML="종료";
+
+return;
+
+}
+
+
+
+let day = Math.floor(
+distance/(1000*60*60*24)
+);
+
+
+let hour = Math.floor(
+(distance%(1000*60*60*24))
+/(1000*60*60)
+);
+
+
+let min = Math.floor(
+(distance%(1000*60*60))
+/(1000*60)
+);
+
+
+let sec = Math.floor(
+(distance%(1000*60))
+/1000
+);
+
+
+
+document.getElementById(id).innerHTML =
+
+day+"일 "+
+hour+"시간 "+
+min+"분 "+
+sec+"초";
+
+
+
+},1000);
+
+
+}
+
+
+
+timer(
+
+new Date("2026-08-01T18:00:00").getTime(),
+
+"eventTimer"
+
+);
+
+
+
+timer(
+
+new Date("2026-08-20T18:00:00").getTime(),
+
+"updateTimer"
+
+);
+
+
+
+</script>
+
+
 </body>
+
 </html>
