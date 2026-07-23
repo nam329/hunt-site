@@ -9,8 +9,6 @@
 
 <style>
 
-/* 기본 */
-
 *{
     margin:0;
     padding:0;
@@ -27,10 +25,7 @@ body{
 /* 상단바 */
 
 .topbar{
-
-    width:100%;
     height:70px;
-
     background:#050505;
 
     display:flex;
@@ -41,31 +36,22 @@ body{
     position:sticky;
     top:0;
 
-    z-index:1000;
-
+    z-index:100;
 }
 
 
-.menu-icon{
-
+.menu-btn{
     font-size:35px;
     cursor:pointer;
-
     margin-right:20px;
-
 }
 
 
 .logo a{
-
     color:#00ff66;
-
     font-size:36px;
-
     font-weight:bold;
-
     text-decoration:none;
-
 }
 
 
@@ -77,43 +63,38 @@ body{
     position:fixed;
 
     top:0;
-    left:-320px;
+    left:-300px;
 
     width:300px;
     height:100vh;
 
-    background:#151515;
+    background:#171717;
 
     padding-top:80px;
 
     transition:0.3s;
 
-    z-index:2000;
-
-    overflow-y:auto;
+    z-index:200;
 
 }
 
 
-.sidebar.open{
-
+.sidebar.active{
     left:0;
-
 }
-
 
 
 .sidebar a{
 
     display:block;
 
-    padding:16px 20px;
+    padding:17px 20px;
 
     color:white;
 
     text-decoration:none;
 
-    font-size:19px;
+    font-size:20px;
 
 }
 
@@ -128,7 +109,7 @@ body{
 
 
 
-/* 전체 */
+/* 메인 */
 
 .container{
 
@@ -152,8 +133,6 @@ body{
 
     aspect-ratio:16/7;
 
-    background:#222;
-
     border-radius:25px;
 
     overflow:hidden;
@@ -173,17 +152,13 @@ body{
 
 }
 
-
-
-/* 제목 카드 */
-
 .intro{
 
     background:#181818;
 
-    border-radius:20px;
-
     padding:25px;
+
+    border-radius:20px;
 
     margin-bottom:25px;
 
@@ -200,9 +175,7 @@ body{
 
 
 
-
-
-/* 버튼 영역 */
+/* 버튼 */
 
 .button-grid{
 
@@ -215,14 +188,15 @@ body{
 }
 
 
-
 .main-btn{
 
-    background:#202020;
+    display:block;
+
+    background:#222;
 
     padding:22px;
 
-    border-radius:18px;
+    border-radius:15px;
 
     text-align:center;
 
@@ -249,22 +223,14 @@ body{
 
 @media(max-width:700px){
 
+    .button-grid{
 
-.button-grid{
+        grid-template-columns:repeat(2,1fr);
 
-grid-template-columns:repeat(2,1fr);
-
-}
-
-
-.hero{
-
-aspect-ratio:16/9;
+    }
 
 }
 
-
-}
 
 </style>
 
@@ -274,10 +240,11 @@ aspect-ratio:16/9;
 <body>
 
 
-<header class="topbar">
+
+<div class="topbar">
 
 
-<div class="menu-icon" onclick="openMenu()">
+<div class="menu-btn" onclick="openMenu()">
 
 ☰
 
@@ -295,68 +262,98 @@ HUNT
 </div>
 
 
-</header>
+</div>
 
 
 
-<nav class="sidebar" id="sidebar">
+
+
+<div id="sidebar" class="sidebar">
 
 
 <a href="index.html">🏠 홈</a>
 
+<a href="play.html">🎮 게임 플레이</a>
+
+<a href="news.html">📰 소식</a>
+
+<a href="discord.html">💬 디스코드</a>
+
+<a href="trailer.html">🎬 트레일러</a>
+
+<a href="language.html">🌐 언어 변경</a>
+
+<a href="contact.html">📞 문의</a>
+
+<a href="items.html">🎒 아이템</a>
+
 <a href="weapon.html">🗡 무기</a>
-
-<a href="animals.html">🐺 동물</a>
-
-<a href="map.html">🗺️ 맵</a>
-
-<a href="npc.html">🧑 NPC</a>
 
 <a href="market.html">🛒 상점</a>
 
+<a href="npc.html">🧑 NPC</a>
+
 <a href="weather.html">🌦️ 날씨</a>
 
-<a href="updates.html">🔥 업데이트</a>
+<a href="map.html">🗺️ 맵</a>
+
+<a href="animals.html">🐺 동물</a>
 
 <a href="event.html">🎉 이벤트</a>
+
+<a href="updates.html">🔥 업데이트</a>
 
 <a href="settings.html">⚙️ 설정</a>
 
 
-</nav>
+</div>
 
 
 
-<main class="container">
 
 
-<section class="hero">
+<div class="container">
+
+
+
+<div class="hero">
 
 <img src="1784300167307.jpg" alt="HUNT">
 
-</section>top:0;
+</div>
 
-<section class="intro">
+
+
+
+<div class="intro">
+
 
 <h1>
+
 헌트 공식 사이트에 오신것을 환영합니다
+
 </h1>
 
+
 <p>
-HUNT는 다양한 생물과 세계를 탐험하고 사냥하는 게임입니다.
+
+HUNT는 다양한 생물과 세계를 탐험하는 사냥 게임입니다.
+
 </p>
 
-</section>
+
+</div>
 
 
 
-<h2 style="margin-bottom:15px;">
-🎮 바로가기
+
+<h2>
+🎮 메뉴
 </h2>
 
 
 
-<section class="button-grid">
+<div class="button-grid">
 
 
 
@@ -370,7 +367,7 @@ HUNT는 다양한 생물과 세계를 탐험하고 사냥하는 게임입니다.
 </a>
 
 
-<a class="main-btn" href="https://discord.gg/KUzNHe9UGP">
+<a class="main-btn" href="discord.html">
 💬 디스코드
 </a>
 
@@ -390,13 +387,12 @@ HUNT는 다양한 생물과 세계를 탐험하고 사냥하는 게임입니다.
 </a>
 
 
-
 <a class="main-btn" href="items.html">
 🎒 아이템
 </a>
 
 
-<a class="main-btn" href="hunt1.pages.dev/weapons.html">
+<a class="main-btn" href="weapon.html">
 🗡 무기
 </a>
 
@@ -441,9 +437,7 @@ HUNT는 다양한 생물과 세계를 탐험하고 사냥하는 게임입니다.
 </a>
 
 
-
-</section>
-<br>
+</div><br>
 
 
 <h2>
@@ -451,16 +445,7 @@ HUNT는 다양한 생물과 세계를 탐험하고 사냥하는 게임입니다.
 </h2>
 
 
-<section class="card-area">
-
-
-<div class="info-card">
-
-
-<img src="images/recommend.png">
-
-
-<div class="card-text">
+<div class="preview-card">
 
 
 <h3>
@@ -469,17 +454,11 @@ HUNT는 다양한 생물과 세계를 탐험하고 사냥하는 게임입니다.
 
 
 <p>
-인기 있는 HUNT 콘텐츠를 확인하세요.
+HUNT의 인기 콘텐츠를 확인하세요.
 </p>
 
 
 </div>
-
-
-</div>
-
-
-</section>
 
 
 
@@ -491,13 +470,17 @@ HUNT는 다양한 생물과 세계를 탐험하고 사냥하는 게임입니다.
 
 
 
-<a href="updates.html" class="info-card link-card">
+<a href="updates.html" class="preview-card">
 
 
-<img src="images/update1.png">
+<div class="preview-image">
+
+업데이트 이미지 1
+
+</div>
 
 
-<div class="card-text">
+<div class="preview-text">
 
 
 <h3>
@@ -506,7 +489,7 @@ HUNT는 다양한 생물과 세계를 탐험하고 사냥하는 게임입니다.
 
 
 <p>
-새로운 콘텐츠와 변경사항을 확인하세요.
+새로운 업데이트 내용을 확인하세요.
 </p>
 
 
@@ -519,22 +502,26 @@ HUNT는 다양한 생물과 세계를 탐험하고 사냥하는 게임입니다.
 
 
 
-<a href="updates.html" class="info-card link-card">
+<a href="updates.html" class="preview-card">
 
 
-<img src="images/update2.png">
+<div class="preview-image">
+
+업데이트 이미지 2
+
+</div>
 
 
-<div class="card-text">
+<div class="preview-text">
 
 
 <h3>
-🔥 다음 업데이트 내용
+🔥 업데이트 소식
 </h3>
 
 
 <p>
-다가오는 업데이트 정보를 확인하세요.
+최신 변경사항과 추가 콘텐츠
 </p>
 
 
@@ -542,8 +529,6 @@ HUNT는 다양한 생물과 세계를 탐험하고 사냥하는 게임입니다.
 
 
 </a>
-
-
 
 
 
@@ -555,13 +540,17 @@ HUNT는 다양한 생물과 세계를 탐험하고 사냥하는 게임입니다.
 
 
 
-<a href="event.html" class="info-card link-card">
+<a href="event.html" class="preview-card">
 
 
-<img src="images/event.png">
+<div class="preview-image">
+
+이벤트 이미지
+
+</div>
 
 
-<div class="card-text">
+<div class="preview-text">
 
 
 <h3>
@@ -570,7 +559,7 @@ HUNT는 다양한 생물과 세계를 탐험하고 사냥하는 게임입니다.
 
 
 <p>
-현재 진행 중인 이벤트를 확인하세요.
+진행 중인 이벤트를 확인하세요.
 </p>
 
 
@@ -587,15 +576,7 @@ HUNT는 다양한 생물과 세계를 탐험하고 사냥하는 게임입니다.
 <style>
 
 
-.card-area{
-
-width:100%;
-
-}
-
-
-
-.info-card{
+.preview-card{
 
 display:block;
 
@@ -615,61 +596,50 @@ color:white;
 
 
 
-.info-card img{
+.preview-image{
 
 width:100%;
 
 height:220px;
 
-object-fit:cover;
+background:#252525;
 
-display:block;
+display:flex;
 
-}
+align-items:center;
 
+justify-content:center;
 
-
-.card-text{
-
-padding:18px;
+font-size:25px;
 
 }
 
 
 
-.card-text h3{
+.preview-text{
 
-font-size:24px;
+padding:20px;
+
+}
+
+
+
+.preview-text h3{
 
 margin-bottom:10px;
 
+font-size:24px;
+
 }
 
 
 
-.card-text p{
+.preview-text p{
 
 color:#ccc;
 
-font-size:16px;
-
 }
 
-
-
-
-
-@media(max-width:700px){
-
-
-.info-card img{
-
-height:160px;
-
-}
-
-
-}
 
 
 </style>
@@ -678,22 +648,19 @@ height:160px;
 </h2>
 
 
-<section class="intro">
-
+<div class="intro">
 
 <p style="text-align:center;">
-이벤트 종료 예정
+이벤트 종료 예정 시간
 </p>
 
 
-<div id="eventTimer" class="timer">
-
+<div class="timer" id="eventTimer">
 00일 00시간 00분 00초
-
 </div>
 
 
-</section>
+</div>
 
 
 
@@ -704,27 +671,30 @@ height:160px;
 </h2>
 
 
-<section class="intro">
+<div class="intro">
 
 
 <p style="text-align:center;">
-예정일 : 2026-08-23 18:00
+예정일 : 2026-08-20 18:00
 </p>
 
 
-<div id="updateTimer" class="timer">
-
+<div class="timer" id="updateTimer">
 00일 00시간 00분 00초
+</div>
+
 
 </div>
 
 
-</section>
+
+</div>
+
+
 
 
 
 <style>
-
 
 .timer{
 
@@ -741,14 +711,7 @@ margin-top:20px;
 }
 
 
-
 </style>
-
-
-
-
-
-</main>
 
 
 
@@ -763,7 +726,7 @@ function openMenu(){
 
 document
 .getElementById("sidebar")
-.classList.toggle("open");
+.classList.toggle("active");
 
 }
 
@@ -773,30 +736,25 @@ document
 
 // 카운트다운
 
-function startTimer(date,id){
+function startCountdown(target,id){
 
 
-let target =
-new Date(date).getTime();
-
-
-
-setInterval(()=>{
+setInterval(function(){
 
 
 let now =
 new Date().getTime();
 
 
-let gap =
+let distance =
 target-now;
 
 
 
-if(gap <= 0){
+if(distance <= 0){
 
 document.getElementById(id).innerHTML =
-"업데이트 이벤트 시작!";
+"종료";
 
 return;
 
@@ -805,31 +763,26 @@ return;
 
 
 let day =
-Math.floor(
-gap/(1000*60*60*24)
-);
-
+Math.floor(distance / (1000*60*60*24));
 
 
 let hour =
 Math.floor(
-(gap%(1000*60*60*24))
+(distance % (1000*60*60*24))
 /(1000*60*60)
 );
 
 
-
 let min =
 Math.floor(
-(gap%(1000*60*60))
+(distance % (1000*60*60))
 /(1000*60)
 );
 
 
-
 let sec =
 Math.floor(
-(gap%(1000*60))
+(distance % (1000*60))
 /1000
 );
 
@@ -843,9 +796,7 @@ min+"분 "+
 sec+"초";
 
 
-
 },1000);
-
 
 }
 
@@ -853,20 +804,26 @@ sec+"초";
 
 
 
-// 이벤트 종료 시간
+// 이벤트 종료
 
-startTimer(
-"2026-08-23T18:30:00",
+startCountdown(
+
+new Date("2026-08-01T18:00:00").getTime(),
+
 "eventTimer"
+
 );
 
 
 
 // 다음 업데이트
 
-startTimer(
-"2026-08-23T18:30:00",
+startCountdown(
+
+new Date("2026-08-20T18:00:00").getTime(),
+
 "updateTimer"
+
 );
 
 
@@ -878,238 +835,3 @@ startTimer(
 </body>
 
 </html>
-
-z-index:1000;
-
-}
-
-
-.menu-btn{
-
-font-size:35px;
-cursor:pointer;
-
-margin-right:20px;
-
-}
-
-
-.logo a{
-
-font-size:35px;
-font-weight:bold;
-
-color:#00ff66;
-
-text-decoration:none;
-
-}
-
-
-
-/* 사이드 메뉴 */
-
-.sidebar{
-left:-320px;
-pointer-events:none;
-}
-
-.sidebar.open{
-left:0;
-pointer-events:auto;
-}
-
-
-.sidebar.active{
-
-left:0;
-
-}
-
-
-.sidebar a{
-
-display:block;
-
-padding:18px;
-
-font-size:20px;
-
-color:white;
-
-text-decoration:none;
-
-}
-
-
-.sidebar a:hover{
-
-background:#00ff66;
-
-color:black;
-
-}
-
-
-
-/* 메인 */
-
-.container{
-
-padding:20px;
-
-}
-
-
-/* 메인 이미지 */
-
-.main-image{
-
-width:100%;
-height:350px;
-
-background:#222;
-
-border-radius:20px;
-
-display:flex;
-
-justify-content:center;
-align-items:center;
-
-font-size:30px;
-
-margin-bottom:25px;
-
-}
-
-
-
-/* 카드 */
-
-.card{
-
-background:#1b1b1b;
-
-border-radius:20px;
-
-padding:20px;
-
-margin-bottom:25px;
-
-}
-
-
-
-/* 버튼 */
-
-.menu{
-
-display:grid;
-
-grid-template-columns:repeat(2,1fr);
-
-gap:15px;
-
-}
-
-
-.menu a{
-
-background:#242424;
-
-padding:25px;
-
-border-radius:15px;
-
-text-align:center;
-
-font-size:20px;
-
-font-weight:bold;
-
-color:white;
-
-text-decoration:none;
-
-}
-
-
-.menu a:hover{
-
-background:#00ff66;
-
-color:black;
-
-}
-
-
-
-/* 미리보기 카드 */
-
-.preview-card{
-
-display:block;
-
-background:#1b1b1b;
-
-border-radius:20px;
-
-overflow:hidden;
-
-text-decoration:none;
-
-color:white;
-
-margin-bottom:20px;
-
-}
-
-
-.preview-card img{
-
-width:100%;
-
-height:180px;
-
-object-fit:cover;
-
-}
-
-
-.preview-text{
-
-padding:15px;
-
-}
-
-.sidebar{
-    display:none;
-}
-
-.main-btn{
-    position:relative;
-    z-index:9999;
-}
-
-.main-btn{
-    position:relative;
-    z-index:9999;
-    pointer-events:auto;
-}
-
-.sidebar{
-    pointer-events:none;
-}
-
-.sidebar.open{
-    pointer-events:auto;
-}
-
-</style>
-
-</head>
-
-
-<body>
-
