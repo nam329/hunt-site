@@ -4,9 +4,10 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>HUNT 이벤트</title>
+<title>HUNT Events</title>
 
 
 <style>
@@ -20,7 +21,7 @@ body{
 
 margin:0;
 
-background:#080808;
+background:#0b0b0b;
 
 color:white;
 
@@ -29,50 +30,161 @@ font-family:Arial,sans-serif;
 }
 
 
+/* 제목 */
 
 .header{
 
-height:70px;
+text-align:center;
 
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:30px;
+font-size:34px;
 
 font-weight:bold;
 
-}
-
-
-
-.event-card{
-
-width:94%;
-
-height:88vh;
-
-margin:auto;
-
-background:#151515;
-
-border-radius:20px;
-
-overflow:hidden;
-
-box-shadow:0 0 25px #00ff66;
+padding:25px;
 
 }
 
 
+/* 검색 */
 
-.event-image{
+.search-box{
+
+width:90%;
+
+margin:10px auto;
+
+}
+
+
+.search-box input{
 
 width:100%;
 
-height:65%;
+padding:15px;
+
+font-size:18px;
+
+border-radius:12px;
+
+border:none;
+
+background:#222;
+
+color:white;
+
+}
+
+
+
+
+/* 필터 */
+
+.filters{
+
+display:flex;
+
+gap:10px;
+
+justify-content:center;
+
+margin:20px;
+
+}
+
+
+.filters button{
+
+padding:10px 15px;
+
+border:0;
+
+border-radius:20px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+
+
+
+.all{
+
+background:white;
+
+}
+
+
+.active{
+
+background:#00ff66;
+
+}
+
+
+.upcoming{
+
+background:#ffaa00;
+
+}
+
+
+.finished{
+
+background:#777;
+
+color:white;
+
+}
+
+
+
+
+/* 섹션 */
+
+.section{
+
+width:90%;
+
+margin:30px auto;
+
+font-size:25px;
+
+font-weight:bold;
+
+color:#00ff66;
+
+}
+
+
+
+
+/* 이벤트 카드 */
+
+.event-card{
+
+width:90%;
+
+margin:20px auto;
+
+background:#171717;
+
+border-radius:18px;
+
+overflow:hidden;
+
+box-shadow:0 0 15px #000;
+
+}
+
+
+
+.event-card img{
+
+width:100%;
+
+height:240px;
 
 object-fit:cover;
 
@@ -80,11 +192,8 @@ object-fit:cover;
 
 
 
-.event-info{
 
-height:35%;
-
-overflow-y:auto;
+.info{
 
 padding:20px;
 
@@ -92,13 +201,31 @@ padding:20px;
 
 
 
-.event-title{
+.title{
 
-font-size:28px;
+font-size:26px;
 
 font-weight:bold;
 
-color:#00ff66;
+}
+
+
+
+.status{
+
+display:inline-block;
+
+margin-top:10px;
+
+padding:7px 15px;
+
+border-radius:20px;
+
+font-weight:bold;
+
+background:#00ff66;
+
+color:black;
 
 }
 
@@ -106,104 +233,34 @@ color:#00ff66;
 
 .date{
 
+margin-top:15px;
+
 color:#aaa;
 
-margin-top:10px;
-
 }
 
 
 
-/* 남은 시간 */
+.description{
 
-.timer-box{
+margin-top:15px;
 
-margin-top:20px;
+line-height:1.6;
 
-background:#222;
-
-padding:15px;
-
-border-radius:15px;
-
-text-align:center;
-
-}
-
-
-.timer-title{
-
-font-size:18px;
-
-color:#00ff66;
-
-}
-
-
-#timer{
-
-font-size:25px;
-
-font-weight:bold;
-
-margin-top:10px;
+font-size:17px;
 
 }
 
 
 
 
-.text{
-
-font-size:18px;
-
-line-height:1.7;
-
-margin-top:20px;
-
-}
-
-
-
-.reward{
-
-margin-top:20px;
-
-background:#222;
-
-padding:15px;
-
-border-radius:12px;
-
-}
-
-
-
-.button{
-
-margin-top:20px;
-
-background:#00ff66;
-
-color:black;
-
-padding:15px;
-
-text-align:center;
-
-border-radius:10px;
-
-font-weight:bold;
-
-}
-
-
+/* 영상 */
 
 .video{
 
-width:94%;
+width:90%;
 
-margin:35px auto;
+margin:40px auto;
 
 }
 
@@ -213,7 +270,7 @@ margin:35px auto;
 
 width:100%;
 
-height:240px;
+height:230px;
 
 border-radius:15px;
 
@@ -222,7 +279,39 @@ border:0;
 }
 
 
+
+
+/* 변경내역 */
+
+.changelog{
+
+width:90%;
+
+margin:30px auto;
+
+background:#171717;
+
+padding:20px;
+
+border-radius:15px;
+
+}
+
+
+
+.version{
+
+font-size:22px;
+
+color:#00ff66;
+
+font-weight:bold;
+
+}
+
+
 </style>
+
 
 </head>
 
@@ -232,7 +321,51 @@ border:0;
 
 
 <div class="header">
-🎉 HUNT 이벤트
+
+🎉 HUNT Events
+
+</div>
+
+
+
+<div class="search-box">
+
+<input 
+type="text"
+placeholder="🔍 이벤트 검색">
+
+</div>
+
+
+
+<div class="filters">
+
+<button class="all">
+전체
+</button>
+
+<button class="active">
+🔥 진행중
+</button>
+
+<button class="upcoming">
+⏳ 예정
+</button>
+
+<button class="finished">
+✅ 종료
+</button>
+
+</div>
+
+
+
+
+
+<div class="section">
+
+🔥 진행중 이벤트
+
 </div>
 
 
@@ -240,101 +373,54 @@ border:0;
 <div class="event-card">
 
 
-<img src="images/event1.jpg"
-class="event-image">
+<img src="images/event1.jpg">
 
 
 
-<div class="event-info">
+<div class="info">
 
 
-<div class="event-title">
+<div class="title">
 
-🔥 심해 메갈로돈 이벤트
+🌊 심해 메갈로돈 이벤트
 
 </div>
 
+
+<div class="status">
+
+진행중
+
+</div>
 
 
 <div class="date">
 
-2026.08.01 ~ 2026.08.20
+📅 기간 : 2026.08.01 ~ 2026.08.20
 
 </div>
 
 
 
-<div class="timer-box">
+<div class="description">
 
-<div class="timer-title">
-
-⏳ 이벤트 종료까지
-
-</div>
-
-
-<div id="timer">
-
-계산중...
-
-</div>
-
-
-</div>
-
-
-
-
-<div class="text">
-
-심해에서 나타난 전설의 생물!
-
-<br>
-
-기간 동안 특별한 보상을 획득하세요.
-
-</div>
-
-
-
-
-<div class="reward">
-
-🎁 이벤트 보상
+심해에 등장한 거대한 메갈로돈을 사냥하세요.
 
 <br><br>
 
-⭐ 한정 아이템
+🎁 보상
 
 <br>
 
-⭐ 특별 칭호
+- 한정 아이템
 
 <br>
 
-⭐ 이벤트 코인
+- 이벤트 코인
 
-</div>
+<br>
 
-
-
-<div class="text">
-
-⚔️ 참여 방법
-
-<br><br>
-
-심해 지역으로 이동 후
-
-보스를 처치하세요.
-
-</div>
-
-
-
-<div class="button">
-
-이벤트 참여
+- 특별 칭호
 
 </div>
 
@@ -342,25 +428,74 @@ class="event-image">
 
 </div>
 
+
 </div>
 
 
+
+
+
+<div class="section">
+
+⏳ 예정 이벤트
+
+</div>
+
+
+
+<div class="event-card">
+
+
+<img src="images/event2.jpg">
+
+
+<div class="info">
+
+
+<div class="title">
+
+❄️ 겨울 업데이트 이벤트
+
+</div>
+
+
+<div class="status">
+
+예정
+
+</div>
+
+
+<div class="date">
+
+📅 기간 : 2026.12.01 ~ 2026.12.30
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="section">
+
+🎬 이벤트 영상
+
+</div>
 
 
 <div class="video">
 
-<h2>
-
-🎬 이벤트 영상
-
-</h2>
-
 
 <iframe
 
-src="https://www.youtube.com/embed/영상ID"
-
-allowfullscreen>
+src="https://www.youtube.com/embed/영상ID">
 
 </iframe>
 
@@ -371,76 +506,142 @@ allowfullscreen>
 
 
 
+<div class="changelog">
+
+
+<div class="version">
+
+📝 변경내역 v1.0.0
+
+</div>
+
+
+<br>
+
+- 이벤트 페이지 추가
+
+<br>
+
+- 검색 기능 추가 예정
+
+<br>
+
+- 이벤트 필터 추가 예정
+
+
+</div>
+
 <script>
 
 
-// 이벤트 종료 시간 설정
-
-let endDate = new Date("2026-08-20 18:00:00").getTime();
-
+const searchInput =
+document.querySelector(".search-box input");
 
 
-let timer = setInterval(function(){
+const cards =
+document.querySelectorAll(".event-card");
 
 
-let now = new Date().getTime();
-
-
-let distance = endDate - now;
+const buttons =
+document.querySelectorAll(".filters button");
 
 
 
-if(distance <= 0){
+// 검색 기능
 
-document.getElementById("timer").innerHTML =
-"⚠️ 이벤트 종료";
+searchInput.addEventListener("input",function(){
 
 
-clearInterval(timer);
+let value=this.value.toLowerCase();
 
-return;
+
+
+cards.forEach(card=>{
+
+
+let text =
+card.innerText.toLowerCase();
+
+
+
+if(text.includes(value)){
+
+card.style.display="block";
+
+}
+
+else{
+
+card.style.display="none";
 
 }
 
 
-
-let day = Math.floor(distance / (1000*60*60*24));
-
-let hour = Math.floor(
-(distance % (1000*60*60*24))
-/(1000*60*60)
-);
+});
 
 
-let minute = Math.floor(
-(distance % (1000*60*60))
-/(1000*60)
-);
-
-
-let second = Math.floor(
-(distance % (1000*60))
-/1000
-);
+});
 
 
 
-document.getElementById("timer").innerHTML =
-
-day+"일 "+
-hour+"시간 "+
-minute+"분 "+
-second+"초";
 
 
+// 필터 기능
 
-},1000);
+
+buttons.forEach(button=>{
+
+
+button.addEventListener("click",()=>{
+
+
+let type =
+button.className;
+
+
+
+cards.forEach(card=>{
+
+
+let status =
+card.dataset.status;
+
+
+
+if(type=="all"){
+
+card.style.display="block";
+
+}
+
+
+else if(status==type){
+
+card.style.display="block";
+
+}
+
+
+else{
+
+card.style.display="none";
+
+}
+
+
+});
+
+
+});
+
+
+});
 
 
 
 </script>
 
-
 </body>
+  
 
 </html>
