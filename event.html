@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>HUNT Events</title>
@@ -21,11 +20,13 @@ body{
 
 margin:0;
 
-background:#0b0b0b;
+background:#090909;
 
 color:white;
 
 font-family:Arial,sans-serif;
+
+padding-bottom:250px;
 
 }
 
@@ -36,11 +37,11 @@ font-family:Arial,sans-serif;
 
 text-align:center;
 
-font-size:34px;
+font-size:32px;
 
 font-weight:bold;
 
-padding:25px;
+padding:30px;
 
 }
 
@@ -49,9 +50,9 @@ padding:25px;
 
 .search-box{
 
-width:90%;
+width:92%;
 
-margin:10px auto;
+margin:auto;
 
 }
 
@@ -62,190 +63,13 @@ width:100%;
 
 padding:15px;
 
-font-size:18px;
-
 border-radius:12px;
 
-border:none;
+border:0;
 
 background:#222;
 
 color:white;
-
-}
-
-
-
-
-/* 필터 */
-
-.filters{
-
-display:flex;
-
-gap:10px;
-
-justify-content:center;
-
-margin:20px;
-
-}
-
-
-.filters button{
-
-padding:10px 15px;
-
-border:0;
-
-border-radius:20px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-}
-
-
-
-
-.all{
-
-background:white;
-
-}
-
-
-.active{
-
-background:#00ff66;
-
-}
-
-
-.upcoming{
-
-background:#ffaa00;
-
-}
-
-
-.finished{
-
-background:#777;
-
-color:white;
-
-}
-
-
-
-
-/* 섹션 */
-
-.section{
-
-width:90%;
-
-margin:30px auto;
-
-font-size:25px;
-
-font-weight:bold;
-
-color:#00ff66;
-
-}
-
-
-
-
-/* 이벤트 카드 */
-
-.event-card{
-
-width:90%;
-
-margin:20px auto;
-
-background:#171717;
-
-border-radius:18px;
-
-overflow:hidden;
-
-box-shadow:0 0 15px #000;
-
-}
-
-
-
-.event-card img{
-
-width:100%;
-
-height:240px;
-
-object-fit:cover;
-
-}
-
-
-
-
-.info{
-
-padding:20px;
-
-}
-
-
-
-.title{
-
-font-size:26px;
-
-font-weight:bold;
-
-}
-
-
-
-.status{
-
-display:inline-block;
-
-margin-top:10px;
-
-padding:7px 15px;
-
-border-radius:20px;
-
-font-weight:bold;
-
-background:#00ff66;
-
-color:black;
-
-}
-
-
-
-.date{
-
-margin-top:15px;
-
-color:#aaa;
-
-}
-
-
-
-.description{
-
-margin-top:15px;
-
-line-height:1.6;
 
 font-size:17px;
 
@@ -254,40 +78,131 @@ font-size:17px;
 
 
 
-/* 영상 */
 
-.video{
+/* 섹션 */
 
-width:90%;
+.section{
 
-margin:40px auto;
+width:92%;
+
+margin:35px auto;
+
+}
+
+
+.title{
+
+font-size:25px;
+
+font-weight:bold;
+
+color:#00ff66;
+
+margin-bottom:15px;
 
 }
 
 
 
-.video iframe{
+
+
+/* 카드 */
+
+.event-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:10px;
+
+}
+
+
+
+.card{
+
+background:#171717;
+
+border-radius:12px;
+
+overflow:hidden;
+
+cursor:pointer;
+
+}
+
+
+
+.card img{
 
 width:100%;
 
-height:230px;
+height:120px;
 
-border-radius:15px;
+object-fit:cover;
 
-border:0;
+}
+
+
+
+.card-info{
+
+padding:10px;
+
+font-size:14px;
+
+font-weight:bold;
+
+}
+
+
+
+.card-info span{
+
+display:block;
+
+margin-top:8px;
+
+color:#00ff66;
 
 }
 
 
 
 
-/* 변경내역 */
 
-.changelog{
+/* 접기 */
 
-width:90%;
+.toggle{
 
-margin:30px auto;
+width:100%;
+
+padding:14px;
+
+border:0;
+
+border-radius:10px;
+
+background:#222;
+
+color:white;
+
+font-size:16px;
+
+font-weight:bold;
+
+margin-bottom:15px;
+
+}
+
+
+
+
+
+/* 패치노트 */
+
+.patch{
 
 background:#171717;
 
@@ -295,23 +210,105 @@ padding:20px;
 
 border-radius:15px;
 
+line-height:1.8;
+
 }
 
 
 
 .version{
 
-font-size:22px;
-
 color:#00ff66;
+
+font-size:20px;
 
 font-weight:bold;
 
 }
 
 
-</style>
 
+
+
+/* 상세창 */
+
+.modal{
+
+display:none;
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.8);
+
+align-items:center;
+
+justify-content:center;
+
+z-index:999;
+
+}
+
+
+
+.modal-box{
+
+width:90%;
+
+max-height:80vh;
+
+overflow:auto;
+
+background:#171717;
+
+border-radius:20px;
+
+padding:20px;
+
+}
+
+
+
+.modal-box img{
+
+width:100%;
+
+height:230px;
+
+object-fit:cover;
+
+border-radius:15px;
+
+}
+
+
+
+.close{
+
+float:right;
+
+background:red;
+
+color:white;
+
+border:0;
+
+padding:10px;
+
+border-radius:10px;
+
+}
+
+
+
+</style>
 
 </head>
 
@@ -320,9 +317,10 @@ font-weight:bold;
 <body>
 
 
+
 <div class="header">
 
-🎉 HUNT Events
+🎉 HUNT EVENTS
 
 </div>
 
@@ -330,104 +328,56 @@ font-weight:bold;
 
 <div class="search-box">
 
-<input 
-type="text"
+<input id="search"
+
 placeholder="🔍 이벤트 검색">
 
 </div>
 
 
 
-<div class="filters">
-
-<button class="all">
-전체
-</button>
-
-<button class="active">
-🔥 진행중
-</button>
-
-<button class="upcoming">
-⏳ 예정
-</button>
-
-<button class="finished">
-✅ 종료
-</button>
-
-</div>
 
 
-
+<!-- 카운트다운 -->
 
 
 <div class="section">
 
-🔥 진행중 이벤트
+
+<div class="title">
+
+⏳ 카운트다운 이벤트
 
 </div>
 
 
 
-<div class="event-card">
+<div class="event-grid">
 
+
+
+<div class="card"
+
+data-title="🌊 심해 메갈로돈 이벤트"
+
+data-date="2026.08.01 ~ 2026.08.20"
+
+data-text="심해 보스 메갈로돈을 사냥하는 이벤트입니다.">
 
 <img src="images/event1.jpg">
 
 
+<div class="card-info">
 
-<div class="info">
+🌊 심해 이벤트
 
+<span>
 
-<div class="title">
+D-20
 
-🌊 심해 메갈로돈 이벤트
-
-</div>
-
-
-<div class="status">
-
-진행중
+</span>
 
 </div>
-
-
-<div class="date">
-
-📅 기간 : 2026.08.01 ~ 2026.08.20
-
-</div>
-
-
-
-<div class="description">
-
-심해에 등장한 거대한 메갈로돈을 사냥하세요.
-
-<br><br>
-
-🎁 보상
-
-<br>
-
-- 한정 아이템
-
-<br>
-
-- 이벤트 코인
-
-<br>
-
-- 특별 칭호
-
-</div>
-
-
-
-</div>
-
 
 </div>
 
@@ -435,69 +385,155 @@ placeholder="🔍 이벤트 검색">
 
 
 
-<div class="section">
+<div class="card"
 
-⏳ 예정 이벤트
+data-title="🔥 화산 이벤트"
 
-</div>
+data-date="2026.09.01 ~ 2026.09.20"
 
-
-
-<div class="event-card">
-
+data-text="화산 지역 특별 이벤트">
 
 <img src="images/event2.jpg">
 
 
-<div class="info">
+<div class="card-info">
 
+🔥 화산 이벤트
 
-<div class="title">
+<span>
 
-❄️ 겨울 업데이트 이벤트
+D-40
 
-</div>
-
-
-<div class="status">
-
-예정
+</span>
 
 </div>
-
-
-<div class="date">
-
-📅 기간 : 2026.12.01 ~ 2026.12.30
-
-</div>
-
-
-</div>
-
 
 </div>
 
 
 
 
+
+<div class="card"
+
+data-title="❄️ 겨울 이벤트"
+
+data-date="2026.12.01"
+
+data-text="겨울 시즌 이벤트">
+
+<img src="images/event3.jpg">
+
+
+<div class="card-info">
+
+❄️ 겨울 이벤트
+
+<span>
+
+D-100
+
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!-- 사냥 이벤트 -->
 
 
 <div class="section">
 
-🎬 이벤트 영상
+
+<div class="title">
+
+🦖 사냥 이벤트
 
 </div>
 
 
-<div class="video">
+<div class="event-grid">
 
 
-<iframe
+<div class="card"
 
-src="https://www.youtube.com/embed/영상ID">
+data-title="메갈로돈 사냥"
 
-</iframe>
+data-date="상시"
+
+data-text="전설 생물 사냥 이벤트">
+
+
+<img src="images/hunt1.jpg">
+
+
+<div class="card-info">
+
+메갈로돈
+
+</div>
+
+</div>
+
+
+
+<div class="card"
+
+data-title="거대 몬스터"
+
+data-date="상시"
+
+data-text="보스 사냥">
+
+
+<img src="images/hunt2.jpg">
+
+
+<div class="card-info">
+
+거대 몬스터
+
+</div>
+
+</div>
+
+
+
+
+<div class="card"
+
+data-title="전설 생물"
+
+data-date="상시"
+
+data-text="희귀 생물">
+
+
+<img src="images/hunt3.jpg">
+
+
+<div class="card-info">
+
+전설 생물
+
+</div>
+
+</div>
+
+
+
+</div>
 
 
 </div>
@@ -506,12 +542,73 @@ src="https://www.youtube.com/embed/영상ID">
 
 
 
-<div class="changelog">
+<!-- 지역 행사 -->
+
+
+<div class="section">
+
+
+<div class="title">
+
+🗺️ 지역 행사
+
+</div>
+
+
+
+<button class="toggle">
+
+▼ 펼치기
+
+</button>
+
+
+<div class="region" style="display:none">
+
+
+지역별 특별 이벤트
+
+<br><br>
+
+🏝 시작섬
+
+<br>
+
+🌋 화산섬
+
+<br>
+
+❄ 북극 지역
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- 패치노트 -->
+
+
+<div class="section">
+
+
+<div class="title">
+
+📝 패치노트
+
+</div>
+
+
+<div class="patch">
 
 
 <div class="version">
 
-📝 변경내역 v1.0.0
+v1.0.0
 
 </div>
 
@@ -522,57 +619,102 @@ src="https://www.youtube.com/embed/영상ID">
 
 <br>
 
-- 검색 기능 추가 예정
+- 검색 기능 추가
 
 <br>
 
-- 이벤트 필터 추가 예정
+- 상세보기 추가
 
 
 </div>
 
+
+</div>
+
+
+
+
+
+
+
+<!-- 상세창 -->
+
+
+<div class="modal" id="modal">
+
+
+<div class="modal-box">
+
+
+<button class="close">
+
+X
+
+</button>
+
+
+<img id="modalImg">
+
+
+<h2 id="modalTitle"></h2>
+
+
+<p id="modalDate"></p>
+
+
+<p id="modalText"></p>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
 <script>
 
 
-const searchInput =
-document.querySelector(".search-box input");
+// 검색
+
+const search =
+document.getElementById("search");
 
 
 const cards =
-document.querySelectorAll(".event-card");
-
-
-const buttons =
-document.querySelectorAll(".filters button");
+document.querySelectorAll(".card");
 
 
 
-// 검색 기능
-
-searchInput.addEventListener("input",function(){
+search.addEventListener("input",()=>{
 
 
-let value=this.value.toLowerCase();
+let word =
+search.value.toLowerCase();
 
 
 
 cards.forEach(card=>{
 
 
-let text =
-card.innerText.toLowerCase();
+if(card.innerText.toLowerCase().includes(word)){
 
-
-
-if(text.includes(value)){
 
 card.style.display="block";
+
 
 }
 
 else{
 
+
 card.style.display="none";
+
 
 }
 
@@ -586,62 +728,91 @@ card.style.display="none";
 
 
 
-// 필터 기능
+// 지역 행사 접기
+
+document.querySelector(".toggle")
+.onclick=()=>{
 
 
-buttons.forEach(button=>{
+let box=document.querySelector(".region");
 
 
-button.addEventListener("click",()=>{
+if(box.style.display=="none"){
+
+box.style.display="block";
+
+document.querySelector(".toggle").innerHTML="▲ 접기";
+
+}
+
+else{
+
+box.style.display="none";
+
+document.querySelector(".toggle").innerHTML="▼ 펼치기";
+
+}
 
 
-let type =
-button.className;
+};
 
+
+
+
+
+
+
+// 상세창
+
+
+const modal =
+document.getElementById("modal");
 
 
 cards.forEach(card=>{
 
 
-let status =
-card.dataset.status;
+card.onclick=()=>{
 
 
-
-if(type=="all"){
-
-card.style.display="block";
-
-}
+modal.style.display="flex";
 
 
-else if(status==type){
-
-card.style.display="block";
-
-}
+document.getElementById("modalImg").src=
+card.querySelector("img").src;
 
 
-else{
-
-card.style.display="none";
-
-}
+document.getElementById("modalTitle").innerHTML=
+card.dataset.title;
 
 
-});
+document.getElementById("modalDate").innerHTML=
+"📅 "+card.dataset.date;
+
+
+document.getElementById("modalText").innerHTML=
+card.dataset.text;
+
+
+};
 
 
 });
 
 
-});
+
+document.querySelector(".close").onclick=()=>{
+
+modal.style.display="none";
+
+};
 
 
 
 </script>
 
+
+
 </body>
-  
 
 </html>
