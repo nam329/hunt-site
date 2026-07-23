@@ -9,122 +9,164 @@
 <style>
 
 *{
- box-sizing:border-box;
+box-sizing:border-box;
 }
 
 body{
- margin:0;
- background:#111;
- color:white;
- font-family:Arial,sans-serif;
+margin:0;
+background:#111;
+color:white;
+font-family:Arial,sans-serif;
 }
 
-/* 상단바 */
+
+/* 상단 */
 .topbar{
- height:70px;
- background:#050505;
- display:flex;
- align-items:center;
- padding:0 20px;
- position:sticky;
- top:0;
- z-index:100;
+height:70px;
+background:#050505;
+display:flex;
+align-items:center;
+padding:0 20px;
+position:sticky;
+top:0;
+z-index:100;
 }
 
-.menu-open{
- font-size:35px;
- cursor:pointer;
- margin-right:20px;
+.menu-btn{
+font-size:35px;
+cursor:pointer;
+margin-right:20px;
 }
 
 .logo a{
- color:#00ff66;
- text-decoration:none;
- font-size:35px;
- font-weight:bold;
+color:#00ff66;
+font-size:35px;
+font-weight:bold;
+text-decoration:none;
 }
 
 
-/* 사이드 메뉴 */
+/* 메뉴 */
 .sidebar{
- position:fixed;
- top:0;
- left:-280px;
- width:280px;
- height:100%;
- background:#171717;
- padding-top:80px;
- transition:0.3s;
- z-index:200;
+position:fixed;
+top:0;
+left:-280px;
+width:280px;
+height:100%;
+background:#181818;
+padding-top:80px;
+transition:0.3s;
+z-index:200;
 }
 
 .sidebar.active{
- left:0;
+left:0;
 }
 
 .sidebar a{
- display:block;
- padding:18px;
- color:white;
- text-decoration:none;
- font-size:20px;
+display:block;
+padding:18px;
+color:white;
+text-decoration:none;
+font-size:20px;
 }
 
 .sidebar a:hover{
- background:#00ff66;
- color:black;
+background:#00ff66;
+color:black;
 }
 
 
-/* 메인 */
+
+/* 내용 */
 .container{
- padding:20px;
+padding:20px;
 }
 
 
+/* 메인 사진 */
 .main-image{
- width:100%;
- height:300px;
- background:#222;
- border-radius:20px;
- display:flex;
- justify-content:center;
- align-items:center;
- margin-bottom:25px;
+height:320px;
+background:#222;
+border-radius:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:25px;
+margin-bottom:25px;
 }
 
 
+
+/* 카드 */
 .card{
- background:#1d1d1d;
- border-radius:20px;
- padding:20px;
- margin-bottom:20px;
+background:#1d1d1d;
+border-radius:20px;
+padding:20px;
+margin-bottom:25px;
 }
 
 
+
+/* 버튼 */
 .menu{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:15px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
 }
 
 
 .menu a{
- background:#222;
- padding:25px;
- text-align:center;
- border-radius:15px;
- color:white;
- text-decoration:none;
- font-size:20px;
- font-weight:bold;
+background:#222;
+padding:25px;
+border-radius:15px;
+text-align:center;
+color:white;
+text-decoration:none;
+font-size:20px;
+font-weight:bold;
 }
 
 
-.menu a:hover{
- background:#00ff66;
- color:black;
+
+/* 미리보기 */
+.preview{
+display:block;
+background:#222;
+border-radius:20px;
+overflow:hidden;
+text-decoration:none;
+color:white;
+margin-bottom:20px;
 }
+
+
+.preview img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+
+.preview div{
+padding:15px;
+}
+
+
+.preview h3{
+margin:0 0 10px;
+}
+
+
+
+/* 카운트다운 */
+.countdown{
+font-size:35px;
+text-align:center;
+color:#00ff66;
+font-weight:bold;
+}
+
 
 
 </style>
@@ -137,12 +179,14 @@ body{
 
 <div class="topbar">
 
-<div class="menu-open" onclick="openMenu()">
+<div class="menu-btn" onclick="openMenu()">
 ☰
 </div>
 
 <div class="logo">
-<a href="index.html">HUNT</a>
+<a href="index.html">
+HUNT
+</a>
 </div>
 
 </div>
@@ -157,6 +201,8 @@ body{
 <a href="main/map.html">🗺️ 맵</a>
 <a href="main/npc.html">🧑 NPC</a>
 <a href="main/market.html">🛒 상점</a>
+<a href="main/updates.html">🔥 업데이트</a>
+<a href="main/event.html">🎉 이벤트</a>
 
 </div>
 
@@ -165,9 +211,13 @@ body{
 <div class="container">
 
 
+
 <div class="main-image">
-메인 이미지 넣는 곳
+
+메인 이미지
+
 </div>
+
 
 
 <div class="card">
@@ -177,10 +227,11 @@ body{
 </h1>
 
 <p>
-HUNT는 다양한 생물을 탐험하고 사냥하는 게임입니다.
+HUNT는 다양한 생물과 세계를 탐험하는 사냥 게임입니다.
 </p>
 
 </div>
+
 
 
 
@@ -206,10 +257,104 @@ HUNT는 다양한 생물을 탐험하고 사냥하는 게임입니다.
 🛒 상점
 </a>
 
+<a href="main/settings.html">
+⚙️ 설정
+</a>
+
+</div>
+
+
+
+
+<h2>
+⭐ 추천
+</h2>
+
+<div class="card">
+추천 콘텐츠
+</div>
+
+
+
+
+<h2>
+🔥 업데이트 미리보기
+</h2>
+
+
+<a href="main/updates.html" class="preview">
+
+<img src="1784300167307.jpg">
+
+<div>
+
+<h3>
+🔥 업데이트
+</h3>
+
+<p>
+새로운 업데이트 내용을 확인하세요.
+</p>
+
+</div>
+
+</a>
+
+
+
+
+
+<h2>
+🎉 이벤트 미리보기
+</h2>
+
+
+<a href="main/event.html" class="preview">
+
+<img src="images/event.png">
+
+<div>
+
+<h3>
+🎉 이벤트
+</h3>
+
+<p>
+진행 중인 이벤트를 확인하세요.
+</p>
+
+</div>
+
+</a>
+
+
+
+
+
+<h2>
+⏳ 다음 업데이트까지
+</h2>
+
+
+<div class="card">
+
+<p style="text-align:center;">
+예정일 : 2026-08-20 18:00
+</p>
+
+
+<div id="countdown" class="countdown">
+00일 00시간 00분 00초
 </div>
 
 
 </div>
+
+
+
+</div>
+
+
 
 
 
@@ -217,923 +362,62 @@ HUNT는 다양한 생물을 탐험하고 사냥하는 게임입니다.
 
 function openMenu(){
 
-document.getElementById("sidebar")
+document
+.getElementById("sidebar")
 .classList.toggle("active");
 
 }
 
-</script>
 
 
-</body>
-</html>
-align-items:center;
+let target =
+new Date("2026-08-20T18:00:00").getTime();
 
-padding:0 20px;
 
-background:#111;
 
-position:sticky;
-
-top:0;
-
-z-index:1000;
-
-}
-
-
-.menu-btn{
-
-font-size:35px;
-
-cursor:pointer;
-
-margin-right:15px;
-
-}
-
-
-
-.logo{
-
-font-size:35px;
-
-font-weight:bold;
-
-color:#00ff66;
-
-}
-
-
-
-/* 메인 이미지 */
-
-.hero{
-
-height:600px;
-
-position:relative;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-text-align:center;
-
-
-background:
-
-linear-gradient(
-rgba(0,0,0,.45),
-rgba(0,0,0,.85)
-),
-
-url("hunt-main.jpg");
-
-
-background-size:cover;
-
-background-position:center;
-
-}
-
-
-
-.hero h1{
-
-font-size:80px;
-
-margin:0;
-
-}
-
-
-
-.hero p{
-
-font-size:22px;
-
-}
-
-
-
-/* 환영 */
-
-.welcome{
-
-text-align:center;
-
-padding:40px 20px;
-
-}
-
-
-.welcome h2{
-
-font-size:40px;
-
-color:#00ff66;
-
-}
-
-
-
-/* 설명 */
-
-.description{
-
-text-align:center;
-
-padding:30px;
-
-font-size:20px;
-
-line-height:1.7;
-
-}
-
-
-
-/* 버튼 */
-
-.menu-area{
-
-padding:30px;
-
-display:grid;
-
-grid-template-columns:
-repeat(2,1fr);
-
-gap:15px;
-
-}
-
-
-
-.menu-area button{
-
-padding:18px;
-
-font-size:18px;
-
-background:#111;
-
-color:white;
-
-border:1px solid #333;
-
-border-radius:12px;
-
-cursor:pointer;
-
-}
-
-.menu-area a{
-
-text-decoration:none;
-
-}
-
-  .menu-area button {
-    width:100%;
-    display:block;
-}
-
-.menu-area a {
-    text-decoration:none;
-}
-  
-</style>
-
-</head>
-
-<!-- 햄버거 메뉴 -->
-
-<div id="side-menu" class="side-menu">
-
-
-<a href="main/market.html">
-상점
-</a>
-
-
-<a href="main/weapons.html">
-무기
-</a>
-
-
-<a href="main/npc.html">
-NPC
-</a>
-
-
-<a href="main/map.html">
-맵
-</a>
-
-
-<a href="main/weather.html">
-날씨
-</a>
-
-
-<a href="main/animal.html">
-동물
-</a>
-
-
-<a href="main/items.html">
-아이템
-</a>
-
-
-<a href="main/news.html">
-소식
-</a>
-
-
-<a href="main/updates.html">
-업데이트
-</a>
-
-
-<a href="#">
-CODE
-</a>
-
-
-</div>
-
-
-
-<div id="dark-bg"
-onclick="closeMenu()">
-</div>
-
-
-
-
-
-
-<style>
-
-
-.side-menu{
-
-position:fixed;
-
-top:0;
-
-left:-280px;
-
-width:250px;
-
-height:100%;
-
-background:#111;
-
-padding-top:80px;
-
-z-index:2000;
-
-transition:.3s;
-
-}
-
-
-
-
-.side-menu a{
-
-display:block;
-
-padding:20px;
-
-color:white;
-
-text-decoration:none;
-
-font-size:20px;
-
-}
-
-
-
-.side-menu a:hover{
-
-background:#00ff66;
-
-color:black;
-
-}
-
-
-
-
-
-#dark-bg{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-background:rgba(0,0,0,.6);
-
-display:none;
-
-z-index:1500;
-
-}
-
-
-
-</style>
-
-
-
-
-
-
-<script>
-
-
-function openMenu(){
-
-
-document.getElementById("side-menu")
-.style.left="0";
-
-
-document.getElementById("dark-bg")
-.style.display="block";
-
-
-}
-
-
-
-
-
-function closeMenu(){
-
-
-document.getElementById("side-menu")
-.style.left="-280px";
-
-
-document.getElementById("dark-bg")
-.style.display="none";
-
-
-}
-
-
-
-</script>
-
-<body>
-
-
-
-<!-- 상단 -->
-
-<header class="topbar">
-
-
-<div class="menu-btn" onclick="openMenu()">
-
-☰
-
-</div>
-
-
-<div class="logo">
-
-HUNT
-
-</div>
-
-
-</header>
-
-
-
-
-
-<!-- 메인 -->
-
-<section class="hero">
-
-
-<div>
-
-<h1>
-HUNT
-</h1>
-
-
-<p>
-동물들을 사냥하는 삶을 살아보세요.
-</p>
-
-
-</div>
-
-
-</section>
-
-
-
-
-<!-- 환영 -->
-
-<section class="welcome">
-
-
-<h2>
-환영합니다
-</h2>
-
-
-<p>
-HUNT에 오신 것을 환영합니다 됨
-</p>
-
-
-</section>
-
-
-
-
-
-<!-- 게임 설명 -->
-
-
-<section class="description">
-
-
-탐험하고 · 사냥하고 · 발견하는 모험<br>
-
-다양한 지역과 생물을 만나보세요.
-
-
-</section>
-
-
-
-
-
-
-<!-- 메뉴 -->
-
-<div class="menu-area">
-
-<button onclick="location.href='main/market.html'">
-🛒 상점
-</button>
-
-<button onclick="location.href='main/weapons.html'">
-⚔️ 무기
-</button>
-
-<button onclick="location.href='main/npc.html'">
-🧑 NPC
-</button>
-
-<button onclick="location.href='main/map.html'">
-🗺️ 맵
-</button>
-
-<button onclick="location.href='main/weather.html'">
-🌦️ 날씨
-</button>
-
-<button onclick="location.href='main/animal.html'">
-🐾 동물
-</button>
-
-<button onclick="location.href='main/items.html'">
-🎒 아이템
-</button>
-
-<button onclick="location.href='main/news.html'">
-📰 소식
-</button>
-
-<button onclick="location.href='main/updates.html'">
-🔥 업데이트
-</button>
-
-<button onclick="location.href='#code-section.html'">
-🎁 CODE
-</button>
-
-
-<a href="https://discord.gg/KUzNHe9UGP" target="_blank"><button class="discord-btn">💬 디스코드 들어가기</button></a>
-<a href="https://discord.gg/kWpegKMpbC" target="_blank"><button class="contact-btn">📩 문의하기</button></a>
-
-</div>
-  
-</section>
-
-
-
-<!-- 업데이트 -->
-
-<section class="content-section">
-
-
-<h2>
-업데이트
-</h2>
-
-
-
-<div class="full-image">
-
-
-<img src="update1.jpg">
-
-
-<div class="tag">
-업데이트
-</div>
-
-
-<div class="image-text">
-
-새로운 지역 업데이트
-
-</div>
-
-
-</div>
-
-
-
-
-<div class="full-image">
-
-
-<img src="update2.jpg">
-
-
-<div class="tag">
-업데이트
-</div>
-
-
-<div class="image-text">
-
-새로운 콘텐츠 추가
-
-</div>
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-<!-- 추천 -->
-
-<section class="content-section">
-
-
-<h2>
-추천
-</h2>
-
-
-
-<div class="full-image">
-
-
-<img src="recommend.jpg">
-
-
-<div class="tag">
-추천
-</div>
-
-
-<div class="image-text">
-
-추천 콘텐츠
-
-</div>
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-<!-- 이벤트 -->
-
-
-<section class="content-section">
-
-
-<h2>
-이벤트
-</h2>
-
-
-
-<div class="full-image">
-
-
-<img src="event.jpg">
-
-
-<div class="tag">
-이벤트
-</div>
-
-
-<div class="image-text">
-
-특별 이벤트 진행 중
-
-</div>
-
-
-</div>
-
-
-
-
-<h3>
-이벤트 종료까지
-</h3>
-
-
-<div id="event-time">
-
-00일 00시간 00분 00초
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-<!-- 다음 업데이트 -->
-
-
-<section class="count-section">
-
-
-<h3>
-다음 업데이트까지
-</h3>
-
-
-<div id="update-time">
-
-00일 00시간 00분 00초
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-<style>
-
-
-.content-section{
-
-padding:40px 0;
-
-}
-
-
-.content-section h2,
-.count-section h3{
-
-text-align:center;
-
-font-size:35px;
-
-}
-
-
-
-
-/* 이미지 전체 */
-
-.full-image{
-
-width:100%;
-
-height:450px;
-
-position:relative;
-
-overflow:hidden;
-
-margin-bottom:30px;
-
-}
-
-
-
-.full-image img{
-
-width:100%;
-
-height:100%;
-
-object-fit:cover;
-
-}
-
-
-
-/* 오른쪽 위 표시 */
-
-.tag{
-
-position:absolute;
-
-top:25px;
-
-right:25px;
-
-background:#00ff66;
-
-color:black;
-
-padding:10px 20px;
-
-font-weight:bold;
-
-border-radius:10px;
-
-}
-
-
-
-/* 이미지 위 글자 */
-
-
-.image-text{
-
-position:absolute;
-
-bottom:30px;
-
-left:30px;
-
-font-size:30px;
-
-font-weight:bold;
-
-
-text-shadow:
-
-0 2px 10px black;
-
-}
-
-
-
-#event-time,
-#update-time{
-
-text-align:center;
-
-font-size:40px;
-
-color:#00ff66;
-
-font-weight:bold;
-
-padding:20px;
-
-}
-
-
-
-
-</style>
-
-
-
-
-
-
-<script>
-
-
-// 이벤트 종료 시간
-
-let eventDate =
-new Date("2026-08-10 00:00:00").getTime();
-
-
-// 다음 업데이트 시간
-
-let updateDate =
-new Date("2026-09-01 00:00:00").getTime();
-
-
-
-setInterval(()=>{
+setInterval(function(){
 
 
 let now =
 new Date().getTime();
 
 
-
-function timer(target){
-
-
 let gap =
 target-now;
 
 
-let day =
-Math.floor(
-gap/(1000*60*60*24)
-);
+if(gap<=0){
 
+document.getElementById("countdown").innerHTML=
+"업데이트 시작!";
 
-let hour =
-Math.floor(
-gap%(1000*60*60*24)
-/(1000*60*60)
-);
-
-
-let min =
-Math.floor(
-gap%(1000*60*60)
-/(1000*60)
-);
-
-
-let sec =
-Math.floor(
-gap%(1000*60)
-/1000
-);
-
-
-
-return day+"일 "
-+hour+"시간 "
-+min+"분 "
-+sec+"초";
-
+return;
 
 }
 
 
-
-document.getElementById("event-time")
-.innerHTML =
-timer(eventDate);
+let day =
+Math.floor(gap/(1000*60*60*24));
 
 
+let hour =
+Math.floor((gap%(1000*60*60*24))/(1000*60*60));
 
-document.getElementById("update-time")
-.innerHTML =
-timer(updateDate);
 
+let min =
+Math.floor((gap%(1000*60*60))/(1000*60));
+
+
+let sec =
+Math.floor((gap%(1000*60))/1000);
+
+
+
+document.getElementById("countdown").innerHTML=
+day+"일 "+
+hour+"시간 "+
+min+"분 "+
+sec+"초";
 
 
 },1000);
@@ -1141,450 +425,6 @@ timer(updateDate);
 
 </script>
 
-
-
-
-
-<style>
-
-
-.code-area{
-
-text-align:center;
-
-padding:50px 20px;
-
-}
-
-
-
-.code-area input{
-
-padding:15px;
-
-font-size:18px;
-
-border-radius:10px;
-
-border:none;
-
-width:250px;
-
-}
-
-
-
-.code-area button{
-
-padding:15px 25px;
-
-margin-left:10px;
-
-background:#00ff66;
-
-border:none;
-
-border-radius:10px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-}
-
-
-
-
-#codeResult{
-
-margin-top:20px;
-
-font-size:20px;
-
-color:#00ff66;
-
-}
-
-
-
-</style>
-
-
-
-
-
-
-
-
-
-</script>
-
-<!-- 파트5 : 메뉴 내용 영역 
-
-
-
-
-
-<style>
-
-
-.info-section{
-
-padding:60px 20px;
-
-text-align:center;
-
-}
-
-
-
-.info-section h2{
-
-font-size:35px;
-
-color:#00ff66;
-
-}
-
-
-
-.info-section p{
-
-font-size:20px;
-
-color:#ddd;
-
-}
-
-
-
-</style>
-<style>
-
-
-/* 모바일 화면 */
-
-@media(max-width:700px){
-
-
-
-.topbar{
-
-height:60px;
-
-padding:0 15px;
-
-}
-
-
-
-.logo{
-
-font-size:28px;
-
-}
-
-
-
-.menu-btn{
-
-font-size:30px;
-
-}
-
-
-
-
-.hero{
-
-height:450px;
-
-}
-
-
-
-.hero h1{
-
-font-size:50px;
-
-}
-
-
-
-.hero p{
-
-font-size:16px;
-
-}
-
-
-
-
-.welcome h2{
-
-font-size:30px;
-
-}
-
-
-
-
-.description{
-
-font-size:17px;
-
-padding:20px;
-
-}
-
-
-
-
-
-.menu-area{
-
-grid-template-columns:
-
-repeat(2,1fr);
-
-padding:20px;
-
-gap:10px;
-
-}
-
-
-
-.menu-area button{
-
-font-size:15px;
-
-padding:15px 5px;
-
-}
-
-
-
-
-
-.full-image{
-
-height:300px;
-
-}
-
-
-
-.image-text{
-
-font-size:22px;
-
-left:20px;
-
-bottom:20px;
-
-}
-
-
-
-
-.tag{
-
-top:15px;
-
-right:15px;
-
-padding:8px 15px;
-
-font-size:14px;
-
-}
-
-
-
-
-
-#event-time,
-#update-time{
-
-font-size:28px;
-
-}
-
-
-
-}
-
-
-
-
-/* 큰 화면 */
-
-@media(min-width:1000px){
-
-
-.menu-area{
-
-grid-template-columns:
-
-repeat(5,1fr);
-
-max-width:1200px;
-
-margin:auto;
-
-}
-
-
-
-}
-
-</style>
-<style>
-
-
-/* 전체 스크롤 */
-
-html{
-
-scroll-behavior:smooth;
-
-}
-
-
-
-/* 버튼 최종 디자인 */
-
-
-.menu-area button{
-
-
-background:#111;
-
-color:white;
-
-border:1px solid #00ff66;
-
-font-weight:bold;
-
-
-}
-
-
-
-/* 버튼 움직임 제거 */
-
-.menu-area button:hover{
-
-
-background:#111;
-
-transform:none;
-
-
-}
-
-
-
-/* 이미지 어두운 효과 */
-
-
-.full-image::after{
-
-
-content:"";
-
-position:absolute;
-
-left:0;
-
-top:0;
-
-width:100%;
-
-height:100%;
-
-
-background:
-
-linear-gradient(
-
-transparent,
-
-rgba(0,0,0,.65)
-
-);
-
-
-pointer-events:none;
-
-
-}
-
-
-
-/* 이미지 글자 위로 */
-
-.image-text,
-.tag{
-
-
-z-index:2;
-
-}
-
-
-
-
-
-/* 제목 스타일 */
-
-
-.content-section h2,
-.info-section h2{
-
-
-letter-spacing:2px;
-
-
-}
-
-
-
-
-
-/* 카운트다운 강조 */
-
-
-#event-time,
-#update-time{
-
-
-text-shadow:
-
-0 0 15px #00ff66;
-
-
-}
-
-
-
-
-
-/* 화면 여백 정리 */
-
-
-section{
-
-overflow:hidden;
-
-}
-
-
-
-
-
-</style>
 
 </body>
 </html>
