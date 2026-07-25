@@ -1,0 +1,93 @@
+<!-- 이벤트 정보 -->
+<section class="event-section">
+  <h2>🎉 이벤트 정보</h2>
+
+  <div class="event-card">
+    <span class="status">추후 공개예정</span>
+
+    <h3>최후의 전투 이벤트</h3>
+
+    <p>기간 : 추후 공개예정</p>
+
+    <p>
+      이벤트 몬스터를 처치하여
+      <b>네크로스의 코어,네크로스의 무한한 코어</b>을 획득하세요!
+    </p>
+
+    <button onclick="window.location.href='event.html'">
+      자세히 보기
+    </button>
+  </div>
+
+  <div class="event-card">
+    <span class="status end">예정</span>
+
+    <h3>👑 네크로스 침공</h3>
+
+    <p>시작 : 추후 공개예정</p>
+
+    <p>
+      최종보스의 부하 <b>네크로스의 군주</b> 등장
+      신규 무기와 칭호가 추가됩니다.
+    </p>
+
+    <button onclick="window.location.href='event.html'">
+      자세히 보기
+    </button>
+  </div>
+</section>
+
+<style>
+.event-section{
+    max-width:1100px;
+    margin:40px auto;
+    padding:20px;
+}
+
+.event-section h2{
+    color:#00ff99;
+    margin-bottom:20px;
+}
+
+.event-card{
+    background:#1d1d1d;
+    border:2px solid #00ff99;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:20px;
+    color:white;
+}
+
+.status{
+    display:inline-block;
+    background:#00cc66;
+    padding:5px 12px;
+    border-radius:30px;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.status.end{
+    background:#ff9900;
+}
+
+.event-card h3{
+    margin:10px 0;
+}
+
+.event-card button{
+    margin-top:15px;
+    padding:10px 20px;
+    border:none;
+    border-radius:10px;
+    background:#00ff99;
+    color:#111;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.event-card button:hover{
+    transform:scale(1.05);
+}
+</style>
