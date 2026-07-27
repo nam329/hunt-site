@@ -1,179 +1,878 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>HUNT - 직업</title>
+<title>HUNT | 직업</title>
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
-    background:#111;
-    color:white;
-    padding:20px;
+
+background:#111;
+color:white;
+padding-top:80px;
+
 }
 
-.section{
-    background:#1b1b1b;
-    border:2px solid #00ff66;
-    border-radius:12px;
-    margin-bottom:20px;
-    overflow:hidden;
+/* ===== 상단바 ===== */
+
+.topbar{
+
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:70px;
+
+background:#181818;
+
+border-bottom:2px solid #00ff66;
+
+display:flex;
+align-items:center;
+
+padding:0 20px;
+
+z-index:9999;
+
 }
 
-.header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px;
-    cursor:pointer;
-    font-size:22px;
-    font-weight:bold;
-    background:#191919;
+.logo-image{
+
+width:45px;
+height:45px;
+
+border-radius:10px;
+
+margin-right:15px;
+
+object-fit:cover;
+
 }
 
-.header:hover{
-    background:#242424;
+.logo{
+
+text-decoration:none;
+
+font-size:34px;
+
+font-weight:bold;
+
+color:#00ff66;
+
+transition:.2s;
+
 }
 
-.content{
-    display:none;
-    padding:15px;
+.logo:hover{
+
+color:#7dffb2;
+
 }
 
-.scroll{
-    max-height:350px;
-    overflow-y:auto;
+/* ===== 전체 ===== */
+
+.container{
+
+width:95%;
+max-width:1300px;
+
+margin:auto;
+
 }
 
-.scroll::-webkit-scrollbar{
-    width:8px;
+/* ===== 메인 배너 ===== */
+
+.banner{
+
+margin-top:20px;
+
+background:linear-gradient(135deg,#00cc66,#006633);
+
+border-radius:20px;
+
+padding:40px;
+
+text-align:center;
+
+box-shadow:0 0 20px rgba(0,255,100,.3);
+
 }
 
-.scroll::-webkit-scrollbar-thumb{
-    background:#00ff66;
-    border-radius:10px;
+.banner h1{
+
+font-size:42px;
+
+margin-bottom:15px;
+
 }
 
-.job{
-    display:block;
-    text-decoration:none;
-    color:white;
-    padding:15px;
-    margin-bottom:10px;
-    background:#2a2a2a;
-    border-radius:10px;
-    transition:.2s;
+.banner p{
+
+font-size:18px;
+
+opacity:.9;
+
 }
 
-.job:hover{
-    background:#00aa55;
+/* ===== 카드 ===== */
+
+.card{
+
+margin-top:25px;
+
+background:#1b1b1b;
+
+border:2px solid #2f2f2f;
+
+border-radius:15px;
+
+padding:20px;
+
+transition:.25s;
+
 }
 
-.update{
-    background:#222;
-    padding:12px;
-    border-radius:8px;
-    margin-bottom:10px;
+.card:hover{
+
+border-color:#00ff66;
+
 }
+
+.card-title{
+
+font-size:24px;
+
+font-weight:bold;
+
+margin-bottom:15px;
+
+color:#00ff66;
+
+}
+
+/* ===== 반응형 ===== */
+
+@media(max-width:700px){
+
+.banner{
+
+padding:25px;
+
+}
+
+.banner h1{
+
+font-size:28px;
+
+}
+
+.banner p{
+
+font-size:15px;
+
+}
+
+.logo{
+
+font-size:28px;
+
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
-<div class="section">
+<!-- 상단 -->
 
-<div class="header" onclick="toggle('jobs')">
-<span>💼 직업 보기</span>
-<span id="jobsBtn">▶</span>
+<header class="topbar">
+
+<img src="images/logo.png" class="logo-image">
+
+<a href="index.html" class="logo">
+
+HUNT
+
+</a>
+
+</header>
+
+<div class="container">
+
+<!-- 메인 배너 -->
+
+<div class="banner">
+
+<h1>⚔️ 직업 시스템</h1>
+
+<p>
+
+자신에게 맞는 직업을 선택하고<br>
+
+새로운 전투를 시작하세요.
+
+</p>
+
+</div><!-- ========================= -->
+<!-- 🔍 직업 검색 -->
+<!-- ========================= -->
+
+<div class="card">
+
+<h2 class="card-title">🔍 직업 검색</h2>
+
+<input
+type="text"
+id="jobSearch"
+placeholder="직업 이름을 검색하세요..."
+onkeyup="searchJobs()"
+class="search-box">
+
 </div>
 
-<div id="jobs" class="content">
+<style>
 
-<div class="scroll">
+.search-box{
 
-<a class="job" href="job/warrior.html">
-⚔️ 전사
+width:100%;
+
+padding:15px;
+
+border:none;
+
+outline:none;
+
+border-radius:12px;
+
+background:#2a2a2a;
+
+color:white;
+
+font-size:17px;
+
+margin-top:10px;
+
+}
+
+.search-box:focus{
+
+border:2px solid #00ff66;
+
+}
+
+.job-list{
+
+max-height:500px;
+
+overflow-y:auto;
+
+padding-right:8px;
+
+}
+
+.job-list::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+.job-list::-webkit-scrollbar-thumb{
+
+background:#00ff66;
+
+border-radius:20px;
+
+}
+
+.job-card{
+
+display:block;
+
+position:relative;
+
+text-decoration:none;
+
+background:#242424;
+
+color:white;
+
+padding:18px;
+
+margin-bottom:15px;
+
+border-radius:15px;
+
+transition:.25s;
+
+border:2px solid transparent;
+
+}
+
+.job-card:hover{
+
+transform:translateY(-3px);
+
+border-color:#00ff66;
+
+background:#2d2d2d;
+
+}
+
+.job-card h3{
+
+font-size:22px;
+
+margin-bottom:8px;
+
+}
+
+.job-card p{
+
+opacity:.85;
+
+font-size:15px;
+
+}
+
+.toggle-btn{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+cursor:pointer;
+
+font-size:24px;
+
+font-weight:bold;
+
+color:#00ff66;
+
+margin-bottom:15px;
+
+}
+
+.arrow{
+
+font-size:22px;
+
+}
+
+</style>
+
+<!-- ========================= -->
+<!-- ⚔️ 직업 목록 -->
+<!-- ========================= -->
+
+<div class="card">
+
+<div class="toggle-btn" onclick="toggleJobs()">
+
+<span>⚔️ 직업 보기</span>
+
+<span id="jobArrow" class="arrow">▼</span>
+
+</div>
+
+<div id="jobList" class="job-list">
+
+<a href="job/warrior.html" class="job-card">
+
+<h3>⚔️ 전사</h3>
+
+<p>근접 공격 · 쉬움</p>
+
 </a>
 
-<a class="job" href="job/archer.html">
-🏹 궁수
+<a href="job/archer.html" class="job-card">
+
+<h3>🏹 궁수</h3>
+
+<p>원거리 공격 · 보통</p>
+
 </a>
 
-<a class="job" href="job/mage.html">
-🔥 마법사
+<a href="job/mage.html" class="job-card">
+
+<h3>🔥 마법사</h3>
+
+<p>원소 마법 · 어려움</p>
+
 </a>
 
-<a class="job" href="job/paladin.html">
-🛡️ 성기사
+<a href="job/paladin.html" class="job-card">
+
+<h3>🛡️ 성기사</h3>
+
+<p>탱커 · 회복</p>
+
 </a>
 
-<a class="job" href="job/assassin.html">
-🗡️ 암살자
+<a href="job/assassin.html" class="job-card">
+
+<h3>🗡️ 암살자</h3>
+
+<p>빠른 공격 · 어려움</p>
+
 </a>
 
-<a class="job" href="job/priest.html">
-💚 사제
+<a href="job/priest.html" class="job-card">
+
+<h3>💚 사제</h3>
+
+<p>회복 · 버프</p>
+
 </a>
 
-<a class="job" href="job/engineer.html">
-🤖 기계공
+<a href="job/lightning.html" class="job-card">
+
+<h3>⚡ 번개 검사</h3>
+
+<p>번개 속성 · 연속 공격</p>
+
 </a>
 
-<a class="job" href="job/shadow.html">
-🌑 그림자 기사
+<a href="job/shadow.html" class="job-card">
+
+<h3>🌑 그림자 기사</h3>
+
+<p>암흑 속성 · 생명 흡수</p>
+
 </a>
 
-<a class="job" href="job/lightning.html">
+</div>
+
+</div>
+
+<script>
+
+function toggleJobs(){
+
+const list=document.getElementById("jobList");
+const arrow=document.getElementById("jobArrow");
+
+if(list.style.display==="none"){
+
+list.style.display="block";
+arrow.innerHTML="▼";
+
+}else{
+
+list.style.display="none";
+arrow.innerHTML="▶";
+
+}
+
+}
+
+function searchJobs(){
+
+let input=document.getElementById("jobSearch").value.toLowerCase();
+
+let jobs=document.querySelectorAll(".job-card");
+
+jobs.forEach(function(job){
+
+let text=job.innerText.toLowerCase();
+
+job.style.display=text.includes(input) ? "block" : "none";
+
+});
+
+}
+
+</script><!-- ========================= -->
+<!-- 🆕 최신 추가 직업 -->
+<!-- ========================= -->
+
+<style>
+
+.new-job-card,
+.dev-job-card{
+
+position:relative;
+
+display:block;
+
+text-decoration:none;
+
+background:#242424;
+
+color:white;
+
+padding:20px;
+
+margin-top:15px;
+
+border-radius:15px;
+
+border:2px solid transparent;
+
+transition:.25s;
+
+}
+
+.new-job-card:hover,
+.dev-job-card:hover{
+
+border-color:#00ff66;
+
+background:#2d2d2d;
+
+transform:translateY(-3px);
+
+}
+
+.new-badge{
+
+position:absolute;
+
+top:12px;
+
+left:12px;
+
+background:#ff3b30;
+
+color:white;
+
+font-size:12px;
+
+font-weight:bold;
+
+padding:5px 10px;
+
+border-radius:999px;
+
+}
+
+.dev-badge{
+
+position:absolute;
+
+top:12px;
+
+left:12px;
+
+background:#ff9800;
+
+color:white;
+
+font-size:12px;
+
+font-weight:bold;
+
+padding:5px 10px;
+
+border-radius:999px;
+
+}
+
+.new-job-card h3,
+.dev-job-card h3{
+
+margin-top:25px;
+
+margin-bottom:10px;
+
+font-size:22px;
+
+}
+
+.new-job-card p,
+.dev-job-card p{
+
+opacity:.9;
+
+line-height:1.6;
+
+}
+
+</style>
+
+<div class="card">
+
+<h2 class="card-title">
+
+🆕 최신 추가 직업
+
+</h2>
+
+<a href="job/lightning.html" class="new-job-card">
+
+<div class="new-badge">
+
+NEW
+
+</div>
+
+<h3>
+
 ⚡ 번개 검사
+
+</h3>
+
+<p>
+
+빠른 연속 공격과 번개 속성을 사용하는 근접 직업입니다.
+
+</p>
+
 </a>
 
-<a class="job" href="job/shaman.html">
-❄️ 주술사
+</div>
+
+<!-- ========================= -->
+<!-- 🚧 개발 중인 직업 -->
+<!-- ========================= -->
+
+<div class="card">
+
+<h2 class="card-title">
+
+🚧 개발 중인 직업
+
+</h2>
+
+<a href="job/dragonknight.html" class="dev-job-card">
+
+<div class="dev-badge">
+
+COMING SOON
+
+</div>
+
+<h3>
+
+🐉 드래곤 나이트
+
+</h3>
+
+<p>
+
+용의 힘을 사용하는 근접 직업입니다.<br>
+현재 개발 중이며 추후 업데이트될 예정입니다.
+
+</p>
+
 </a>
 
+<a href="job/necromancer.html" class="dev-job-card">
+
+<div class="dev-badge">
+
+COMING SOON
+
+</div>
+
+<h3>
+
+💀 네크로맨서
+
+</h3>
+
+<p>
+
+언데드를 소환하고 어둠의 마법을 사용하는 직업입니다.<br>
+현재 개발 중이며 추후 업데이트될 예정입니다.
+
+</p>
+
+</a>
+
+<a href="job/timemaster.html" class="dev-job-card">
+
+<div class="dev-badge">
+
+COMING SOON
+
+</div>
+
+<h3>
+
+⏳ 시간술사
+
+</h3>
+
+<p>
+
+시간을 조작하여 전투를 유리하게 만드는 직업입니다.<br>
+현재 개발 중이며 추후 업데이트될 예정입니다.
+
+</p>
+
+</a>
+
+<a href="job/beastmaster.html" class="dev-job-card">
+
+<div class="dev-badge">
+
+COMING SOON
+
+</div>
+
+<h3>
+
+🐺 야수 조련사
+
+</h3>
+
+<p>
+
+동물과 함께 싸우는 소환형 직업입니다.<br>
+현재 개발 중이며 추후 업데이트될 예정입니다.
+
+</p>
+
+</a>
+
+</div><!-- ========================= -->
+<!-- 📊 직업 통계 -->
+<!-- ========================= -->
+
+<style>
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+}
+
+.stat-card{
+background:#242424;
+border:2px solid transparent;
+border-radius:15px;
+padding:20px;
+text-align:center;
+transition:.25s;
+}
+
+.stat-card:hover{
+border-color:#00ff66;
+transform:translateY(-3px);
+}
+
+.stat-card .icon{
+font-size:35px;
+margin-bottom:10px;
+}
+
+.stat-card h3{
+font-size:16px;
+margin-bottom:8px;
+color:#cccccc;
+}
+
+.stat-card p{
+font-size:22px;
+font-weight:bold;
+color:#00ff66;
+}
+
+.update-list{
+max-height:320px;
+overflow-y:auto;
+padding-right:5px;
+}
+
+.update-list::-webkit-scrollbar{
+width:8px;
+}
+
+.update-list::-webkit-scrollbar-thumb{
+background:#00ff66;
+border-radius:20px;
+}
+
+.update-card{
+background:#242424;
+border-radius:12px;
+padding:15px;
+margin-bottom:12px;
+}
+
+.update-card h4{
+color:#00ff66;
+margin-bottom:8px;
+}
+
+</style>
+
+<div class="card">
+
+<h2 class="card-title">
+📊 직업 통계
+</h2>
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<div class="icon">👥</div>
+<h3>총 직업</h3>
+<p>8개</p>
+</div>
+
+<div class="stat-card">
+<div class="icon">⭐</div>
+<h3>평균 난이도</h3>
+<p>3.2 / 5</p>
+</div>
+
+<div class="stat-card">
+<div class="icon">⚖️</div>
+<h3>마지막 밸런스 패치</h3>
+<p>2026.07.28</p>
 </div>
 
 </div>
 
 </div>
 
-<div class="section">
+<!-- ========================= -->
+<!-- 📰 변경사항 -->
+<!-- ========================= -->
 
-<div class="header" onclick="toggle('updates')">
-<span>📢 변경사항</span>
-<span id="updatesBtn">▶</span>
+<div class="card">
+
+<div class="toggle-btn" onclick="toggleUpdates()">
+
+<span>📰 변경사항</span>
+
+<span id="updateArrow" class="arrow">▼</span>
+
 </div>
 
-<div id="updates" class="content">
+<div id="updateList" class="update-list">
 
-<div class="scroll">
-
-<div class="update">
-<h3>v1.0</h3>
-<p>직업 시스템 추가</p>
+<div class="update-card">
+<h4>v1.2</h4>
+<p>⚡ 번개 검사 직업 추가</p>
 </div>
 
-<div class="update">
-<h3>v1.1</h3>
-<p>궁수 추가</p>
+<div class="update-card">
+<h4>v1.1</h4>
+<p>🛡️ 성기사 밸런스 조정</p>
 </div>
 
-<div class="update">
-<h3>v1.2</h3>
-<p>성기사 추가</p>
-</div>
-
-<div class="update">
-<h3>v1.3</h3>
-<p>직업 밸런스 조정</p>
+<div class="update-card">
+<h4>v1.0</h4>
+<p>🎉 직업 시스템 출시</p>
 </div>
 
 </div>
@@ -183,20 +882,26 @@ body{
 </div>
 
 <script>
-function toggle(id){
 
-const box=document.getElementById(id);
-const btn=document.getElementById(id+"Btn");
+function toggleUpdates(){
 
-if(box.style.display==="block"){
-box.style.display="none";
-btn.innerHTML="▶";
+const list=document.getElementById("updateList");
+const arrow=document.getElementById("updateArrow");
+
+if(list.style.display==="none"){
+
+list.style.display="block";
+arrow.innerHTML="▼";
+
 }else{
-box.style.display="block";
-btn.innerHTML="▼";
+
+list.style.display="none";
+arrow.innerHTML="▶";
+
 }
 
 }
+
 </script>
 
 </body>
