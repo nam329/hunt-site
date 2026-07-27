@@ -1,192 +1,203 @@
 <!DOCTYPE html>
 <html lang="ko">
-<.dark-mode{
-    background:#111;
-    color:white;
-}
-
-.light-mode{
-    background:white;
-    color:black;
-}>
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HUNT | 설정</title>
+
+<title>HUNT - 직업</title>
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
 body{
-background:#111;
-color:white;
+    background:#111;
+    color:white;
+    padding:20px;
 }
 
-header{
-background:#1b1b1b;
-padding:20px;
-text-align:center;
-font-size:32px;
-font-weight:bold;
-border-bottom:1px solid #333;
+.section{
+    background:#1b1b1b;
+    border:2px solid #00ff66;
+    border-radius:12px;
+    margin-bottom:20px;
+    overflow:hidden;
 }
 
-.container{
-max-width:800px;
-margin:30px auto;
-padding:20px;
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px;
+    cursor:pointer;
+    font-size:22px;
+    font-weight:bold;
+    background:#191919;
 }
 
-.card{
-background:#1d1d1d;
-border-radius:15px;
-padding:20px;
-margin-bottom:20px;
+.header:hover{
+    background:#242424;
 }
 
-.card h2{
-margin-bottom:15px;
+.content{
+    display:none;
+    padding:15px;
 }
 
-.option{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 0;
-border-bottom:1px solid #333;
+.scroll{
+    max-height:350px;
+    overflow-y:auto;
 }
 
-.option:last-child{
-border:none;
+.scroll::-webkit-scrollbar{
+    width:8px;
 }
 
-select,
-button{
-padding:10px;
-border:none;
-border-radius:8px;
-font-size:16px;
+.scroll::-webkit-scrollbar-thumb{
+    background:#00ff66;
+    border-radius:10px;
 }
 
-button{
-background:#00b894;
-color:white;
-cursor:pointer;
+.job{
+    display:block;
+    text-decoration:none;
+    color:white;
+    padding:15px;
+    margin-bottom:10px;
+    background:#2a2a2a;
+    border-radius:10px;
+    transition:.2s;
 }
 
-button:hover{
-background:#00a383;
+.job:hover{
+    background:#00aa55;
 }
 
-.back{
-display:block;
-width:220px;
-margin:40px auto;
-text-align:center;
-padding:15px;
-background:#2d3436;
-color:white;
-text-decoration:none;
-border-radius:10px;
-font-weight:bold;
+.update{
+    background:#222;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:10px;
 }
-
-.back:hover{
-background:#3b4346;
-}
-
 </style>
-
 </head>
 
 <body>
 
-<header>
-⚙️ HUNT 설정
-</header>
+<div class="section">
 
-<div class="container">
-
-<div class="card">
-
-<h2>🌐 언어</h2>
-
-<div class="option">
-<span>언어 선택</span>
-
-<select>
-<option>한국어</option>
-<option>English</option>
-</select>
-
+<div class="header" onclick="toggle('jobs')">
+<span>💼 직업 보기</span>
+<span id="jobsBtn">▶</span>
 </div>
 
-</div>
+<div id="jobs" class="content">
 
-<div class="card">
+<div class="scroll">
 
-<h2>🌙 화면</h2>
+<a class="job" href="job/warrior.html">
+⚔️ 전사
+</a>
 
-<div class="option">
-<span>다크 모드</span>
-<button>ON</button>
-</div>
+<a class="job" href="job/archer.html">
+🏹 궁수
+</a>
 
-</div>
+<a class="job" href="job/mage.html">
+🔥 마법사
+</a>
 
-<div class="card">
+<a class="job" href="job/paladin.html">
+🛡️ 성기사
+</a>
 
-<h2>🔔 알림</h2>
+<a class="job" href="job/assassin.html">
+🗡️ 암살자
+</a>
 
-<div class="option">
-<span>업데이트 알림</span>
-<button>ON</button>
-</div>
+<a class="job" href="job/priest.html">
+💚 사제
+</a>
 
-<div class="option">
-<span>이벤트 알림</span>
-<button>ON</button>
-</div>
+<a class="job" href="job/engineer.html">
+🤖 기계공
+</a>
 
-</div>
+<a class="job" href="job/shadow.html">
+🌑 그림자 기사
+</a>
 
-<div class="card">
+<a class="job" href="job/lightning.html">
+⚡ 번개 검사
+</a>
 
-<h2>🎵 사운드</h2>
-
-<div class="option">
-<span>배경음</span>
-<button>ON</button>
-</div>
-
-</div>
-
-<div class="card">
-
-<h2>ℹ️ 정보</h2>
-
-<div class="option">
-<span>버전</span>
-<span>v1.0.0</span>
-</div>
-
-<div class="option">
-<span>개발사</span>
-<span>HUNT Studio</span>
-</div>
-
-</div>
-
-<a href="index.html" class="back">
-🏠 홈으로 돌아가기
+<a class="job" href="job/shaman.html">
+❄️ 주술사
 </a>
 
 </div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="header" onclick="toggle('updates')">
+<span>📢 변경사항</span>
+<span id="updatesBtn">▶</span>
+</div>
+
+<div id="updates" class="content">
+
+<div class="scroll">
+
+<div class="update">
+<h3>v1.0</h3>
+<p>직업 시스템 추가</p>
+</div>
+
+<div class="update">
+<h3>v1.1</h3>
+<p>궁수 추가</p>
+</div>
+
+<div class="update">
+<h3>v1.2</h3>
+<p>성기사 추가</p>
+</div>
+
+<div class="update">
+<h3>v1.3</h3>
+<p>직업 밸런스 조정</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+function toggle(id){
+
+const box=document.getElementById(id);
+const btn=document.getElementById(id+"Btn");
+
+if(box.style.display==="block"){
+box.style.display="none";
+btn.innerHTML="▶";
+}else{
+box.style.display="block";
+btn.innerHTML="▼";
+}
+
+}
+</script>
 
 </body>
 </html>
