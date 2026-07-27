@@ -1,638 +1,140 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>HUNT Events</title>
-
+<title>HUNT | 이벤트</title>
 
 <style>
 
 *{
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-
 
 body{
-
-margin:0;
-
-background:#0a0a0a;
-
-color:white;
-
-font-family:Arial,sans-serif;
-
-padding-bottom:250px;
-
+    background:#111;
+    color:white;
+    font-family:Arial,sans-serif;
 }
 
-
-
-/* 제목 */
-
-.header{
-
-font-size:34px;
-
-font-weight:bold;
-
-text-align:center;
-
-padding:30px;
-
-}
-
-
-
-
-
-/* 섹션 */
-
-.section{
-
-width:92%;
-
-margin:35px auto;
-
-}
-
-
-
-.section-title{
-
-font-size:26px;
-
-font-weight:bold;
-
-margin-bottom:10px;
-
-color:#00ff66;
-
-}
-
-
-
-
-
-/* 펼치기 버튼 */
-
-.toggle{
-
-width:100%;
-
-padding:14px;
-
-background:#1c1c1c;
-
-color:white;
-
-border:1px solid #333;
-
-border-radius:8px;
-
-font-size:17px;
-
-font-weight:bold;
-
-margin-bottom:15px;
-
-}
-
-
-
-
-
-/* 카드 3칸 */
-
-.event-grid{
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-gap:12px;
-
-}
-
-
-
-
-.card{
-
-background:#161616;
-
-border-radius:8px;
-
-overflow:hidden;
-
-cursor:pointer;
-
-border:1px solid #222;
-
-transition:.2s;
-
-}
-
-
-
-.card:hover{
-
-transform:translateY(-5px);
-
-}
-
-
-
-
-
-.card img{
-
-width:100%;
-
-height:110px;
-
-object-fit:cover;
-
-}
-
-
-
-.card-text{
-
-padding:12px;
-
-font-size:14px;
-
-font-weight:bold;
-
-}
-
-
-
-
-
-.card-text small{
-
-display:block;
-
-color:#00ff66;
-
-margin-top:8px;
-
-}
-
-
-
-
-
-/* 패치노트 */
-
-.patch-box{
-
-background:#151515;
-
-border:2px solid #333;
-
-border-radius:5px;
-
-height:250px;
-
-overflow-y:auto;
-
-padding:20px;
-
-}
-
-
-
-.patch-title{
-
-font-size:22px;
-
-font-weight:bold;
-
-color:#00ff66;
-
-}
-
-
-
-.patch-line{
-
-margin-top:15px;
-
-line-height:1.7;
-
-}
-
-
-
-
-
-/* 지역 행사 */
-
-.region-box{
-
-background:#151515;
-
-padding:20px;
-
-border-radius:8px;
-
-}
-
-
-
-
-
-/* 모바일 */
-
-@media(max-width:600px){
-
-.event-grid{
-
-grid-template-columns:repeat(3,1fr);
-
-}
-
-
-.card img{
-
-height:90px;
-
-}
-
-
+header{
+    width:100%;
+    background:#181818;
+    border-bottom:3px solid #00ff88;
+    position:sticky;
+    top:0;
+    z-index:100;
 }
 
 .topbar{
-
-position:sticky;
-top:0;
-
-height:65px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-background:#111;
-
-border-bottom:2px solid #222;
-
-z-index:1000;
-
+    max-width:1200px;
+    margin:auto;
+    padding:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .logo{
-
-text-decoration:none;
-
-color:#00ff66;
-
-font-size:30px;
-
-font-weight:bold;
-
-padding:8px 24px;
-
-border:2px solid #00ff66;
-
-border-radius:6px;
-
+    color:#00ff88;
+    font-size:38px;
+    font-weight:bold;
+    text-decoration:none;
 }
 
- .event-card{
+.banner{
+    width:100%;
+    height:350px;
+    background:#222;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-bottom:2px solid #00ff88;
+    color:#888;
+    font-size:35px;
+}
+
+.container{
+    max-width:1100px;
+    margin:40px auto;
+    padding:20px;
+}
+
+.event-card{
+    background:#1c1c1c;
+    border:2px solid #00ff88;
+    border-radius:15px;
+    overflow:hidden;
+    margin-bottom:30px;
+}
+
+.event-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.event-content{
+    padding:20px;
+}
+
+.event-content h2{
+    color:#00ff88;
+    margin-bottom:10px;
+}
+
+.event-content p{
+    line-height:1.8;
+    color:#ddd;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    background:#00ff88;
+    color:#111;
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:#00cc66;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="topbar">
+
+<a class="logo" href="index.html">HUNT</a>
+
+</div>
+
+</header>
+
+<div class="banner">
+
+📷 이벤트 배너
+
+</div>
+
+<div class="container">
+.event-card{
     background:#1b1b1b;
     border:2px solid #00ff88;
     border-radius:15px;
     padding:25px;
     margin-top:30px;
- }
-</style>
-
-</head>
-
-
-
-<body>
-
-<div class="topbar">
-
-<a href="index.html" class="logo">
-HUNT
-</a>
-
-</div>
-
-<div class="header">
-
-🎉 HUNT EVENTS
-
-</div>
-
-
-
-
-
-<!-- 이벤트 -->
-
-
-<div class="section">
-
-
-<div class="section-title">
-
-🎉 이벤트
-
-</div>
-
-
-<button class="toggle">
-
-▼ 펼치기
-
-</button>
-
-
-
-<div class="content">
-
-
-<div class="event-grid">
-
-
-
-<div class="card"
-onclick="location.href='event/final attack.html'">
-
-
-<img src="images/event1.jpg">
-
-
-<div class="card-text">
-
-최후의 공격 이벤트
-
-<small>
-
-자세히 보기
-
-</small>
-
-</div>
-
-
-</div>
-
-
-
-
-<div class="card"
-onclick="location.href='event/dinosaur.html'">
-
-
-<img src="images/event2.jpg">
-
-
-<div class="card-text">
-
-🦖 공룡 이벤트
-
-<small>
-
-자세히 보기
-
-</small>
-
-</div>
-
-
-</div>
-
-
-
-
-<div class="card"
-onclick="location.href='event/winter.html'">
-
-
-<img src="images/event3.jpg">
-
-
-<div class="card-text">
-
-❄️ 겨울 이벤트
-
-</div>
-
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<!-- 카운트다운 -->
-
-
-<div class="section">
-
-
-<div class="section-title">
-
-⏳ 카운트다운 이벤트
-
-</div>
-
-
-<button class="toggle">
-
-▼ 펼치기
-
-</button>
-
-
-<div class="content">
-
-
-<div class="event-grid">
-
-
-<div class="card"
-onclick="location.href='event/count1.html'">
-
-
-<img src="images/count1.jpg">
-
-
-<div class="card-text">
-
-🔥 업데이트 이벤트
-
-<small>
-
-D-20
-
-</small>
-
-</div>
-
-
-</div>
-
-
-
-<div class="card"
-onclick="location.href='event/count2.html'">
-
-<img src="images/count2.jpg">
-
-
-<div class="card-text">
-
- 새해 이벤트
-
-<small>
-
-D-40
-
-</small>
-
-</div>
-
-</div>
-
-
-
-<div class="card"
-onclick="location.href='event/dinr.html'">
-
-
-<img src="images/count3.jpg">
-
-
-<div class="card-text">
-
-❄️ 시즌 이벤트
-
-<small>
-
-D-70
-
-</small>
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</div><!-- 사냥 이벤트 -->
-
-
-<div class="section">
-
-
-<div class="section-title">
-
-🦖 사냥 이벤트
-
-</div>
-
-
-<button class="toggle">
-
-▼ 펼치기
-
-</button>
-
-
-
-<div class="content">
-
-
-<div class="event-grid">
-
-
-
-<div class="card"
-onclick="location.href='event/hunt/megalodon.html'">
-
-
-<img src="images/hunt1.jpg">
-
-
-<div class="card-text">
-
-🦈 메갈로돈 사냥
-
-</div>
-
-
-</div>
-
-
-
-
-<div class="card"
-onclick="location.href='event/hunt/boss.html'">
-
-
-<img src="images/hunt2.jpg">
-
-
-<div class="card-text">
-
-👹 거대 보스 사냥
-
-</div>
-
-
-</div>
-
-
-
-
-<div class="card"
-onclick="location.href='event/hunt/legend.html'">
-
-
-<img src="images/hunt3.jpg">
-
-
-<div class="card-text">
-
-🐉 전설 생물 사냥
-
-</div>
-
-
-</div>
-
-<div class="event-card">
+}<div class="event-card">
 
     <h2>👑 어드민 이벤트</h2>
 
@@ -662,279 +164,169 @@ onclick="location.href='event/hunt/legend.html'">
         <li>💎 희귀 아이템</li>
     </ul>
 
+</div><!-- 네크로스의 침공 -->
+
+<div class="event-card">
+
+    <img src="images/necros-event.jpg" alt="네크로스의 침공">
+
+    <div class="event-content">
+
+        <h2>🌌 네크로스의 침공</h2>
+
+        <p>
+            다른 세계들을 멸망시킨 <b>네크로스</b>가
+            엔트로피 비스트를 이용해 우리의 세계를 노리고 있습니다.
+        </p>
+
+        <p>
+            그의 군주들은 세계 곳곳에 출현할 것입니다.
+        </p>
+
+        <a class="btn" href="event/final attack.html">
+            자세히 보기
+        </a>
+
+    </div>
+
+</div>
+
+<!-- 어드민 이벤트 -->
+
+<div class="event-card">
+
+    <img src="images/admin-event.jpg" alt="어드민 이벤트">
+
+    <div class="event-content">
+
+        <h2>👑 어드민 이벤트</h2>
+
+        <p>
+            운영진이 직접 진행하는 특별 이벤트입니다.
+        </p>
+
+        <p>
+            다양한 미션을 완료하고
+            한정 보상과 특별 칭호를 획득하세요.
+        </p>
+
+        <a class="btn" href="event/admin-event.html">
+            자세히 보기
+        </a>
+
+    </div>
+
+</div><!-- 검색 -->
+
+<h2 style="
+margin-top:60px;
+margin-bottom:20px;
+color:#00ff88;
+">
+🔍 이벤트 검색
+</h2>
+
+<input
+type="text"
+placeholder="이벤트 검색..."
+style="
+width:100%;
+padding:15px;
+font-size:18px;
+border-radius:10px;
+border:none;
+outline:none;
+margin-bottom:40px;
+background:#222;
+color:white;
+">
+
+<!-- 준비 중 이벤트 -->
+
+<div class="event-card">
+
+    <div class="event-content">
+
+        <h2>🎃 할로윈 이벤트</h2>
+
+        <p>
+            준비 중...
+        </p>
+
+    </div>
+
+</div>
+
+<div class="event-card">
+
+    <div class="event-content">
+
+        <h2>🎄 크리스마스 이벤트</h2>
+
+        <p>
+            준비 중...
+        </p>
+
+    </div>
+
+</div>
+
+<div class="event-card">
+
+    <div class="event-content">
+
+        <h2>🎉 새해 이벤트</h2>
+
+        <p>
+            준비 중...
+        </p>
+
+    </div>
+
 </div>
 
 </div>
 
+<footer style="
+margin-top:80px;
+padding:30px;
+text-align:center;
+background:#181818;
+border-top:3px solid #00ff88;
+">
 
-</div>
+<p style="color:#888;">
+© 2026 HUNT Official Website
+</p>
 
+</footer>
 
-</div>
+</body>
+</html><script>
 
+const searchInput = document.querySelector("input");
+const cards = document.querySelectorAll(".event-card");
 
+searchInput.addEventListener("keyup", function(){
 
+    const keyword = searchInput.value.toLowerCase();
 
+    cards.forEach(function(card){
 
+        const text = card.innerText.toLowerCase();
 
+        if(text.includes(keyword)){
 
+            card.style.display = "block";
 
-<!-- 지역 행사 -->
+        }else{
 
+            card.style.display = "none";
 
-<div class="section">
+        }
 
-
-<div class="section-title">
-
-🗺️ 지역 행사
-
-</div>
-
-
-<button class="toggle">
-
-▼ 펼치기
-
-</button>
-
-
-
-<div class="content">
-
-
-<div class="region-box">
-
-
-🏝 시작섬 행사
-
-<br><br>
-
-🌲 정글섬 행사
-
-<br><br>
-
-🌋 화산섬 행사
-
-<br><br>
-
-❄️ 북극 지역 행사
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<!-- 패치노트 -->
-
-
-<div class="section">
-
-
-<div class="section-title">
-
-📝 패치노트
-
-</div>
-
-
-
-<button class="toggle">
-
-▼ 펼치기
-
-</button>
-
-
-
-<div class="content">
-
-
-<div class="patch-box">
-
-
-<div class="patch-title">
-
-v1.0.0 업데이트
-
-</div>
-
-
-<div class="patch-line">
-
-
-✅ 이벤트 페이지 추가
-
-<br>
-
-✅ 이벤트 카드 시스템 추가
-
-<br>
-
-✅ 상세 이벤트 페이지 연결
-
-<br>
-
-✅ 패치노트 추가
-
-
-</div>
-
-
-
-
-<br><br>
-
-
-<div class="patch-title">
-
-v0.9.0 업데이트
-
-</div>
-
-
-<div class="patch-line">
-
-
-- HUNT 공식 사이트 제작 시작
-
-<br>
-
-- 새로운 지역 추가
-
-<br>
-
-- 새로운 몬스터 추가
-
-
-</div>
-
-
-
-
-<br><br>
-
-
-<div class="patch-title">
-
-예정 업데이트
-
-</div>
-
-
-<div class="patch-line">
-
-
-- 새로운 이벤트
-
-<br>
-
-- 새로운 사냥 지역
-
-<br>
-
-- 신규 보스 추가
-
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<!-- 아래 여백 -->
-
-
-<div style="height:300px;"></div>
-
-
-
-
-
-<script>
-
-
-// 모든 펼치기 / 접기 버튼
-
-
-const buttons =
-document.querySelectorAll(".toggle");
-
-
-
-buttons.forEach(btn=>{
-
-
-let content =
-btn.nextElementSibling;
-
-
-
-content.style.display="block";
-
-
-
-btn.onclick=()=>{
-
-
-if(content.style.display==="none"){
-
-
-content.style.display="block";
-
-
-btn.innerHTML="▲ 접기";
-
-
-}
-
-else{
-
-
-content.style.display="none";
-
-
-btn.innerHTML="▼ 펼치기";
-
-
-}
-
-
-
-};
-
-
+    });
 
 });
 
-
-
 </script>
-
-
-
-</body>
-
-</html>
