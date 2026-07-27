@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>HUNT | Event</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -13,230 +15,477 @@
     font-family:Arial,Helvetica,sans-serif;
 }
 
-body{
-    background:#0a0a0a;
-    color:#fff;
+html{
+    scroll-behavior:smooth;
 }
 
-a{
-    color:inherit;
-    text-decoration:none;
+body{
+    background:#090909;
+    color:white;
 }
+
+/* ===== 스크롤바 ===== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#2aff8c;
+    border-radius:999px;
+}
+
+::-webkit-scrollbar-track{
+    background:#111;
+}
+
+/* ===== Header ===== */
 
 header{
     position:sticky;
     top:0;
     z-index:1000;
-    background:#111;
+    background:#101010;
     border-bottom:2px solid #2aff8c;
 }
 
 .nav{
-    max-width:1400px;
+
+    width:98%;
+    max-width:1900px;
+
     margin:auto;
+
+    height:80px;
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
-    padding:18px;
+
 }
 
 .logo{
+
     color:#2aff8c;
-    font-size:32px;
+
+    font-size:38px;
+
     font-weight:bold;
+
+    letter-spacing:2px;
+
+    text-decoration:none;
+
 }
 
+.logo:hover{
+
+    color:white;
+
+}
+
+/* ===== Banner ===== */
+
 .banner{
-    height:320px;
-    background:linear-gradient(135deg,#111,#1d1d1d,#0d4725);
+
+    height:360px;
+
+    background:
+
+    linear-gradient(
+
+    rgba(0,0,0,.55),
+
+    rgba(0,0,0,.55)
+
+    ),
+
+    linear-gradient(
+
+    135deg,
+
+    #111,
+
+    #14391f,
+
+    #111
+
+    );
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
     flex-direction:column;
+
     text-align:center;
+
 }
 
 .banner h1{
-    font-size:60px;
+
+    font-size:72px;
+
     color:#2aff8c;
+
 }
 
 .banner p{
-    margin-top:15px;
-    color:#ccc;
-    font-size:18px;
+
+    margin-top:18px;
+
+    color:#d8d8d8;
+
+    font-size:22px;
+
 }
+
+/* ===== Container ===== */
 
 .container{
+
     width:99%;
+
     max-width:1900px;
+
     margin:auto;
-    padding:40px 0;
+
+    padding:40px 15px;
+
 }
 
+/* ===== Video ===== */
+
 .video{
+
     width:100%;
+
     aspect-ratio:16/9;
-    background:#111;
+
     border:2px solid #2aff8c;
-    border-radius:14px;
+
+    border-radius:18px;
+
     overflow:hidden;
+
+    background:#151515;
+
 }
 
 .video iframe{
+
     width:100%;
+
     height:100%;
+
+    border:none;
+
 }
 
+/* ===== Search ===== */
+
 .search{
+
     margin:35px 0;
+
 }
 
 .search input{
+
     width:100%;
+
     padding:18px;
-    background:#151515;
-    color:white;
-    border:2px solid #2aff8c;
-    border-radius:12px;
+
     font-size:18px;
-}
 
-.accordion{
-    margin-bottom:20px;
-}
+    color:white;
 
-.accordion-header{
     background:#151515;
+
     border:2px solid #2aff8c;
+
     border-radius:12px;
-    padding:18px;
-    cursor:pointer;
-    font-size:22px;
-    font-weight:bold;
-    transition:.3s;
+
+    outline:none;
+
 }
 
-.accordion-header:hover{
-    background:#1f1f1f;
+.search input:focus{
+
+    box-shadow:0 0 20px rgba(42,255,140,.4);
+
 }
 
-.accordion-content{
-    display:none;
-    margin-top:18px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:12px;
-}
-
-.card{
-    background:#181818;
-    border:2px solid #2aff8c;
-    border-radius:14px;
-    overflow:hidden;
-    transition:.3s;
-    position:relative;
-}
-
-.card:hover{
-    transform:translateY(-8px) scale(1.02);
-    box-shadow:0 0 25px #2aff8c55;
-}
-
-.badge{
-    position:absolute;
-    top:10px;
-    right:10px;
-    background:#2aff8c;
-    color:#000;
-    padding:6px 10px;
-    border-radius:999px;
-    font-weight:bold;
-}
-
-.image{
-    height:240px;
-    background:#333;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#aaa;
-}
-
-.info{
-    padding:18px;
-}
-
-.info h3{
-    color:#2aff8c;
-    margin-bottom:10px;
-}
-
-.info p{
-    color:#ccc;
-    line-height:1.6;
-    margin-bottom:20px;
-}
-
-button{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:10px;
-    background:#2aff8c;
-    color:black;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#54ffab;
-}
-
-footer{
-    margin-top:60px;
-    border-top:2px solid #2aff8c;
-    text-align:center;
-    padding:30px;
-    color:#888;
-}
 </style>
+
 </head>
 
 <body>
 
 <header>
+
 <div class="nav">
-<a href="index.html" class="logo">HUNT</a>
+
+<a href="index.html" class="logo">
+HUNT
+</a>
+
 </div>
+
 </header>
 
 <section class="banner">
-<h1>EVENT</h1>
-<p>HUNT 공식 이벤트 페이지</p>
+
+<h1>
+EVENT
+</h1>
+
+<p>
+
+HUNT 공식 이벤트 페이지
+
+</p>
+
 </section>
 
 <div class="container">
 
 <div class="video">
-<iframe src="" allowfullscreen></iframe>
+
+<iframe
+src=""
+allowfullscreen>
+</iframe>
+
 </div>
 
 <div class="search">
+
 <input
+
 type="text"
+
 id="search"
+
 placeholder="이벤트 검색..."
+
 >
+
 </div>
+<!-- =========================
+     Part 2 : 아코디언 + 카드
+========================= -->
+
+<style>
+
+/* ===== Accordion ===== */
+
+.accordion{
+    margin-bottom:25px;
+}
+
+.accordion-header{
+
+    width:100%;
+
+    background:#151515;
+
+    border:2px solid #2aff8c;
+
+    border-radius:14px;
+
+    padding:22px;
+
+    font-size:26px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.accordion-header:hover{
+
+    background:#202020;
+
+}
+
+.accordion-content{
+
+    display:none;
+
+    margin-top:20px;
+
+}
+
+/* ===== Grid ===== */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,minmax(0,1fr));
+
+    gap:20px;
+
+}
+
+/* ===== Card ===== */
+
+.card{
+
+    background:#181818;
+
+    border:2px solid #2aff8c;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    transition:.25s;
+
+    position:relative;
+
+    min-height:560px;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 0 25px rgba(42,255,140,.45);
+
+}
+
+/* ===== NEW ===== */
+
+.badge{
+
+    position:absolute;
+
+    top:15px;
+
+    right:15px;
+
+    background:#2aff8c;
+
+    color:#000;
+
+    font-weight:bold;
+
+    padding:8px 12px;
+
+    border-radius:999px;
+
+}
+
+/* ===== Image ===== */
+
+.image{
+
+    width:100%;
+
+    height:300px;
+
+    background:#333;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#aaa;
+
+    font-size:28px;
+
+}
+
+/* ===== Text ===== */
+
+.info{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:24px;
+
+}
+
+.info h3{
+
+    color:#2aff8c;
+
+    font-size:30px;
+
+    margin-bottom:15px;
+
+}
+
+.info p{
+
+    flex:1;
+
+    color:#ddd;
+
+    font-size:18px;
+
+    line-height:1.7;
+
+}
+
+.info button{
+
+    margin-top:20px;
+
+    padding:16px;
+
+    font-size:18px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    background:#2aff8c;
+
+    color:black;
+
+    font-weight:bold;
+
+}
+
+.info button:hover{
+
+    background:#54ffab;
+
+}
+
+</style>
+
+<!-- ===== 메인 이벤트 ===== -->
 
 <div class="accordion">
 
 <div class="accordion-header">
+
 ▼ 메인 이벤트
+
 </div>
 
 <div class="accordion-content">
@@ -246,169 +495,328 @@ placeholder="이벤트 검색..."
 <div class="card">
 
 <div class="badge">
+
 NEW
+
 </div>
 
 <div class="image">
+
 사진 자리
+
 </div>
 
 <div class="info">
 
 <h3>
+
 네크로스의 침공
+
 </h3>
+
+<p>
+
+다른 세계들을 멸망시킨 네크로스가
+엔트로피 비스트를 이용해
+우리의 세계를 노리고 있습니다.
+
+<br><br>
+
+그의 군주들은 세계 곳곳에
+출현할 것입니다.
+
+<br><br>
+
+사냥꾼들은 군주를 처치해
+강력한 무기를 만들고
+
+네크로스를 쓰러뜨려
+
+세계를 지켜내세요.
+
+</p>
 
 <button
 onclick="location.href='event/final attack.html'">
+
 자세히 보기
+
 </button>
 
 </div>
 
-</div></div>
-
 </div>
 
 </div>
+
+</div>
+
+</div><!-- =========================
+     Part 3 : 사냥 / 카운트다운 / 지역 이벤트
+========================= -->
+
+<!-- ===== 사냥 이벤트 ===== -->
 
 <div class="accordion">
 
-<div class="accordion-header">
-▼ 사냥 이벤트
-</div>
+    <div class="accordion-header">
+        ▼ 사냥 이벤트
+    </div>
 
-<div class="accordion-content">
+    <div class="accordion-content">
 
-<div class="grid">
+        <div class="grid">
 
-<div class="card">
-<div class="badge">NEW</div>
-<div class="image">엔트로피 비스트 사냥</div>
-<div class="info">
-<h3>엔트로피 비스트 사냥</h3>
-<p>엔트로피 비스트 사냥.</p>
-<button disabled>Coming Soon</button>
-</div>
-</div>
+            <div class="card">
+                <div class="badge">NEW</div>
 
-<div class="card">
-<div class="badge">NEW</div>
-<div class="image">준비중</div>
-<div class="info">
-<h3>준비중</h3>
-<p>새로운 사냥 이벤트가 곧 공개됩니다.</p>
-<button disabled>Coming Soon</button>
-</div>
-</div>
+                <div class="image">
+                    준비중
+                </div>
 
-<div class="card">
-<div class="badge">NEW</div>
-<div class="image">준비중</div>
-<div class="info">
-<h3>준비중</h3>
-<p>새로운 사냥 이벤트가 곧 공개됩니다.</p>
-<button disabled>Coming Soon</button>
-</div>
-</div>
+                <div class="info">
 
-</div>
+                    <h3>준비중</h3>
 
-</div>
+                    <p>
+                        새로운 사냥 이벤트가
+                        곧 공개됩니다.
+                    </p>
 
-</div>
+                    <button disabled>
+                        Coming Soon
+                    </button>
 
-<div class="accordion">
+                </div>
+            </div>
 
-<div class="accordion-header">
-▼ 카운트다운 이벤트
-</div>
+            <div class="card">
+                <div class="badge">NEW</div>
 
-<div class="accordion-content">
+                <div class="image">
+                    준비중
+                </div>
 
-<div class="grid">
+                <div class="info">
 
-<div class="card">
-<div class="badge">NEW</div>
-<div class="image">준비중</div>
-<div class="info">
-<h3>준비중</h3>
-<p>카운트다운 이벤트 준비중입니다.</p>
-<button disabled>Coming Soon</button>
-</div>
-</div>
+                    <h3>준비중</h3>
 
-<div class="card">
-<div class="badge">NEW</div>
-<div class="image">준비중</div>
-<div class="info">
-<h3>준비중</h3>
-<p>카운트다운 이벤트 준비중입니다.</p>
-<button disabled>Coming Soon</button>
-</div>
-</div>
+                    <p>
+                        새로운 사냥 이벤트가
+                        곧 공개됩니다.
+                    </p>
 
-<div class="card">
-<div class="badge">NEW</div>
-<div class="image">준비중</div>
-<div class="info">
-<h3>준비중</h3>
-<p>카운트다운 이벤트 준비중입니다.</p>
-<button disabled>Coming Soon</button>
-</div>
-</div>
+                    <button disabled>
+                        Coming Soon
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="badge">NEW</div>
+
+                <div class="image">
+                    준비중
+                </div>
+
+                <div class="info">
+
+                    <h3>준비중</h3>
+
+                    <p>
+                        새로운 사냥 이벤트가
+                        곧 공개됩니다.
+                    </p>
+
+                    <button disabled>
+                        Coming Soon
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
-</div>
-
-</div>
+<!-- ===== 카운트다운 이벤트 ===== -->
 
 <div class="accordion">
 
-<div class="accordion-header">
-▼ 지역 이벤트
+    <div class="accordion-header">
+        ▼ 카운트다운 이벤트
+    </div>
+
+    <div class="accordion-content">
+
+        <div class="grid">
+
+            <div class="card">
+                <div class="badge">NEW</div>
+
+                <div class="image">
+                    준비중
+                </div>
+
+                <div class="info">
+
+                    <h3>준비중</h3>
+
+                    <p>
+                        카운트다운 이벤트가
+                        준비 중입니다.
+                    </p>
+
+                    <button disabled>
+                        Coming Soon
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="badge">NEW</div>
+
+                <div class="image">
+                    준비중
+                </div>
+
+                <div class="info">
+
+                    <h3>준비중</h3>
+
+                    <p>
+                        카운트다운 이벤트가
+                        준비 중입니다.
+                    </p>
+
+                    <button disabled>
+                        Coming Soon
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="badge">NEW</div>
+
+                <div class="image">
+                    준비중
+                </div>
+
+                <div class="info">
+
+                    <h3>준비중</h3>
+
+                    <p>
+                        카운트다운 이벤트가
+                        준비 중입니다.
+                    </p>
+
+                    <button disabled>
+                        Coming Soon
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 
-<div class="accordion-content">
+<!-- ===== 지역 이벤트 ===== -->
 
-<div class="grid">
+<div class="accordion">
 
-<div class="card">
-<div class="badge">NEW</div>
-<div class="image">준비중</div>
-<div class="info">
-<h3>준비중</h3>
-<p>지역 이벤트 준비중입니다.</p>
-<button disabled>Coming Soon</button>
-</div>
-</div>
+    <div class="accordion-header">
+        ▼ 지역 이벤트
+    </div>
 
-<div class="card">
-<div class="badge">NEW</div>
-<div class="image">준비중</div>
-<div class="info">
-<h3>준비중</h3>
-<p>지역 이벤트 준비중입니다.</p>
-<button disabled>Coming Soon</button>
-</div>
-</div>
+    <div class="accordion-content">
 
-<div class="card">
-<div class="badge">NEW</div>
-<div class="image">준비중</div>
-<div class="info">
-<h3>준비중</h3>
-<p>지역 이벤트 준비중입니다.</p>
-<button disabled>Coming Soon</button>
-</div>
-</div>
+        <div class="grid">
 
-</div>
+            <div class="card">
+                <div class="badge">NEW</div>
 
-</div>
+                <div class="image">
+                    준비중
+                </div>
 
-</div><div class="accordion">
+                <div class="info">
+
+                    <h3>준비중</h3>
+
+                    <p>
+                        새로운 지역 이벤트가
+                        곧 공개됩니다.
+                    </p>
+
+                    <button disabled>
+                        Coming Soon
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="badge">NEW</div>
+
+                <div class="image">
+                    준비중
+                </div>
+
+                <div class="info">
+
+                    <h3>준비중</h3>
+
+                    <p>
+                        새로운 지역 이벤트가
+                        곧 공개됩니다.
+                    </p>
+
+                    <button disabled>
+                        Coming Soon
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="badge">NEW</div>
+
+                <div class="image">
+                    준비중
+                </div>
+
+                <div class="info">
+
+                    <h3>준비중</h3>
+
+                    <p>
+                        새로운 지역 이벤트가
+                        곧 공개됩니다.
+                    </p>
+
+                    <button disabled>
+                        Coming Soon
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><!-- ===== 어드민 이벤트 ===== -->
+
+<div class="accordion">
 
     <div class="accordion-header">
         ▼ 어드민 이벤트
@@ -422,7 +830,8 @@ onclick="location.href='event/final attack.html'">
 
         <div class="grid">
 
-            <div class="card event-card">
+            <!-- 카드 1 -->
+            <div class="card">
 
                 <div class="badge">NEW</div>
 
@@ -432,13 +841,13 @@ onclick="location.href='event/final attack.html'">
 
                 <div class="info">
 
-                    <h3>네크로스 침공</h3>
+                    <h3>네크로스 침공 Part 1</h3>
 
                     <p>
-                        네크로스의 본격적인 등장
+                        네크로스 침공의 시작
                     </p>
 
-                    <button onclick="location.href='event/necros.html'">
+                    <button onclick="location.href='event/necros-part1.html'">
                         자세히 보기
                     </button>
 
@@ -446,7 +855,8 @@ onclick="location.href='event/final attack.html'">
 
             </div>
 
-            <div class="card event-card">
+            <!-- 카드 2 -->
+            <div class="card">
 
                 <div class="badge">NEW</div>
 
@@ -456,13 +866,13 @@ onclick="location.href='event/final attack.html'">
 
                 <div class="info">
 
-                    <h3>네크로스 Part 1</h3>
+                    <h3>네크로스 침공 Part 2</h3>
 
                     <p>
-                        네크로스의 등장
+                        네크로스 군주들의 본격적인 침공
                     </p>
 
-                    <button onclick="location.href='event/necros.html'">
+                    <button onclick="location.href='event/necros-part2.html'">
                         자세히 보기
                     </button>
 
@@ -470,7 +880,8 @@ onclick="location.href='event/final attack.html'">
 
             </div>
 
-            <div class="card event-card">
+            <!-- 카드 3 -->
+            <div class="card">
 
                 <div class="badge">NEW</div>
 
@@ -494,73 +905,33 @@ onclick="location.href='event/final attack.html'">
 
             </div>
 
+            <!-- 카드 4 -->
+            <div class="card">
+
+                <div class="badge">NEW</div>
+
+                <div class="image">
+                    🎁
+                </div>
+
+                <div class="info">
+
+                    <h3>준비중</h3>
+
+                    <p>
+                        새로운 관리자 이벤트가 곧 공개됩니다.
+                    </p>
+
+                    <button disabled>
+                        Coming Soon
+                    </button>
+
+                </div>
+
+            </div>
+
         </div>
 
     </div>
 
 </div>
-
-</div>
-
-<footer>
-    © 2026 HUNT Official Website
-</footer>
-
-<script>
-
-const headers = document.querySelectorAll(".accordion-header");
-
-headers.forEach(header=>{
-
-    header.addEventListener("click",()=>{
-
-        const content = header.nextElementSibling;
-
-        if(content.style.display==="block"){
-
-            content.style.display="none";
-
-        }else{
-
-            content.style.display="block";
-
-        }
-
-    });
-
-});
-
-const search = document.getElementById("search");
-
-search.addEventListener("keyup",()=>{
-
-    const value = search.value.toLowerCase();
-
-    const cards = document.querySelectorAll(".card");
-
-    cards.forEach(card=>{
-
-        const text = card.innerText.toLowerCase();
-
-        if(text.includes(value)){
-
-            card.style.display="block";
-
-        }else{
-
-            card.style.display="none";
-
-        }
-
-    });
-
-});
-
-document.querySelectorAll(".accordion-content").forEach(content=>{
-    content.style.display="none";
-});
-
-</script>
-
-</body>
-</html>
