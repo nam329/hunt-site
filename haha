@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+  background:#111;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+.car{
+  fill:#222;
+  stroke:#aaa;
+  stroke-width:4;
+}
+
+.light{
+  fill:#00ffff;
+  stroke:#fff;
+  stroke-width:2;
+}
+
+</style>
+</head>
+
+<body>
+
+<svg width="700" height="350" viewBox="0 0 700 350">
+
+<!-- 차체 -->
+<path class="car"
+d="
+M120 220
+L170 150
+L280 120
+L420 120
+L530 150
+L580 220
+L560 260
+L140 260
+Z
+"/>
+
+<!-- 앞 헤드라이트 -->
+<rect class="light"
+x="155" y="180"
+width="120"
+height="18"
+rx="9"/>
+
+<rect class="light"
+x="425" y="180"
+width="120"
+height="18"
+rx="9"/>
+
+
+<!-- 앞 범퍼 -->
+<rect fill="#000"
+x="260" y="230"
+width="180"
+height="12"
+rx="6"/>
+
+
+<!-- 뒤 백라이트 -->
+<rect class="light"
+x="200" y="265"
+width="300"
+height="20"
+rx="10"/>
+
+
+<!-- 바퀴 -->
+<circle fill="#000" cx="190" cy="260" r="45"/>
+<circle fill="#000" cx="510" cy="260" r="45"/>
+
+<circle fill="#555" cx="190" cy="260" r="20"/>
+<circle fill="#555" cx="510" cy="260" r="20"/>
+
+</svg>
+
+</body>
+</html>
