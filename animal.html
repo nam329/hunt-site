@@ -1,40 +1,379 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>동물 도감 - HUNT</title>
+
+<title>HUNT - 몬스터</title>
 
 <style>
 
+*{
+    box-sizing:border-box;
+}
+
 body{
     margin:0;
-    background:#111;
+    background:#0b0b0b;
     color:white;
     font-family:Arial,sans-serif;
 }
 
-.logo{
-    padding:20px;
-    font-size:42px;
-    font-weight:bold;
+
+/* 상단바 */
+
+.topbar{
+    height:70px;
+    background:#111;
+    display:flex;
+    align-items:center;
+    padding:0 20px;
+    position:sticky;
+    top:0;
+    z-index:100;
 }
+
+
+/* HUNT 로고 */
 
 .logo a{
     color:white;
     text-decoration:none;
+    font-size:36px;
+    font-weight:900;
+    letter-spacing:5px;
 }
 
 .logo a:hover{
-    color:#00c853;
+    color:#00ff66;
 }
+
+
+/* 햄버거 */
+
+.hamburger{
+    background:none;
+    border:0;
+    color:white;
+    font-size:30px;
+    cursor:pointer;
+    margin-right:15px;
+}
+
+
+/* 사이드 메뉴 */
+
+.side-menu{
+    position:fixed;
+    top:0;
+    left:-280px;
+    width:260px;
+    height:100%;
+    background:#111;
+    padding-top:80px;
+    transition:0.3s;
+    z-index:200;
+    overflow-y:auto;
+}
+
+.side-menu.open{
+    left:0;
+}
+
+.side-menu a{
+    display:block;
+    padding:18px 25px;
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+}
+
+.side-menu a:hover{
+    background:#00ff66;
+    color:black;
+}
+
+
+/* 제목 */
 
 .title{
     text-align:center;
-    font-size:40px;
+    font-size:42px;
+    margin:45px 0 25px;
 }
 
-.search{
+
+/* 검색 */
+
+.search-box{
+    width:90%;
+    max-width:500px;
+    margin:0 auto 35px;
+}
+
+.search-box input{
+    width:100%;
+    padding:16px;
+    background:#181818;
+    color:white;
+    border:1px solid #333;
+    border-radius:12px;
+    font-size:17px;
+    outline:none;
+}
+
+.search-box input:focus{
+    border-color:#00ff66;
+}
+
+
+/* 몬스터 목록 */
+
+.monster-grid{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    padding-bottom:60px;
+}
+
+
+/* 몬스터 카드 */
+
+.monster-card{
+    background:#171717;
+    border:1px solid #333;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.monster-card:hover{
+    transform:translateY(-5px);
+    border-color:#00ff66;
+}
+
+
+/* 몬스터 이미지 */
+
+.monster-image{
+    height:160px;
+    background:#222;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:50px;
+    margin-bottom:18px;
+}
+
+
+/* 이름 */
+
+.monster-name{
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+
+/* 정보 */
+
+.monster-info{
+    color:#aaa;
+    line-height:1.7;
+}
+
+
+/* 숨김 */
+
+.hidden{
+    display:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- 상단바 -->
+
+<div class="topbar">
+
+<button class="hamburger" onclick="toggleMenu()">☰</button>
+
+<div class="logo">
+<a href="index.html">HUNT</a>
+</div>
+
+</div>
+
+
+<!-- 사이드 메뉴 -->
+
+<div id="sideMenu" class="side-menu">
+
+<a href="index.html">🏠 홈</a>
+<a href="items.html">🎒 아이템</a>
+<a href="weapons.html">🔫 무기</a>
+<a href="shop.html">🛒 상점</a>
+<a href="npc.html">🧑 NPC</a>
+<a href="weather.html">🌦️ 날씨</a>
+<a href="map.html">🗺️ 맵</a>
+<a href="animals.html">🐾 동물</a>
+<a href="monsters.html">👹 몬스터</a>
+<a href="events.html">🎉 이벤트</a>
+<a href="updates.html">🔥 업데이트</a>
+<a href="news.html">📰 소식</a>
+<a href="settings.html">⚙️ 설정</a>
+
+</div>
+
+
+<!-- 제목 -->
+
+<h1 class="title">
+👹 몬스터
+</h1>
+
+
+<!-- 검색 -->
+
+<div class="search-box">
+
+<input
+type="text"
+id="search"
+placeholder="몬스터 검색..."
+onkeyup="searchMonster()">
+
+</div>
+
+
+<!-- 몬스터 목록 -->
+
+<div class="monster-grid" id="monsterList">
+
+
+<!-- 몬스터 1 -->
+
+<div class="monster-card">
+
+<div class="monster-image">
+🦖
+</div>
+
+<div class="monster-name">
+몬스터 이름
+</div>
+
+<div class="monster-info">
+출현 지역 : ???<br>
+난이도 : ???<br>
+특징 : ???
+</div>
+
+</div>
+
+
+<!-- 몬스터 2 -->
+
+<div class="monster-card">
+
+<div class="monster-image">
+🐺
+</div>
+
+<div class="monster-name">
+몬스터 이름 2
+</div>
+
+<div class="monster-info">
+출현 지역 : ???<br>
+난이도 : ???<br>
+특징 : ???
+</div>
+
+</div>
+
+
+<!-- 몬스터 3 -->
+
+<div class="monster-card">
+
+<div class="monster-image">
+🦅
+</div>
+
+<div class="monster-name">
+몬스터 이름 3
+</div>
+
+<div class="monster-info">
+출현 지역 : ???<br>
+난이도 : ???<br>
+특징 : ???
+</div>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+/* 햄버거 메뉴 */
+
+function toggleMenu(){
+
+    const menu=document.getElementById("sideMenu");
+
+    menu.classList.toggle("open");
+
+}
+
+
+/* 몬스터 검색 */
+
+function searchMonster(){
+
+    const input=document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+    const cards=document
+        .getElementsByClassName("monster-card");
+
+    for(let i=0;i<cards.length;i++){
+
+        const name=cards[i]
+            .getElementsByClassName("monster-name")[0]
+            .innerText
+            .toLowerCase();
+
+        if(name.includes(input)){
+            cards[i].classList.remove("hidden");
+        }
+        else{
+            cards[i].classList.add("hidden");
+        }
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>.search{
     display:block;
     width:85%;
     max-width:500px;
