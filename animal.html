@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,12 +16,14 @@
 body{
     margin:0;
     background:#0b0b0b;
-    color:white;
+    color:#fff;
     font-family:Arial,sans-serif;
 }
 
 
-/* 상단 */
+/* ====================
+   상단
+==================== */
 
 .topbar{
     height:70px;
@@ -29,28 +31,11 @@ body{
     display:flex;
     align-items:center;
     padding:0 20px;
-    position:sticky;
-    top:0;
-    z-index:100;
+    border-bottom:1px solid #333;
 }
-
-
-/* 햄버거 */
-
-.hamburger{
-    background:none;
-    border:0;
-    color:white;
-    font-size:30px;
-    cursor:pointer;
-    margin-right:15px;
-}
-
-
-/* HUNT */
 
 .logo a{
-    color:white;
+    color:#fff;
     text-decoration:none;
     font-size:36px;
     font-weight:900;
@@ -62,63 +47,34 @@ body{
 }
 
 
-/* 메뉴 */
-
-.side-menu{
-    position:fixed;
-    top:0;
-    left:-280px;
-    width:260px;
-    height:100%;
-    background:#111;
-    padding-top:80px;
-    transition:0.3s;
-    z-index:200;
-    overflow-y:auto;
-}
-
-.side-menu.open{
-    left:0;
-}
-
-.side-menu a{
-    display:block;
-    padding:18px 25px;
-    color:white;
-    text-decoration:none;
-    font-size:18px;
-}
-
-.side-menu a:hover{
-    background:#00ff66;
-    color:black;
-}
-
-
-/* 제목 */
+/* ====================
+   제목
+==================== */
 
 .title{
     text-align:center;
     font-size:42px;
-    margin:45px 0 25px;
+    margin:40px 0 25px;
 }
 
 
-/* 검색 */
+/* ====================
+   검색
+==================== */
 
 .search{
     width:90%;
-    max-width:600px;
-    margin:0 auto 35px;
+    max-width:650px;
+    margin:0 auto 20px;
 }
 
 .search input{
     width:100%;
-    padding:16px 20px;
+    padding:16px;
     background:#171717;
     color:white;
-    border:1px solid #333;
-    border-radius:12px;
+    border:2px solid #333;
+    border-radius:0;
     font-size:18px;
     outline:none;
 }
@@ -128,7 +84,56 @@ body{
 }
 
 
-/* 목록 */
+/* ====================
+   필터
+==================== */
+
+.filters{
+    width:95%;
+    max-width:1100px;
+    margin:0 auto 35px;
+}
+
+
+/* 필터 한 줄 */
+
+.filter-row{
+    display:flex;
+    gap:8px;
+    margin-bottom:8px;
+    overflow-x:auto;
+    padding-bottom:3px;
+}
+
+
+/* 필터 버튼 */
+
+.filter-btn{
+    flex:0 0 auto;
+    background:#171717;
+    color:white;
+    border:2px solid #333;
+    border-radius:0;
+    padding:13px 22px;
+    font-size:16px;
+    cursor:pointer;
+    white-space:nowrap;
+}
+
+.filter-btn:hover{
+    border-color:#00ff66;
+}
+
+.filter-btn.active{
+    background:#00ff66;
+    color:#000;
+    border-color:#00ff66;
+}
+
+
+/* ====================
+   몬스터 목록
+==================== */
 
 .monster-grid{
     width:90%;
@@ -137,27 +142,28 @@ body{
     display:grid;
     grid-template-columns:
     repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+    gap:18px;
     padding-bottom:60px;
 }
 
 
-/* 카드 */
+/* ====================
+   몬스터 카드
+==================== */
 
 .monster-card{
     display:block;
     background:#171717;
-    border:1px solid #333;
-    border-radius:15px;
-    padding:20px;
+    border:2px solid #333;
     color:white;
     text-decoration:none;
-    transition:0.25s;
+    padding:18px;
+    transition:0.2s;
 }
 
 .monster-card:hover{
-    transform:translateY(-6px);
     border-color:#00ff66;
+    transform:translateY(-3px);
 }
 
 
@@ -165,42 +171,41 @@ body{
 
 .monster-image{
     width:100%;
-    height:170px;
+    height:160px;
     background:#222;
-    border-radius:10px;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:60px;
-    margin-bottom:18px;
+    font-size:55px;
+    margin-bottom:15px;
 }
 
 
 /* 이름 */
 
 .monster-name{
-    font-size:24px;
+    font-size:22px;
     font-weight:bold;
-    margin-bottom:10px;
+    margin-bottom:8px;
 }
 
 
-/* 설명 */
+/* 정보 */
 
 .monster-info{
-    color:#aaa;
+    color:#999;
     line-height:1.6;
+    font-size:14px;
 }
 
 
-/* 검색 결과 없음 */
+/* 결과 없음 */
 
 .no-result{
     display:none;
     text-align:center;
     color:#888;
-    font-size:18px;
-    padding:30px;
+    padding:40px;
 }
 
 </style>
@@ -211,54 +216,33 @@ body{
 <body>
 
 
-<!-- 상단바 -->
+<!-- ====================
+     상단
+==================== -->
 
 <div class="topbar">
 
-<button class="hamburger" onclick="toggleMenu()">
-☰
-</button>
-
-<div class="logo">
-
-<a href="index.html">
-HUNT
-</a>
-
-</div>
+    <div class="logo">
+        <a href="index.html">HUNT</a>
+    </div>
 
 </div>
 
 
-<!-- 햄버거 메뉴 -->
 
-<div id="sideMenu" class="side-menu">
-
-<a href="index.html">🏠 홈</a>
-<a href="items.html">🎒 아이템</a>
-<a href="weapons.html">🔫 무기</a>
-<a href="shop.html">🛒 상점</a>
-<a href="npc.html">🧑 NPC</a>
-<a href="weather.html">🌦️ 날씨</a>
-<a href="map.html">🗺️ 맵</a>
-<a href="animals.html">🐾 동물</a>
-<a href="monsters.html">👹 몬스터</a>
-<a href="events.html">🎉 이벤트</a>
-<a href="updates.html">🔥 업데이트</a>
-<a href="news.html">📰 소식</a>
-<a href="settings.html">⚙️ 설정</a>
-
-</div>
-
-
-<!-- 제목 -->
+<!-- ====================
+     제목
+==================== -->
 
 <h1 class="title">
 👹 몬스터
 </h1>
 
 
-<!-- 검색 -->
+
+<!-- ====================
+     검색
+==================== -->
 
 <div class="search">
 
@@ -266,22 +250,190 @@ HUNT
 type="text"
 id="searchInput"
 placeholder="🔍 몬스터 검색..."
-oninput="searchMonster()">
+oninput="filterMonsters()">
 
 </div>
 
 
-<!-- 몬스터 -->
+
+<!-- ====================
+     필터
+==================== -->
+
+<div class="filters">
+
+
+<!-- 1줄 : 종류 -->
+
+<div class="filter-row">
+
+<button
+class="filter-btn active"
+data-filter="type"
+data-value="all"
+onclick="setFilter('type','all',this)">
+전체
+</button>
+
+<button
+class="filter-btn"
+data-filter="type"
+data-value="normal"
+onclick="setFilter('type','normal',this)">
+일반
+</button>
+
+<button
+class="filter-btn"
+data-filter="type"
+data-value="limited"
+onclick="setFilter('type','limited',this)">
+한정
+</button>
+
+</div>
+
+
+
+<!-- 2줄 : 지역 -->
+
+<div class="filter-row">
+
+<button
+class="filter-btn active"
+data-filter="island"
+data-value="all"
+onclick="setFilter('island','all',this)">
+전체 지역
+</button>
+
+<button class="filter-btn"
+data-filter="island"
+data-value="start"
+onclick="setFilter('island','start',this)">
+시작섬
+</button>
+
+<button class="filter-btn"
+data-filter="island"
+data-value="jungle"
+onclick="setFilter('island','jungle',this)">
+정글섬
+</button>
+
+<button class="filter-btn"
+data-filter="island"
+data-value="desert"
+onclick="setFilter('island','desert',this)">
+사막섬
+</button>
+
+<button class="filter-btn"
+data-filter="island"
+data-value="ignis"
+onclick="setFilter('island','ignis',this)">
+이그니스 섬
+</button>
+
+<button class="filter-btn"
+data-filter="island"
+data-value="arctic"
+onclick="setFilter('island','arctic',this)">
+북극
+</button>
+
+<button class="filter-btn"
+data-filter="island"
+data-value="deep"
+onclick="setFilter('island','deep',this)">
+심해
+</button>
+
+<button class="filter-btn"
+data-filter="island"
+data-value="swamp"
+onclick="setFilter('island','swamp',this)">
+늪지대
+</button>
+
+<button class="filter-btn"
+data-filter="island"
+data-value="crystal"
+onclick="setFilter('island','crystal',this)">
+크리스탈 섬
+</button>
+
+</div>
+
+
+
+<!-- 3줄 : 등급/분류 -->
+
+<div class="filter-row">
+
+<button
+class="filter-btn active"
+data-filter="rank"
+data-value="all"
+onclick="setFilter('rank','all',this)">
+전체
+</button>
+
+<button
+class="filter-btn"
+data-filter="rank"
+data-value="normal"
+onclick="setFilter('rank','normal',this)">
+일반
+</button>
+
+<button
+class="filter-btn"
+data-filter="rank"
+data-value="midboss"
+onclick="setFilter('rank','midboss',this)">
+중간보스
+</button>
+
+<button
+class="filter-btn"
+data-filter="rank"
+data-value="worldboss"
+onclick="setFilter('rank','worldboss',this)">
+월드보스
+</button>
+
+<button
+class="filter-btn"
+data-filter="rank"
+data-value="unknown"
+onclick="setFilter('rank','unknown',this)">
+???
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- ====================
+     몬스터 목록
+==================== -->
 
 <div class="monster-grid" id="monsterGrid">
 
 
-<!-- 몬스터 1 -->
+
+<!-- 몬스터 -->
 
 <a
 href="monster-wolf.html"
 class="monster-card"
-data-name="악몽의 늑대">
+data-name="악몽의 늑대"
+data-type="normal"
+data-island="start"
+data-rank="normal">
 
 <div class="monster-image">
 🐺
@@ -292,20 +444,21 @@ data-name="악몽의 늑대">
 </div>
 
 <div class="monster-info">
-출현 지역 : ???<br>
-난이도 : ???<br>
-자세한 정보를 보려면 클릭
+출현 지역 : 시작섬<br>
+분류 : 일반
 </div>
 
 </a>
 
 
-<!-- 몬스터 2 -->
 
 <a
 href="monster-bear.html"
 class="monster-card"
-data-name="광폭한 곰">
+data-name="광폭한 곰"
+data-type="normal"
+data-island="jungle"
+data-rank="normal">
 
 <div class="monster-image">
 🐻
@@ -316,20 +469,21 @@ data-name="광폭한 곰">
 </div>
 
 <div class="monster-info">
-출현 지역 : ???<br>
-난이도 : ???<br>
-자세한 정보를 보려면 클릭
+출현 지역 : 정글섬<br>
+분류 : 일반
 </div>
 
 </a>
 
 
-<!-- 몬스터 3 -->
 
 <a
 href="monster-shark.html"
 class="monster-card"
-data-name="심해 포식자">
+data-name="심해 포식자"
+data-type="normal"
+data-island="deep"
+data-rank="midboss">
 
 <div class="monster-image">
 🦈
@@ -341,8 +495,33 @@ data-name="심해 포식자">
 
 <div class="monster-info">
 출현 지역 : 심해<br>
-난이도 : ???<br>
-자세한 정보를 보려면 클릭
+분류 : 중간보스
+</div>
+
+</a>
+
+
+
+<a
+href="monster-event.html"
+class="monster-card"
+data-name="이벤트 몬스터"
+data-type="limited"
+data-island="crystal"
+data-rank="worldboss">
+
+<div class="monster-image">
+👹
+</div>
+
+<div class="monster-name">
+이벤트 몬스터
+</div>
+
+<div class="monster-info">
+출현 지역 : 크리스탈 섬<br>
+분류 : 월드보스<br>
+한정
 </div>
 
 </a>
@@ -351,73 +530,139 @@ data-name="심해 포식자">
 </div>
 
 
-<div id="noResult" class="no-result">
+
+<div
+id="noResult"
+class="no-result">
+
 검색 결과가 없습니다.
+
 </div>
+
 
 
 <script>
 
-/* 햄버거 메뉴 */
+/* 현재 필터 */
 
-function toggleMenu(){
+let filters = {
 
-    const menu =
-    document.getElementById("sideMenu");
+    type:"all",
+    island:"all",
+    rank:"all"
 
-    menu.classList.toggle("open");
+};
+
+
+
+/* 필터 선택 */
+
+function setFilter(category,value,button){
+
+    filters[category]=value;
+
+
+    const buttons =
+    document.querySelectorAll(
+        '.filter-btn[data-filter="'+category+'"]'
+    );
+
+
+    buttons.forEach(function(btn){
+
+        btn.classList.remove("active");
+
+    });
+
+
+    button.classList.add("active");
+
+
+    filterMonsters();
 
 }
 
 
-/* 몬스터 검색 */
 
-function searchMonster(){
+/* 검색 + 필터 */
 
-    const input =
-    document.getElementById("searchInput")
+function filterMonsters(){
+
+    const search =
+    document
+    .getElementById("searchInput")
     .value
-    .trim()
-    .toLowerCase();
+    .toLowerCase()
+    .trim();
+
 
     const cards =
-    document.getElementsByClassName("monster-card");
+    document.querySelectorAll(".monster-card");
 
-    let found = 0;
 
-    for(let i=0;i<cards.length;i++){
+    let count=0;
+
+
+    cards.forEach(function(card){
 
         const name =
-        cards[i]
+        card
         .getAttribute("data-name")
         .toLowerCase();
 
-        if(name.includes(input)){
 
-            cards[i].style.display="block";
-            found++;
+        const type =
+        card.getAttribute("data-type");
+
+
+        const island =
+        card.getAttribute("data-island");
+
+
+        const rank =
+        card.getAttribute("data-rank");
+
+
+        const searchMatch =
+        name.includes(search);
+
+
+        const typeMatch =
+        filters.type==="all" ||
+        type===filters.type;
+
+
+        const islandMatch =
+        filters.island==="all" ||
+        island===filters.island;
+
+
+        const rankMatch =
+        filters.rank==="all" ||
+        rank===filters.rank;
+
+
+        if(
+            searchMatch &&
+            typeMatch &&
+            islandMatch &&
+            rankMatch
+        ){
+
+            card.style.display="block";
+            count++;
 
         }else{
 
-            cards[i].style.display="none";
+            card.style.display="none";
 
         }
 
-    }
+    });
 
 
-    const noResult =
-    document.getElementById("noResult");
-
-    if(found === 0){
-
-        noResult.style.display="block";
-
-    }else{
-
-        noResult.style.display="none";
-
-    }
+    document.getElementById("noResult").style.display =
+    count===0 ? "block" : "none";
 
 }
 
