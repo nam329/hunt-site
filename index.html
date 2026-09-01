@@ -6,35 +6,903 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>HUNT 공식 사이트</title>
-
+<title>HUNT 공식 위키</title>
 
 <style>
 
 *{
-    margin:0;
-    padding:0;
     box-sizing:border-box;
 }
 
-
 body{
-
-    background:#080808;
+    margin:0;
+    background:#0b0b0b;
     color:white;
     font-family:Arial,sans-serif;
+}
+
+
+/* =========================
+   전체 검색
+========================= */
+
+.wiki-search{
+    width:92%;
+    max-width:700px;
+    margin:20px auto 12px;
+    position:relative;
+}
+
+.wiki-search input{
+    width:100%;
+    height:52px;
+    padding:0 18px;
+
+    background:#2b2b2b;
+    color:white;
+
+    border:2px solid #555;
+    border-radius:0;
+
+    font-size:17px;
+    outline:none;
+}
+
+.wiki-search input::placeholder{
+    color:#aaa;
+}
+
+.wiki-search input:focus{
+    border-color:#777;
+}
+
+
+/* 검색 결과 */
+
+.search-results{
+    position:absolute;
+    top:54px;
+    left:0;
+    width:100%;
+
+    background:#181818;
+    border:2px solid #555;
+
+    z-index:999;
+    display:none;
+}
+
+.search-result{
+    display:block;
+    padding:15px 18px;
+
+    color:white;
+    text-decoration:none;
+
+    border-bottom:1px solid #333;
+}
+
+.search-result:hover{
+    background:#333;
+}
+
+
+/* =========================
+   상단바
+========================= */
+
+.topbar{
+    height:70px;
+
+    background:#111;
+
+    display:flex;
+    align-items:center;
+
+    padding:0 20px;
+
+    border-bottom:1px solid #333;
+}
+
+
+/* HUNT */
+
+.logo{
+    width:100%;
+    text-align:center;
+}
+
+.logo a{
+    color:white;
+    text-decoration:none;
+
+    font-size:38px;
+    font-weight:900;
+
+    letter-spacing:6px;
+}
+
+.logo a:hover{
+    color:#00ff66;
+}
+
+
+/* =========================
+   게임 사진
+========================= */
+
+.game-image{
+    width:100%;
+    height:380px;
+
+    background:#202020;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:28px;
+    color:#777;
+
+    border-bottom:2px solid #333;
+}
+
+
+/* =========================
+   공통
+========================= */
+
+.section{
+    width:92%;
+    max-width:1100px;
+
+    margin:auto;
+    padding:35px 0;
+}
+
+.title{
+    font-size:32px;
+    margin-bottom:20px;
+}
+
+.card{
+    background:#171717;
+
+    border:2px solid #333;
+
+    padding:25px;
+
+    border-radius:0;
+}
+
+
+/* =========================
+   메뉴
+========================= */
+
+.button-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(150px,1fr));
+
+    gap:10px;
+}
+
+.menu-button{
+    display:block;
+
+    background:#222;
+
+    color:white;
+
+    text-decoration:none;
+
+    text-align:center;
+
+    padding:18px 10px;
+
+    border:2px solid #444;
+
+    border-radius:0;
+
+    transition:0.2s;
+}
+
+.menu-button:hover{
+    background:#333;
+    border-color:#777;
+}
+
+
+/* =========================
+   업데이트
+========================= */
+
+.update-card{
+    background:#171717;
+
+    border:2px solid #333;
+
+    padding:20px;
+
+    margin-bottom:10px;
+}
+
+
+/* =========================
+   카운트다운
+========================= */
+
+.countdown{
+    text-align:center;
+
+    font-size:36px;
+
+    font-weight:bold;
+
+    color:#00ff66;
+
+    margin:20px 0;
+}
+
+
+/* =========================
+   커뮤니티
+========================= */
+
+.community{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(150px,1fr));
+
+    gap:10px;
+}
+
+
+/* =========================
+   모바일
+========================= */
+
+@media(max-width:600px){
+
+    .logo a{
+        font-size:30px;
+    }
+
+    .game-image{
+        height:240px;
+    }
+
+    .title{
+        font-size:27px;
+    }
+
+    .countdown{
+        font-size:25px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HUNT 검색
+========================= -->
+
+<div class="wiki-search">
+
+    <input
+        type="text"
+        id="wikiSearch"
+        placeholder="HUNT 검색..."
+        autocomplete="off"
+        oninput="searchWiki()"
+    >
+
+    <div
+        id="searchResults"
+        class="search-results">
+    </div>
+
+</div>
+
+
+<!-- =========================
+     상단
+========================= -->
+
+<div class="topbar">
+
+    <div class="logo">
+
+        <a href="index.html">
+            HUNT
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     게임 사진
+========================= -->
+
+<div class="game-image">
+
+    HUNT GAME IMAGE
+
+</div>
+
+
+<!-- =========================
+     환영 메시지
+========================= -->
+
+<section class="section">
+
+    <div class="card">
+
+        <h1>
+            헌트 공식 위키에 오신 것을 환영합니다
+        </h1>
+
+        <p>
+            HUNT의 게임 정보와 다양한 콘텐츠를 확인해보세요.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     게임 정보
+========================= -->
+
+<section class="section">
+
+    <h2 class="title">
+        🎮 게임 정보
+    </h2>
+
+    <div class="card">
+
+        <h3>HUNT</h3>
+
+        <p>
+            HUNT의 다양한 지역과 생물,
+            아이템 등의 정보를 확인할 수 있습니다.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     메뉴
+========================= -->
+
+<section class="section">
+
+    <h2 class="title">
+        📚 게임 정보
+    </h2>
+
+    <div class="button-grid">
+
+        <a class="menu-button" href="items.html">
+            🎒 아이템
+        </a>
+
+        <a class="menu-button" href="weapons.html">
+            🔫 무기
+        </a>
+
+        <a class="menu-button" href="shop.html">
+            🛒 상점
+        </a>
+
+        <a class="menu-button" href="npc.html">
+            🧑 NPC
+        </a>
+
+        <a class="menu-button" href="weather.html">
+            🌦️ 날씨
+        </a>
+
+        <a class="menu-button" href="map.html">
+            🗺️ 맵
+        </a>
+
+        <a class="menu-button" href="animals.html">
+            🐾 동물
+        </a>
+
+        <a class="menu-button" href="events.html">
+            🎉 이벤트
+        </a>
+
+        <a class="menu-button" href="updates.html">
+            🔥 업데이트
+        </a>
+
+        <a class="menu-button" href="news.html">
+            📰 소식
+        </a>
+
+        <a class="menu-button" href="settings.html">
+            ⚙️ 설정
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     최신 업데이트
+========================= -->
+
+<section class="section">
+
+    <h2 class="title">
+        🔥 최신 업데이트
+    </h2>
+
+
+    <div class="update-card">
+
+        <h3>
+            최신 업데이트 1
+        </h3>
+
+        <p>
+            새로운 콘텐츠가 추가되었습니다.
+        </p>
+
+    </div>
+
+
+    <div class="update-card">
+
+        <h3>
+            최신 업데이트 2
+        </h3>
+
+        <p>
+            새로운 지역과 콘텐츠가 추가되었습니다.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     다음 업데이트
+========================= -->
+
+<section class="section">
+
+    <h2 class="title">
+        ⏳ 다음 업데이트
+    </h2>
+
+    <div class="card">
+
+        <h3>
+            다음 업데이트까지
+        </h3>
+
+        <div
+            id="countdown"
+            class="countdown">
+            계산 중...
+        </div>
+
+        <p style="text-align:center;color:#aaa;">
+            예정일 : 2026-09-20 18:00
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     이벤트
+========================= -->
+
+<section class="section">
+
+    <h2 class="title">
+        🎉 진행 중 이벤트
+    </h2>
+
+    <div class="card">
+
+        <h3>
+            현재 진행 중인 이벤트
+        </h3>
+
+        <p>
+            이벤트 내용을 확인하세요.
+        </p>
+
+        <div
+            id="eventCountdown"
+            class="countdown">
+            계산 중...
+        </div>
+
+        <p style="text-align:center;color:#aaa;">
+            이벤트 종료까지
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     커뮤니티
+========================= -->
+
+<section class="section">
+
+    <h2 class="title">
+        🌐 커뮤니티
+    </h2>
+
+    <div class="community">
+
+        <a class="menu-button" href="#">
+            💬 Discord
+        </a>
+
+        <a class="menu-button" href="#">
+            ▶ YouTube
+        </a>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =========================
+   전체 검색 데이터
+========================= */
+
+const wikiData = [
+
+    {
+        name:"아이템",
+        icon:"🎒",
+        page:"items.html"
+    },
+
+    {
+        name:"무기",
+        icon:"🔫",
+        page:"weapons.html"
+    },
+
+    {
+        name:"상점",
+        icon:"🛒",
+        page:"shop.html"
+    },
+
+    {
+        name:"NPC",
+        icon:"🧑",
+        page:"npc.html"
+    },
+
+    {
+        name:"날씨",
+        icon:"🌦️",
+        page:"weather.html"
+    },
+
+    {
+        name:"맵",
+        icon:"🗺️",
+        page:"map.html"
+    },
+
+    {
+        name:"동물",
+        icon:"🐾",
+        page:"animals.html"
+    },
+
+    {
+        name:"몬스터",
+        icon:"👹",
+        page:"monsters.html"
+    },
+
+    {
+        name:"이벤트",
+        icon:"🎉",
+        page:"events.html"
+    },
+
+    {
+        name:"업데이트",
+        icon:"🔥",
+        page:"updates.html"
+    },
+
+    {
+        name:"소식",
+        icon:"📰",
+        page:"news.html"
+    },
+
+    {
+        name:"설정",
+        icon:"⚙️",
+        page:"settings.html"
+    }
+
+];
+
+
+/* =========================
+   검색
+========================= */
+
+function searchWiki(){
+
+    const input =
+        document
+        .getElementById("wikiSearch")
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    const results =
+        document
+        .getElementById("searchResults");
+
+
+    results.innerHTML="";
+
+
+    if(input===""){
+
+        results.style.display="none";
+
+        return;
+
+    }
+
+
+    const found =
+        wikiData.filter(function(item){
+
+            return item.name
+                .toLowerCase()
+                .includes(input);
+
+        });
+
+
+    if(found.length===0){
+
+        results.innerHTML=
+        '<div class="search-result">검색 결과가 없습니다.</div>';
+
+    }else{
+
+        found.forEach(function(item){
+
+            results.innerHTML +=
+
+            '<a class="search-result" href="' +
+            item.page +
+            '">' +
+
+            item.icon +
+            ' ' +
+            item.name +
+
+            '</a>';
+
+        });
+
+    }
+
+
+    results.style.display="block";
 
 }
 
 
+/* =========================
+   검색창 밖 클릭
+========================= */
 
-/* 상단 */
+document.addEventListener(
+    "click",
+    function(event){
 
-.topbar{
+        const search =
+            document.querySelector(".wiki-search");
 
-    height:75px;
+        if(!search.contains(event.target)){
 
-    background:#050505;
+            document
+            .getElementById("searchResults")
+            .style.display="none";
+
+        }
+
+    }
+);
+
+
+/* =========================
+   다음 업데이트
+========================= */
+
+const updateDate =
+    new Date("2026-09-20T18:00:00").getTime();
+
+
+/* =========================
+   이벤트 종료
+========================= */
+
+const eventDate =
+    new Date("2026-09-10T23:59:59").getTime();
+
+
+function updateTimers(){
+
+    const now =
+        new Date().getTime();
+
+
+    /* 업데이트 */
+
+    let distance =
+        updateDate - now;
+
+
+    if(distance > 0){
+
+        let days =
+            Math.floor(
+                distance /
+                (1000*60*60*24)
+            );
+
+        let hours =
+            Math.floor(
+                (distance %
+                (1000*60*60*24)) /
+                (1000*60*60)
+            );
+
+        let minutes =
+            Math.floor(
+                (distance %
+                (1000*60*60)) /
+                (1000*60)
+            );
+
+        let seconds =
+            Math.floor(
+                (distance %
+                (1000*60)) /
+                1000
+            );
+
+
+        document
+        .getElementById("countdown")
+        .innerHTML =
+
+            days + "일 " +
+            hours + "시간 " +
+            minutes + "분 " +
+            seconds + "초";
+
+    }else{
+
+        document
+        .getElementById("countdown")
+        .innerHTML =
+            "업데이트 예정";
+
+    }
+
+
+    /* 이벤트 */
+
+    let eventDistance =
+        eventDate - now;
+
+
+    if(eventDistance > 0){
+
+        let days =
+            Math.floor(
+                eventDistance /
+                (1000*60*60*24)
+            );
+
+        let hours =
+            Math.floor(
+                (eventDistance %
+                (1000*60*60*24)) /
+                (1000*60*60)
+            );
+
+        let minutes =
+            Math.floor(
+                (eventDistance %
+                (1000*60*60)) /
+                (1000*60)
+            );
+
+        let seconds =
+            Math.floor(
+                (eventDistance %
+                (1000*60)) /
+                1000
+            );
+
+
+        document
+        .getElementById("eventCountdown")
+        .innerHTML =
+
+            days + "일 " +
+            hours + "시간 " +
+            minutes + "분 " +
+            seconds + "초";
+
+    }else{
+
+        document
+        .getElementById("eventCountdown")
+        .innerHTML =
+            "이벤트 종료";
+
+    }
+
+}
+
+
+updateTimers();
+
+setInterval(
+    updateTimers,
+    1000
+);
+
+</script>
+
+
+</body>
+</html>    background:#050505;
 
     display:flex;
 
