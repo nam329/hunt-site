@@ -10,14 +10,22 @@
 
 <style>
 
+/* =========================
+   기본
+========================= */
+
 *{
     box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
     margin:0;
     background:#0b0b0b;
-    color:white;
+    color:#fff;
     font-family:Arial,sans-serif;
 }
 
@@ -36,16 +44,18 @@ body{
 .wiki-search input{
     width:100%;
     height:52px;
+
     padding:0 18px;
 
     background:#2b2b2b;
-    color:white;
+    color:#fff;
 
     border:2px solid #555;
     border-radius:0;
 
-    font-size:17px;
     outline:none;
+
+    font-size:17px;
 }
 
 .wiki-search input::placeholder{
@@ -53,7 +63,7 @@ body{
 }
 
 .wiki-search input:focus{
-    border-color:#777;
+    border-color:#888;
 }
 
 
@@ -61,25 +71,35 @@ body{
 
 .search-results{
     position:absolute;
+
     top:54px;
     left:0;
+
     width:100%;
 
     background:#181818;
+
     border:2px solid #555;
 
-    z-index:999;
+    z-index:500;
+
     display:none;
 }
 
 .search-result{
     display:block;
+
     padding:15px 18px;
 
-    color:white;
+    color:#fff;
+
     text-decoration:none;
 
     border-bottom:1px solid #333;
+}
+
+.search-result:last-child{
+    border-bottom:0;
 }
 
 .search-result:hover{
@@ -97,26 +117,60 @@ body{
     background:#111;
 
     display:flex;
+
     align-items:center;
 
-    padding:0 20px;
+    padding:0 18px;
 
-    border-bottom:1px solid #333;
+    border-bottom:2px solid #333;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:300;
 }
 
 
-/* HUNT */
+/* 햄버거 */
+
+.hamburger{
+    width:48px;
+    height:48px;
+
+    background:#222;
+
+    color:#fff;
+
+    border:2px solid #555;
+
+    border-radius:0;
+
+    font-size:27px;
+
+    cursor:pointer;
+}
+
+.hamburger:hover{
+    background:#333;
+}
+
+
+/* 로고 */
 
 .logo{
-    width:100%;
+    flex:1;
+
     text-align:center;
 }
 
 .logo a{
-    color:white;
+    color:#fff;
+
     text-decoration:none;
 
     font-size:38px;
+
     font-weight:900;
 
     letter-spacing:6px;
@@ -127,42 +181,150 @@ body{
 }
 
 
+/* 오른쪽 빈 공간 */
+
+.top-space{
+    width:48px;
+}
+
+
+/* =========================
+   햄버거 메뉴
+========================= */
+
+.side-menu{
+    position:fixed;
+
+    top:0;
+    left:-290px;
+
+    width:270px;
+    height:100vh;
+
+    background:#111;
+
+    border-right:2px solid #444;
+
+    z-index:1000;
+
+    transition:left .25s ease;
+
+    padding-top:80px;
+
+    overflow-y:auto;
+}
+
+.side-menu.open{
+    left:0;
+}
+
+.side-menu a{
+    display:block;
+
+    padding:17px 22px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border-bottom:1px solid #292929;
+
+    font-size:17px;
+}
+
+.side-menu a:hover{
+    background:#333;
+    color:#00ff66;
+}
+
+
+/* 메뉴 닫기 */
+
+.menu-close{
+    position:absolute;
+
+    top:15px;
+    right:15px;
+
+    width:40px;
+    height:40px;
+
+    background:#222;
+
+    color:#fff;
+
+    border:2px solid #555;
+
+    border-radius:0;
+
+    cursor:pointer;
+
+    font-size:20px;
+}
+
+
 /* =========================
    게임 사진
 ========================= */
 
 .game-image{
     width:100%;
-    height:380px;
+
+    height:400px;
 
     background:#202020;
 
+    border-bottom:2px solid #333;
+
+    overflow:hidden;
+}
+
+.game-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+.game-image .image-placeholder{
+    width:100%;
+    height:100%;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
 
-    font-size:28px;
     color:#777;
 
-    border-bottom:2px solid #333;
+    font-size:28px;
 }
 
 
 /* =========================
-   공통
+   공통 영역
 ========================= */
 
 .section{
     width:92%;
+
     max-width:1100px;
 
     margin:auto;
+
     padding:35px 0;
 }
 
 .title{
     font-size:32px;
-    margin-bottom:20px;
+
+    margin:0 0 20px;
+
+    border-left:5px solid #555;
+
+    padding-left:12px;
 }
 
 .card{
@@ -170,63 +332,118 @@ body{
 
     border:2px solid #333;
 
-    padding:25px;
-
     border-radius:0;
+
+    padding:25px;
 }
 
 
 /* =========================
-   메뉴
+   게임 정보 버튼
 ========================= */
 
 .button-grid{
     display:grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(150px,1fr));
+    repeat(4,1fr);
 
     gap:10px;
 }
 
 .menu-button{
-    display:block;
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-height:60px;
 
     background:#222;
 
-    color:white;
+    color:#fff;
 
     text-decoration:none;
-
-    text-align:center;
-
-    padding:18px 10px;
 
     border:2px solid #444;
 
     border-radius:0;
 
-    transition:0.2s;
+    font-size:17px;
+
+    transition:.2s;
 }
 
 .menu-button:hover{
     background:#333;
-    border-color:#777;
+
+    border-color:#888;
+
+    transform:translateY(-2px);
 }
 
 
 /* =========================
-   업데이트
+   최신 업데이트
 ========================= */
 
+.update-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:15px;
+}
+
 .update-card{
+    display:block;
+
     background:#171717;
 
     border:2px solid #333;
 
-    padding:20px;
+    color:#fff;
 
-    margin-bottom:10px;
+    text-decoration:none;
+
+    transition:.2s;
+}
+
+.update-card:hover{
+    border-color:#888;
+
+    transform:translateY(-2px);
+}
+
+.update-card img{
+    width:100%;
+
+    height:210px;
+
+    object-fit:cover;
+
+    display:block;
+
+    background:#222;
+}
+
+.update-content{
+    padding:18px;
+}
+
+.update-content h3{
+    margin:0 0 10px;
+
+    font-size:21px;
+}
+
+.update-content p{
+    margin:0;
+
+    color:#aaa;
+
+    line-height:1.6;
 }
 
 
@@ -237,13 +454,44 @@ body{
 .countdown{
     text-align:center;
 
-    font-size:36px;
+    font-size:35px;
 
     font-weight:bold;
 
     color:#00ff66;
 
-    margin:20px 0;
+    margin:25px 0;
+}
+
+.date-text{
+    text-align:center;
+
+    color:#aaa;
+}
+
+
+/* =========================
+   이벤트
+========================= */
+
+.event-box{
+    background:#171717;
+
+    border:2px solid #333;
+
+    padding:25px;
+}
+
+.event-title{
+    font-size:24px;
+
+    margin-bottom:10px;
+}
+
+.event-description{
+    color:#aaa;
+
+    line-height:1.6;
 }
 
 
@@ -255,9 +503,26 @@ body{
     display:grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(150px,1fr));
+    repeat(2,1fr);
 
     gap:10px;
+}
+
+
+/* =========================
+   푸터
+========================= */
+
+.footer{
+    text-align:center;
+
+    color:#666;
+
+    padding:40px 20px;
+
+    border-top:2px solid #222;
+
+    margin-top:30px;
 }
 
 
@@ -265,22 +530,53 @@ body{
    모바일
 ========================= */
 
+@media(max-width:800px){
+
+    .button-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .game-image{
+        height:280px;
+    }
+
+}
+
 @media(max-width:600px){
 
     .logo a{
         font-size:30px;
     }
 
+    .topbar{
+        height:64px;
+    }
+
     .game-image{
-        height:240px;
+        height:220px;
     }
 
     .title{
         font-size:27px;
     }
 
+    .update-grid{
+        grid-template-columns:1fr;
+    }
+
+    .button-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .menu-button{
+        font-size:15px;
+        min-height:55px;
+    }
+
     .countdown{
-        font-size:25px;
+        font-size:24px;
     }
 
 }
@@ -293,9 +589,9 @@ body{
 <body>
 
 
-<!-- =========================
-     HUNT 검색
-========================= -->
+<!-- ==================================================
+     전체 검색
+================================================== -->
 
 <div class="wiki-search">
 
@@ -315,11 +611,18 @@ body{
 </div>
 
 
-<!-- =========================
-     상단
-========================= -->
+<!-- ==================================================
+     상단바
+================================================== -->
 
 <div class="topbar">
+
+    <button
+        class="hamburger"
+        onclick="toggleMenu()">
+        ☰
+    </button>
+
 
     <div class="logo">
 
@@ -329,23 +632,107 @@ body{
 
     </div>
 
+
+    <div class="top-space"></div>
+
 </div>
 
 
-<!-- =========================
-     게임 사진
-========================= -->
+<!-- ==================================================
+     햄버거 메뉴
+================================================== -->
+
+<div
+    id="sideMenu"
+    class="side-menu">
+
+
+    <button
+        class="menu-close"
+        onclick="toggleMenu()">
+        ×
+    </button>
+
+
+    <a href="index.html">
+        🏠 홈
+    </a>
+
+    <a href="items.html">
+        🎒 아이템
+    </a>
+
+    <a href="weapons.html">
+        🔫 무기
+    </a>
+
+    <a href="shop.html">
+        🛒 상점
+    </a>
+
+    <a href="npc.html">
+        🧑 NPC
+    </a>
+
+    <a href="weather.html">
+        🌦️ 날씨
+    </a>
+
+    <a href="map.html">
+        🗺️ 맵
+    </a>
+
+    <a href="animals.html">
+        🐾 동물
+    </a>
+
+    <a href="monsters.html">
+        👹 몬스터
+    </a>
+
+    <a href="events.html">
+        🎉 이벤트
+    </a>
+
+    <a href="updates.html">
+        🔥 업데이트
+    </a>
+
+    <a href="news.html">
+        📰 소식
+    </a>
+
+    <a href="settings.html">
+        ⚙️ 설정
+    </a>
+
+</div>
+
+
+<!-- ==================================================
+     게임 대표 사진
+================================================== -->
 
 <div class="game-image">
 
-    HUNT GAME IMAGE
+    <img
+        src="images/game.jpg"
+        alt="HUNT 게임 사진"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+    >
+
+    <div
+        class="image-placeholder"
+        style="display:none;">
+        HUNT GAME IMAGE
+    </div>
 
 </div>
 
 
-<!-- =========================
+<!-- ==================================================
      환영 메시지
-========================= -->
+================================================== -->
 
 <section class="section">
 
@@ -364,9 +751,9 @@ body{
 </section>
 
 
-<!-- =========================
+<!-- ==================================================
      게임 정보
-========================= -->
+================================================== -->
 
 <section class="section">
 
@@ -374,13 +761,17 @@ body{
         🎮 게임 정보
     </h2>
 
+
     <div class="card">
 
-        <h3>HUNT</h3>
+        <h3>
+            HUNT
+        </h3>
 
         <p>
             HUNT의 다양한 지역과 생물,
-            아이템 등의 정보를 확인할 수 있습니다.
+            아이템 및 게임 콘텐츠의 정보를
+            확인할 수 있습니다.
         </p>
 
     </div>
@@ -388,66 +779,112 @@ body{
 </section>
 
 
-<!-- =========================
+<!-- ==================================================
      메뉴
-========================= -->
+================================================== -->
 
 <section class="section">
 
     <h2 class="title">
-        📚 게임 정보
+        📚 게임 메뉴
     </h2>
+
 
     <div class="button-grid">
 
-        <a class="menu-button" href="items.html">
+
+        <a
+            class="menu-button"
+            href="items.html">
             🎒 아이템
         </a>
 
-        <a class="menu-button" href="weapons.html">
+
+        <a
+            class="menu-button"
+            href="weapons.html">
             🔫 무기
         </a>
 
-        <a class="menu-button" href="shop.html">
+
+        <a
+            class="menu-button"
+            href="shop.html">
             🛒 상점
         </a>
 
-        <a class="menu-button" href="npc.html">
+
+        <a
+            class="menu-button"
+            href="npc.html">
             🧑 NPC
         </a>
 
-        <a class="menu-button" href="weather.html">
+
+        <a
+            class="menu-button"
+            href="weather.html">
             🌦️ 날씨
         </a>
 
-        <a class="menu-button" href="map.html">
+
+        <a
+            class="menu-button"
+            href="map.html">
             🗺️ 맵
         </a>
 
-        <a class="menu-button" href="animal.html">
+
+        <a
+            class="menu-button"
+            href="animals.html">
+            🐾 동물
+        </a>
+
+
+        <a
+            class="menu-button"
+            href="monsters.html">
             👹 몬스터
         </a>
 
-        <a class="menu-button" href="events.html">
+
+        <a
+            class="menu-button"
+            href="events.html">
             🎉 이벤트
         </a>
 
-        <a class="menu-button" href="updates.html">
+
+        <a
+            class="menu-button"
+            href="updates.html">
             🔥 업데이트
         </a>
 
-        <a class="menu-button" href="news.html">
+
+        <a
+            class="menu-button"
+            href="news.html">
             📰 소식
         </a>
+
+
+        <a
+            class="menu-button"
+            href="settings.html">
+            ⚙️ 설정
+        </a>
+
 
     </div>
 
 </section>
 
 
-<!-- =========================
+<!-- ==================================================
      최신 업데이트
-========================= -->
+================================================== -->
 
 <section class="section">
 
@@ -456,37 +893,75 @@ body{
     </h2>
 
 
-    <div class="update-card">
-
-        <h3>
-            최신 업데이트 1
-        </h3>
-
-        <p>
-            새로운 콘텐츠가 추가되었습니다.
-        </p>
-
-    </div>
+    <div class="update-grid">
 
 
-    <div class="update-card">
+        <!-- 업데이트 1 -->
 
-        <h3>
-            최신 업데이트 2
-        </h3>
+        <a
+            href="updates.html"
+            class="update-card">
 
-        <p>
-            새로운 지역과 콘텐츠가 추가되었습니다.
-        </p>
+
+            <img
+                src="images/update1.jpg"
+                alt="최신 업데이트 1">
+
+
+            <div class="update-content">
+
+                <h3>
+                    최신 업데이트 1
+                </h3>
+
+                <p>
+                    최신 업데이트의 주요 내용을
+                    간략하게 확인할 수 있습니다.
+                </p>
+
+            </div>
+
+
+        </a>
+
+
+        <!-- 업데이트 2 -->
+
+        <a
+            href="updates.html"
+            class="update-card">
+
+
+            <img
+                src="images/update2.jpg"
+                alt="최신 업데이트 2">
+
+
+            <div class="update-content">
+
+                <h3>
+                    최신 업데이트 2
+                </h3>
+
+                <p>
+                    최신 업데이트의 주요 내용을
+                    간략하게 확인할 수 있습니다.
+                </p>
+
+            </div>
+
+
+        </a>
+
 
     </div>
 
 </section>
 
 
-<!-- =========================
+<!-- ==================================================
      다음 업데이트
-========================= -->
+================================================== -->
 
 <section class="section">
 
@@ -494,20 +969,28 @@ body{
         ⏳ 다음 업데이트
     </h2>
 
+
     <div class="card">
 
         <h3>
             다음 업데이트까지
         </h3>
 
+
         <div
             id="countdown"
             class="countdown">
+
             계산 중...
+
         </div>
 
-        <p style="text-align:center;color:#aaa;">
+
+        <p
+            class="date-text">
+
             예정일 : 2026-09-20 18:00
+
         </p>
 
     </div>
@@ -515,9 +998,9 @@ body{
 </section>
 
 
-<!-- =========================
+<!-- ==================================================
      이벤트
-========================= -->
+================================================== -->
 
 <section class="section">
 
@@ -525,24 +1008,36 @@ body{
         🎉 진행 중 이벤트
     </h2>
 
-    <div class="card">
 
-        <h3>
+    <div class="event-box">
+
+        <div class="event-title">
             현재 진행 중인 이벤트
-        </h3>
+        </div>
 
-        <p>
-            이벤트 내용을 확인하세요.
-        </p>
+
+        <div class="event-description">
+
+            현재 진행 중인 HUNT 이벤트의
+            정보를 확인하세요.
+
+        </div>
+
 
         <div
             id="eventCountdown"
             class="countdown">
+
             계산 중...
+
         </div>
 
-        <p style="text-align:center;color:#aaa;">
+
+        <p
+            class="date-text">
+
             이벤트 종료까지
+
         </p>
 
     </div>
@@ -550,9 +1045,9 @@ body{
 </section>
 
 
-<!-- =========================
+<!-- ==================================================
      커뮤니티
-========================= -->
+================================================== -->
 
 <section class="section">
 
@@ -560,26 +1055,63 @@ body{
         🌐 커뮤니티
     </h2>
 
+
     <div class="community">
 
-        <a class="menu-button" href="#">
+
+        <a
+            class="menu-button"
+            href="#">
+
             💬 Discord
+
         </a>
 
-        <a class="menu-button" href="#">
+
+        <a
+            class="menu-button"
+            href="#">
+
             ▶ YouTube
+
         </a>
+
 
     </div>
 
 </section>
 
 
+<!-- ==================================================
+     푸터
+================================================== -->
+
+<div class="footer">
+
+    HUNT 공식 위키
+
+</div>
+
+
 <script>
 
-/* =========================
-   전체 검색 데이터
-========================= */
+/* ==================================================
+   햄버거 메뉴
+================================================== */
+
+function toggleMenu(){
+
+    const menu =
+        document.getElementById("sideMenu");
+
+    menu.classList.toggle("open");
+
+}
+
+
+/* ==================================================
+   검색 데이터
+================================================== */
 
 const wikiData = [
 
@@ -620,9 +1152,15 @@ const wikiData = [
     },
 
     {
+        name:"동물",
+        icon:"🐾",
+        page:"animals.html"
+    },
+
+    {
         name:"몬스터",
         icon:"👹",
-        page:"animal.html"
+        page:"monsters.html"
     },
 
     {
@@ -644,17 +1182,17 @@ const wikiData = [
     },
 
     {
-        name:"Nap's Nightmare",
-        icon:"💤",
-        page:"weapon/naps-nightmare"
+        name:"설정",
+        icon:"⚙️",
+        page:"settings.html"
     }
 
 ];
 
 
-/* =========================
+/* ==================================================
    검색
-========================= */
+================================================== */
 
 function searchWiki(){
 
@@ -695,24 +1233,29 @@ function searchWiki(){
 
     if(found.length===0){
 
-        results.innerHTML=
-        '<div class="search-result">검색 결과가 없습니다.</div>';
+        results.innerHTML =
+            '<div class="search-result">' +
+            '검색 결과가 없습니다.' +
+            '</div>';
 
-    }else{
+    }
+    else{
 
         found.forEach(function(item){
 
             results.innerHTML +=
 
-            '<a class="search-result" href="' +
-            item.page +
-            '">' +
+                '<a ' +
+                'class="search-result" ' +
+                'href="' +
+                item.page +
+                '">' +
 
-            item.icon +
-            ' ' +
-            item.name +
+                item.icon +
+                ' ' +
+                item.name +
 
-            '</a>';
+                '</a>';
 
         });
 
@@ -724,9 +1267,9 @@ function searchWiki(){
 }
 
 
-/* =========================
+/* ==================================================
    검색창 밖 클릭
-========================= */
+================================================== */
 
 document.addEventListener(
     "click",
@@ -734,6 +1277,7 @@ document.addEventListener(
 
         const search =
             document.querySelector(".wiki-search");
+
 
         if(!search.contains(event.target)){
 
@@ -747,60 +1291,71 @@ document.addEventListener(
 );
 
 
-/* =========================
+/* ==================================================
    다음 업데이트
-========================= */
+================================================== */
 
 const updateDate =
-    new Date("2026-09-20T18:00:00").getTime();
+    new Date(
+        "2026-09-20T18:00:00"
+    ).getTime();
 
 
-/* =========================
+/* ==================================================
    이벤트 종료
-========================= */
+================================================== */
 
 const eventDate =
-    new Date("2026-09-10T23:59:59").getTime();
+    new Date(
+        "2026-09-10T23:59:59"
+    ).getTime();
 
 
-function updateTimers(){
+/* ==================================================
+   카운트다운
+================================================== */
+
+function updateCountdown(){
 
     const now =
         new Date().getTime();
 
 
-    /* 업데이트 */
+    /* ---------- 업데이트 ---------- */
 
-    let distance =
+    const updateDistance =
         updateDate - now;
 
 
-    if(distance > 0){
+    if(updateDistance > 0){
 
-        let days =
+        const days =
             Math.floor(
-                distance /
-                (1000*60*60*24)
+                updateDistance /
+                (1000 * 60 * 60 * 24)
             );
 
-        let hours =
+
+        const hours =
             Math.floor(
-                (distance %
-                (1000*60*60*24)) /
-                (1000*60*60)
+                (updateDistance %
+                (1000 * 60 * 60 * 24)) /
+                (1000 * 60 * 60)
             );
 
-        let minutes =
+
+        const minutes =
             Math.floor(
-                (distance %
-                (1000*60*60)) /
-                (1000*60)
+                (updateDistance %
+                (1000 * 60 * 60)) /
+                (1000 * 60)
             );
 
-        let seconds =
+
+        const seconds =
             Math.floor(
-                (distance %
-                (1000*60)) /
+                (updateDistance %
+                (1000 * 60)) /
                 1000
             );
 
@@ -814,7 +1369,8 @@ function updateTimers(){
             minutes + "분 " +
             seconds + "초";
 
-    }else{
+    }
+    else{
 
         document
         .getElementById("countdown")
@@ -824,38 +1380,41 @@ function updateTimers(){
     }
 
 
-    /* 이벤트 */
+    /* ---------- 이벤트 ---------- */
 
-    let eventDistance =
+    const eventDistance =
         eventDate - now;
 
 
     if(eventDistance > 0){
 
-        let days =
+        const days =
             Math.floor(
                 eventDistance /
-                (1000*60*60*24)
+                (1000 * 60 * 60 * 24)
             );
 
-        let hours =
+
+        const hours =
             Math.floor(
                 (eventDistance %
-                (1000*60*60*24)) /
-                (1000*60*60)
+                (1000 * 60 * 60 * 24)) /
+                (1000 * 60 * 60)
             );
 
-        let minutes =
+
+        const minutes =
             Math.floor(
                 (eventDistance %
-                (1000*60*60)) /
-                (1000*60)
+                (1000 * 60 * 60)) /
+                (1000 * 60)
             );
 
-        let seconds =
+
+        const seconds =
             Math.floor(
                 (eventDistance %
-                (1000*60)) /
+                (1000 * 60)) /
                 1000
             );
 
@@ -869,7 +1428,8 @@ function updateTimers(){
             minutes + "분 " +
             seconds + "초";
 
-    }else{
+    }
+    else{
 
         document
         .getElementById("eventCountdown")
@@ -881,10 +1441,15 @@ function updateTimers(){
 }
 
 
-updateTimers();
+/* 처음 실행 */
+
+updateCountdown();
+
+
+/* 1초마다 갱신 */
 
 setInterval(
-    updateTimers,
+    updateCountdown,
     1000
 );
 
